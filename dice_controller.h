@@ -2,7 +2,6 @@
 #define _DICE_CONTROLLER_H_
 
 #include <SDL2/SDL.h>
-#include <iostream>
 
 using namespace std;
 
