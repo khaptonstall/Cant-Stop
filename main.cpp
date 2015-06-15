@@ -2,16 +2,19 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "board_view.h"
-
+#include "Player.cpp"
 using namespace std;
 
 int main(int, char**){
+	//Seed random number 
+	srand(time(NULL));
+
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
 		cout << "SDL_Init Error: " << SDL_GetError() << endl;
 		return 1;
 	}
 
-	SDL_Window *win = SDL_CreateWindow("Hello World!", 100, 100, 800, 600, SDL_WINDOW_SHOWN);
+	SDL_Window *win = SDL_CreateWindow("Can't Stop", 100, 100, 800, 600, SDL_WINDOW_SHOWN);
 	if (win == nullptr){
 		cout << "SDL_CreateWindow Error: " << SDL_GetError() << endl;
 		SDL_Quit();
@@ -26,31 +29,10 @@ int main(int, char**){
 		return 1;
 	}
 
-	vector<int> blue_state = vector<int>(11, 0);
-	blue_state[0] = 3;
-	blue_state[1] = 5;
-	blue_state[2] = 7;
-	blue_state[3] = 9;
-	blue_state[4] = 11;
-	blue_state[5] = 13;
-	blue_state[6] = 11;
-	blue_state[7] = 9;
-	blue_state[8] = 7;
-	blue_state[9] = 5;
-	blue_state[10] = 3;
+	Player player1, player2;
+	player1.changeTurns();
 
-	vector<int> red_state = vector<int>(11, 0);
-	red_state[0] = 2;
-	red_state[1] = 4;
-	red_state[2] = 6;
-	red_state[3] = 8;
-	red_state[4] = 10;
-	red_state[5] = 12;
-	red_state[6] = 10;
-	red_state[7] = 8;
-	red_state[8] = 6;
-	red_state[9] = 4;
-	red_state[10] = 2;
+	
 
 	board_view b;
 
@@ -67,13 +49,12 @@ int main(int, char**){
 			}
 		}
 
-		// Logic
 
-
-		// Render
+		// Render 
+		/*
 		SDL_RenderClear(ren);
 
-		SDL_Surface* board_surface = b.get_surface(blue_state, red_state, empty_vector, empty_vector, empty_vector);
+		SDL_Surface* board_surface = b.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
 		SDL_Texture* board_texture;
 		board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
 
@@ -88,7 +69,120 @@ int main(int, char**){
 
 		SDL_FreeSurface(board_surface);
 		SDL_DestroyTexture(board_texture);
+*/
 
+		// Logic
+		if (player1.turn){
+			bool goOn = true;
+			int choice;
+			cout << "Its player1 turn" << '\n';
+			vector< pair<int,int> > options = player1.rollDice(); //Roll the dice
+
+			if(options.size() > 0){
+				player1.displayCombinations( options);
+				cout << "Choose a pair : " << '\n';
+				cin >> choice;
+				player1.chooseDice(options[choice - 1]); //Choose a pair
+			}else{
+				goOn = false;
+				player1.stateReference = player1.state;
+			}
+			
+			//Update board with player choice
+			// Render 
+			SDL_RenderClear(ren);
+
+			SDL_Surface* board_surface = b.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
+			SDL_Texture* board_texture;
+			board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
+
+			SDL_Rect dst;
+			dst.x = 0;
+			dst.y = 0;
+			SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
+			dst.w /= 5;
+			dst.h /= 5;
+			SDL_RenderCopy(ren, board_texture, NULL, &dst);
+			SDL_RenderPresent(ren);
+
+			SDL_FreeSurface(board_surface);
+			SDL_DestroyTexture(board_texture);
+
+			
+			//Ask player to stop or continue
+			if(goOn){
+				int stopOrGo;
+				cout << "Stop (0) or continue (1)? " << '\n';
+				cin >> stopOrGo;
+				if (stopOrGo == 0){
+					//Switch turns
+					player1.state = player1.stateReference;
+					player1.currentCols.clear();
+					player2.changeTurns();
+					player1.changeTurns();
+				}
+			}else{
+				player1.currentCols.clear();
+				player2.changeTurns();
+				player1.changeTurns();
+			}
+
+		}else if(player2.turn){
+			bool goOn = true;
+			int choice;
+			cout << "Its player2 turn" << '\n';
+			vector< pair<int,int> > options = player2.rollDice(); //Roll the dice
+
+			if(options.size() > 0){
+				player2.displayCombinations( options);
+				cout << "Choose a pair : " << '\n';
+				cin >> choice;
+				player2.chooseDice(options[choice - 1]); //Choose a pair
+			}else{
+				goOn = false;
+				player2.stateReference = player2.state;
+			}
+			
+
+			//Update board with player choice
+			// Render 
+			SDL_RenderClear(ren);
+
+			SDL_Surface* board_surface = b.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
+			SDL_Texture* board_texture;
+			board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
+
+			SDL_Rect dst;
+			dst.x = 0;
+			dst.y = 0;
+			SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
+			dst.w /= 5;
+			dst.h /= 5;
+			SDL_RenderCopy(ren, board_texture, NULL, &dst);
+			SDL_RenderPresent(ren);
+
+			SDL_FreeSurface(board_surface);
+			SDL_DestroyTexture(board_texture);
+
+			//Ask player to stop or continue
+			if(goOn){
+				int stopOrGo;
+				cout << "Stop (0) or continue (1)? " << '\n';
+				cin >> stopOrGo;
+				if (stopOrGo == 0){
+					//Switch turns
+					player2.state = player2.stateReference;
+					player2.currentCols.clear();
+					player2.changeTurns();
+					player1.changeTurns();
+				}
+			}else{
+				player2.currentCols.clear();
+				player2.changeTurns();
+				player1.changeTurns();
+			}
+			
+		}
 	}
 
 	SDL_DestroyRenderer(ren);
@@ -96,4 +190,6 @@ int main(int, char**){
 	SDL_Quit();
 	return 0;
 }
+
+
 
