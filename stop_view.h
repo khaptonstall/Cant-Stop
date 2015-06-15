@@ -38,7 +38,7 @@ public:
 
 	SDL_Rect get_rect(int n) {
 		SDL_Rect output;
-		if (n == 0) {
+		if (n == 1) {
 			output.x = r_continue.x;
 			output.y = r_continue.y;
 			output.w = r_continue.w;
