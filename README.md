@@ -1,7 +1,7 @@
 #Can't Stop Game
 A branch of the REU-CAAR a the University of Maryland.
 
-To play Can't Stop:
+###To play Can't Stop:
 
 (1) Clone or download/unzip our repository.
 
@@ -10,3 +10,9 @@ To play Can't Stop:
 make
 ./cantstop
 ```
+
+
+###Team Members
+Racheal Folowoshele
+Kyle Haptonstall
+Alejandro Huerta
