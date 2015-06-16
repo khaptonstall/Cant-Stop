@@ -25,14 +25,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.34001058"
-     inkscape:cx="4921.4167"
-     inkscape:cy="2690.1175"
+     inkscape:zoom="0.12021189"
+     inkscape:cx="4533.0862"
+     inkscape:cy="452.9464"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:snap-bbox="true"
-     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-midpoints="false"
      inkscape:window-width="1440"
      inkscape:window-height="777"
      inkscape:window-x="0"
@@ -41,7 +41,8 @@
      inkscape:snap-object-midpoints="false"
      inkscape:snap-nodes="true"
      inkscape:snap-others="true"
-     inkscape:snap-bbox-edge-midpoints="true">
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:bbox-nodes="true">
     <inkscape:grid
        type="xygrid"
        id="grid3336" />
@@ -1559,6 +1560,167 @@
          width="160"
          id="rect4722-6-0-6-7-8-4-4-6-3-4-2-0"
          style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g4360"
+       transform="translate(1598.5434,1679.9999)">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+         y="-3059.717"
+         x="2927.9199"
+         height="784.15875"
+         width="1107.0734"
+         id="rect3593-6"
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:10.01304054;stroke-miterlimit:4;stroke-dasharray:none" />
+      <g
+         id="g4352">
+        <rect
+           style="fill:#ffffff;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect4360"
+           width="960"
+           height="280"
+           x="3000"
+           y="-2987.6377"
+           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <rect
+           style="fill:#ffffff;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect4360-7"
+           width="960"
+           height="280"
+           x="3000"
+           y="-2627.6377"
+           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="3479.707"
+           y="-2802.9014"
+           id="text4377"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"><tspan
+             sodipodi:role="line"
+             id="tspan4379"
+             x="3479.707"
+             y="-2802.9014"
+             style="font-size:120px">Continue</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="3469.3262"
+           y="-2458.5752"
+           id="text4377-2"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"><tspan
+             sodipodi:role="line"
+             id="tspan4379-1"
+             x="3469.3262"
+             y="-2458.5752"
+             style="font-size:120px">Stop</tspan></text>
+      </g>
+    </g>
+    <rect
+       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4312"
+       width="160"
+       height="160"
+       x="3800"
+       y="932.36218" />
+    <rect
+       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4314"
+       width="160"
+       height="480"
+       x="3800"
+       y="772.36218" />
+    <rect
+       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4314-3"
+       width="160"
+       height="480"
+       x="932.36218"
+       y="-4120"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <rect
+       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4314-3-0"
+       width="160"
+       height="480"
+       x="932.36218"
+       y="-4120"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <g
+       id="g4370"
+       transform="matrix(0.99113411,0,0,0.99482823,-73.897382,-276.62614)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+         y="-307.63779"
+         x="4640"
+         height="1920"
+         width="1120"
+         id="rect4350"
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+         transform="translate(120,79.999996)"
+         id="g4375">
+        <path
+           style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:40;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 5080,1132.3622 160,-160 160,0 160,160 0,160 -160,160 -160,0 -160,-160 0,-160 0,0 z"
+           id="path4352-9"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:#ff0000;fill-rule:evenodd;stroke:#ffffff;stroke-width:25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 5080,1132.3622 160,-160 160,0 160,160 0,160 -160,160 -160,0 -160,-160 0,-160 0,0 z"
+           id="path4352"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+         sodipodi:linespacing="125%"
+         id="text4379"
+         y="1372.4622"
+         x="5439.9155"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:225px;font-family:'DIN Condensed';-inkscape-font-specification:'DIN Condensed, Bold Condensed';fill:#ffffff"
+           y="1372.4622"
+           x="5439.9155"
+           id="tspan4381"
+           sodipodi:role="line">STOP</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+         sodipodi:linespacing="125%"
+         id="text4383"
+         y="1356.0646"
+         x="4917.2227"
+         style="font-style:normal;font-weight:normal;font-size:175px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-size:175px"
+           y="1356.0646"
+           x="4917.2227"
+           id="tspan4385"
+           sodipodi:role="line">Can't</tspan></text>
     </g>
   </g>
 </svg>

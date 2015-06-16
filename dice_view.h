@@ -120,6 +120,14 @@ public:
 			return output;
 		}
 	}
+
+	int get_width() {
+		return s_dice_bg->w;
+	}
+
+	int get_height() {
+		return s_dice_bg->h;
+	}
 };
 
 #endif /* _DICE_VIEW_H_ */

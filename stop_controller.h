@@ -9,12 +9,12 @@ private:
 	SDL_Rect r_stop;
 
 public:
-	stop_controller(stop_view sv, int offset, int offset_y, int scale) {
+	stop_controller(stop_view sv, int offset_x, int offset_y, int scale) {
 		r_continue = sv.get_rect(1);
 		r_continue.x /= scale;
 		r_continue.y /= scale;
-		r_continue.x += offset_x;
-		r_continue.y += offset_y;
+		r_continue.x += offset_x / scale;
+		r_continue.y += offset_y / scale;
 		r_continue.w /= scale;
 		r_continue.h /= scale;
 

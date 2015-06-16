@@ -8,7 +8,7 @@ using namespace std;
 
 class stop_view {
 private:
-	SDL_Surface s_panel;
+	SDL_Surface* s_panel;
 	const char* panel_path = "res/continue_stop.png";
 
 	SDL_Rect r_continue;
