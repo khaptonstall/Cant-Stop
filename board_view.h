@@ -88,4 +88,12 @@ public:
 
 	}
 
+	int get_width() {
+		return s_board->w;
+	}
+
+	int get_height() {
+		return s_board->h;
+	}
+
 };
