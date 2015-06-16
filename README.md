@@ -13,6 +13,6 @@ make
 
 
 ###Team Members
-Racheal Folowoshele
-Kyle Haptonstall
-Alejandro Huerta
+*Racheal Folowoshele
+*Kyle Haptonstall
+*Alejandro Huerta
