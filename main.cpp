@@ -77,7 +77,6 @@ int main(int, char**){
 			int choice;
 			cout << "Its player1 turn" << '\n';
 			vector< pair<int,int> > options = player1.rollDice(); //Roll the dice
-
 			if(options.size() > 0){
 				player1.displayCombinations( options);
 				cout << "Choose a pair : " << '\n';
@@ -117,6 +116,11 @@ int main(int, char**){
 				if (stopOrGo == 0){
 					//Switch turns
 					player1.state = player1.stateReference;
+					player1.checkForWin();
+					if(player1.claimedCols.size() == 3){
+						cout << "Player 1 wins!";
+						break;
+					}
 					player1.currentCols.clear();
 					player2.changeTurns();
 					player1.changeTurns();
@@ -172,6 +176,11 @@ int main(int, char**){
 				if (stopOrGo == 0){
 					//Switch turns
 					player2.state = player2.stateReference;
+					player2.checkForWin();
+					if(player2.claimedCols.size() == 3){
+						cout << "Player 2 wins!";
+						break;
+					}
 					player2.currentCols.clear();
 					player2.changeTurns();
 					player1.changeTurns();

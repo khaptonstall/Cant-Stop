@@ -14,7 +14,7 @@ public:
 	vector<int> state = vector<int>(11, 0);
 	vector<int> stateReference = state;
 	vector<int> currentCols; //Player's current columns. MAX=3
-	int claimedCols = 0; 
+	vector<int> claimedCols; //Columns the player has maxxed out
 
 
 	// ************ Methods *************
@@ -22,6 +22,7 @@ public:
 	void chooseDice( pair<int, int> );
 	void changeTurns();
 	void displayCombinations(vector< pair<int,int> >);
+	void checkForWin();
 };
 
 
@@ -40,7 +41,7 @@ vector< pair<int,int> > Player::rollDice(){
 	int dice2 = rand() % 6 + 1;
 	int dice3 = rand() % 6 + 1;
 	int dice4 = rand() % 6 + 1;
-	//cout << dice1 << " " << dice2 << " " << dice3 << " " << dice4 << '\n';
+	cout << dice1 << " " << dice2 << " " << dice3 << " " << dice4 << '\n';
 
 	pair<int,int> pair1 = make_pair((dice1 + dice2), (dice3 + dice4));
 	pair<int,int> pair2 = make_pair((dice1 + dice3), (dice2 + dice4));
@@ -138,10 +139,30 @@ void Player::changeTurns(){
 // Output: void
 // Description: (1)  For all combinations, display them to the user
 void Player::displayCombinations(vector< pair<int,int> > combinations){
-		for(int i = 0; i < combinations.size(); i++){
-			cout << combinations[i].first << " + " << combinations[i].second << '\n';
-		}
-	
-
+	for(int i = 0; i < combinations.size(); i++){
+			cout << if(combinations[i].first > 0){combinations[i].first} << " + " << combinations[i].second << '\n';
+	}
 }
 
+void Player::checkForWin(){
+	int a = 3;
+	for(int i = 0; i <= ((stateReference.size() / 2) + 1); i++){
+		cout << stateReference[i] << '\n';
+		if(stateReference[i] == a && find(claimedCols.begin(), claimedCols.end(), i) == claimedCols.end()){
+			claimedCols.push_back(i);
+			cout << "GOT IT" << stateReference[i] << '\n';
+		}
+		a += 2;
+	}
+
+	a -= 2;
+	for(int i = ((stateReference.size() /2) + 1); i < stateReference.size(); i++){
+		cout << stateReference[i] << '\n';
+		if(stateReference[i] == a && find(claimedCols.begin(), claimedCols.end(), i) == claimedCols.end()){
+			claimedCols.push_back(i);
+			cout << "GOT IT" << stateReference[i] << '\n';
+		}
+		a -= 2;
+	}
+
+}
