@@ -7,7 +7,8 @@
 #include "stop_view.h"
 #include "stop_controller.h"
 #include "options_view.h"
-#include "Player.cpp"
+//#include "Player.cpp"
+#include "GameState.cpp"
 using namespace std;
 
 int main(int, char**){
@@ -97,8 +98,9 @@ int main(int, char**){
 		SDL_DestroyTexture(options_texture);
 	}
 
-	Player player1, player2;
-	player1.changeTurns();
+	GameState cantStop;
+	//Player player1, player2;
+	cantStop.player1.turn = true;
 
 	bool quit = false;
 	SDL_Event e;
@@ -112,48 +114,28 @@ int main(int, char**){
 		}
 
 
-		// Render 
-		/*
-		SDL_RenderClear(ren);
-
-		SDL_Surface* board_surface = b.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
-		SDL_Texture* board_texture;
-		board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
-
-		SDL_Rect dst;
-		dst.x = 0;
-		dst.y = 0;
-		SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
-		dst.w /= 5;
-		dst.h /= 5;
-		SDL_RenderCopy(ren, board_texture, NULL, &dst);
-		SDL_RenderPresent(ren);
-
-		SDL_FreeSurface(board_surface);
-		SDL_DestroyTexture(board_texture);
-*/
 
 		// Logic
-		if (player1.turn){
+		if (cantStop.player1.turn){
 			bool goOn = true;
 			int choice;
 			cout << "Its player1 turn" << '\n';
-			vector< pair<int,int> > options = player1.rollDice(); //Roll the dice
+			vector< pair<int,int> > options = cantStop.player1.filterDice(cantStop.rollDice());
 			if(options.size() > 0){
-				player1.displayCombinations( options);
+				cantStop.player1.displayCombinations( options);
 				cout << "Choose a pair : " << '\n';
 				cin >> choice;
-				player1.chooseDice(options[choice - 1]); //Choose a pair
+				cantStop.player1.chooseDice(options[choice - 1]); //Choose a pair
 			}else{
 				goOn = false;
-				player1.stateReference = player1.state;
+				cantStop.player1.stateReference = cantStop.player1.state;
 			}
 			
 			//Update board with player choice
 			// Render 
 			SDL_RenderClear(ren);
 
-			SDL_Surface* board_surface = bv.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
+			SDL_Surface* board_surface = bv.get_surface(cantStop.player1.stateReference, cantStop.player2.stateReference, empty_vector, empty_vector, empty_vector);
 			SDL_Texture* board_texture;
 			board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
 
@@ -177,36 +159,37 @@ int main(int, char**){
 				cin >> stopOrGo;
 				if (stopOrGo == 0){
 					//Switch turns
-					player1.state = player1.stateReference;
-					player1.checkForWin();
-					if(player1.claimedCols.size() == 3){
+					cantStop.player1.state = cantStop.player1.stateReference;
+					cantStop.player1.checkForWin();
+					cantStop.checkForDeadCols();
+					if(cantStop.player1.claimedCols.size() == 3){
 						cout << "Player 1 wins!";
 						break;
 					}
-					player1.currentCols.clear();
-					player2.changeTurns();
-					player1.changeTurns();
+					cantStop.player1.currentCols.clear();
+					cantStop.player1.turn = false;
+					cantStop.player2.turn = true;
 				}
 			}else{
-				player1.currentCols.clear();
-				player2.changeTurns();
-				player1.changeTurns();
+				cantStop.player1.currentCols.clear();
+				cantStop.player1.turn = false;
+				cantStop.player2.turn = true;
 			}
 
-		}else if(player2.turn){
+		}else if(cantStop.player2.turn){
 			bool goOn = true;
 			int choice;
 			cout << "Its player2 turn" << '\n';
-			vector< pair<int,int> > options = player2.rollDice(); //Roll the dice
+			vector< pair<int,int> > options = cantStop.player2.filterDice(cantStop.rollDice());
 
 			if(options.size() > 0){
-				player2.displayCombinations( options);
+				cantStop.player2.displayCombinations( options);
 				cout << "Choose a pair : " << '\n';
 				cin >> choice;
-				player2.chooseDice(options[choice - 1]); //Choose a pair
+				cantStop.player2.chooseDice(options[choice - 1]); //Choose a pair
 			}else{
 				goOn = false;
-				player2.stateReference = player2.state;
+				cantStop.player2.stateReference = cantStop.player2.state;
 			}
 			
 
@@ -214,7 +197,7 @@ int main(int, char**){
 			// Render 
 			SDL_RenderClear(ren);
 
-			SDL_Surface* board_surface = bv.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
+			SDL_Surface* board_surface = bv.get_surface(cantStop.player1.stateReference, cantStop.player2.stateReference, empty_vector, empty_vector, empty_vector);
 			SDL_Texture* board_texture;
 			board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
 
@@ -237,20 +220,21 @@ int main(int, char**){
 				cin >> stopOrGo;
 				if (stopOrGo == 0){
 					//Switch turns
-					player2.state = player2.stateReference;
-					player2.checkForWin();
-					if(player2.claimedCols.size() == 3){
+					cantStop.player2.state = cantStop.player2.stateReference;
+					cantStop.player2.checkForWin();
+					cantStop.checkForDeadCols();
+					if(cantStop.player2.claimedCols.size() == 3){
 						cout << "Player 2 wins!";
 						break;
 					}
-					player2.currentCols.clear();
-					player2.changeTurns();
-					player1.changeTurns();
+					cantStop.player2.currentCols.clear();
+					cantStop.player2.turn = false;
+					cantStop.player1.turn = true;
 				}
 			}else{
-				player2.currentCols.clear();
-				player2.changeTurns();
-				player1.changeTurns();
+				cantStop.player2.currentCols.clear();
+				cantStop.player2.turn = false;
+				cantStop.player1.turn = true;
 			}
 			
 		}
