@@ -7,7 +7,8 @@
 #include "stop_view.h"
 #include "stop_controller.h"
 #include "options_view.h"
-#include "Player.cpp"
+//#include "Player.cpp"
+#include "GameState.cpp"
 using namespace std;
 
 int main(int, char**){
@@ -52,9 +53,10 @@ int main(int, char**){
 
 	vector<int> empty_vector = vector<int>();
 
-	Player player1, player2;
-	player1.changeTurns();
-	Player* player = &player1;
+	GameState cantStop;
+	//Player player1, player2;
+	cantStop.player1.turn = true;
+	Player* player = &cantStop.player1;
 
 	bool quit = false;
 	bool dice_active = false;
@@ -127,8 +129,8 @@ int main(int, char**){
 				if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
 				player->currentCols.clear();
 				player->changeTurns();
-				if (player == &player1) player = &player2;
-				else if (player == &player2) player = &player1;
+				if (player == &cantStop.player1) player = &cantStop.player2;
+				else if (player == &cantStop.player2) player = &cantStop.player1;
 				player->changeTurns();
 			}
 		}
@@ -137,10 +139,43 @@ int main(int, char**){
 			player->stateReference = player->state;
 			player->currentCols.clear();
 			player->changeTurns();
-			if (player == &player1) player = &player2;
-			else if (player == &player2) player = &player1;
+			if (player == &cantStop.player1) player = &cantStop.player2;
+			else if (player == &cantStop.player2) player = &cantStop.player1;
 			player->changeTurns();
 		}
+
+		// // Logic
+		// if (cantStop.player1.turn){
+		// 	bool goOn = true;
+		// 	int choice;
+		// 	cout << "Its player1 turn" << '\n';
+		// 	vector< pair<int,int> > options = cantStop.player1.filterDice(cantStop.rollDice());
+		// 	if(options.size() > 0){
+		// 		cantStop.player1.displayCombinations( options);
+		// 		cout << "Choose a pair : " << '\n';
+		// 		cin >> choice;
+		// 		cantStop.player1.chooseDice(options[choice - 1]); //Choose a pair
+		// 	}else{
+		// 		goOn = false;
+		// 		cantStop.player1.stateReference = cantStop.player1.state;
+		// 	}
+			
+		// 	//Update board with player choice
+		// 	// Render 
+		// 	SDL_RenderClear(ren);
+
+		// 	SDL_Surface* board_surface = bv.get_surface(cantStop.player1.stateReference, cantStop.player2.stateReference, empty_vector, empty_vector, empty_vector);
+		// 	SDL_Texture* board_texture;
+		// 	board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
+
+		// 	SDL_Rect dst;
+		// 	dst.x = 0;
+		// 	dst.y = 0;
+		// 	SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
+		// 	dst.w /= 5;
+		// 	dst.h /= 5;
+		// 	SDL_RenderCopy(ren, board_texture, NULL, &dst);
+		// 	SDL_RenderPresent(ren);
 
 	// 	// Logic
 	// 	if (player1.turn){
@@ -261,6 +296,45 @@ int main(int, char**){
 	// 			player2.changeTurns();
 	// 			player1.changeTurns();
 	// 		}
+		// 	//Ask player to stop or continue
+		// 	if(goOn){
+		// 		int stopOrGo;
+		// 		cout << "Stop (0) or continue (1)? " << '\n';
+		// 		cin >> stopOrGo;
+		// 		if (stopOrGo == 0){
+		// 			//Switch turns
+		// 			cantStop.player1.state = cantStop.player1.stateReference;
+		// 			cantStop.player1.checkForWin();
+		// 			cantStop.checkForDeadCols();
+		// 			if(cantStop.player1.claimedCols.size() == 3){
+		// 				cout << "Player 1 wins!";
+		// 				break;
+		// 			}
+		// 			cantStop.player1.currentCols.clear();
+		// 			cantStop.player1.turn = false;
+		// 			cantStop.player2.turn = true;
+		// 		}
+		// 	}else{
+		// 		cantStop.player1.currentCols.clear();
+		// 		cantStop.player1.turn = false;
+		// 		cantStop.player2.turn = true;
+		// 	}
+
+		// }else if(cantStop.player2.turn){
+		// 	bool goOn = true;
+		// 	int choice;
+		// 	cout << "Its player2 turn" << '\n';
+		// 	vector< pair<int,int> > options = cantStop.player2.filterDice(cantStop.rollDice());
+
+		// 	if(options.size() > 0){
+		// 		cantStop.player2.displayCombinations( options);
+		// 		cout << "Choose a pair : " << '\n';
+		// 		cin >> choice;
+		// 		cantStop.player2.chooseDice(options[choice - 1]); //Choose a pair
+		// 	}else{
+		// 		goOn = false;
+		// 		cantStop.player2.stateReference = cantStop.player2.state;
+		// 	}
 			
 	// 	}
 	// }
@@ -276,7 +350,7 @@ int main(int, char**){
 			// Initial render (kinda a test)
 			SDL_RenderClear(ren);
 
-			SDL_Surface* board_surface = bv.get_surface(player1.state, player2.state, empty_vector, empty_vector, temp_tokens);
+			SDL_Surface* board_surface = bv.get_surface(cantStop.player1.state, cantStop.player2.state, empty_vector, empty_vector, temp_tokens);
 			SDL_Texture* board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
 			SDL_Rect board_destination;
 			board_destination.x = 0;
@@ -316,6 +390,7 @@ int main(int, char**){
 			if (!stop_active) SDL_RenderCopy(ren, dice_texture, NULL, &dice_destination);
 			else if (stop_active) SDL_RenderCopy(ren, stop_texture, NULL, &stop_destination);
 			SDL_RenderCopy(ren, options_texture, NULL, &options_destination);
+
 			SDL_RenderPresent(ren);
 
 			SDL_FreeSurface(board_surface);
@@ -327,6 +402,30 @@ int main(int, char**){
 			SDL_DestroyTexture(dice_texture);
 			SDL_DestroyTexture(stop_texture);
 			SDL_DestroyTexture(options_texture);
+			// //Ask player to stop or continue
+			// if(goOn){
+			// 	int stopOrGo;
+			// 	cout << "Stop (0) or continue (1)? " << '\n';
+			// 	cin >> stopOrGo;
+			// 	if (stopOrGo == 0){
+			// 		//Switch turns
+			// 		cantStop.player2.state = cantStop.player2.stateReference;
+			// 		cantStop.player2.checkForWin();
+			// 		cantStop.checkForDeadCols();
+			// 		if(cantStop.player2.claimedCols.size() == 3){
+			// 			cout << "Player 2 wins!";
+			// 			break;
+			// 		}
+			// 		cantStop.player2.currentCols.clear();
+			// 		cantStop.player2.turn = false;
+			// 		cantStop.player1.turn = true;
+			// 	}
+			// }else{
+			// 	cantStop.player2.currentCols.clear();
+			// 	cantStop.player2.turn = false;
+			// 	cantStop.player1.turn = true;
+			// }
+			
 		}
 	}
 
