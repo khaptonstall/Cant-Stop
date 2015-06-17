@@ -7,8 +7,9 @@
 #include "stop_view.h"
 #include "stop_controller.h"
 #include "options_view.h"
-//#include "Player.cpp"
-#include "GameState.cpp"
+
+#include "GameState.h"
+
 using namespace std;
 
 int main(int, char**){
@@ -95,39 +96,55 @@ int main(int, char**){
 			dice_options = cantStop.rollDice(true);
 		}
 
-		if (!stop_active && cantStop.validateDice(dice_options, player)) {
-			// When player clicks dice
-			if (dice_pair != 0) {
-				pair<int, int> selected_dice;
-				// Idenitify what pair was clicked
-				if (dice_pair == 1)      selected_dice = pair<int, int>(dice_options[0] + dice_options[1], dice_options[2] + dice_options[3]);
-				else if (dice_pair == 2) selected_dice = pair<int, int>(dice_options[2] + dice_options[3], dice_options[0] + dice_options[1]);
-				else if (dice_pair == 3) selected_dice = pair<int, int>(dice_options[0] + dice_options[2], dice_options[1] + dice_options[3]);
-				else if (dice_pair == 4) selected_dice = pair<int, int>(dice_options[1] + dice_options[3], dice_options[0] + dice_options[2]);
-				else if (dice_pair == 5) selected_dice = pair<int, int>(dice_options[0] + dice_options[3], dice_options[2] + dice_options[1]);
-				else if (dice_pair == 6) selected_dice = pair<int, int>(dice_options[2] + dice_options[1], dice_options[0] + dice_options[3]);
+		// Check that there is a valid move
+		vector<pair<int, int> > rolled_pairs(6);
+		rolled_pairs[0] = pair<int, int>(dice_options[0] + dice_options[1], dice_options[2] + dice_options[3]);
+		rolled_pairs[1] = pair<int, int>(dice_options[2] + dice_options[3], dice_options[0] + dice_options[1]);
+		rolled_pairs[2] = pair<int, int>(dice_options[0] + dice_options[2], dice_options[1] + dice_options[3]);
+		rolled_pairs[3] = pair<int, int>(dice_options[1] + dice_options[3], dice_options[0] + dice_options[2]);
+		rolled_pairs[4] = pair<int, int>(dice_options[0] + dice_options[3], dice_options[2] + dice_options[1]);
+		rolled_pairs[5] = pair<int, int>(dice_options[2] + dice_options[1], dice_options[0] + dice_options[3]);
+		bool valid_pairs = false;
+		for (pair<int, int> p : rolled_pairs) {
+			if (cantStop.validatePair(p.first, player)) {
+				valid_pairs = true;
+				break;
+			}
+		}
 
-				// If dice can be played
-				if (cantStop.validatePair(selected_dice.first, selected_dice.second, player)) {
-					player->chooseDice(selected_dice);
-					stop_active = true;
-				}
-				// Otherwise only play dice pair that was clicked
-				else if (cantStop.validatePair(selected_dice.first, player)) {
-					player->chooseDice(pair<int, int>(selected_dice.first, -1));
-					stop_active = true;
-				}
+		// Wait for player to choose a dice pair
+		if (!stop_active && valid_pairs) {
+			pair<int, int> result = player->select_dice(&cantStop, rolled_pairs, player, dice_pair);
+			if (result != pair<int, int>(-1, -1)) {
+				player->chooseDice(result);
+				stop_active = true;
 			}
 		}
 		// Dice has been selected, now choose stop / continue
 		else if (stop_active) {
-			// continue
-			if (stop_continue == 1) {
+			// // continue
+			// if (stop_continue == 1) {
+			// 	dice_active = false;
+			// 	stop_active = false;
+			// }
+			// // stop
+			// else if (stop_continue == 2) {
+			// 	dice_active = false;
+			// 	stop_active = false;
+			// 	player->state = player->stateReference;
+
+			// 	player->checkForWin();
+			// 	if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
+			// 	player->currentCols.clear();
+			// 	if (player == &cantStop.player1) player = &cantStop.player2;
+			// 	else if (player == &cantStop.player2) player = &cantStop.player1;
+			// }
+			int result = player->select_decision(&cantStop, stop_continue);
+			if (result == 1) {
 				dice_active = false;
 				stop_active = false;
 			}
-			// stop
-			else if (stop_continue == 2) {
+			else if (result == 2) {
 				dice_active = false;
 				stop_active = false;
 				player->state = player->stateReference;
@@ -135,10 +152,8 @@ int main(int, char**){
 				player->checkForWin();
 				if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
 				player->currentCols.clear();
-				player->changeTurns();
 				if (player == &cantStop.player1) player = &cantStop.player2;
 				else if (player == &cantStop.player2) player = &cantStop.player1;
-				player->changeTurns();
 			}
 		}
 		// No dice choice is valid, revert
@@ -146,10 +161,8 @@ int main(int, char**){
 			dice_active = false;
 			player->stateReference = player->state;
 			player->currentCols.clear();
-			player->changeTurns();
 			if (player == &cantStop.player1) player = &cantStop.player2;
 			else if (player == &cantStop.player2) player = &cantStop.player1;
-			player->changeTurns();
 		}
 
 		// // Logic
@@ -410,31 +423,8 @@ int main(int, char**){
 			SDL_DestroyTexture(dice_texture);
 			SDL_DestroyTexture(stop_texture);
 			SDL_DestroyTexture(options_texture);
-			// //Ask player to stop or continue
-			// if(goOn){
-			// 	int stopOrGo;
-			// 	cout << "Stop (0) or continue (1)? " << '\n';
-			// 	cin >> stopOrGo;
-			// 	if (stopOrGo == 0){
-			// 		//Switch turns
-			// 		cantStop.player2.state = cantStop.player2.stateReference;
-			// 		cantStop.player2.checkForWin();
-			// 		cantStop.checkForDeadCols();
-			// 		if(cantStop.player2.claimedCols.size() == 3){
-			// 			cout << "Player 2 wins!";
-			// 			break;
-			// 		}
-			// 		cantStop.player2.currentCols.clear();
-			// 		cantStop.player2.turn = false;
-			// 		cantStop.player1.turn = true;
-			// 	}
-			// }else{
-			// 	cantStop.player2.currentCols.clear();
-			// 	cantStop.player2.turn = false;
-			// 	cantStop.player1.turn = true;
-			// }
-			
 		}
+
 	}
 
 	SDL_DestroyRenderer(ren);

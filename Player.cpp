@@ -1,30 +1,16 @@
-
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
 #include <ctime>
 #include <vector>
 #include <algorithm>
+
+#include "GameState.h"
+#include "Player.h"
+
 using namespace std;
 
-class Player{
-public:
-	// ********** Variables ************
-	bool turn = false;
-	vector<int> state = vector<int>(11, 0);
-	vector<int> stateReference = state;
-	vector<int> currentCols; //Player's current columns. MAX=3
-	vector<int> claimedCols; //Columns the player has maxxed out
 
-
-	// ************ Methods *************
-	vector< pair<int,int> > rollDice();
-	void chooseDice( pair<int, int> );
-	void changeTurns();
-	void displayCombinations(vector< pair<int,int> >);
-	void checkForWin();
-	vector< pair<int,int> > filterDice(	vector< pair<int,int> > pairs);
-};
 
 /*
 // Player::rollDice()
@@ -224,4 +210,3 @@ vector< pair<int,int> > Player::filterDice(vector< pair<int,int> > pairs){
 	}
 	return combinations;
 }
-

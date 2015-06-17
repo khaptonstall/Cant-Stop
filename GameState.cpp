@@ -4,25 +4,10 @@
 #include <ctime>
 #include <vector>
 #include <algorithm>
-#include "Player.cpp"
+
+#include "GameState.h"
+
 using namespace std;
-
-class GameState{
-public:
-	// ********** Variables ***********
-	Player player1;
-	Player player2;
-	vector<int> deadCols;
-	vector<int> filledCols = {3,5,7,9,11,13,11,9,7,5,3}; // Vector to compare when a player is at the top of the column
-
-	// ********** Methods ************
-	vector< pair<int,int> > rollDice();
-	void checkForDeadCols();
-	vector<int> rollDice(bool b);
-	bool validateDice(vector<int> d, Player* p);
-	bool validatePair(int a, int b, Player* p);
-	bool validatePair(int a, Player* p);
-};
 
 vector<int> GameState::rollDice(bool b) {
 	vector<int> output;
@@ -212,4 +197,3 @@ void GameState::checkForDeadCols(){
 		}
 	}
 }
-
