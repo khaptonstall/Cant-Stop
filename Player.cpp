@@ -10,8 +10,6 @@
 
 using namespace std;
 
-
-
 /*
 // Player::rollDice()
 // Input: 
@@ -108,17 +106,6 @@ void Player::chooseDice( pair<int, int> dice ){
 	}
 } 
 
-// Player::changeTurns()
-// Input: void
-// Output: void
-// Description: (1)  Flip players turns
-void Player::changeTurns(){
-	if(!turn){
-		turn = true;
-	}else{
-		turn = false;
-	}
-}
 
 // Player::displayCombinations()
 // Input: vector< pair <int,int> > combinations
@@ -143,20 +130,20 @@ void Player::displayCombinations(vector< pair<int,int> > combinations){
 void Player::checkForWin(){
 	int a = 3;
 	for(int i = 0; i < ((stateReference.size() / 2) + 1); i++){
-		cout << stateReference[i] << '\n';
+		//cout << stateReference[i] << '\n';
 		if(stateReference[i] == a && find(claimedCols.begin(), claimedCols.end(), i) == claimedCols.end()){
 			claimedCols.push_back(i);
-			cout << "GOT IT" << i << '\n';
+			//cout << "GOT IT" << i << '\n';
 		}
 		a += 2;
 	}
-	cout << "a = " << a << '\n';
+	//cout << "a = " << a << '\n';
 	a = 11;
 	for(int i = ((stateReference.size() /2) + 1); i < stateReference.size(); i++){
-		cout << stateReference[i] << '\n';
+		//cout << stateReference[i] << '\n';
 		if(stateReference[i] == a && find(claimedCols.begin(), claimedCols.end(), i) == claimedCols.end()){
 			claimedCols.push_back(i);
-			cout << "GOT IT" << i << '\n';
+			//cout << "GOT IT" << i << '\n';
 		}
 		a -= 2;
 	}

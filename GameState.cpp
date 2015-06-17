@@ -60,25 +60,30 @@ bool GameState::validateDice(vector<int> d, Player* p) {
 }
 
 bool GameState::validatePair(int a, int b, Player* p) {
-	if (p->currentCols.size() < 2) {
+	
+	if (p->currentCols.size() < 2 && (p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2])) {
 		return true;
 	}
 	else if (p->currentCols.size() == 2 && (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() ||
-		find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end())) {
+				find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end()) &&
+					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2])) {
 		return true;
 	}
 	else if (p->currentCols.size() == 3 && (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&
-		find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end())) {
+				find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end()) &&
+					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2])) {
 		return true;
-	}
+	}	
+
 	else return false;
 }
 
 bool GameState::validatePair(int a, Player* p) {
-	if (p->currentCols.size() < 3) {
+	
+	if (p->currentCols.size() < 3 && (p->stateReference[a - 2] != filledCols[a - 2])) {
 		return true;
 	}
-	else if (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end()) {
+	else if (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() && (p->stateReference[a - 2] != filledCols[a - 2])) {
 		return true;
 	}
 	else return false;
@@ -109,7 +114,6 @@ vector< pair<int,int> > GameState::rollDice(){
 	//pairs.push_back(pair3);
 	for(int i = 0; i < filledCols.size(); i++){
 		if(player1.stateReference[i] == filledCols[i] || player2.stateReference[i] == filledCols[i]){
-			//cout << 
 			deadCols.push_back(i);
 		}
 	}

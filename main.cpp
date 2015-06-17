@@ -148,7 +148,7 @@ int main(int, char**){
 				dice_active = false;
 				stop_active = false;
 				player->state = player->stateReference;
-
+				cantStop.checkForDeadCols();
 				player->checkForWin();
 				if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
 				player->currentCols.clear();
