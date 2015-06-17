@@ -131,14 +131,12 @@ int main(int, char**){
 				dice_active = false;
 				stop_active = false;
 				player->state = player->stateReference;
-
+				cantStop.checkForDeadCols();
 				player->checkForWin();
 				if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
 				player->currentCols.clear();
-				player->changeTurns();
 				if (player == &cantStop.player1) player = &cantStop.player2;
 				else if (player == &cantStop.player2) player = &cantStop.player1;
-				player->changeTurns();
 			}
 		}
 		// No dice choice is valid, revert
@@ -146,10 +144,8 @@ int main(int, char**){
 			dice_active = false;
 			player->stateReference = player->state;
 			player->currentCols.clear();
-			player->changeTurns();
 			if (player == &cantStop.player1) player = &cantStop.player2;
 			else if (player == &cantStop.player2) player = &cantStop.player1;
-			player->changeTurns();
 		}
 
 		// // Logic

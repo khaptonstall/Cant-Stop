@@ -20,7 +20,6 @@ public:
 	// ************ Methods *************
 	vector< pair<int,int> > rollDice();
 	void chooseDice( pair<int, int> );
-	void changeTurns();
 	void displayCombinations(vector< pair<int,int> >);
 	void checkForWin();
 	vector< pair<int,int> > filterDice(	vector< pair<int,int> > pairs);
@@ -122,17 +121,6 @@ void Player::chooseDice( pair<int, int> dice ){
 	}
 } 
 
-// Player::changeTurns()
-// Input: void
-// Output: void
-// Description: (1)  Flip players turns
-void Player::changeTurns(){
-	if(!turn){
-		turn = true;
-	}else{
-		turn = false;
-	}
-}
 
 // Player::displayCombinations()
 // Input: vector< pair <int,int> > combinations
