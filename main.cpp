@@ -92,10 +92,10 @@ int main(int, char**){
 		// If new dice need to be rolled
 		if (!dice_active) {
 			dice_active = true;
-			dice_options = player->rollDice(true);
+			dice_options = cantStop.rollDice(true);
 		}
 
-		if (!stop_active && player->validateDice(dice_options)) {
+		if (!stop_active && cantStop.validateDice(dice_options, player)) {
 			// When player clicks dice
 			if (dice_pair != 0) {
 				pair<int, int> selected_dice;
@@ -108,12 +108,12 @@ int main(int, char**){
 				else if (dice_pair == 6) selected_dice = pair<int, int>(dice_options[2] + dice_options[1], dice_options[0] + dice_options[3]);
 
 				// If dice can be played
-				if (player->validatePair(selected_dice.first, selected_dice.second)) {
+				if (cantStop.validatePair(selected_dice.first, selected_dice.second, player)) {
 					player->chooseDice(selected_dice);
 					stop_active = true;
 				}
 				// Otherwise only play dice pair that was clicked
-				else if (player->validatePair(selected_dice.first)) {
+				else if (cantStop.validatePair(selected_dice.first, player)) {
 					player->chooseDice(pair<int, int>(selected_dice.first, -1));
 					stop_active = true;
 				}

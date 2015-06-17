@@ -18,10 +18,6 @@ public:
 
 
 	// ************ Methods *************
-	vector<int> rollDice(bool b);
-	bool validateDice(vector<int> d);
-	bool validatePair(int a, int b);
-	bool validatePair(int a);
 	vector< pair<int,int> > rollDice();
 	void chooseDice( pair<int, int> );
 	void changeTurns();
@@ -29,81 +25,6 @@ public:
 	void checkForWin();
 	vector< pair<int,int> > filterDice(	vector< pair<int,int> > pairs);
 };
-
-vector<int> Player::rollDice(bool b) {
-	vector<int> output;
-	for (int i = 0; i < 4; i++) {
-		output.push_back(rand() % 6 + 1);
-	}
-	return output;
-}
-
-bool Player::validateDice(vector<int> d) {
-	vector<pair<int,int> > pairs;
-	pairs.push_back(pair<int,int>(d[0] + d[1], d[2] + d[3]));
-	pairs.push_back(pair<int,int>(d[0] + d[2], d[1] + d[3]));
-	pairs.push_back(pair<int,int>(d[0] + d[3], d[2] + d[1]));
-
-	if (currentCols.size() == 0 || currentCols.size() == 1){ //All combinations are legal
-		return true;
-
-	}else if(currentCols.size() == 2){ 
-		for(int i = 0; i < pairs.size(); i++){
-			//As long as one number in the pair is currently in play:
-			if(find(currentCols.begin(), currentCols.end(), pairs[i].first) != currentCols.end() ||
-			   find(currentCols.begin(), currentCols.end(), pairs[i].second) != currentCols.end()){
-				return true;
-			//Else If neither in the pair is currently in play:
-			}else if(pairs[i].first == pairs[i].second){ //Check if the pair is the same number, if it is it is playable:
-				return true;
-			}else{
-				return true;
-			}
-		}
-	}else if( currentCols.size() == 3){
-		for(int i = 0; i < pairs.size(); i++){
-			if(find(currentCols.begin(), currentCols.end(), pairs[i].first) != currentCols.end() &&
-			   find(currentCols.begin(), currentCols.end(), pairs[i].second) != currentCols.end()){
-				return true;
-
-			}
-			else if(find(currentCols.begin(), currentCols.end(), pairs[i].first) != currentCols.end() &&
-				find(currentCols.begin(), currentCols.end(), pairs[i].second) == currentCols.end() ){
-				return true;
-			}
-			else if(find(currentCols.begin(), currentCols.end(), pairs[i].first) == currentCols.end() &&
-				find(currentCols.begin(), currentCols.end(), pairs[i].second) != currentCols.end() ){
-				return true;
-			}
-		}
-	}
-	return false;
-}
-
-bool Player::validatePair(int a, int b) {
-	if (currentCols.size() < 2) {
-		return true;
-	}
-	else if (currentCols.size() == 2 && (find(currentCols.begin(), currentCols.end(), a) != currentCols.end() ||
-		find(currentCols.begin(), currentCols.end(), b) != currentCols.end())) {
-		return true;
-	}
-	else if (currentCols.size() == 3 && (find(currentCols.begin(), currentCols.end(), a) != currentCols.end() &&
-		find(currentCols.begin(), currentCols.end(), b) != currentCols.end())) {
-		return true;
-	}
-	else return false;
-}
-
-bool Player::validatePair(int a) {
-	if (currentCols.size() < 3) {
-		return true;
-	}
-	else if (find(currentCols.begin(), currentCols.end(), a) != currentCols.end()) {
-		return true;
-	}
-	else return false;
-}
 
 /*
 // Player::rollDice()
