@@ -89,13 +89,17 @@ int main(int, char**){
 		}
 
 		// Logic
+		// If new dice need to be rolled
 		if (!dice_active) {
 			dice_active = true;
 			dice_options = player->rollDice(true);
 		}
+
 		if (!stop_active && player->validateDice(dice_options)) {
+			// When player clicks dice
 			if (dice_pair != 0) {
 				pair<int, int> selected_dice;
+				// Idenitify what pair was clicked
 				if (dice_pair == 1)      selected_dice = pair<int, int>(dice_options[0] + dice_options[1], dice_options[2] + dice_options[3]);
 				else if (dice_pair == 2) selected_dice = pair<int, int>(dice_options[2] + dice_options[3], dice_options[0] + dice_options[1]);
 				else if (dice_pair == 3) selected_dice = pair<int, int>(dice_options[0] + dice_options[2], dice_options[1] + dice_options[3]);
@@ -103,16 +107,19 @@ int main(int, char**){
 				else if (dice_pair == 5) selected_dice = pair<int, int>(dice_options[0] + dice_options[3], dice_options[2] + dice_options[1]);
 				else if (dice_pair == 6) selected_dice = pair<int, int>(dice_options[2] + dice_options[1], dice_options[0] + dice_options[3]);
 
+				// If dice can be played
 				if (player->validatePair(selected_dice.first, selected_dice.second)) {
 					player->chooseDice(selected_dice);
 					stop_active = true;
 				}
+				// Otherwise only play dice pair that was clicked
 				else if (player->validatePair(selected_dice.first)) {
 					player->chooseDice(pair<int, int>(selected_dice.first, -1));
 					stop_active = true;
 				}
 			}
 		}
+		// Dice has been selected, now choose stop / continue
 		else if (stop_active) {
 			// continue
 			if (stop_continue == 1) {
@@ -134,6 +141,7 @@ int main(int, char**){
 				player->changeTurns();
 			}
 		}
+		// No dice choice is valid, revert
 		else {
 			dice_active = false;
 			player->stateReference = player->state;
