@@ -47,7 +47,6 @@ vector< pair<int,int> > GameState::rollDice(){
 	//pairs.push_back(pair3);
 	for(int i = 0; i < filledCols.size(); i++){
 		if(player1.stateReference[i] == filledCols[i] || player2.stateReference[i] == filledCols[i]){
-			cout << 
 			deadCols.push_back(i);
 		}
 	}
