@@ -13,6 +13,7 @@ public:
 	Player player1;
 	Player player2;
 	vector<int> deadCols;
+	vector<int> filledCols = {3,5,7,9,11,13,11,9,7,5,3}; // Vector to compare when a player is at the top of the column
 
 	// ********** Methods ************
 	vector< pair<int,int> > rollDice();
@@ -44,6 +45,12 @@ vector< pair<int,int> > GameState::rollDice(){
 	//pairs.push_back(pair1);
 	//pairs.push_back(pair2);
 	//pairs.push_back(pair3);
+	for(int i = 0; i < filledCols.size(); i++){
+		if(player1.stateReference[i] == filledCols[i] || player2.stateReference[i] == filledCols[i]){
+			cout << 
+			deadCols.push_back(i);
+		}
+	}
 
 	if(find(deadCols.begin(), deadCols.end(), pair1.first) == deadCols.end() &&
 			find(deadCols.begin(), deadCols.end(), pair1.second) == deadCols.end() ){
