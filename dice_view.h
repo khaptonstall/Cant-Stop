@@ -101,24 +101,46 @@ public:
 		if (n == 1) {
 			output.x = pair11.x;
 			output.y = pair11.y;
-			output.w = pair14.x - pair11.x + pair14.w;
-			output.h = pair14.y - pair11.y + pair14.h;
+			output.w = pair12.x - pair11.x + pair12.w;
+			output.h = pair12.y - pair11.y + pair12.h;
+			return output;
+		}
+		else if (n == 3) {
+			output.x = pair21.x;
+			output.y = pair21.y;
+			output.w = pair22.x - pair21.x + pair22.w;
+			output.h = pair22.y - pair21.y + pair22.h;
+			return output;
+		}
+		else if (n == 5) {
+			output.x = pair31.x;
+			output.y = pair31.y;
+			output.w = pair32.x - pair31.x + pair32.w;
+			output.h = pair32.y - pair31.y + pair32.h;
 			return output;
 		}
 		else if (n == 2) {
-			output.x = pair21.x;
-			output.y = pair21.y;
-			output.w = pair24.x - pair21.x + pair24.w;
-			output.h = pair24.y - pair21.y + pair24.h;
+			output.x = pair13.x;
+			output.y = pair13.y;
+			output.w = pair14.x - pair13.x + pair14.w;
+			output.h = pair14.y - pair13.y + pair14.h;
 			return output;
 		}
-		else {
-			output.x = pair31.x;
-			output.y = pair31.y;
-			output.w = pair34.x - pair31.x + pair34.w;
-			output.h = pair34.y - pair31.y + pair34.h;
+		else if (n == 4) {
+			output.x = pair23.x;
+			output.y = pair23.y;
+			output.w = pair24.x - pair23.x + pair24.w;
+			output.h = pair24.y - pair23.y + pair24.h;
 			return output;
 		}
+		else if (n == 6) {
+			output.x = pair33.x;
+			output.y = pair33.y;
+			output.w = pair34.x - pair33.x + pair34.w;
+			output.h = pair34.y - pair33.y + pair34.h;
+			return output;
+		}
+		else return output;
 	}
 
 	int get_width() {

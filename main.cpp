@@ -52,56 +52,19 @@ int main(int, char**){
 
 	vector<int> empty_vector = vector<int>();
 
-	{
-		// Initial render (kinda a test)
-		SDL_RenderClear(ren);
-
-		SDL_Surface* board_surface = bv.get_surface(empty_vector, empty_vector, empty_vector, empty_vector, empty_vector);
-		SDL_Texture* board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
-		SDL_Rect board_destination;
-		board_destination.x = 0;
-		board_destination.y = 0;
-		SDL_QueryTexture(board_texture, NULL, NULL, &board_destination.w, &board_destination.h);
-		board_destination.w /= window_scale;
-		board_destination.h /= window_scale;
-
-		SDL_Surface* stop_surface = sv.get_surface();
-		SDL_Texture* stop_texture = SDL_CreateTextureFromSurface(ren, stop_surface);
-		SDL_Rect stop_destination;
-		stop_destination.x = board_width / window_scale;
-		stop_destination.y = 0;
-		SDL_QueryTexture(stop_texture, NULL, NULL, &stop_destination.w, &stop_destination.h);
-		stop_destination.w /= window_scale;
-		stop_destination.h /= window_scale;
-
-		SDL_Surface* options_surface = ov.get_surface();
-		SDL_Texture* options_texture = SDL_CreateTextureFromSurface(ren, options_surface);
-		SDL_Rect options_destination;
-		options_destination.x = board_width / window_scale;
-		options_destination.y = dice_height / window_scale;
-		SDL_QueryTexture(options_texture, NULL, NULL, &options_destination.w, &options_destination.h);
-		options_destination.w /= window_scale;
-		options_destination.h /= window_scale;
-
-		SDL_RenderCopy(ren, board_texture, NULL, &board_destination);
-		SDL_RenderCopy(ren, stop_texture, NULL, &stop_destination);
-		SDL_RenderCopy(ren, options_texture, NULL, &options_destination);
-		SDL_RenderPresent(ren);
-
-		SDL_FreeSurface(board_surface);
-		SDL_FreeSurface(stop_surface);
-		SDL_FreeSurface(options_surface);
-
-		SDL_DestroyTexture(board_texture);
-		SDL_DestroyTexture(stop_texture);
-		SDL_DestroyTexture(options_texture);
-	}
-
 	Player player1, player2;
 	player1.changeTurns();
+	Player* player = &player1;
 
 	bool quit = false;
+	bool dice_active = false;
+	bool stop_active = false;
+	int dice_pair = 0;
+	int stop_continue = 0;
 	SDL_Event e;
+	vector<int> dice_options;
+	//vector<int> dice_options = player->rollDice(true);
+
 
 	while (!quit) {
 		// Event handler
@@ -109,150 +72,261 @@ int main(int, char**){
 			if (e.type == SDL_QUIT) {
 				quit = true;
 			}
+			else if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT) {
+				if (!stop_active) {
+					dice_pair = dc.input(e.motion.x, e.motion.y);
+				}
+				else {
+					stop_continue = sc.input(e.motion.x, e.motion.y);
+				}
+			}
+			else if (e.type == SDL_MOUSEBUTTONUP && e.button.button == SDL_BUTTON_LEFT) {
+				stop_continue = 0;
+				dice_pair = 0;
+			}
 		}
 
-
-		// Render 
-		/*
-		SDL_RenderClear(ren);
-
-		SDL_Surface* board_surface = b.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
-		SDL_Texture* board_texture;
-		board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
-
-		SDL_Rect dst;
-		dst.x = 0;
-		dst.y = 0;
-		SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
-		dst.w /= 5;
-		dst.h /= 5;
-		SDL_RenderCopy(ren, board_texture, NULL, &dst);
-		SDL_RenderPresent(ren);
-
-		SDL_FreeSurface(board_surface);
-		SDL_DestroyTexture(board_texture);
-*/
-
 		// Logic
-		if (player1.turn){
-			bool goOn = true;
-			int choice;
-			cout << "Its player1 turn" << '\n';
-			vector< pair<int,int> > options = player1.rollDice(); //Roll the dice
-			if(options.size() > 0){
-				player1.displayCombinations( options);
-				cout << "Choose a pair : " << '\n';
-				cin >> choice;
-				player1.chooseDice(options[choice - 1]); //Choose a pair
-			}else{
-				goOn = false;
-				player1.stateReference = player1.state;
+		if (!dice_active) {
+			dice_active = true;
+			dice_options = player->rollDice(true);
+		}
+		if (!stop_active && player->validateDice(dice_options)) {
+			if (dice_pair != 0) {
+				pair<int, int> selected_dice;
+				if (dice_pair == 1)      selected_dice = pair<int, int>(dice_options[0] + dice_options[1], dice_options[2] + dice_options[3]);
+				else if (dice_pair == 2) selected_dice = pair<int, int>(dice_options[2] + dice_options[3], dice_options[0] + dice_options[1]);
+				else if (dice_pair == 3) selected_dice = pair<int, int>(dice_options[0] + dice_options[2], dice_options[1] + dice_options[3]);
+				else if (dice_pair == 4) selected_dice = pair<int, int>(dice_options[1] + dice_options[3], dice_options[0] + dice_options[2]);
+				else if (dice_pair == 5) selected_dice = pair<int, int>(dice_options[0] + dice_options[3], dice_options[2] + dice_options[1]);
+				else if (dice_pair == 6) selected_dice = pair<int, int>(dice_options[2] + dice_options[1], dice_options[0] + dice_options[3]);
+
+				if (player->validatePair(selected_dice.first, selected_dice.second)) {
+					player->chooseDice(selected_dice);
+					stop_active = true;
+				}
+				else if (player->validatePair(selected_dice.first)) {
+					player->chooseDice(pair<int, int>(selected_dice.first, -1));
+					stop_active = true;
+				}
 			}
+		}
+		else if (stop_active) {
+			// continue
+			if (stop_continue == 1) {
+				dice_active = false;
+				stop_active = false;
+			}
+			// stop
+			else if (stop_continue == 2) {
+				dice_active = false;
+				stop_active = false;
+				player->state = player->stateReference;
+
+				player->checkForWin();
+				if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
+				player->currentCols.clear();
+				player->changeTurns();
+				if (player == &player1) player = &player2;
+				else if (player == &player2) player = &player1;
+				player->changeTurns();
+			}
+		}
+		else {
+			dice_active = false;
+			player->stateReference = player->state;
+			player->currentCols.clear();
+			player->changeTurns();
+			if (player == &player1) player = &player2;
+			else if (player == &player2) player = &player1;
+			player->changeTurns();
+		}
+
+	// 	// Logic
+	// 	if (player1.turn){
+	// 		bool goOn = true;
+	// 		int choice;
+	// 		cout << "Its player1 turn" << '\n';
+	// 		vector< pair<int,int> > options = player1.rollDice(); //Roll the dice
+	// 		if(options.size() > 0){
+	// 			player1.displayCombinations( options);
+	// 			cout << "Choose a pair : " << '\n';
+	// 			cin >> choice;
+	// 			player1.chooseDice(options[choice - 1]); //Choose a pair
+	// 		}else{
+	// 			goOn = false;
+	// 			player1.stateReference = player1.state;
+	// 		}
 			
-			//Update board with player choice
-			// Render 
+	// 		//Update board with player choice
+	// 		// Render 
+	// 		SDL_RenderClear(ren);
+
+	// 		SDL_Surface* board_surface = bv.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
+	// 		SDL_Texture* board_texture;
+	// 		board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
+
+	// 		SDL_Rect dst;
+	// 		dst.x = 0;
+	// 		dst.y = 0;
+	// 		SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
+	// 		dst.w /= 5;
+	// 		dst.h /= 5;
+	// 		SDL_RenderCopy(ren, board_texture, NULL, &dst);
+	// 		SDL_RenderPresent(ren);
+
+	// 		SDL_FreeSurface(board_surface);
+	// 		SDL_DestroyTexture(board_texture);
+
+			
+	// 		//Ask player to stop or continue
+	// 		if(goOn){
+	// 			int stopOrGo;
+	// 			cout << "Stop (0) or continue (1)? " << '\n';
+	// 			cin >> stopOrGo;
+	// 			if (stopOrGo == 0){
+	// 				//Switch turns
+	// 				player1.state = player1.stateReference;
+	// 				player1.checkForWin();
+	// 				if(player1.claimedCols.size() == 3){
+	// 					cout << "Player 1 wins!";
+	// 					break;
+	// 				}
+	// 				player1.currentCols.clear();
+	// 				player2.changeTurns();
+	// 				player1.changeTurns();
+	// 			}
+	// 		}else{
+	// 			player1.currentCols.clear();
+	// 			player2.changeTurns();
+	// 			player1.changeTurns();
+	// 		}
+
+	// 	}else if(player2.turn){
+	// 		bool goOn = true;
+	// 		int choice;
+	// 		cout << "Its player2 turn" << '\n';
+	// 		vector< pair<int,int> > options = player2.rollDice(); //Roll the dice
+
+	// 		if(options.size() > 0){
+	// 			player2.displayCombinations( options);
+	// 			cout << "Choose a pair : " << '\n';
+	// 			cin >> choice;
+	// 			player2.chooseDice(options[choice - 1]); //Choose a pair
+	// 		}else{
+	// 			goOn = false;
+	// 			player2.stateReference = player2.state;
+	// 		}
+			
+
+	// 		//Update board with player choice
+	// 		// Render 
+	// 		SDL_RenderClear(ren);
+
+	// 		SDL_Surface* board_surface = bv.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
+	// 		SDL_Texture* board_texture;
+	// 		board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
+
+	// 		SDL_Rect dst;
+	// 		dst.x = 0;
+	// 		dst.y = 0;
+	// 		SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
+	// 		dst.w /= 5;
+	// 		dst.h /= 5;
+	// 		SDL_RenderCopy(ren, board_texture, NULL, &dst);
+	// 		SDL_RenderPresent(ren);
+
+	// 		SDL_FreeSurface(board_surface);
+	// 		SDL_DestroyTexture(board_texture);
+
+	// 		//Ask player to stop or continue
+	// 		if(goOn){
+	// 			int stopOrGo;
+	// 			cout << "Stop (0) or continue (1)? " << '\n';
+	// 			cin >> stopOrGo;
+	// 			if (stopOrGo == 0){
+	// 				//Switch turns
+	// 				player2.state = player2.stateReference;
+	// 				player2.checkForWin();
+	// 				if(player2.claimedCols.size() == 3){
+	// 					cout << "Player 2 wins!";
+	// 					break;
+	// 				}
+	// 				player2.currentCols.clear();
+	// 				player2.changeTurns();
+	// 				player1.changeTurns();
+	// 			}
+	// 		}else{
+	// 			player2.currentCols.clear();
+	// 			player2.changeTurns();
+	// 			player1.changeTurns();
+	// 		}
+			
+	// 	}
+	// }
+
+		vector<int> temp_tokens = vector<int>(11, 0);
+		for (vector<int>::iterator it = player->currentCols.begin(); it != player->currentCols.end(); ++it) {
+			int temp = *it;
+			temp -= 2;
+			temp_tokens[temp] = player->stateReference[temp];
+		}
+
+		{
+			// Initial render (kinda a test)
 			SDL_RenderClear(ren);
 
-			SDL_Surface* board_surface = bv.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
-			SDL_Texture* board_texture;
-			board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
+			SDL_Surface* board_surface = bv.get_surface(player1.state, player2.state, empty_vector, empty_vector, temp_tokens);
+			SDL_Texture* board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
+			SDL_Rect board_destination;
+			board_destination.x = 0;
+			board_destination.y = 0;
+			SDL_QueryTexture(board_texture, NULL, NULL, &board_destination.w, &board_destination.h);
+			board_destination.w /= window_scale;
+			board_destination.h /= window_scale;
 
-			SDL_Rect dst;
-			dst.x = 0;
-			dst.y = 0;
-			SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
-			dst.w /= 5;
-			dst.h /= 5;
-			SDL_RenderCopy(ren, board_texture, NULL, &dst);
+			SDL_Surface* dice_surface = dv.get_surface(dice_options);
+			SDL_Texture* dice_texture = SDL_CreateTextureFromSurface(ren, dice_surface);
+			SDL_Rect dice_destination;
+			dice_destination.x = board_width / window_scale;
+			dice_destination.y = 0;
+			SDL_QueryTexture(dice_texture, NULL, NULL, &dice_destination.w, &dice_destination.h);
+			dice_destination.w /= window_scale;
+			dice_destination.h /= window_scale;
+
+			SDL_Surface* stop_surface = sv.get_surface();
+			SDL_Texture* stop_texture = SDL_CreateTextureFromSurface(ren, stop_surface);
+			SDL_Rect stop_destination;
+			stop_destination.x = board_width / window_scale;
+			stop_destination.y = 0;
+			SDL_QueryTexture(stop_texture, NULL, NULL, &stop_destination.w, &stop_destination.h);
+			stop_destination.w /= window_scale;
+			stop_destination.h /= window_scale;
+
+			SDL_Surface* options_surface = ov.get_surface();
+			SDL_Texture* options_texture = SDL_CreateTextureFromSurface(ren, options_surface);
+			SDL_Rect options_destination;
+			options_destination.x = board_width / window_scale;
+			options_destination.y = dice_height / window_scale;
+			SDL_QueryTexture(options_texture, NULL, NULL, &options_destination.w, &options_destination.h);
+			options_destination.w /= window_scale;
+			options_destination.h /= window_scale;
+
+			SDL_RenderCopy(ren, board_texture, NULL, &board_destination);
+			if (!stop_active) SDL_RenderCopy(ren, dice_texture, NULL, &dice_destination);
+			else if (stop_active) SDL_RenderCopy(ren, stop_texture, NULL, &stop_destination);
+			SDL_RenderCopy(ren, options_texture, NULL, &options_destination);
 			SDL_RenderPresent(ren);
 
 			SDL_FreeSurface(board_surface);
+			SDL_FreeSurface(dice_surface);
+			SDL_FreeSurface(stop_surface);
+			SDL_FreeSurface(options_surface);
+
 			SDL_DestroyTexture(board_texture);
-
-			
-			//Ask player to stop or continue
-			if(goOn){
-				int stopOrGo;
-				cout << "Stop (0) or continue (1)? " << '\n';
-				cin >> stopOrGo;
-				if (stopOrGo == 0){
-					//Switch turns
-					player1.state = player1.stateReference;
-					player1.checkForWin();
-					if(player1.claimedCols.size() == 3){
-						cout << "Player 1 wins!";
-						break;
-					}
-					player1.currentCols.clear();
-					player2.changeTurns();
-					player1.changeTurns();
-				}
-			}else{
-				player1.currentCols.clear();
-				player2.changeTurns();
-				player1.changeTurns();
-			}
-
-		}else if(player2.turn){
-			bool goOn = true;
-			int choice;
-			cout << "Its player2 turn" << '\n';
-			vector< pair<int,int> > options = player2.rollDice(); //Roll the dice
-
-			if(options.size() > 0){
-				player2.displayCombinations( options);
-				cout << "Choose a pair : " << '\n';
-				cin >> choice;
-				player2.chooseDice(options[choice - 1]); //Choose a pair
-			}else{
-				goOn = false;
-				player2.stateReference = player2.state;
-			}
-			
-
-			//Update board with player choice
-			// Render 
-			SDL_RenderClear(ren);
-
-			SDL_Surface* board_surface = bv.get_surface(player1.stateReference, player2.stateReference, empty_vector, empty_vector, empty_vector);
-			SDL_Texture* board_texture;
-			board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
-
-			SDL_Rect dst;
-			dst.x = 0;
-			dst.y = 0;
-			SDL_QueryTexture(board_texture, NULL, NULL, &dst.w, &dst.h);
-			dst.w /= 5;
-			dst.h /= 5;
-			SDL_RenderCopy(ren, board_texture, NULL, &dst);
-			SDL_RenderPresent(ren);
-
-			SDL_FreeSurface(board_surface);
-			SDL_DestroyTexture(board_texture);
-
-			//Ask player to stop or continue
-			if(goOn){
-				int stopOrGo;
-				cout << "Stop (0) or continue (1)? " << '\n';
-				cin >> stopOrGo;
-				if (stopOrGo == 0){
-					//Switch turns
-					player2.state = player2.stateReference;
-					player2.checkForWin();
-					if(player2.claimedCols.size() == 3){
-						cout << "Player 2 wins!";
-						break;
-					}
-					player2.currentCols.clear();
-					player2.changeTurns();
-					player1.changeTurns();
-				}
-			}else{
-				player2.currentCols.clear();
-				player2.changeTurns();
-				player1.changeTurns();
-			}
-			
+			SDL_DestroyTexture(dice_texture);
+			SDL_DestroyTexture(stop_texture);
+			SDL_DestroyTexture(options_texture);
 		}
 	}
 

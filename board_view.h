@@ -84,6 +84,18 @@ public:
 			}
 		}
 
+		for (int i = 0; i < t.size(); i++) {
+			if (t[i] != 0) {
+				SDL_Rect dst;
+				dst.w = s_temp_token->w;
+				dst.h = s_temp_token->h;
+				dst.x = 105 + (i * s_temp_token->w) + 32 * i;
+				dst.y = s_board->h - 30 - (t[i] * s_temp_token->h + 32 * t[i]);
+
+				SDL_BlitSurface(s_temp_token, NULL, output, &dst);
+			}
+		}
+
 		return output;
 
 	}

@@ -33,7 +33,7 @@ public:
 	}
 
 	SDL_Surface* get_surface() {
-		return s_panel;
+		return SDL_ConvertSurface(s_panel, s_panel->format, s_panel->flags);
 	}
 
 	SDL_Rect get_rect(int n) {

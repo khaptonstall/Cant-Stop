@@ -16,7 +16,7 @@ public:
 	}
 
 	SDL_Surface* get_surface() {
-		return s_options;
+		return SDL_ConvertSurface(s_options, s_options->format, s_options->flags);
 	}
 
 };

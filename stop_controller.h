@@ -21,8 +21,8 @@ public:
 		r_stop = sv.get_rect(2);
 		r_stop.x /= scale;
 		r_stop.y /= scale;
-		r_stop.x += offset_x;
-		r_stop.y += offset_y;
+		r_stop.x += offset_x / scale;
+		r_stop.y += offset_y / scale;
 		r_stop.w /= scale;
 		r_stop.h /= scale;
 	}
