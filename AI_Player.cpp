@@ -10,6 +10,10 @@
 
 using namespace std;
 
+// Function: select_dice
+// Input: GameState*, vector<pair<int,int> >, Player*, int
+// Output: pair<int,int>
+// Desciption: Currently picks the first valid pair of dice
 pair<int, int> AI_Player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
 	for (pair<int, int> rp : rolled_pairs) {
 		// cout << "AI Evaluating: " << rp.first << ", " << rp.second << endl;
@@ -26,9 +30,13 @@ pair<int, int> AI_Player::select_dice(GameState* game_state, vector<pair<int, in
 			return pair<int, int>(rp.first, -1);
 		}
 	}
-	return pair<int,int>(-1,-1);
+	return pair<int,int>(-1,-1); 
 }
 
+// Function: select_decision
+// Input: GameState*, int
+// Output: int
+// Desciption returning 1 = continue, returning 2 = stop
 int AI_Player::select_decision(GameState* game_state, int selected_decision) {
 	return 2;
 }
