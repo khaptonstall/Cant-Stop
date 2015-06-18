@@ -9,6 +9,10 @@
 
 using namespace std;
 
+// Function: rollDice
+// Input: bool
+// Output: vector<int>
+// Description: Return a vector with 4 random dice 
 vector<int> GameState::rollDice(bool b) {
 	vector<int> output;
 	for (int i = 0; i < 4; i++) {
@@ -17,180 +21,58 @@ vector<int> GameState::rollDice(bool b) {
 	return output;
 }
 
-bool GameState::validateDice(vector<int> d, Player* p) {
-	vector<pair<int,int> > pairs;
-	pairs.push_back(pair<int,int>(d[0] + d[1], d[2] + d[3]));
-	pairs.push_back(pair<int,int>(d[0] + d[2], d[1] + d[3]));
-	pairs.push_back(pair<int,int>(d[0] + d[3], d[2] + d[1]));
 
-	if (p->currentCols.size() == 0 || p->currentCols.size() == 1){ //All combinations are legal
-		return true;
-
-	}else if(p->currentCols.size() == 2){ 
-		for(int i = 0; i < pairs.size(); i++){
-			//As long as one number in the pair is currently in play:
-			if(find(p->currentCols.begin(), p->currentCols.end(), pairs[i].first) != p->currentCols.end() ||
-			   find(p->currentCols.begin(), p->currentCols.end(), pairs[i].second) != p->currentCols.end()){
-				return true;
-			//Else If neither in the pair is currently in play:
-			}else if(pairs[i].first == pairs[i].second){ //Check if the pair is the same number, if it is it is playable:
-				return true;
-			}else{
-				return true;
-			}
-		}
-	}else if( p->currentCols.size() == 3){
-		for(int i = 0; i < pairs.size(); i++){
-			if(find(p->currentCols.begin(), p->currentCols.end(), pairs[i].first) != p->currentCols.end() &&
-			   find(p->currentCols.begin(), p->currentCols.end(), pairs[i].second) != p->currentCols.end()){
-				return true;
-
-			}
-			else if(find(p->currentCols.begin(), p->currentCols.end(), pairs[i].first) != p->currentCols.end() &&
-				find(p->currentCols.begin(), p->currentCols.end(), pairs[i].second) == p->currentCols.end() ){
-				return true;
-			}
-			else if(find(p->currentCols.begin(), p->currentCols.end(), pairs[i].first) == p->currentCols.end() &&
-				find(p->currentCols.begin(), p->currentCols.end(), pairs[i].second) != p->currentCols.end() ){
-				return true;
-			}
-		}
-	}
-	return false;
-}
-
+// Function: validatePair
+// Input: int, int, Player*
+// Output: bool
+// Desciption: Compare each pair of dice to make sure the pair to make sure the player is not currently at the top of one of 
+//	those columns, and that the pair does not contain a dead column
 bool GameState::validatePair(int a, int b, Player* p) {
-	
-	if (p->currentCols.size() < 2 && (p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2])) {
+	if (p->currentCols.size() < 2 && (p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
+		(find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end())) {
 		return true;
 	}
 	else if (p->currentCols.size() == 2 && (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() ||
 				find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end()) &&
-					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2])) {
+					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
+					( find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end() )) {
 		return true;
 	}
 	else if (p->currentCols.size() == 3 && (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&
 				find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end()) &&
-					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2])) {
+					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
+					(find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end())) {
 		return true;
 	}	
 
 	else return false;
 }
 
+
+// Function: validatePair
+// Input: int, Player*
+// Output: bool
+// Desciption: If the pair wasn't valid, call this function. Compare each die to make sure the player is not currently at the top of that
+//	column, and that the die is not a dead column
 bool GameState::validatePair(int a, Player* p) {
-	
-	if (p->currentCols.size() < 3 && (p->stateReference[a - 2] != filledCols[a - 2])) {
+	if (p->currentCols.size() < 3 && (p->stateReference[a - 2] != filledCols[a - 2]) && find(deadCols.begin(), deadCols.end(), a) == deadCols.end()) {
 		return true;
 	}
-	else if (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() && (p->stateReference[a - 2] != filledCols[a - 2])) {
+	else if (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() && (p->stateReference[a - 2] != filledCols[a - 2]) &&
+			find(deadCols.begin(), deadCols.end(), a) == deadCols.end()) {
 		return true;
 	}
 	else return false;
 }
 
 
-// GameState::rollDice()
-// Input: 
-// Output: vector< pair<int,int> > combinations
-// Description: (1) Get four rand dice rolls, 
-//				(2) Check how many columns the player is currently occupying
-//				(3) Add possible pairs to the combinations vector to display to player
-vector< pair<int,int> > GameState::rollDice(){
-	vector< pair<int,int> > pairs;
-
-	int dice1 = rand() % 6 + 1;
-	int dice2 = rand() % 6 + 1;
-	int dice3 = rand() % 6 + 1;
-	int dice4 = rand() % 6 + 1;
-	cout << dice1 << " " << dice2 << " " << dice3 << " " << dice4 << '\n';
-
-	pair<int,int> pair1 = make_pair((dice1 + dice2), (dice3 + dice4));
-	pair<int,int> pair2 = make_pair((dice1 + dice3), (dice2 + dice4));
-	pair<int,int> pair3 = make_pair((dice2 + dice3), (dice1 + dice4));
-
-	//pairs.push_back(pair1);
-	//pairs.push_back(pair2);
-	//pairs.push_back(pair3);
-	for(int i = 0; i < filledCols.size(); i++){
-		if(player1.stateReference[i] == filledCols[i] || player2.stateReference[i] == filledCols[i]){
-			deadCols.push_back(i);
-		}
-	}
-
-	if(find(deadCols.begin(), deadCols.end(), pair1.first) == deadCols.end() &&
-			find(deadCols.begin(), deadCols.end(), pair1.second) == deadCols.end() ){
-			pairs.push_back(pair1);
-	}else{
-			if(find(deadCols.begin(), deadCols.end(), pair1.first) != deadCols.end()){
-				pair1.first = -1;
-			}
-
-			if(find(deadCols.begin(), deadCols.end(), pair1.second) != deadCols.end()){
-				pair1.second = -1;
-			}
-			pairs.push_back(pair1);
-		}	
-
-	if(find(deadCols.begin(), deadCols.end(), pair2.first) == deadCols.end() &&
-			find(deadCols.begin(), deadCols.end(), pair2.second) == deadCols.end() ){
-			pairs.push_back(pair2);
-	}else{
-			if(find(deadCols.begin(), deadCols.end(), pair2.first) != deadCols.end()){
-				pair2.first = -1;
-			}
-
-			if(find(deadCols.begin(), deadCols.end(), pair2.second) != deadCols.end()){
-				pair2.second = -1;
-			}
-			pairs.push_back(pair2);
-		}	
-
-			if(find(deadCols.begin(), deadCols.end(), pair3.first) == deadCols.end() &&
-			find(deadCols.begin(), deadCols.end(), pair3.second) == deadCols.end() ){
-			pairs.push_back(pair3);
-	}else{
-			if(find(deadCols.begin(), deadCols.end(), pair3.first) != deadCols.end()){
-				pair3.first = -1;
-			}
-
-			if(find(deadCols.begin(), deadCols.end(), pair3.second) != deadCols.end()){
-				pair3.second = -1;
-			}
-			pairs.push_back(pair3);
-		}	
-
-
-		/*
-	//Remove dead columns from available options
-	for(int i = 0; i < pairs.size(); i++){
-		if(find(deadCols.begin(), deadCols.end(), pairs[i].first) != deadCols.end() &&
-			find(deadCols.begin(), deadCols.end(), pairs[i].second) != deadCols.end() ){
-			cout << "Erase: " << pairs[i].first << " and " << pairs[i].second << '\n';
-			pairs.erase(pairs.begin() + i);
-
-		}else{
-			if(find(deadCols.begin(), deadCols.end(), pairs[i].first) != deadCols.end()){
-				cout << "Erase: " << pairs[i].first << '\n';
-				pairs[i].first = -1;
-			}
-
-			if(find(deadCols.begin(), deadCols.end(), pairs[i].second) != deadCols.end()){
-				cout << "Erase: " << pairs[i].second << '\n';
-				pairs[i].second = -1;
-			}
-		}	
-	}
-
-*/
-	return pairs;
-}
-
-
+// Function: checkForDeadCols
+// Input:
+// Output: void
+// Desciption: Once a player has reached the top of a column and stops, add that column to the vector of dead columns
 void GameState::checkForDeadCols(){
 	for(int i = 0; i < player1.claimedCols.size(); i++){
 		if(find(deadCols.begin(), deadCols.end(), player1.claimedCols[i]) == deadCols.end()){
-			cout << "DEAD COL: " << (player1.claimedCols[i] + 2) << '\n';
 			deadCols.push_back(player1.claimedCols[i] + 2); // + 2 to adjust to game board (1-12)
 		}
 	}

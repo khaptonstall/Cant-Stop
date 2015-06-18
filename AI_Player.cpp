@@ -26,6 +26,7 @@ pair<int, int> AI_Player::select_dice(GameState* game_state, vector<pair<int, in
 			return pair<int, int>(rp.first, -1);
 		}
 	}
+	return pair<int,int>(-1,-1);
 }
 
 int AI_Player::select_decision(GameState* game_state, int selected_decision) {

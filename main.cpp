@@ -148,8 +148,8 @@ int main(int, char**){
 				dice_active = false;
 				stop_active = false;
 				player->state = player->stateReference;
-				cantStop.checkForDeadCols();
 				player->checkForWin();
+				cantStop.checkForDeadCols();
 				if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
 				player->currentCols.clear();
 				if (player == &cantStop.player1) player = &cantStop.player2;
