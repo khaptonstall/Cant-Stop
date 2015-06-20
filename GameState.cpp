@@ -28,20 +28,29 @@ vector<int> GameState::rollDice(bool b) {
 // Desciption: Compare each pair of dice to make sure the pair to make sure the player is not currently at the top of one of 
 //	those columns, and that the pair does not contain a dead column
 bool GameState::validatePair(int a, int b, Player* p) {
+	bool identicalPairIsPlayable = true;
+	if(a == b){
+		if((filledCols[a-2] - p->stateReference[a-2]) < 2){
+			identicalPairIsPlayable = false;
+		}
+	}
 	if (p->currentCols.size() < 2 && (p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
-		(find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end())) {
+		(find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end()) &&
+		identicalPairIsPlayable) {
 		return true;
 	}
 	else if (p->currentCols.size() == 2 && (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() ||
-				find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end()) &&
+				find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end() || a == b) &&
 					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
-					( find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end() )) {
+					( find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end()) &&
+					identicalPairIsPlayable) {
 		return true;
 	}
 	else if (p->currentCols.size() == 3 && (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&
 				find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end()) &&
 					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
-					(find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end())) {
+					(find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end()) &&
+					identicalPairIsPlayable) {
 		return true;
 	}	
 
@@ -75,7 +84,6 @@ void GameState::checkForDeadCols(){
 	for(int i = 0; i < player1.claimedCols.size(); i++){
 		if(find(deadCols.begin(), deadCols.end(), player1.claimedCols[i]) == deadCols.end()){
 			deadCols.push_back(player1.claimedCols[i] + 2); // + 2 to adjust to game board (1-12)
-			cout << "Dead column: " << i << '\n';
 			player2.stateReference[ player1.claimedCols[i]] = 0;
 			player2.state[player1.claimedCols[i]] = 0;
 		}
@@ -84,7 +92,6 @@ void GameState::checkForDeadCols(){
 	for(int j = 0; j < player2.claimedCols.size(); j++){
 		if(find(deadCols.begin(), deadCols.end(), player2.claimedCols[j]) == deadCols.end()){
 			deadCols.push_back(player2.claimedCols[j] + 2); // + 2 to adjust to game board (1-12)
-			cout << "Dead column: " << j << '\n';
 			player1.stateReference[ player2.claimedCols[j]] = 0;
 			player1.state[ player2.claimedCols[j]] = 0;
 			}
