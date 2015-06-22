@@ -27,6 +27,8 @@ int main(int, char**){
     	return 1;
 	}
 
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
+
 	// Create views
 	board_view bv;
 	dice_view dv;
