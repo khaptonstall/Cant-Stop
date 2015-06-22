@@ -38,5 +38,18 @@ pair<int, int> AI_Player::select_dice(GameState* game_state, vector<pair<int, in
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
 int AI_Player::select_decision(GameState* game_state, int selected_decision) {
-	return 2;
+	int counter = 0;
+	for(int i = 0; i < stateReference.size(); i++){
+		if(stateReference[i] == game_state->filledCols[i]){
+			counter++;
+		}
+	}
+
+	if(counter > claimedCols.size() ) {
+		return 2;
+	}
+
+	return 1;
+
+	
 }
