@@ -105,24 +105,22 @@ public:
 		}
 
 		TTF_Font* lucida_console;
-		TTF_Font* lucida_console_bg;
-		lucida_console = TTF_OpenFont("res/lucida-console.ttf", 116);
-		lucida_console_bg = TTF_OpenFont("res/lucida-console.ttf", 100);
-
+		lucida_console = TTF_OpenFont("res/lucida-console.ttf", 100);
 
 		for (int i = 0; i < 11; i++) {
-			SDL_Surface* s_temp_white = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {255,255,255});
-			SDL_Surface* s_temp_black = TTF_RenderText_Solid(lucida_console_bg, to_string(i+2).c_str(), {0,0,0});
+			TTF_SetFontOutline(lucida_console, 8);
+			s_dice_text[i] = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {1,1,1});
+			TTF_SetFontOutline(lucida_console, 0);
+			SDL_Surface* s_temp = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {255,255,255});
 
-			SDL_Rect r_temp_text;
-			r_temp_text.x = ((0 + s_temp_black->w) / 2) - (s_temp_white->w / 2);
-			r_temp_text.y = ((0 + s_temp_black->h) / 2) - (s_temp_white->h / 2);
-			r_temp_text.w = s_temp_white->w;
-			r_temp_text.h = s_temp_white->h;
+			SDL_Rect r_temp;
+			r_temp.x = s_dice_text[i]->w / 2 - s_temp->w / 2;
+			r_temp.y = (s_dice_text[i]->h / 2) - (s_temp->h / 2.25);
+			r_temp.w = s_temp->w;
+			r_temp.h = s_temp->h;
 
-			s_dice_text[i] = s_temp_black;
-			//mSDL_BlitSurface(s_temp_white, NULL, s_dice_text[i], &r_temp_text);
-			SDL_FreeSurface(s_temp_white);
+			SDL_BlitSurface(s_temp, NULL, s_dice_text[i], &r_temp);
+			SDL_FreeSurface(s_temp);
 		}
 
 		s_dice_bg = IMG_Load(dice_bg_path);
