@@ -13,6 +13,8 @@ void dice_probability::sort_dice(string& s) {
 	s = {dv[0], dv[1], dv[2], dv[3], 0};
 }
 
+
+
 int dice_probability::num_matching_pairs(vector<pair<int, int> > v, int a, int b, int c) {
 	int output = 0;
 	for (pair<int, int> p : v) {
@@ -34,6 +36,8 @@ int dice_probability::num_matching_pairs(vector<pair<int, int> > v, int a, int b
 	}
 	return output;
 }
+
+
 
 dice_probability::dice_probability() {
 	// All different
