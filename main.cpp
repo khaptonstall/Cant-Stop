@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include "board_view.h"
 #include "dice_view.h"
 #include "dice_controller.h"
@@ -19,6 +20,11 @@ int main(int, char**){
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
 		cout << "SDL_Init Error: " << SDL_GetError() << endl;
 		return 1;
+	}
+
+	if (TTF_Init() != 0) {
+		cout << "TTF_Init: " << TTF_GetError() << endl;
+    	return 1;
 	}
 
 	// Create views

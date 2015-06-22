@@ -3,7 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <vector>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -16,6 +18,11 @@ private:
 	SDL_Surface** s_dice;
 	SDL_Surface* s_dice_bg;
 	SDL_Surface* s_dice_bad;
+	SDL_Rect blocked_dice[6];
+
+
+	SDL_Surface** s_dice_text;
+	SDL_Color text_color = {255, 255, 255};
 
 	SDL_Rect pair11, pair12, pair13, pair14, pair21, pair22, pair23, pair24, pair31, pair32, pair33, pair34;
 
@@ -54,49 +61,7 @@ private:
 
 		pair11.w = pair12.w = pair13.w = pair14.w = pair21.w = pair22.w = pair23.w = pair24.w = pair31.w = pair32.w = pair33.w = pair34.w = 170;
 		pair11.h = pair12.h = pair13.h = pair14.h = pair21.h = pair22.h = pair23.h = pair24.h = pair31.h = pair32.h = pair33.h = pair34.h = 170;
-	}
 
-public:
-	dice_view() {
-		s_dice = new SDL_Surface*[6];
-		dice_path = vector<string>(6);
-		for (int i = 0; i < 6; i++) {
-			int temp = i + 1;
-			dice_path[i] = "res/dice" + to_string(temp) + ".png";
-			s_dice[i] = IMG_Load(dice_path[i].c_str());
-		}
-
-		s_dice_bg = IMG_Load(dice_bg_path);
-		s_dice_bad = IMG_Load(dice_bad_path);
-		generate_rect();
-	}
-
-	SDL_Surface* get_surface(vector<int> rolls, vector<bool>* bad_dice = nullptr) {
-		SDL_Surface* output;
-		output = SDL_ConvertSurface(s_dice_bg, s_dice_bg->format, s_dice_bg->flags);
-
-		int roll1, roll2, roll3, roll4;
-		roll1 = rolls[0];
-		roll2 = rolls[1];
-		roll3 = rolls[2];
-		roll4 = rolls[3];
-
-		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair11);
-		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair12);
-		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair13);
-		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair14);
-
-		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair21);
-		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair22);
-		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair23);
-		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair24);
-
-		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair31);
-		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair32);
-		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair33);
-		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair34);
-
-		SDL_Rect blocked_dice[6];
 		blocked_dice[0].x = pair11.x;
 		blocked_dice[0].y = pair11.y;
 		blocked_dice[0].w = pair12.x + pair12.w;
@@ -126,11 +91,118 @@ public:
 		blocked_dice[5].y = pair33.y;
 		blocked_dice[5].w = pair34.x + pair34.w;
 		blocked_dice[5].h = pair34.y + pair34.h;
+	}
+
+public:
+	dice_view() {
+		s_dice = new SDL_Surface*[6];
+		s_dice_text	= new SDL_Surface*[11];
+		dice_path = vector<string>(6);
+		for (int i = 0; i < 6; i++) {
+			int temp = i + 1;
+			dice_path[i] = "res/dice" + to_string(temp) + ".png";
+			s_dice[i] = IMG_Load(dice_path[i].c_str());
+		}
+
+		TTF_Font* lucida_console;
+		TTF_Font* lucida_console_bg;
+		lucida_console = TTF_OpenFont("res/lucida-console.ttf", 116);
+		lucida_console_bg = TTF_OpenFont("res/lucida-console.ttf", 100);
+
+
+		for (int i = 0; i < 11; i++) {
+			SDL_Surface* s_temp_white = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {255,255,255});
+			SDL_Surface* s_temp_black = TTF_RenderText_Solid(lucida_console_bg, to_string(i+2).c_str(), {0,0,0});
+
+			SDL_Rect r_temp_text;
+			r_temp_text.x = ((0 + s_temp_black->w) / 2) - (s_temp_white->w / 2);
+			r_temp_text.y = ((0 + s_temp_black->h) / 2) - (s_temp_white->h / 2);
+			r_temp_text.w = s_temp_white->w;
+			r_temp_text.h = s_temp_white->h;
+
+			s_dice_text[i] = s_temp_black;
+			//mSDL_BlitSurface(s_temp_white, NULL, s_dice_text[i], &r_temp_text);
+			SDL_FreeSurface(s_temp_white);
+		}
+
+		s_dice_bg = IMG_Load(dice_bg_path);
+		s_dice_bad = IMG_Load(dice_bad_path);
+		generate_rect();
+
+	}
+
+	SDL_Surface* get_surface(vector<int> rolls, vector<bool>* bad_dice = nullptr) {
+		SDL_Surface* output;
+		output = SDL_ConvertSurface(s_dice_bg, s_dice_bg->format, s_dice_bg->flags);
+
+		int roll1, roll2, roll3, roll4;
+		roll1 = rolls[0];
+		roll2 = rolls[1];
+		roll3 = rolls[2];
+		roll4 = rolls[3];
+
+		SDL_Rect text_dst;
+
+		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair11);
+		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair12);
+
+		if ((*bad_dice)[0] == false) {
+			text_dst.x = ((pair11.x + pair11.w + pair12.x) / 2) - (s_dice_text[roll1 + roll2 - 2]->w / 2);
+			text_dst.y = ((pair11.y + pair12.y + pair12.w) / 2) - (s_dice_text[roll1 + roll2 - 2]->h / 2);
+			SDL_BlitSurface(s_dice_text[roll1 + roll2 - 2], NULL, output, &text_dst);
+		}
+		
+		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair13);
+		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair14);
+
+		if ((*bad_dice)[1] == false) {
+			text_dst.x = ((pair13.x + pair13.w + pair14.x) / 2) - (s_dice_text[roll3 + roll4 - 2]->w / 2);
+			text_dst.y = ((pair13.y + pair14.y + pair14.w) / 2) - (s_dice_text[roll3 + roll4 - 2]->h / 2);
+			SDL_BlitSurface(s_dice_text[roll3 + roll4 - 2], NULL, output, &text_dst);
+		}
+
+		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair21);
+		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair22);
+
+		if ((*bad_dice)[2] == false) {
+			text_dst.x = ((pair21.x + pair21.w + pair22.x) / 2) - (s_dice_text[roll1 + roll3 - 2]->w / 2);
+			text_dst.y = ((pair21.y + pair22.y + pair22.w) / 2) - (s_dice_text[roll1 + roll3 - 2]->h / 2);
+			SDL_BlitSurface(s_dice_text[roll1 + roll3 - 2], NULL, output, &text_dst);
+		}
+
+		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair23);
+		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair24);
+
+		if ((*bad_dice)[3] == false) {
+			text_dst.x = ((pair23.x + pair23.w + pair24.x) / 2) - (s_dice_text[roll2 + roll4 - 2]->w / 2);
+			text_dst.y = ((pair23.y + pair24.y + pair24.w) / 2) - (s_dice_text[roll2 + roll4 - 2]->h / 2);
+			SDL_BlitSurface(s_dice_text[roll2 + roll4 - 2], NULL, output, &text_dst);
+		}
+
+		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair31);
+		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair32);
+
+		if ((*bad_dice)[4] == false) {
+			text_dst.x = ((pair31.x + pair31.w + pair32.x) / 2) - (s_dice_text[roll1 + roll4 - 2]->w / 2);
+			text_dst.y = ((pair31.y + pair32.y + pair32.w) / 2) - (s_dice_text[roll1 + roll4 - 2]->h / 2);
+			SDL_BlitSurface(s_dice_text[roll1 + roll4 - 2], NULL, output, &text_dst);
+		}
+
+		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair33);
+		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair34);
+
+		if ((*bad_dice)[5] == false) {
+			text_dst.x = ((pair33.x + pair33.w + pair34.x) / 2) - (s_dice_text[roll3 + roll2 - 2]->w / 2);
+			text_dst.y = ((pair33.y + pair34.y + pair34.w) / 2) - (s_dice_text[roll3 + roll2 - 2]->h / 2);
+			SDL_BlitSurface(s_dice_text[roll3 + roll2 - 2], NULL, output, &text_dst);
+		}
+
 
 		for (int i = 0; i < bad_dice->size(); i++) {
 			if ((*bad_dice)[i] == true) {
 				SDL_BlitSurface(s_dice_bad, NULL, output, &blocked_dice[i]);
 			}
+
 		}
 
 		return output;
