@@ -8,8 +8,6 @@
 #include "stop_controller.h"
 #include "options_view.h"
 
-#include "dice_probability.h"
-
 #include "GameState.h"
 
 using namespace std;
