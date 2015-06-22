@@ -17,6 +17,40 @@ using namespace std;
 // Output: pair<int,int>
 // Desciption: Currently picks the first valid pair of dice
 pair<int, int> probability_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
+
+	int highestProb = 0;
+	pair<int,int> highestPair = make_pair(0,0);
+
+	for(pair<int,int> rp : rolled_pairs){
+		if(dice_p.get_probability(rp.first, rp.second, 0) > highestProb){
+			if(game_state->validatePair(rp.first, rp.second, p)){
+				highestProb = dice_p.get_probability(rp.first, rp.second, 0);
+				highestPair = rp; 
+			}
+		}
+	}
+
+	if(highestPair.first != 0){
+		return highestPair;
+	}else{
+		for(pair<int,int> rp : rolled_pairs){
+			if(dice_p.get_probability(rp.first, 0, 0) > highestProb){
+				if(game_state->validatePair(rp.first, p)){
+					highestProb = dice_p.get_probability(rp.first, 0, 0);
+					highestPair = make_pair(rp.first, -1);
+				}
+			}
+		}
+	}
+
+	if(highestPair.first != 0){
+		return highestPair;
+	}else{
+		return pair<int,int>(-1,-1);
+	}
+
+
+/*
 	for (pair<int, int> rp : rolled_pairs) {
 		// cout << "AI Evaluating: " << rp.first << ", " << rp.second << endl;
 		if (game_state->validatePair(rp.first, rp.second, p)) {
@@ -32,8 +66,9 @@ pair<int, int> probability_player::select_dice(GameState* game_state, vector<pai
 			return pair<int, int>(rp.first, -1);
 		}
 	}
-	return pair<int,int>(-1,-1); 
+	return pair<int,int>(-1,-1); */
 }
+
 
 // Function: select_decision
 // Input: GameState*, int
@@ -71,7 +106,7 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 
 	cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 
-	if (lhs * 1.2 >= rhs)
+	if (lhs * 1.5 >= rhs)
 		return 1;
 
 	// Otherwise, stop!
