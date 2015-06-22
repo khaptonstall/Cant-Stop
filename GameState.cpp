@@ -9,6 +9,11 @@
 
 using namespace std;
 
+GameState::GameState() {
+	player1.name = "Player 1";
+	player2.name = "Player 2";
+}
+
 // Function: rollDice
 // Input: bool
 // Output: vector<int>

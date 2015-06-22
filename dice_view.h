@@ -11,9 +11,11 @@ class dice_view {
 private:
 	vector<string> dice_path;
 	const char* dice_bg_path = "res/dice_bg.png";
+	const char* dice_bad_path = "res/dice_bad.png";
 
 	SDL_Surface** s_dice;
 	SDL_Surface* s_dice_bg;
+	SDL_Surface* s_dice_bad;
 
 	SDL_Rect pair11, pair12, pair13, pair14, pair21, pair22, pair23, pair24, pair31, pair32, pair33, pair34;
 
@@ -65,10 +67,11 @@ public:
 		}
 
 		s_dice_bg = IMG_Load(dice_bg_path);
+		s_dice_bad = IMG_Load(dice_bad_path);
 		generate_rect();
 	}
 
-	SDL_Surface* get_surface(vector<int> rolls) {
+	SDL_Surface* get_surface(vector<int> rolls, vector<bool>* bad_dice = nullptr) {
 		SDL_Surface* output;
 		output = SDL_ConvertSurface(s_dice_bg, s_dice_bg->format, s_dice_bg->flags);
 
@@ -92,6 +95,43 @@ public:
 		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair32);
 		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair33);
 		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair34);
+
+		SDL_Rect blocked_dice[6];
+		blocked_dice[0].x = pair11.x;
+		blocked_dice[0].y = pair11.y;
+		blocked_dice[0].w = pair12.x + pair12.w;
+		blocked_dice[0].h = pair12.y + pair12.h;
+
+		blocked_dice[1].x = pair13.x;
+		blocked_dice[1].y = pair13.y;
+		blocked_dice[1].w = pair14.x + pair14.w;
+		blocked_dice[1].h = pair14.y + pair14.h;
+
+		blocked_dice[2].x = pair21.x;
+		blocked_dice[2].y = pair21.y;
+		blocked_dice[2].w = pair22.x + pair22.w;
+		blocked_dice[2].h = pair22.y + pair22.h;
+
+		blocked_dice[3].x = pair23.x;
+		blocked_dice[3].y = pair23.y;
+		blocked_dice[3].w = pair24.x + pair24.w;
+		blocked_dice[3].h = pair24.y + pair24.h;
+
+		blocked_dice[4].x = pair31.x;
+		blocked_dice[4].y = pair31.y;
+		blocked_dice[4].w = pair32.x + pair32.w;
+		blocked_dice[4].h = pair32.y + pair32.h;
+
+		blocked_dice[5].x = pair33.x;
+		blocked_dice[5].y = pair33.y;
+		blocked_dice[5].w = pair34.x + pair34.w;
+		blocked_dice[5].h = pair34.y + pair34.h;
+
+		for (int i = 0; i < bad_dice->size(); i++) {
+			if ((*bad_dice)[i] == true) {
+				SDL_BlitSurface(s_dice_bad, NULL, output, &blocked_dice[i]);
+			}
+		}
 
 		return output;
 	}

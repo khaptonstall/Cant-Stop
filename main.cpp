@@ -44,7 +44,7 @@ int main(int, char**){
 		return 1;
 	}
 
-	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 	if (ren == nullptr){
 		SDL_DestroyWindow(win);
 		cout << "SDL_CreateRenderer Error: " << SDL_GetError() << endl;
@@ -105,12 +105,25 @@ int main(int, char**){
 		rolled_pairs[4] = pair<int, int>(dice_options[0] + dice_options[3], dice_options[2] + dice_options[1]);
 		rolled_pairs[5] = pair<int, int>(dice_options[2] + dice_options[1], dice_options[0] + dice_options[3]);
 		bool valid_pairs = false;
-		for (pair<int, int> p : rolled_pairs) {
-			if (cantStop.validatePair(p.first, player)) {
+		vector<bool> bad_dice = vector<bool>(6, false);
+		for (int i = 0; i < 6; i++) {
+			if (cantStop.validatePair(rolled_pairs[i].first, player)) {
 				valid_pairs = true;
-				break;
+			}
+			else {
+				bad_dice[i] = true;
 			}
 		}
+
+		// for (pair<int, int> p : rolled_pairs) {
+		// 	if (cantStop.validatePair(p.first, player)) {
+		// 		valid_pairs = true;
+		// 		break;
+		// 	}
+		// 	else {
+
+		// 	}
+		// }
 
 		// Wait for player to choose a dice pair
 		if (!stop_active && valid_pairs) {
@@ -150,7 +163,7 @@ int main(int, char**){
 				player->state = player->stateReference;
 				player->checkForWin();
 				cantStop.checkForDeadCols();
-				if (player->claimedCols.size() == 3) { cout << "Win!" << endl; break; }
+				if (player->claimedCols.size() == 3) { cout << player->name << " wins!" << endl; break; }
 				player->currentCols.clear();
 				if (player == &cantStop.player1) player = &cantStop.player2;
 				else if (player == &cantStop.player2) player = &cantStop.player1;
@@ -380,7 +393,7 @@ int main(int, char**){
 			board_destination.w /= window_scale;
 			board_destination.h /= window_scale;
 
-			SDL_Surface* dice_surface = dv.get_surface(dice_options);
+			SDL_Surface* dice_surface = dv.get_surface(dice_options, &bad_dice);
 			SDL_Texture* dice_texture = SDL_CreateTextureFromSurface(ren, dice_surface);
 			SDL_Rect dice_destination;
 			dice_destination.x = board_width / window_scale;

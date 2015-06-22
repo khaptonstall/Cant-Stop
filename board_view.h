@@ -56,6 +56,11 @@ public:
 				dst.x = 105 + (i * s_red_token->w) + 32 * i;
 				dst.y = s_board->h - 30 - (r[i] * s_red_token->h + 32 * r[i]);
 
+				if (r[i] == b[i]) {
+					dst.x += 20;
+					dst.y -= 20;
+				}
+
 				SDL_BlitSurface(s_red_token, NULL, output, &dst);
 			}
 		}
@@ -67,6 +72,15 @@ public:
 				dst.h = s_green_token->h;
 				dst.x = 105 + (i * s_green_token->w) + 32 * i;
 				dst.y = s_board->h - 30 - (g[i] * s_green_token->h + 32 * g[i]);
+
+				// if (g[i] == r[i] || g[i] == b[i]) {
+				// 	if (r[i] == b[i]) {
+				// 		dst.x += 20;
+				// 		dst.y -= 20;
+				// 	}
+				// 	dst.x += 10;
+				// 	dst.y -= 10;
+				// }
 
 				SDL_BlitSurface(s_green_token, NULL, output, &dst);
 			}
@@ -91,6 +105,11 @@ public:
 				dst.h = s_temp_token->h;
 				dst.x = 105 + (i * s_temp_token->w) + 32 * i;
 				dst.y = s_board->h - 30 - (t[i] * s_temp_token->h + 32 * t[i]);
+
+				if (t[i] == b[i] || t[i] == r[i]) {
+					dst.x += 20;
+					dst.y -= 20;
+				}
 
 				SDL_BlitSurface(s_temp_token, NULL, output, &dst);
 			}

@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.12021189"
-     inkscape:cx="3073.1641"
-     inkscape:cy="1476.3907"
+     inkscape:zoom="0.96169512"
+     inkscape:cx="3205.8626"
+     inkscape:cy="3962.7583"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1721,6 +1721,42 @@
            x="4917.2227"
            id="tspan4385"
            sodipodi:role="line">Can't</tspan></text>
+    </g>
+    <g
+       id="g3905-89"
+       transform="translate(-630,-1869.9998)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bad.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="fill:#ffd5d5;fill-opacity:0.39215687">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
+         y="-1157.6379"
+         x="3630"
+         height="160"
+         width="160"
+         id="rect4722-6-0-6-7-8-4-4-6-2-3"
+         style="fill:#ffd5d5;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0.39215687" />
+    </g>
+    <g
+       id="g3928-1"
+       transform="translate(-740,-1880)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bad.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="fill:#ffd5d5;fill-opacity:0.39215687">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
+         y="-1147.6379"
+         x="3980"
+         height="160"
+         width="160"
+         id="rect4722-6-0-6-7-8-4-4-6-3-7"
+         style="fill:#ffd5d5;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0.39215687" />
     </g>
   </g>
 </svg>

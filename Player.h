@@ -13,6 +13,7 @@ public:
 	vector<int> stateReference = state;
 	vector<int> currentCols; //Player's current columns. MAX=3
 	vector<int> claimedCols; //Columns the player has maxxed out
+	string name = "";
 
 
 	// ************ Methods *************

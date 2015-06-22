@@ -15,6 +15,7 @@ public:
 	vector<int> filledCols = {3,5,7,9,11,13,11,9,7,5,3}; // Vector to compare when a player is at the top of the column
 
 	// ********** Methods ************
+	GameState();
 	vector< pair<int,int> > rollDice();
 	void checkForDeadCols();
 	vector<int> rollDice(bool b);
