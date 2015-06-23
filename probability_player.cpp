@@ -94,6 +94,7 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 	// If outlook is positive, continue
 	int progress = 0;
 	for (int i = 0; i < 11; i++) {
+		//progress += state[i];
 		progress += stateReference[i] - state[i];
 	}
 
@@ -104,11 +105,12 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 	double lhs = successful_probability * (progress + expected_progress);
 	double rhs = progress;
 
+	//cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 	cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 
 	if (lhs >= rhs)
 		return 1;
 
 	// Otherwise, stop!
-	return 2;
+	return 1;
 }
