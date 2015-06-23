@@ -8,6 +8,7 @@ using namespace std;
 
 class dice_probability {
 private:
+	map<string, vector<pair<int, int> > > all_dice;
 	map<string, vector<pair<int, int> > > unique_dice;
 	map<string, vector<pair<int, int> > > four_of_a_kind;
 	map<string, vector<pair<int, int> > > three_of_a_kind;

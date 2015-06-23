@@ -106,7 +106,7 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 
 	cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 
-	if (lhs * 1.5 >= rhs)
+	if (lhs >= rhs)
 		return 1;
 
 	// Otherwise, stop!

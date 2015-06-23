@@ -30,7 +30,22 @@ int dice_probability::num_matching_pairs(vector<pair<int, int> > v, int a, int b
 		}
 		else if (p.first == c) {
 			output = 1;
-			if (p.second == a || p.second == c)
+			if (p.second == a || p.second == b)
+				return 2;
+		}
+		else if (p.second == a) {
+			output = 1;
+			if (p.first == b || p.first == c)
+				return 2;
+		}
+		else if (p.second == b) {
+			output = 1;
+			if (p.first == a || p.first == c)
+				return 2;
+		}
+		else if (p.second == c) {
+			output = 1;
+			if (p.first == a || p.first == b)
 				return 2;
 		}
 	}
@@ -120,6 +135,24 @@ dice_probability::dice_probability() {
 
 		four_of_a_kind[key].push_back(make_pair(i+i, i+i));
 	}
+
+	// All dice
+	for (int i = 1; i <= 6; i++) {
+		for (int j = 1; j <= 6; j++) {
+			for (int k = 1; k <= 6; k++) {
+				for (int l = 1; l <= 6; l++) {
+					string key = to_string(i) + to_string(j) + to_string(k) + to_string(l);
+					//sort_dice(key);
+
+					all_dice[key].push_back(make_pair(i+j, k+l));
+					all_dice[key].push_back(make_pair(i+k, j+l));
+					all_dice[key].push_back(make_pair(i+l, j+k));
+				}
+			}
+		}
+	}
+
+	cout << "Num dice rolls: " << all_dice.size() << endl;
 }
 
 double dice_probability::get_probability(int a, int b, int c) {

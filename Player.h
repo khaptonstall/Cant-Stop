@@ -14,6 +14,7 @@ public:
 	vector<int> currentCols; //Player's current columns. MAX=3
 	vector<int> claimedCols; //Columns the player has maxxed out
 	string name = "";
+	vector<int> filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 
 	// ************ Methods *************

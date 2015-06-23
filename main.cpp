@@ -17,6 +17,9 @@ int main(int, char**){
 	//Seed random number 
 	srand(time(NULL));
 
+	dice_probability test;
+	cout << test.get_probability(0,0,7) << endl;
+
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
 		cout << "SDL_Init Error: " << SDL_GetError() << endl;
 		return 1;
