@@ -151,8 +151,6 @@ dice_probability::dice_probability() {
 			}
 		}
 	}
-
-	cout << "Num dice rolls: " << all_dice.size() << endl;
 }
 
 double dice_probability::get_probability(int a, int b, int c) {

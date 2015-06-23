@@ -17,9 +17,6 @@ int main(int, char**){
 	//Seed random number 
 	srand(time(NULL));
 
-	dice_probability test;
-	cout << test.get_probability(0,0,7) << endl;
-
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
 		cout << "SDL_Init Error: " << SDL_GetError() << endl;
 		return 1;
@@ -174,7 +171,12 @@ int main(int, char**){
 				player->state = player->stateReference;
 				player->checkForWin();
 				cantStop.checkForDeadCols();
-				if (player->claimedCols.size() == 3) { cout << player->name << " wins!" << endl; break; }
+				if (player->claimedCols.size() >= 3) {
+					cout << player->name << " wins!" << endl;
+					cout << endl;
+					SDL_Delay(5000);
+					break;
+				}
 				player->currentCols.clear();
 				if (player == &cantStop.player1) player = &cantStop.player2;
 				else if (player == &cantStop.player2) player = &cantStop.player1;

@@ -86,19 +86,19 @@ bool GameState::validatePair(int a, Player* p) {
 // Desciption: Once a player has reached the top of a column and stops, add that column to the vector of dead columns.
 //	Also clears a column once one player has claimed it.
 void GameState::checkForDeadCols(){
-	for(int i = 0; i < player1.claimedCols.size(); i++){
-		if(find(deadCols.begin(), deadCols.end(), player1.claimedCols[i]) == deadCols.end()){
-			deadCols.push_back(player1.claimedCols[i] + 2); // + 2 to adjust to game board (1-12)
-			player2.stateReference[ player1.claimedCols[i]] = 0;
-			player2.state[player1.claimedCols[i]] = 0;
+	for(int i : player1.claimedCols) {
+		if(find(deadCols.begin(), deadCols.end(), i) == deadCols.end()){
+			deadCols.push_back(i + 2); // + 2 to adjust to game board (1-12)
+			player2.stateReference[i] = 0;
+			player2.state[i] = 0;
 		}
 	}
 
-	for(int j = 0; j < player2.claimedCols.size(); j++){
-		if(find(deadCols.begin(), deadCols.end(), player2.claimedCols[j]) == deadCols.end()){
-			deadCols.push_back(player2.claimedCols[j] + 2); // + 2 to adjust to game board (1-12)
-			player1.stateReference[ player2.claimedCols[j]] = 0;
-			player1.state[ player2.claimedCols[j]] = 0;
+	for(int j : player2.claimedCols){
+		if(find(deadCols.begin(), deadCols.end(), j) == deadCols.end()){
+			deadCols.push_back(j + 2); // + 2 to adjust to game board (1-12)
+			player1.stateReference[j] = 0;
+			player1.state[j] = 0;
 			}
 		}
 
