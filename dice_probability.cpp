@@ -189,36 +189,36 @@ double dice_probability::get_expected_progress(int a, int b, int c) {
 	int successful_dice_rolls = 0;
 	for (const auto& kv : four_of_a_kind) {
 		if (num_matching_pairs(kv.second, a, b, c) > 0) {
-			output += num_matching_pairs(kv.second, a, b, c);
-			successful_dice_rolls++;
+			output += num_matching_pairs(kv.second, a, b, c) * NUM_FOUR_OF_A_KIND;
+			successful_dice_rolls += NUM_FOUR_OF_A_KIND;
 		}
 	}
 
 	for (const auto& kv : three_of_a_kind) {
 		if (num_matching_pairs(kv.second, a, b, c) > 0) {
-			output += num_matching_pairs(kv.second, a, b, c);
-			successful_dice_rolls++;
+			output += num_matching_pairs(kv.second, a, b, c) * NUM_THREE_OF_A_KIND;
+			successful_dice_rolls += NUM_THREE_OF_A_KIND;
 		}
 	}
 
 	for (const auto& kv : two_pairs) {
 		if (num_matching_pairs(kv.second, a, b, c) > 0) {
-			output += num_matching_pairs(kv.second, a, b, c);
-			successful_dice_rolls++;
+			output += num_matching_pairs(kv.second, a, b, c) * NUM_TWO_PAIRS;
+			successful_dice_rolls += NUM_TWO_PAIRS;
 		}
 	}
 
 	for (const auto& kv : one_pair) {
 		if (num_matching_pairs(kv.second, a, b, c) > 0) {
-			output += num_matching_pairs(kv.second, a, b, c);
-			successful_dice_rolls++;
+			output += num_matching_pairs(kv.second, a, b, c) * NUM_ONE_PAIR;
+			successful_dice_rolls += NUM_ONE_PAIR;
 		}
 	}
 
 	for (const auto& kv : all_different) {
 		if (num_matching_pairs(kv.second, a, b, c) > 0) {
-			output += num_matching_pairs(kv.second, a, b, c);
-			successful_dice_rolls++;
+			output += num_matching_pairs(kv.second, a, b, c) * NUM_ALL_DIFFERENT;
+			successful_dice_rolls += NUM_ALL_DIFFERENT;
 		}
 	}
 

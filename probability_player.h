@@ -11,7 +11,6 @@ using namespace std;
 class probability_player : public Player {
 private:
 	dice_probability dice_p;
-
 public:
 	pair<int, int> select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0);
 	int select_decision(GameState* game_state, int selected_decision = 0);
