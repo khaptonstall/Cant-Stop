@@ -24,9 +24,10 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 	pair<int,int> highestPair = make_pair(0,0);
 
 	for(pair<int,int> rp : rolled_pairs){
-		if(dice_p.get_probability(rp.first, rp.second, 0) > highestProb){
+		double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2] + stateReference[rp.second - 2] / filledCols[rp.second - 2];
+		if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
 			if(game_state->validatePair(rp.first, rp.second, p)){
-				highestProb = dice_p.get_probability(rp.first, rp.second, 0);
+				highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
 				highestPair = rp; 
 			}
 		}
@@ -36,9 +37,10 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 		return highestPair;
 	}else{
 		for(pair<int,int> rp : rolled_pairs){
-			if(dice_p.get_probability(rp.first, 0, 0) > highestProb){
+			double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2];
+			if((columnValue + dice_p.get_probability(rp.first, 0, 0)) > highestProb){
 				if(game_state->validatePair(rp.first, p)){
-					highestProb = dice_p.get_probability(rp.first, 0, 0);
+					highestProb = dice_p.get_probability(rp.first, 0, 0 + columnValue);
 					highestPair = make_pair(rp.first, -1);
 				}
 			}
