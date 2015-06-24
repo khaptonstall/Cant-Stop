@@ -81,8 +81,8 @@ public:
 				dst.y -= board_spacing[i] * (r[i] - 1);
 
 				if (r[i] == b[i]) {
-					dst.x -= 3;
-					dst.y -= 3;
+					dst.x -= 4;
+					dst.y -= 4;
 				}
 
 				SDL_BlitSurface(s_red_token, NULL, output, &dst);

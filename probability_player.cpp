@@ -113,15 +113,15 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 		tokens.push_back(0);
 	}
 
-	// Less than three tokens, continue
-	if (tokens.size() < 3 && game_state->deadCols.size() == 0)
-		return 1;
-
 	// Stop if you just got to the top
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end())
 			return 2;
 	}
+
+	// Less than three tokens, continue
+	if (tokens.size() < 3 && game_state->deadCols.size() == 0)
+		return 1;
 
 	// If outlook is positive, continue
 	int progress = 0;
