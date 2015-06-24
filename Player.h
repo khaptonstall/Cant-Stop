@@ -28,6 +28,7 @@ public:
 	virtual pair<int, int> select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0) { return pair<int, int>(-1, -1); };
 	virtual int select_decision(GameState* game_state, int selected_decision = 0) { return 0; };
 
+	void startOver();
 	//virtual pair<int, int> select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0) { return pair<int, int>(-1, -1); };
 	//virtual int select_decision(GameState* game_state, int selected_decision = 0, vector<pair<int, int> > rolled_pairs, Player* p) { return 0; };
 };

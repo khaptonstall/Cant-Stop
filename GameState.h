@@ -23,6 +23,7 @@ public:
 	bool validateDice(vector<int> d, Player* p);
 	bool validatePair(int a, int b, Player* p);
 	bool validatePair(int a, Player* p);
+	void startOver();
 };
 
 #endif /* _GAME_STATE_H_ */

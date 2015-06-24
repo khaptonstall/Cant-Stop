@@ -105,7 +105,7 @@ public:
 
 	}
 
-	SDL_Surface* get_surface(vector<int> rolls, int mouse_x, int mouse_y, vector<bool>* bad_dice = nullptr) {
+	SDL_Surface* get_surface(vector<int> rolls, int mouse_x, int mouse_y, vector<bool>* bad_dice = nullptr, GameState* gs = nullptr, Player* pl = nullptr) {
 		SDL_Surface* output;
 		output = SDL_ConvertSurface(s_dice_bg, s_dice_bg->format, s_dice_bg->flags);
 
@@ -124,7 +124,7 @@ public:
 
 		SDL_Rect text_dst;
 
-		if (!(*bad_dice)[0] && !(*bad_dice)[1]) {
+		if (gs->validatePair(roll1 + roll2, roll3 + roll4, pl)) {
 			SDL_BlitSurface(s_dice_good_wide, NULL, output, &r_dice_frame_wide[0]);
 			text_dst.x = ((pair11.x + pair11.w + pair12.x) / 2) - (s_dice_text[roll1 + roll2 - 2]->w / 2);
 			text_dst.y = ((pair11.y + pair12.y + pair12.w) / 2) - (s_dice_text[roll1 + roll2 - 2]->h / 2);
@@ -132,10 +132,10 @@ public:
 			text_dst.h = s_dice_text[roll1 + roll2 - 2]->h;
 			SDL_BlitSurface(s_dice_text[roll1 + roll2 - 2], NULL, output, &text_dst);
 		}
-		else if (!(*bad_dice)[0]) {
+		if (!(*bad_dice)[0] && !gs->validatePair(roll1 + roll2, roll3 + roll4, pl)) {
 			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[0]);
 		}
-		else if (!(*bad_dice)[1]) {
+		if (!(*bad_dice)[1] && !gs->validatePair(roll1 + roll2, roll3 + roll4, pl)) {
 			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[1]);
 		}
 
@@ -178,20 +178,20 @@ public:
 			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[0]);
 		else if ((*bad_dice)[1])
 			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[1]);
-		if (!(*bad_dice)[0] && !(*bad_dice)[1] && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[0], NULL))
+		if (gs->validatePair(roll1 + roll2, roll3 + roll4, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[0], NULL))
 			SDL_BlitSurface(s_dice_highlight_wide, NULL, output, &r_dice_frame_wide[0]);
-		else if (!(*bad_dice)[0] && SDL_EnclosePoints(&p, 1, &r_dice_frame[0], NULL))
+		if (!(*bad_dice)[0] && !gs->validatePair(roll1 + roll2, roll3 + roll4, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame[0], NULL))
 			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[0]);
-		else if (!(*bad_dice)[1] && SDL_EnclosePoints(&p, 1, &r_dice_frame[1], NULL))
+		else if (!(*bad_dice)[1] && !gs->validatePair(roll1 + roll2, roll3 + roll4, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame[1], NULL))
 			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[1]);
 
 		// ===
 
-		if (!(*bad_dice)[2] && !(*bad_dice)[3])
+		if (gs->validatePair(roll1 + roll3, roll2 + roll4, pl))
 			SDL_BlitSurface(s_dice_good_wide, NULL, output, &r_dice_frame_wide[1]);
-		else if (!(*bad_dice)[2])
+		if (!(*bad_dice)[2] && !gs->validatePair(roll1 + roll3, roll2 + roll4, pl))
 			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[2]);
-		else if (!(*bad_dice)[3])
+		if (!(*bad_dice)[3] && !gs->validatePair(roll1 + roll3, roll2 + roll4, pl))
 			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[3]);
 
 		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair21);
@@ -233,20 +233,20 @@ public:
 			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[2]);
 		else if ((*bad_dice)[3])
 			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[3]);
-		if (!(*bad_dice)[2] && !(*bad_dice)[3] && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[1], NULL))
+		if (gs->validatePair(roll1 + roll3, roll2 + roll4, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[1], NULL))
 			SDL_BlitSurface(s_dice_highlight_wide, NULL, output, &r_dice_frame_wide[1]);
-		else if (!(*bad_dice)[2] && SDL_EnclosePoints(&p, 1, &r_dice_frame[2], NULL))
+		if (!(*bad_dice)[2] && !gs->validatePair(roll1 + roll3, roll2 + roll4, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame[2], NULL))
 			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[2]);
-		else if (!(*bad_dice)[3] && SDL_EnclosePoints(&p, 1, &r_dice_frame[3], NULL))
+		else if (!(*bad_dice)[3] && !gs->validatePair(roll1 + roll3, roll2 + roll4, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame[3], NULL))
 			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[3]);
 
 		// ====
 
-		if (!(*bad_dice)[4] && !(*bad_dice)[5])
+		if (gs->validatePair(roll1 + roll4, roll3 + roll2, pl))
 			SDL_BlitSurface(s_dice_good_wide, NULL, output, &r_dice_frame_wide[2]);
-		else if (!(*bad_dice)[4])
+		if (!(*bad_dice)[4] && !gs->validatePair(roll1 + roll4, roll3 + roll2, pl))
 			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[4]);
-		else if (!(*bad_dice)[5])
+		if (!(*bad_dice)[5] && !gs->validatePair(roll1 + roll4, roll3 + roll2, pl))
 			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[5]);
 
 		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair31);
@@ -288,11 +288,11 @@ public:
 			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[4]);
 		else if ((*bad_dice)[5])
 			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[5]);
-		if (!(*bad_dice)[4] && !(*bad_dice)[5] && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[2], NULL))
+		if (gs->validatePair(roll1 + roll4, roll3 + roll2, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[2], NULL))
 			SDL_BlitSurface(s_dice_highlight_wide, NULL, output, &r_dice_frame_wide[2]);
-		else if (!(*bad_dice)[4] && SDL_EnclosePoints(&p, 1, &r_dice_frame[4], NULL))
+		if (!(*bad_dice)[4] && !gs->validatePair(roll1 + roll4, roll3 + roll2, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame[4], NULL))
 			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[4]);
-		else if (!(*bad_dice)[5] && SDL_EnclosePoints(&p, 1, &r_dice_frame[5], NULL))
+		else if (!(*bad_dice)[5] && !gs->validatePair(roll1 + roll4, roll3 + roll2, pl) && SDL_EnclosePoints(&p, 1, &r_dice_frame[5], NULL))
 			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[5]);
 
 		return output;

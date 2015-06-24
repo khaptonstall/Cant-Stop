@@ -133,3 +133,11 @@ vector< pair<int,int> > Player::filterDice(vector< pair<int,int> > pairs){
 	}
 	return combinations;
 }
+
+void Player::startOver() {
+	state.clear();
+	state = vector<int>(11, 0);
+	stateReference = state;
+	currentCols.clear();
+	claimedCols.clear();
+}

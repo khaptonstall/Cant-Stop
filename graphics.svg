@@ -166,14 +166,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.3600423"
-     inkscape:cx="194.25854"
-     inkscape:cy="214.11794"
+     inkscape:zoom="1.9233903"
+     inkscape:cx="550.69891"
+     inkscape:cy="322.77232"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:snap-bbox="true"
-     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-bbox-midpoints="true"
      inkscape:window-width="1440"
      inkscape:window-height="777"
      inkscape:window-x="0"
@@ -183,7 +183,7 @@
      inkscape:snap-nodes="true"
      inkscape:snap-others="true"
      inkscape:snap-bbox-edge-midpoints="false"
-     inkscape:bbox-nodes="true"
+     inkscape:bbox-nodes="false"
      inkscape:object-nodes="false"
      inkscape:snap-smooth-nodes="false">
     <inkscape:grid
@@ -2750,5 +2750,31 @@
          id="path7521-3-5-3-8-4"
          style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
     </g>
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+       y="667.87811"
+       x="495.51593"
+       height="58.968124"
+       width="193.96814"
+       id="rect4360-6"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.03187346;stroke-miterlimit:4;stroke-dasharray:none" />
+    <text
+       transform="scale(0.99815053,1.0018529)"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+       sodipodi:linespacing="125%"
+       id="text4377-9"
+       y="704.82483"
+       x="590.52966"
+       style="font-style:normal;font-weight:normal;font-size:8.0146904px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:24.04406929px"
+         y="704.82483"
+         x="590.52966"
+         id="tspan4379-0"
+         sodipodi:role="line">New Game</tspan></text>
   </g>
 </svg>

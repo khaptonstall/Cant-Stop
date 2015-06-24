@@ -75,12 +75,17 @@ public:
 		dv.set_scaling_offset(offset_x, offset_y, scale);
 	}
 
-	int input(int x, int y, vector<bool> bad_dice) {
+	int input(int x, int y, vector<bool> bad_dice, vector<int> rolls, GameState* gs = nullptr, Player* pl = nullptr) {
 		SDL_Point p = {x, y};
 
-		if (!bad_dice[0] && !bad_dice[1] && SDL_EnclosePoints(&p, 1, &dice_quad1, NULL)) return 1;
-		else if (!bad_dice[2] && !bad_dice[3] && SDL_EnclosePoints(&p, 1, &dice_quad2, NULL)) return 3;
-		else if (!bad_dice[4] && !bad_dice[5] && SDL_EnclosePoints(&p, 1, &dice_quad3, NULL)) return 5;
+		int roll1 = rolls[0];
+		int roll2 = rolls[1];
+		int roll3 = rolls[2];
+		int roll4 = rolls[3];
+
+		if (gs->validatePair(roll1 + roll2, roll3 + roll4, pl) && SDL_EnclosePoints(&p, 1, &dice_quad1, NULL)) return 1;
+		else if (gs->validatePair(roll1 + roll3, roll2 + roll4, pl) && SDL_EnclosePoints(&p, 1, &dice_quad2, NULL)) return 3;
+		else if (gs->validatePair(roll1 + roll4, roll3 + roll2, pl) && SDL_EnclosePoints(&p, 1, &dice_quad3, NULL)) return 5;
 
 
 		if (SDL_EnclosePoints(&p, 1, &dice_pair1, NULL)) return 1;

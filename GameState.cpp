@@ -33,6 +33,7 @@ vector<int> GameState::rollDice(bool b) {
 // Desciption: Compare each pair of dice to make sure the pair to make sure the player is not currently at the top of one of 
 //	those columns, and that the pair does not contain a dead column
 bool GameState::validatePair(int a, int b, Player* p) {
+
 	bool identicalPairIsPlayable = true;
 	if(a == b){
 		if((filledCols[a-2] - p->stateReference[a-2]) < 2){
@@ -49,6 +50,11 @@ bool GameState::validatePair(int a, int b, Player* p) {
 					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
 					( find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end()) &&
 					identicalPairIsPlayable) {
+		if (a != b && !((find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), b) == p->currentCols.end()) ||
+							(find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), a) == p->currentCols.end()))) {
+
+			return false;
+		}
 		return true;
 	}
 	else if (p->currentCols.size() == 3 && (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&
@@ -99,7 +105,12 @@ void GameState::checkForDeadCols(){
 			deadCols.push_back(j + 2); // + 2 to adjust to game board (1-12)
 			player1.stateReference[j] = 0;
 			player1.state[j] = 0;
-			}
 		}
-
 	}
+}
+
+void GameState::startOver() {
+	deadCols.clear();
+	player1.startOver();
+	player2.startOver();
+}

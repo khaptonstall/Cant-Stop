@@ -43,7 +43,7 @@ private:
 		board_spacing[4]  =  91   -  50;
 		board_spacing[5]  =  55   -  15;
 		board_spacing[6]  =  91   -  50;
-		board_spacing[7]  = 127   -  85;
+		board_spacing[7]  = 127.5 -  85;
 		board_spacing[8]  = 165   - 120;
 		board_spacing[9]  = 205   - 155;
 		board_spacing[10] = 255   - 190;

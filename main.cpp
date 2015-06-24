@@ -1,15 +1,18 @@
 #include <iostream>
+#include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+
+#include "GameState.h"
+
 #include "board_view.h"
 #include "dice_view.h"
 #include "dice_controller.h"
 #include "stop_view.h"
 #include "stop_controller.h"
 #include "options_view.h"
-
-#include "GameState.h"
+#include "options_controller.h"
 
 using namespace std;
 
@@ -44,6 +47,7 @@ int main(int, char**){
 	// Create controllers
 	dice_controller dc(dv, board_width, 0, window_scale);
 	stop_controller sc(sv, board_width, 0, window_scale);
+	options_controller oc(ov, board_width, dice_height, window_scale);
 
 	SDL_Window *win = SDL_CreateWindow("Can't Stop", 100, 100, (board_width + dice_width) / window_scale, board_height / window_scale, SDL_WINDOW_SHOWN);
 	if (win == nullptr){
@@ -73,11 +77,14 @@ int main(int, char**){
 	int stop_continue = 0;
 	SDL_Event e;
 	vector<int> dice_options;
+	int game_over = false;
+
 
 	while (!quit) {
 		SDL_Point mouse_pos;
 		SDL_GetMouseState(&mouse_pos.x, &mouse_pos.y);
 		bool check_dice_input = false;
+		int option_selected = 0;
 		// Event handler
 		while (SDL_PollEvent(&e) != 0) {
 			if (e.type == SDL_QUIT) {
@@ -90,11 +97,21 @@ int main(int, char**){
 				else {
 					stop_continue = sc.input(mouse_pos.x, mouse_pos.y);
 				}
+				option_selected = oc.input(mouse_pos.x, mouse_pos.y);
 			}
 			else if (e.type == SDL_MOUSEBUTTONUP && e.button.button == SDL_BUTTON_LEFT) {
 				stop_continue = 0;
 				dice_pair = 0;
 			}
+		}
+
+		// Start a new game
+		if (option_selected == 1) {
+			cantStop.startOver();
+			dice_active = false;
+			stop_active = false;
+			player = &cantStop.player1;
+			game_over = false;
 		}
 
 		// Logic
@@ -124,10 +141,10 @@ int main(int, char**){
 		}
 
 		if (check_dice_input)
-			dice_pair = dc.input(mouse_pos.x, mouse_pos.y, bad_dice);
+			dice_pair = dc.input(mouse_pos.x, mouse_pos.y, bad_dice, dice_options, &cantStop, player);
 
 		// Wait for player to choose a dice pair
-		if (!stop_active && valid_pairs) {
+		if (!stop_active && valid_pairs && !game_over) {
 			pair<int, int> result = player->select_dice(&cantStop, rolled_pairs, player, dice_pair);
 			if (result != pair<int, int>(-1, -1)) {
 				player->chooseDice(result);
@@ -135,7 +152,7 @@ int main(int, char**){
 			}
 		}
 		// Dice has been selected, now choose stop / continue
-		else if (stop_active) {
+		else if (stop_active && !game_over) {
 			int result = player->select_decision(&cantStop, stop_continue);
 			if (result == 1) {
 				dice_active = false;
@@ -149,9 +166,7 @@ int main(int, char**){
 				cantStop.checkForDeadCols();
 				if (player->claimedCols.size() >= 3) {
 					cout << player->name << " wins!" << endl;
-					cout << endl;
-					SDL_Delay(5000);
-					break;
+					game_over = true;
 				}
 				player->currentCols.clear();
 				if (player == &cantStop.player1) player = &cantStop.player2;
@@ -159,7 +174,7 @@ int main(int, char**){
 			}
 		}
 		// No dice choice is valid, revert
-		else {
+		else if (!game_over) {
 			dice_active = false;
 			player->stateReference = player->state;
 			player->currentCols.clear();
@@ -167,6 +182,7 @@ int main(int, char**){
 			else if (player == &cantStop.player2) player = &cantStop.player1;
 		}
 
+		// Determine temporary tokens to display
 		vector<int> temp_tokens = vector<int>(11, 0);
 		for (vector<int>::iterator it = player->currentCols.begin(); it != player->currentCols.end(); ++it) {
 			int temp = *it;
@@ -187,7 +203,7 @@ int main(int, char**){
 			board_destination.w /= window_scale;
 			board_destination.h /= window_scale;
 
-			SDL_Surface* dice_surface = dv.get_surface(dice_options, mouse_pos.x, mouse_pos.y, &bad_dice);
+			SDL_Surface* dice_surface = dv.get_surface(dice_options, mouse_pos.x, mouse_pos.y, &bad_dice, &cantStop, player);
 			SDL_Texture* dice_texture = SDL_CreateTextureFromSurface(ren, dice_surface);
 			SDL_Rect dice_destination;
 			dice_destination.x = board_width / window_scale;
@@ -205,7 +221,7 @@ int main(int, char**){
 			stop_destination.w /= window_scale;
 			stop_destination.h /= window_scale;
 
-			SDL_Surface* options_surface = ov.get_surface();
+			SDL_Surface* options_surface = ov.get_surface(mouse_pos.x, mouse_pos.y);
 			SDL_Texture* options_texture = SDL_CreateTextureFromSurface(ren, options_surface);
 			SDL_Rect options_destination;
 			options_destination.x = board_width / window_scale;
