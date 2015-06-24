@@ -80,7 +80,7 @@ int main(int, char**){
 	int game_over = false;
 
 	// Statistics tracker
-	const int MAX_GAMES = 1;
+	const int MAX_GAMES = 100;
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
@@ -178,7 +178,7 @@ int main(int, char**){
 					else {
 						player2_wins++;
 					}
-					
+
 					if (current_game < MAX_GAMES) {
 						cantStop.startOver();
 						dice_active = false;
