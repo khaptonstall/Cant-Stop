@@ -11,111 +11,89 @@ using namespace std;
 
 class dice_view {
 private:
-	vector<string> dice_path;
-	const char* dice_bg_path = "res/dice_bg.png";
-	const char* dice_bad_path = "res/dice_bad.png";
+	vector<string> p_dice;
+	const char* p_dice_bg 				= "res/dice_bg.png";
+	const char* p_dice_good 			= "res/dice_good.png";
+	const char* p_dice_bad 				= "res/dice_bad.png";
+	const char* p_dice_highlight 		= "res/dice_highlight.png";
+	const char* p_dice_good_wide 		= "res/dice_good_wide.png";
+	const char* p_dice_bad_wide 		= "res/dice_bad_wide.png";
+	const char* p_dice_highlight_wide 	= "res/dice_highlight_wide.png";
 
-	SDL_Surface** s_dice;
+	SDL_Surface* s_dice[6];
 	SDL_Surface* s_dice_bg;
+	SDL_Surface* s_dice_good;
 	SDL_Surface* s_dice_bad;
-	SDL_Rect blocked_dice[6];
+	SDL_Surface* s_dice_highlight;
+	SDL_Surface* s_dice_good_wide;
+	SDL_Surface* s_dice_bad_wide;
+	SDL_Surface* s_dice_highlight_wide;
 
+	SDL_Rect r_dice_frame[6];
+	SDL_Rect r_dice_frame_wide[3];
 
-	SDL_Surface** s_dice_text;
-	SDL_Color text_color = {255, 255, 255};
+	SDL_Surface* s_dice_text[11];
+	SDL_Color color_white = {255, 255, 255};
+	SDL_Color color_black = {0, 0, 0};
 
 	SDL_Rect pair11, pair12, pair13, pair14, pair21, pair22, pair23, pair24, pair31, pair32, pair33, pair34;
 
+	int offset_x, offset_y, scale;
+
 	void generate_rect() {
-		int height = 800;
+		r_dice_frame[0] = {  10, 110, 90, 45 };
+		r_dice_frame[1] = { 125, 110, 90, 45 };
+		r_dice_frame[2] = {  10,  60, 90, 45 };
+		r_dice_frame[3] = { 125,  60, 90, 45 };
+		r_dice_frame[4] = {  10,  10, 90, 45 };
+		r_dice_frame[5] = { 125,  10, 90, 45 };
 
-		pair11.x = 72;
-		pair11.y = 72;
-		pair12.x = 310;
-		pair12.y = 72;
+		r_dice_frame_wide[0] = { 10, 110, 205, 45 };
+		r_dice_frame_wide[1] = { 10,  60, 205, 45 };
+		r_dice_frame_wide[2] = { 10,  10, 205, 45 };
 
-		pair13.x = 632;
-		pair13.y = 72;
-		pair14.x = 873;
-		pair14.y = 72;
-
-		pair21.x = 72;
-		pair21.y = 312;
-		pair22.x = 312;
-		pair22.y = 312;
-
-		pair23.x = 632;
-		pair23.y = 312;
-		pair24.x = 873;
-		pair24.y = 312;
-
-		pair31.x = 72;
-		pair31.y = 555;
-		pair32.x = 312;
-		pair32.y = 555;
-
-		pair33.x = 632;
-		pair33.y = 555;
-		pair34.x = 873;
-		pair34.y = 555;
-
-		pair11.w = pair12.w = pair13.w = pair14.w = pair21.w = pair22.w = pair23.w = pair24.w = pair31.w = pair32.w = pair33.w = pair34.w = 170;
-		pair11.h = pair12.h = pair13.h = pair14.h = pair21.h = pair22.h = pair23.h = pair24.h = pair31.h = pair32.h = pair33.h = pair34.h = 170;
-
-		blocked_dice[0].x = pair11.x;
-		blocked_dice[0].y = pair11.y;
-		blocked_dice[0].w = pair12.x + pair12.w;
-		blocked_dice[0].h = pair12.y + pair12.h;
-
-		blocked_dice[1].x = pair13.x;
-		blocked_dice[1].y = pair13.y;
-		blocked_dice[1].w = pair14.x + pair14.w;
-		blocked_dice[1].h = pair14.y + pair14.h;
-
-		blocked_dice[2].x = pair21.x;
-		blocked_dice[2].y = pair21.y;
-		blocked_dice[2].w = pair22.x + pair22.w;
-		blocked_dice[2].h = pair22.y + pair22.h;
-
-		blocked_dice[3].x = pair23.x;
-		blocked_dice[3].y = pair23.y;
-		blocked_dice[3].w = pair24.x + pair24.w;
-		blocked_dice[3].h = pair24.y + pair24.h;
-
-		blocked_dice[4].x = pair31.x;
-		blocked_dice[4].y = pair31.y;
-		blocked_dice[4].w = pair32.x + pair32.w;
-		blocked_dice[4].h = pair32.y + pair32.h;
-
-		blocked_dice[5].x = pair33.x;
-		blocked_dice[5].y = pair33.y;
-		blocked_dice[5].w = pair34.x + pair34.w;
-		blocked_dice[5].h = pair34.y + pair34.h;
+		pair11 = {  15, 115, 35, 35 };
+		pair12 = {  60, 115, 35, 35 };
+		pair13 = { 130, 115, 35, 35 };
+		pair14 = { 175, 115, 35, 35 };
+		pair21 = {  15,  65, 35, 35 };
+		pair22 = {  60,  65, 35, 35 };
+		pair23 = { 130,  65, 35, 35 };
+		pair24 = { 175,  65, 35, 35 };
+		pair31 = {  15,  15, 35, 35 };
+		pair32 = {  60,  15, 35, 35 };
+		pair33 = { 130,  15, 35, 35 };
+		pair34 = { 175,  15, 35, 35 };
 	}
 
 public:
 	dice_view() {
-		s_dice = new SDL_Surface*[6];
-		s_dice_text	= new SDL_Surface*[11];
-		dice_path = vector<string>(6);
+		// Generate dice paths and load surfaces
+		p_dice = vector<string>(6);
 		for (int i = 0; i < 6; i++) {
-			int temp = i + 1;
-			dice_path[i] = "res/dice" + to_string(temp) + ".png";
-			s_dice[i] = IMG_Load(dice_path[i].c_str());
+			p_dice[i] = "res/dice" + to_string(i + 1) + ".png";
+			s_dice[i] = IMG_Load(p_dice[i].c_str());
 		}
+		s_dice_bg = IMG_Load(p_dice_bg);
+		s_dice_good = IMG_Load(p_dice_good);
+		s_dice_bad = IMG_Load(p_dice_bad);
+		s_dice_highlight = IMG_Load(p_dice_highlight);
+		s_dice_good_wide = IMG_Load(p_dice_good_wide);
+		s_dice_bad_wide = IMG_Load(p_dice_bad_wide);
+		s_dice_highlight_wide = IMG_Load(p_dice_highlight_wide);
 
 		TTF_Font* lucida_console;
-		lucida_console = TTF_OpenFont("res/lucida-console.ttf", 100);
+		lucida_console = TTF_OpenFont("res/lucida-console.ttf", 24);
 
 		for (int i = 0; i < 11; i++) {
-			TTF_SetFontOutline(lucida_console, 8);
+			TTF_SetFontOutline(lucida_console, 2);
 			s_dice_text[i] = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {1,1,1});
 			TTF_SetFontOutline(lucida_console, 0);
 			SDL_Surface* s_temp = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {255,255,255});
 
 			SDL_Rect r_temp;
 			r_temp.x = s_dice_text[i]->w / 2 - s_temp->w / 2;
-			r_temp.y = (s_dice_text[i]->h / 2) - (s_temp->h / 2.25);
+			r_temp.y = (s_dice_text[i]->h / 2) - (s_temp->h / 2 - 2);
 			r_temp.w = s_temp->w;
 			r_temp.h = s_temp->h;
 
@@ -123,15 +101,20 @@ public:
 			SDL_FreeSurface(s_temp);
 		}
 
-		s_dice_bg = IMG_Load(dice_bg_path);
-		s_dice_bad = IMG_Load(dice_bad_path);
 		generate_rect();
 
 	}
 
-	SDL_Surface* get_surface(vector<int> rolls, vector<bool>* bad_dice = nullptr) {
+	SDL_Surface* get_surface(vector<int> rolls, int mouse_x, int mouse_y, vector<bool>* bad_dice = nullptr) {
 		SDL_Surface* output;
 		output = SDL_ConvertSurface(s_dice_bg, s_dice_bg->format, s_dice_bg->flags);
+
+		mouse_x -= offset_x / scale;
+		mouse_y -= offset_y / scale;
+		mouse_x *= scale;
+		mouse_y *= scale;
+
+		SDL_Point p = { mouse_x, mouse_y };
 
 		int roll1, roll2, roll3, roll4;
 		roll1 = rolls[0];
@@ -141,67 +124,176 @@ public:
 
 		SDL_Rect text_dst;
 
-		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair11);
-		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair12);
-
-		if ((*bad_dice)[0] == false) {
+		if (!(*bad_dice)[0] && !(*bad_dice)[1]) {
+			SDL_BlitSurface(s_dice_good_wide, NULL, output, &r_dice_frame_wide[0]);
 			text_dst.x = ((pair11.x + pair11.w + pair12.x) / 2) - (s_dice_text[roll1 + roll2 - 2]->w / 2);
 			text_dst.y = ((pair11.y + pair12.y + pair12.w) / 2) - (s_dice_text[roll1 + roll2 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll1 + roll2 - 2]->w;
+			text_dst.h = s_dice_text[roll1 + roll2 - 2]->h;
 			SDL_BlitSurface(s_dice_text[roll1 + roll2 - 2], NULL, output, &text_dst);
 		}
-		
+		else if (!(*bad_dice)[0]) {
+			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[0]);
+		}
+		else if (!(*bad_dice)[1]) {
+			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[1]);
+		}
+
+		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair11);
+		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair12);
 		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair13);
 		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair14);
 
-		if ((*bad_dice)[1] == false) {
+		if (!(*bad_dice)[0] && !(*bad_dice)[1]) {
+			text_dst.x = ((pair11.x + pair11.w + pair12.x) / 2) - (s_dice_text[roll1 + roll2 - 2]->w / 2);
+			text_dst.y = ((pair11.y + pair12.y + pair12.w) / 2) - (s_dice_text[roll1 + roll2 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll1 + roll2 - 2]->w;
+			text_dst.h = s_dice_text[roll1 + roll2 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll1 + roll2 - 2], NULL, output, &text_dst);
+
 			text_dst.x = ((pair13.x + pair13.w + pair14.x) / 2) - (s_dice_text[roll3 + roll4 - 2]->w / 2);
-			text_dst.y = ((pair13.y + pair14.y + pair14.w) / 2) - (s_dice_text[roll3 + roll4 - 2]->h / 2);
+			text_dst.y = ((pair13.y + pair13.y + pair14.w) / 2) - (s_dice_text[roll3 + roll4 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll3 + roll4 - 2]->w;
+			text_dst.h = s_dice_text[roll3 + roll4 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll3 + roll4 - 2], NULL, output, &text_dst);
+		}
+		else if (!(*bad_dice)[0]) {
+			text_dst.x = ((pair11.x + pair11.w + pair12.x) / 2) - (s_dice_text[roll1 + roll2 - 2]->w / 2);
+			text_dst.y = ((pair11.y + pair12.y + pair12.w) / 2) - (s_dice_text[roll1 + roll2 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll1 + roll2 - 2]->w;
+			text_dst.h = s_dice_text[roll1 + roll2 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll1 + roll2 - 2], NULL, output, &text_dst);
+		}
+		else if (!(*bad_dice)[1]) {
+			text_dst.x = ((pair13.x + pair13.w + pair14.x) / 2) - (s_dice_text[roll3 + roll4 - 2]->w / 2);
+			text_dst.y = ((pair13.y + pair13.y + pair14.w) / 2) - (s_dice_text[roll3 + roll4 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll3 + roll4 - 2]->w;
+			text_dst.h = s_dice_text[roll3 + roll4 - 2]->h;
 			SDL_BlitSurface(s_dice_text[roll3 + roll4 - 2], NULL, output, &text_dst);
 		}
 
+		if ((*bad_dice)[0] && (*bad_dice)[1])
+			SDL_BlitSurface(s_dice_bad_wide, NULL, output, &r_dice_frame_wide[0]);
+		else if ((*bad_dice)[0])
+			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[0]);
+		else if ((*bad_dice)[1])
+			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[1]);
+		if (!(*bad_dice)[0] && !(*bad_dice)[1] && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[0], NULL))
+			SDL_BlitSurface(s_dice_highlight_wide, NULL, output, &r_dice_frame_wide[0]);
+		else if (!(*bad_dice)[0] && SDL_EnclosePoints(&p, 1, &r_dice_frame[0], NULL))
+			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[0]);
+		else if (!(*bad_dice)[1] && SDL_EnclosePoints(&p, 1, &r_dice_frame[1], NULL))
+			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[1]);
+
+		// ===
+
+		if (!(*bad_dice)[2] && !(*bad_dice)[3])
+			SDL_BlitSurface(s_dice_good_wide, NULL, output, &r_dice_frame_wide[1]);
+		else if (!(*bad_dice)[2])
+			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[2]);
+		else if (!(*bad_dice)[3])
+			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[3]);
+
 		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair21);
 		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair22);
-
-		if ((*bad_dice)[2] == false) {
-			text_dst.x = ((pair21.x + pair21.w + pair22.x) / 2) - (s_dice_text[roll1 + roll3 - 2]->w / 2);
-			text_dst.y = ((pair21.y + pair22.y + pair22.w) / 2) - (s_dice_text[roll1 + roll3 - 2]->h / 2);
-			SDL_BlitSurface(s_dice_text[roll1 + roll3 - 2], NULL, output, &text_dst);
-		}
-
 		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair23);
 		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair24);
 
-		if ((*bad_dice)[3] == false) {
+		if (!(*bad_dice)[2] && !(*bad_dice)[3]) {
+			text_dst.x = ((pair21.x + pair21.w + pair22.x) / 2) - (s_dice_text[roll1 + roll3 - 2]->w / 2);
+			text_dst.y = ((pair21.y + pair22.y + pair22.w) / 2) - (s_dice_text[roll1 + roll3 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll1 + roll3 - 2]->w;
+			text_dst.h = s_dice_text[roll1 + roll3 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll1 + roll3 - 2], NULL, output, &text_dst);
+			
 			text_dst.x = ((pair23.x + pair23.w + pair24.x) / 2) - (s_dice_text[roll2 + roll4 - 2]->w / 2);
-			text_dst.y = ((pair23.y + pair24.y + pair24.w) / 2) - (s_dice_text[roll2 + roll4 - 2]->h / 2);
+			text_dst.y = ((pair23.y + pair23.y + pair24.w) / 2) - (s_dice_text[roll2 + roll4 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll2 + roll4 - 2]->w;
+			text_dst.h = s_dice_text[roll2 + roll4 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll2 + roll4 - 2], NULL, output, &text_dst);
+		}
+		else if (!(*bad_dice)[2]) {
+			text_dst.x = ((pair21.x + pair21.w + pair22.x) / 2) - (s_dice_text[roll1 + roll3 - 2]->w / 2);
+			text_dst.y = ((pair21.y + pair22.y + pair22.w) / 2) - (s_dice_text[roll1 + roll3 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll1 + roll3 - 2]->w;
+			text_dst.h = s_dice_text[roll1 + roll3 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll1 + roll3 - 2], NULL, output, &text_dst);
+		}
+		else if (!(*bad_dice)[3]) {
+			text_dst.x = ((pair23.x + pair23.w + pair24.x) / 2) - (s_dice_text[roll2 + roll4 - 2]->w / 2);
+			text_dst.y = ((pair23.y + pair23.y + pair24.w) / 2) - (s_dice_text[roll2 + roll4 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll2 + roll4 - 2]->w;
+			text_dst.h = s_dice_text[roll2 + roll4 - 2]->h;
 			SDL_BlitSurface(s_dice_text[roll2 + roll4 - 2], NULL, output, &text_dst);
 		}
 
+		if ((*bad_dice)[2] && (*bad_dice)[3])
+			SDL_BlitSurface(s_dice_bad_wide, NULL, output, &r_dice_frame_wide[1]);
+		else if ((*bad_dice)[2])
+			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[2]);
+		else if ((*bad_dice)[3])
+			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[3]);
+		if (!(*bad_dice)[2] && !(*bad_dice)[3] && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[1], NULL))
+			SDL_BlitSurface(s_dice_highlight_wide, NULL, output, &r_dice_frame_wide[1]);
+		else if (!(*bad_dice)[2] && SDL_EnclosePoints(&p, 1, &r_dice_frame[2], NULL))
+			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[2]);
+		else if (!(*bad_dice)[3] && SDL_EnclosePoints(&p, 1, &r_dice_frame[3], NULL))
+			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[3]);
+
+		// ====
+
+		if (!(*bad_dice)[4] && !(*bad_dice)[5])
+			SDL_BlitSurface(s_dice_good_wide, NULL, output, &r_dice_frame_wide[2]);
+		else if (!(*bad_dice)[4])
+			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[4]);
+		else if (!(*bad_dice)[5])
+			SDL_BlitSurface(s_dice_good, NULL, output, &r_dice_frame[5]);
+
 		SDL_BlitSurface(s_dice[roll1 - 1], NULL, output, &pair31);
 		SDL_BlitSurface(s_dice[roll4 - 1], NULL, output, &pair32);
-
-		if ((*bad_dice)[4] == false) {
-			text_dst.x = ((pair31.x + pair31.w + pair32.x) / 2) - (s_dice_text[roll1 + roll4 - 2]->w / 2);
-			text_dst.y = ((pair31.y + pair32.y + pair32.w) / 2) - (s_dice_text[roll1 + roll4 - 2]->h / 2);
-			SDL_BlitSurface(s_dice_text[roll1 + roll4 - 2], NULL, output, &text_dst);
-		}
-
 		SDL_BlitSurface(s_dice[roll3 - 1], NULL, output, &pair33);
 		SDL_BlitSurface(s_dice[roll2 - 1], NULL, output, &pair34);
 
-		if ((*bad_dice)[5] == false) {
+		if (!(*bad_dice)[4] && !(*bad_dice)[5]) {
+			text_dst.x = ((pair31.x + pair31.w + pair32.x) / 2) - (s_dice_text[roll1 + roll4 - 2]->w / 2);
+			text_dst.y = ((pair31.y + pair32.y + pair32.w) / 2) - (s_dice_text[roll1 + roll4 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll1 + roll4 - 2]->w;
+			text_dst.h = s_dice_text[roll1 + roll4 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll1 + roll4 - 2], NULL, output, &text_dst);
+			
 			text_dst.x = ((pair33.x + pair33.w + pair34.x) / 2) - (s_dice_text[roll3 + roll2 - 2]->w / 2);
-			text_dst.y = ((pair33.y + pair34.y + pair34.w) / 2) - (s_dice_text[roll3 + roll2 - 2]->h / 2);
+			text_dst.y = ((pair33.y + pair33.y + pair34.w) / 2) - (s_dice_text[roll3 + roll2 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll3 + roll2 - 2]->w;
+			text_dst.h = s_dice_text[roll3 + roll2 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll3 + roll2 - 2], NULL, output, &text_dst);
+		}
+		else if (!(*bad_dice)[4]) {
+			text_dst.x = ((pair31.x + pair31.w + pair32.x) / 2) - (s_dice_text[roll1 + roll4 - 2]->w / 2);
+			text_dst.y = ((pair31.y + pair32.y + pair32.w) / 2) - (s_dice_text[roll1 + roll4 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll1 + roll4 - 2]->w;
+			text_dst.h = s_dice_text[roll1 + roll4 - 2]->h;
+			SDL_BlitSurface(s_dice_text[roll1 + roll4 - 2], NULL, output, &text_dst);
+		}
+		else if (!(*bad_dice)[5]) {
+			text_dst.x = ((pair33.x + pair33.w + pair34.x) / 2) - (s_dice_text[roll3 + roll2 - 2]->w / 2);
+			text_dst.y = ((pair33.y + pair33.y + pair34.w) / 2) - (s_dice_text[roll3 + roll2 - 2]->h / 2);
+			text_dst.w = s_dice_text[roll3 + roll2 - 2]->w;
+			text_dst.h = s_dice_text[roll3 + roll2 - 2]->h;
 			SDL_BlitSurface(s_dice_text[roll3 + roll2 - 2], NULL, output, &text_dst);
 		}
 
-
-		for (int i = 0; i < bad_dice->size(); i++) {
-			if ((*bad_dice)[i] == true) {
-				SDL_BlitSurface(s_dice_bad, NULL, output, &blocked_dice[i]);
-			}
-
-		}
+		if ((*bad_dice)[4] && (*bad_dice)[5])
+			SDL_BlitSurface(s_dice_bad_wide, NULL, output, &r_dice_frame_wide[2]);
+		else if ((*bad_dice)[4])
+			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[4]);
+		else if ((*bad_dice)[5])
+			SDL_BlitSurface(s_dice_bad, NULL, output, &r_dice_frame[5]);
+		if (!(*bad_dice)[4] && !(*bad_dice)[5] && SDL_EnclosePoints(&p, 1, &r_dice_frame_wide[2], NULL))
+			SDL_BlitSurface(s_dice_highlight_wide, NULL, output, &r_dice_frame_wide[2]);
+		else if (!(*bad_dice)[4] && SDL_EnclosePoints(&p, 1, &r_dice_frame[4], NULL))
+			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[4]);
+		else if (!(*bad_dice)[5] && SDL_EnclosePoints(&p, 1, &r_dice_frame[5], NULL))
+			SDL_BlitSurface(s_dice_highlight, NULL, output, &r_dice_frame[5]);
 
 		return output;
 	}
@@ -259,6 +351,12 @@ public:
 
 	int get_height() {
 		return s_dice_bg->h;
+	}
+
+	void set_scaling_offset(int x, int y, int s) {
+		offset_x = x;
+		offset_y = y;
+		scale = s;
 	}
 };
 

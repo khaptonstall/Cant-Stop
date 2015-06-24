@@ -21,15 +21,8 @@ private:
 	int scale;
 
 	void generate_rect() {
-		r_continue.x = 75;
-		r_continue.y = 75;
-		r_continue.w = 1040 - 75;
-		r_continue.h = 360 - 75;
-
-		r_stop.x = 75;
-		r_stop.y = 435;
-		r_stop.w = 1040 - 75;
-		r_stop.h = 720 - 435;
+		r_stop = { 15, 15, 195, 60 };
+		r_continue = { 15, 90, 195, 60 };
 	}
 
 public:
@@ -61,7 +54,7 @@ public:
 
 	SDL_Rect get_rect(int n) {
 		SDL_Rect output;
-		if (n == 1) {
+		if (n == 2) {
 			output.x = r_continue.x;
 			output.y = r_continue.y;
 			output.w = r_continue.w;

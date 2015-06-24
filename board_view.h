@@ -20,6 +20,35 @@ private:
 	SDL_Surface* s_yellow_token;
 	SDL_Surface* s_temp_token;
 
+	SDL_Rect r_start[11];
+	int board_spacing[11];
+
+	void generate_rectangles() {
+		r_start[0]  = {  25, 190, 30, 30 };
+		r_start[1]  = {  65, 155, 30, 30 };
+		r_start[2]  = { 105, 120, 30, 30 };
+		r_start[3]  = { 145,  85, 30, 30 };
+		r_start[4]  = { 185,  50, 30, 30 };
+		r_start[5]  = { 225,  15, 30, 30 };
+		r_start[6]  = { 265,  50, 30, 30 };
+		r_start[7]  = { 305,  85, 30, 30 };
+		r_start[8]  = { 345, 120, 30, 30 };
+		r_start[9]  = { 385, 155, 30, 30 };
+		r_start[10] = { 425, 190, 30, 30 };
+
+		board_spacing[0]  = 255 - 190;
+		board_spacing[1]  = 205 - 155;
+		board_spacing[2]  = 165 - 120;
+		board_spacing[3]  = 127 -  85;
+		board_spacing[4]  =  91 -  50;
+		board_spacing[5]  =  55 -  15;
+		board_spacing[6]  =  91 -  50;
+		board_spacing[7]  = 127 -  85;
+		board_spacing[8]  = 165 - 120;
+		board_spacing[9]  = 205 - 155;
+		board_spacing[10] = 255 - 190;
+	}
+
 public:
 	board_view() {
 		s_board = IMG_Load(board_path.c_str());
@@ -29,86 +58,46 @@ public:
 		s_yellow_token = IMG_Load(yellow_path.c_str());
 		s_temp_token = IMG_Load(temp_path.c_str());
 
-
+		generate_rectangles();
 	}
 
 	SDL_Surface* get_surface(vector<int> b, vector<int> r, vector<int> g, vector<int> y, vector<int> t) {
 		SDL_Surface* output;
-
 		output = SDL_ConvertSurface(s_board, s_board->format, s_board->flags);
-		for (int i = 0; i < b.size(); i++) {
-			if (b[i] != 0) {
-				SDL_Rect dst;
-				dst.w = s_blue_token->w;
-				dst.h = s_blue_token->h;
-				dst.x = 105 + (i * s_blue_token->w) + 32 * i;
-				dst.y = s_board->h - 30 - (b[i] * s_blue_token->h + 32 * b[i]);
 
+		for (int i = 0; i < b.size(); i++) {
+			if (b[i] > 0) {
+				SDL_Rect dst = r_start[i];
+				dst.y = s_board->h - dst.y - dst.h;
+				dst.y -= board_spacing[i] * (b[i] - 1);
 				SDL_BlitSurface(s_blue_token, NULL, output, &dst);
 			}
 		}
 
 		for (int i = 0; i < r.size(); i++) {
-			if (r[i] != 0) {
-				SDL_Rect dst;
-				dst.w = s_red_token->w;
-				dst.h = s_red_token->h;
-				dst.x = 105 + (i * s_red_token->w) + 32 * i;
-				dst.y = s_board->h - 30 - (r[i] * s_red_token->h + 32 * r[i]);
+			if (r[i] > 0) {
+				SDL_Rect dst = r_start[i];
+				dst.y = s_board->h - dst.y - dst.h;
+				dst.y -= board_spacing[i] * (r[i] - 1);
 
 				if (r[i] == b[i]) {
-					dst.x += 20;
-					dst.y -= 20;
+					dst.x -= 3;
+					dst.y -= 3;
 				}
 
 				SDL_BlitSurface(s_red_token, NULL, output, &dst);
 			}
 		}
 
-		for (int i = 0; i < g.size(); i++) {
-			if (g[i] != 0) {
-				SDL_Rect dst;
-				dst.w = s_green_token->w;
-				dst.h = s_green_token->h;
-				dst.x = 105 + (i * s_green_token->w) + 32 * i;
-				dst.y = s_board->h - 30 - (g[i] * s_green_token->h + 32 * g[i]);
-
-				// if (g[i] == r[i] || g[i] == b[i]) {
-				// 	if (r[i] == b[i]) {
-				// 		dst.x += 20;
-				// 		dst.y -= 20;
-				// 	}
-				// 	dst.x += 10;
-				// 	dst.y -= 10;
-				// }
-
-				SDL_BlitSurface(s_green_token, NULL, output, &dst);
-			}
-		}
-
-		for (int i = 0; i < y.size(); i++) {
-			if (y[i] != 0) {
-				SDL_Rect dst;
-				dst.w = s_yellow_token->w;
-				dst.h = s_yellow_token->h;
-				dst.x = 105 + (i * s_yellow_token->w) + 32 * i;
-				dst.y = s_board->h - 30 - (y[i] * s_yellow_token->h + 32 * y[i]);
-
-				SDL_BlitSurface(s_yellow_token, NULL, output, &dst);
-			}
-		}
-
 		for (int i = 0; i < t.size(); i++) {
-			if (t[i] != 0) {
-				SDL_Rect dst;
-				dst.w = s_temp_token->w;
-				dst.h = s_temp_token->h;
-				dst.x = 105 + (i * s_temp_token->w) + 32 * i;
-				dst.y = s_board->h - 30 - (t[i] * s_temp_token->h + 32 * t[i]);
+			if (t[i] > 0) {
+				SDL_Rect dst = r_start[i];
+				dst.y = s_board->h - dst.y - dst.h;
+				dst.y -= board_spacing[i] * (t[i] - 1);
 
 				if (t[i] == b[i] || t[i] == r[i]) {
-					dst.x += 20;
-					dst.y -= 20;
+					dst.x -= 3;
+					dst.y -= 3;
 				}
 
 				SDL_BlitSurface(s_temp_token, NULL, output, &dst);

@@ -35,7 +35,7 @@ int main(int, char**){
 	stop_view sv;
 	options_view ov;
 
-	int window_scale = 5;
+	int window_scale = 1;
 	int board_width = bv.get_width();
 	int dice_width = dv.get_width();
 	int dice_height = dv.get_height();
@@ -77,6 +77,7 @@ int main(int, char**){
 	while (!quit) {
 		SDL_Point mouse_pos;
 		SDL_GetMouseState(&mouse_pos.x, &mouse_pos.y);
+		bool check_dice_input = false;
 		// Event handler
 		while (SDL_PollEvent(&e) != 0) {
 			if (e.type == SDL_QUIT) {
@@ -84,7 +85,7 @@ int main(int, char**){
 			}
 			else if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT) {
 				if (!stop_active) {
-					dice_pair = dc.input(mouse_pos.x, mouse_pos.y);
+					check_dice_input = true;
 				}
 				else {
 					stop_continue = sc.input(mouse_pos.x, mouse_pos.y);
@@ -121,6 +122,9 @@ int main(int, char**){
 				bad_dice[i] = true;
 			}
 		}
+
+		if (check_dice_input)
+			dice_pair = dc.input(mouse_pos.x, mouse_pos.y, bad_dice);
 
 		// Wait for player to choose a dice pair
 		if (!stop_active && valid_pairs) {
@@ -183,7 +187,7 @@ int main(int, char**){
 			board_destination.w /= window_scale;
 			board_destination.h /= window_scale;
 
-			SDL_Surface* dice_surface = dv.get_surface(dice_options, &bad_dice);
+			SDL_Surface* dice_surface = dv.get_surface(dice_options, mouse_pos.x, mouse_pos.y, &bad_dice);
 			SDL_Texture* dice_texture = SDL_CreateTextureFromSurface(ren, dice_surface);
 			SDL_Rect dice_destination;
 			dice_destination.x = board_width / window_scale;

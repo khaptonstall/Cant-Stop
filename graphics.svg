@@ -17,7 +17,148 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="graphics.svg">
   <defs
-     id="defs4" />
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker8878"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8880"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker8820"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8822"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path8493"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Sstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Sstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8490"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.2) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path8487"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8484"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path8481"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker8758"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8760"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker8742"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8744"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8478"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,9 +166,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24042378"
-     inkscape:cx="5441.2817"
-     inkscape:cy="3092.714"
+     inkscape:zoom="1.3600423"
+     inkscape:cx="479.91141"
+     inkscape:cy="655.28069"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -42,7 +183,9 @@
      inkscape:snap-nodes="true"
      inkscape:snap-others="true"
      inkscape:snap-bbox-edge-midpoints="false"
-     inkscape:bbox-nodes="true">
+     inkscape:bbox-nodes="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-smooth-nodes="false">
     <inkscape:grid
        type="xygrid"
        id="grid3336" />
@@ -63,1727 +206,2549 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#e6e6e6;stroke:#000000;stroke-width:10.01304054;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect3593"
-       width="1107.0734"
-       height="784.15875"
-       x="4527.9199"
-       y="-2179.717"
+    <g
+       id="g9349"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+         y="488.37076"
+         x="481.00851"
+         height="162.98296"
+         width="222.98296"
+         id="rect3593-6"
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:2.01705027;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+         y="502.87814"
+         x="495.51593"
+         height="58.968124"
+         width="193.96814"
+         id="rect4360"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1.03187346;stroke-miterlimit:4;stroke-dasharray:none" />
+      <text
+         transform="scale(0.99815053,1.0018529)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+         sodipodi:linespacing="125%"
+         id="text4377"
+         y="538.91962"
+         x="592.45447"
+         style="font-style:normal;font-weight:normal;font-size:8.0146904px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-size:24.04406929px"
+           y="538.91962"
+           x="592.45447"
+           id="tspan4379"
+           sodipodi:role="line">Continue</tspan></text>
+      <g
+         transform="matrix(1.0103976,0,0,1.0000899,-5.0666595,4.9458599)"
+         id="g8970">
+        <rect
+           style="fill:#ffffff;stroke:#000000;stroke-width:1.02078235;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect4360-7"
+           width="191.97252"
+           height="58.973869"
+           x="495.43106"
+           y="572.87524"
+           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:8.0146904px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="590.37445"
+           y="607.91132"
+           id="text4377-2"
+           sodipodi:linespacing="125%"
+           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"
+           transform="scale(0.99815053,1.0018529)"><tspan
+             sodipodi:role="line"
+             id="tspan4379-1"
+             x="590.37445"
+             y="607.91132"
+             style="font-size:24.04406929px">Stop</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g7232"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(1,0,0,0.98759604,0,13.040655)">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
+         y="648.39471"
+         x="481.02856"
+         height="402.93494"
+         width="222.97006"
+         id="rect4350"
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:2.07390261;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g8985">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
+         y="488.26315"
+         x="0.90100098"
+         height="563.19806"
+         width="478.19803"
+         id="rect5276"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1.80200005;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4689"
+         d="m 240,557.36216 0,450.00004"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         transform="translate(-320,-160.00004)"
+         id="g4554">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-7"
+         transform="translate(-320,-200.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-8"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2"
+         transform="translate(-320,-240.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-1"
+         transform="translate(-320,-120.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-82"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-1"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-70"
+         transform="translate(-320,-80.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-9"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-4"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-5"
+         transform="translate(-320,-40.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-71"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-24"
+         transform="translate(-320,-4e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-52"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-40"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-8"
+         transform="translate(-320,39.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-9"
+         transform="translate(-320,79.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-12"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-74"
+         transform="translate(-320,119.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-0"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-6"
+         transform="translate(-320,159.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-89"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-63"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-15"
+         transform="translate(-320,199.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-75"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-95"
+         transform="translate(-320,239.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-28"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-68"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5140"
+         d="m 281,971.86216 0,-380 0,0"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4554-2-7"
+         transform="translate(-280,-205.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-0"
+         transform="translate(-280,204.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-9"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3"
+         transform="translate(-280.00001,-3e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9"
+         transform="translate(-280.00001,-41.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9"
+         transform="translate(-280.00001,-82.000042)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6"
+         transform="translate(-280.00001,-123.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6-7"
+         transform="translate(-280.00001,-164.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-31"
+         transform="translate(-280.00003,163.99999)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-64"
+         transform="translate(-280.00002,122.99998)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-47"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-07"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6-6"
+         transform="translate(-280.00002,81.99998)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6-7-0"
+         transform="translate(-280.00002,40.99998)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4-2-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0-6-4"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5658"
+         d="m 320,937.36216 0,-310"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5660"
+         d="m 360,902.36216 0,-240"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5662"
+         d="m 400,867.36216 0,-170"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5664"
+         d="m 440,732.36216 0,100"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4554-2-7-2"
+         transform="translate(-240.00001,-170.00003)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-7"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4"
+         transform="translate(-240.00001,-3e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2"
+         transform="translate(-240.00001,-85.000042)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-1"
+         transform="translate(-240.00001,-42.50004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-9"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-8"
+         transform="translate(-240.00001,-127.50004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-27"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-0"
+         transform="translate(-240,169.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-0"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-7"
+         transform="translate(-240,84.99995)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-8"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-2"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-1-2"
+         transform="translate(-240,127.49995)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-2-8"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-9-5"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-8-4"
+         transform="translate(-240,42.49995)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-27-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-6-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1"
+         transform="translate(-200.00001,-3e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-1"
+         transform="translate(-200.00001,-135.00003)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-5"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-4"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8"
+         transform="translate(-200.00001,-45.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4"
+         transform="translate(-200.00001,-90.000042)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-2"
+         transform="translate(-200.00001,134.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-52"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-9"
+         transform="translate(-200.00001,89.99995)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-97"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-2"
+         transform="translate(-200.00001,44.99995)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-8"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6"
+         transform="translate(-160.00001,-100.00003)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-9"
+         transform="translate(-160.00001,-3e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-0"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-8"
+         transform="translate(-160.00001,-50.00003)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-9-7"
+         transform="translate(-160.00001,99.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-0-9"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-3-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-8-6"
+         transform="translate(-160.00001,49.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-6-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-0"
+         transform="translate(-120.00001,-65.000026)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-67"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-0"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-0-1"
+         transform="translate(-120.00001,-3e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-67-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-0-1"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-0-1-7"
+         transform="translate(-120.00001,64.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-67-6-7"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-0-1-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5140-3"
+         d="m 200.99999,971.86216 0,-379.99999 0,0"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4554-2-7-8"
+         transform="translate(-360.00001,-205.00003)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-1"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-0-7"
+         transform="translate(-360.00001,204.99997)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-1-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-9-5"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-2"
+         transform="translate(-360.00001,-2e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-8"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-05"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-1"
+         transform="translate(-360.00001,-41.000026)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-9"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-1"
+         transform="translate(-360.00001,-82.000036)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-7"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6-3"
+         transform="translate(-360.00001,-123.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4-9"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6-7-2"
+         transform="translate(-360.00001,-164.00004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4-2-5"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0-6-46"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-31-0"
+         transform="translate(-360.00001,164)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-2-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-3-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-64-7"
+         transform="translate(-360.00001,122.99999)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-47-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-07-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6-6-8"
+         transform="translate(-360.00001,81.99999)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4-1-3"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0-7-9"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-9-6-7-0-9"
+         transform="translate(-360.00001,40.99999)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-1-4-2-1-3"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-2-0-6-4-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5658-2"
+         d="m 159.99999,937.36216 0,-309.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4554-2-7-2-3"
+         transform="translate(-400.00001,-170.00002)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-7-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-0"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-5"
+         transform="translate(-400.00001,-2e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-2"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-88"
+         transform="translate(-400.00001,-85.000036)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-7"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-1"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-1-5"
+         transform="translate(-400.00001,-42.500026)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-2-0"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-9-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-8-48"
+         transform="translate(-400.00001,-127.50004)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-27-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-6-1"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-0-5"
+         transform="translate(-400.00001,169.99997)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-2-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-0-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-7-6"
+         transform="translate(-400.00001,84.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-8-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-2-1"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-1-2-0"
+         transform="translate(-400.00001,127.49996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-2-8-0"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-9-5-7"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-2-8-4-4"
+         transform="translate(-400.00001,42.49996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-3-27-1-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-5-6-3-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5660-2"
+         d="m 119.99998,902.36216 0,-239.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4554-2-7-6-9-3-4-1-6"
+         transform="translate(-440.00001,-2e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-48"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-90"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-1-3"
+         transform="translate(-440.00001,-135.00002)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-5-5"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-4-9"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-8"
+         transform="translate(-440.00001,-45.000026)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-5"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-3"
+         transform="translate(-440.00001,-90.000036)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-81"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-2-7"
+         transform="translate(-440.00001,134.99997)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-52-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-7-2"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-9-9"
+         transform="translate(-440.00001,89.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-4-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-97-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-2-5"
+         transform="translate(-440.00001,44.99996)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-8-0"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-3-8"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5662-3"
+         d="m 79.99998,867.36217 0,-170"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-6"
+         transform="translate(-480.00001,-100.00002)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-9-0"
+         transform="translate(-480.00001,-2e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-0-1"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-3-74"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-8-7"
+         transform="translate(-480.00001,-50.000016)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-6-4"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-1"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-9-7-9"
+         transform="translate(-480.00001,99.99997)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-0-9-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-3-7-9"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-8-6-4"
+         transform="translate(-480.00001,49.99997)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-6-1-8"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-6-4"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5664-5"
+         d="m 39.99998,732.36217 0,100"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-0-4"
+         transform="translate(-520.00001,-65.000016)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-67-2"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-0-4"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-0-1-3"
+         transform="translate(-520.00001,-2e-5)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-67-6-6"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-0-1-6"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         id="g4554-2-7-6-9-3-4-1-8-4-6-0-1-7-1"
+         transform="translate(-520.00001,64.99997)">
+        <ellipse
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.6669302;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-3-3-8-9-6-4-9-4-2-9-67-6-7-0"
+           cx="560"
+           cy="782.36218"
+           rx="14.166549"
+           ry="14.166543" />
+        <ellipse
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-0-1-7-3"
+           cx="561.55682"
+           cy="783.91901"
+           rx="12.609706"
+           ry="12.6097" />
+      </g>
+      <g
+         transform="translate(-350,-195.00002)"
+         id="g4718">
+        <g
+           id="g6336">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="589.8877"
+           y="709.63269"
+           id="text4691"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693"
+             x="589.8877"
+             y="709.63269"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">7</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723"
+         d="m 240,528.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-390,-160.00002)"
+         id="g4718-1">
+        <g
+           id="g6336-7">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-4"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="589.92188"
+           y="709.61804"
+           id="text4691-3"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-9"
+             x="589.92188"
+             y="709.61804"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">6</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-0"
+         d="m 200,563.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-430,-125.00002)"
+         id="g4718-8">
+        <g
+           id="g6336-3">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-7"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="589.92676"
+           y="709.48132"
+           id="text4691-0"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-2"
+             x="589.92676"
+             y="709.48132"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">5</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-5"
+         d="m 160,598.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-470,-90.000019)"
+         id="g4718-5">
+        <g
+           id="g6336-6">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-41"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="590.06348"
+           y="709.63269"
+           id="text4691-68"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-30"
+             x="590.06348"
+             y="709.63269"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">4</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-01"
+         d="m 120,633.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-510,-55.00002)"
+         id="g4718-03">
+        <g
+           id="g6336-0">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-78"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="590.10254"
+           y="709.63269"
+           id="text4691-2"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-37"
+             x="590.10254"
+             y="709.63269"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">3</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-1"
+         d="m 80,668.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-550,-20.00002)"
+         id="g4718-3">
+        <g
+           id="g6336-1">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-5"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="589.91699"
+           y="709.78406"
+           id="text4691-9"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-1"
+             x="589.91699"
+             y="709.78406"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">2</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-2"
+         d="m 40,703.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-310,-160.00002)"
+         id="g4718-6">
+        <g
+           id="g6336-19">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-52"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="590.00977"
+           y="709.63269"
+           id="text4691-90"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-8"
+             x="590.00977"
+             y="709.63269"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">8</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-11"
+         d="m 280,563.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-270,-125.00002)"
+         id="g4718-0">
+        <g
+           id="g6336-196">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-6"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="590.09766"
+           y="709.63757"
+           id="text4691-36"
+           sodipodi:linespacing="125%"><tspan
+             id="tspan6643"
+             sodipodi:role="line"
+             x="590.09766"
+             y="709.63757"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Tahoma;-inkscape-font-specification:Tahoma">9</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-23"
+         d="m 320,598.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-230,-90.000019)"
+         id="g4718-54">
+        <g
+           id="g6336-00">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-9"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="589.39758"
+           y="708.7196"
+           id="text4691-5"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-3"
+             x="589.39758"
+             y="708.7196"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Tahoma;-inkscape-font-specification:Tahoma">10</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-00"
+         d="m 360,633.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-190,-55.00002)"
+         id="g4718-57">
+        <g
+           id="g6336-12">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-1"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="589.7522"
+           y="708.74524"
+           id="text4691-4"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-0"
+             x="589.7522"
+             y="708.74524"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Tahoma;-inkscape-font-specification:Tahoma">11</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-15"
+         d="m 400,668.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+      <g
+         transform="translate(-150,-20.00002)"
+         id="g4718-04">
+        <g
+           id="g6336-2">
+          <ellipse
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44467306;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path4533-3-1-0"
+             cx="590"
+             cy="702.36218"
+             rx="12.277677"
+             ry="12.277673" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="589.42749"
+           y="708.85632"
+           id="text4691-59"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4693-5"
+             x="589.42749"
+             y="708.85632"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Tahoma;-inkscape-font-specification:Tahoma">12</tspan></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4723-58"
+         d="m 440,703.86216 c 0,-8.99999 0,-8.99999 0,-8.99999"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0.5;stroke-opacity:1" />
+    </g>
+    <g
+       id="g6677"
+       transform="translate(171.88638,-508.11359)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/token_blue.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <ellipse
+         ry="14.117666"
+         rx="14.117647"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_blue.png"
+         cy="875.47577"
+         cx="823.11365"
+         id="path5221-6"
+         style="fill:#000080;fill-opacity:1;stroke:#000000;stroke-width:1.76470673;stroke-miterlimit:4;stroke-dasharray:none" />
+      <ellipse
+         style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+         id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-19"
+         cx="821.55682"
+         cy="873.91901"
+         rx="12.609706"
+         ry="12.6097" />
+    </g>
+    <g
+       id="g6677-6"
+       transform="translate(171.88638,-468.11359)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/token_red.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g7838">
+        <ellipse
+           style="fill:#800000;fill-opacity:1;stroke:#000000;stroke-width:1.76470673;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path5221-6-1"
+           cx="823.11365"
+           cy="875.47577"
+           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_blue.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"
+           rx="14.117647"
+           ry="14.117666" />
+        <ellipse
+           ry="12.6097"
+           rx="12.609706"
+           cy="873.91901"
+           cx="821.55682"
+           id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-19-4"
+           style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+    <g
+       id="g6677-6-9"
+       transform="translate(171.88638,-428.11359)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/token_green.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <ellipse
+         ry="14.117666"
+         rx="14.117647"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_blue.png"
+         cy="875.47577"
+         cx="823.11365"
+         id="path5221-6-1-6"
+         style="fill:#008000;fill-opacity:1;stroke:#000000;stroke-width:1.76470673;stroke-miterlimit:4;stroke-dasharray:none" />
+      <ellipse
+         style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+         id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-19-4-7"
+         cx="821.55682"
+         cy="873.91901"
+         rx="12.609706"
+         ry="12.6097" />
+    </g>
+    <g
+       id="g6677-6-9-4"
+       transform="translate(171.88638,-388.11358)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/token_yellow.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <ellipse
+         ry="14.117666"
+         rx="14.117647"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_blue.png"
+         cy="875.47577"
+         cx="823.11365"
+         id="path5221-6-1-6-3"
+         style="fill:#808000;fill-opacity:1;stroke:#000000;stroke-width:1.76470673;stroke-miterlimit:4;stroke-dasharray:none" />
+      <ellipse
+         style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+         id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-19-4-7-4"
+         cx="821.55682"
+         cy="873.91901"
+         rx="12.609706"
+         ry="12.6097" />
+    </g>
+    <g
+       id="g6677-6-9-5"
+       transform="translate(171.88638,-348.11358)"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/token_temp.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <ellipse
+         ry="14.117666"
+         rx="14.117647"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_blue.png"
+         cy="875.47577"
+         cx="823.11365"
+         id="path5221-6-1-6-5"
+         style="fill:#666666;fill-opacity:1;stroke:#000000;stroke-width:1.76470673;stroke-miterlimit:4;stroke-dasharray:none" />
+      <ellipse
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.66700006;stroke-miterlimit:4;stroke-dasharray:none"
+         id="path4533-5-0-6-0-8-8-0-8-9-9-35-8-19-4-7-9"
+         cx="821.55682"
+         cy="873.91901"
+         rx="12.609706"
+         ry="12.6097" />
+    </g>
+    <g
+       id="g8942"
+       transform="translate(-40.00002,-210.00003)"
        inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:#e6e6e6;stroke:#000000;stroke-width:8.81833839;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect5276"
-       width="2384.7166"
-       height="2704.7166"
-       x="327.64169"
-       y="-1899.9961"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722"
-       width="160"
-       height="160"
-       x="1440"
-       y="572.36218"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-2"
-       width="160"
-       height="160"
-       x="1440"
-       y="372.36234"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-0"
-       width="160"
-       height="160"
-       x="1440"
-       y="172.36226"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-4"
-       width="160"
-       height="160"
-       x="1440"
-       y="-27.637703"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47"
-       width="160"
-       height="160"
-       x="1440"
-       y="-227.63768"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20"
-       width="160"
-       height="160"
-       x="1440"
-       y="-427.63766"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6"
-       width="160"
-       height="160"
-       x="1440"
-       y="-627.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7"
-       width="160"
-       height="160"
-       x="1440"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3"
-       width="160"
-       height="160"
-       x="1440"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-33"
-       width="160"
-       height="160"
-       x="1440"
-       y="-1227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-1"
-       width="160"
-       height="160"
-       x="1440"
-       y="-1427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-39"
-       width="160"
-       height="160"
-       x="1440"
-       y="-1627.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-65"
-       width="160"
-       height="160"
-       x="1440"
-       y="-1827.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-2-9"
-       width="160"
-       height="160"
-       x="1640"
-       y="372.3623"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-0-2"
-       width="160"
-       height="160"
-       x="1640"
-       y="172.3623"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-4-0"
-       width="160"
-       height="160"
-       x="1640"
-       y="-27.637695"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-5"
-       width="160"
-       height="160"
-       x="1640"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-3"
-       width="160"
-       height="160"
-       x="1640"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-3"
-       width="160"
-       height="160"
-       x="1640"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-3"
-       width="160"
-       height="160"
-       x="1640"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-6"
-       width="160"
-       height="160"
-       x="1640"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-33-6"
-       width="160"
-       height="160"
-       x="1640"
-       y="-1227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-1-3"
-       width="160"
-       height="160"
-       x="1640"
-       y="-1427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-39-9"
-       width="160"
-       height="160"
-       x="1640"
-       y="-1627.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-2-4"
-       width="160"
-       height="160"
-       x="1240"
-       y="372.3623"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-0-9"
-       width="160"
-       height="160"
-       x="1240"
-       y="172.3623"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-4-4"
-       width="160"
-       height="160"
-       x="1240"
-       y="-27.637695"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-2"
-       width="160"
-       height="160"
-       x="1240"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30"
-       width="160"
-       height="160"
-       x="1240"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0"
-       width="160"
-       height="160"
-       x="1240"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9"
-       width="160"
-       height="160"
-       x="1240"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-8"
-       width="160"
-       height="160"
-       x="1240"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-33-3"
-       width="160"
-       height="160"
-       x="1240"
-       y="-1227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-1-7"
-       width="160"
-       height="160"
-       x="1240"
-       y="-1427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-39-5"
-       width="160"
-       height="160"
-       x="1240"
-       y="-1627.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-0-9-7"
-       width="160"
-       height="160"
-       x="1040"
-       y="172.3623"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-4-4-3"
-       width="160"
-       height="160"
-       x="1040"
-       y="-27.637695"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-2-6"
-       width="160"
-       height="160"
-       x="1040"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-3"
-       width="160"
-       height="160"
-       x="1040"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-2"
-       width="160"
-       height="160"
-       x="1040"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-8"
-       width="160"
-       height="160"
-       x="1040"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-8-2"
-       width="160"
-       height="160"
-       x="1040"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-33-3-0"
-       width="160"
-       height="160"
-       x="1040"
-       y="-1227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-1-7-4"
-       width="160"
-       height="160"
-       x="1040"
-       y="-1427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-0-9-4"
-       width="160"
-       height="160"
-       x="1840"
-       y="172.3623"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-4-4-6"
-       width="160"
-       height="160"
-       x="1840"
-       y="-27.637695"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-2-8"
-       width="160"
-       height="160"
-       x="1840"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-6"
-       width="160"
-       height="160"
-       x="1840"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6"
-       width="160"
-       height="160"
-       x="1840"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-6"
-       width="160"
-       height="160"
-       x="1840"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-8-4"
-       width="160"
-       height="160"
-       x="1840"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-33-3-6"
-       width="160"
-       height="160"
-       x="1840"
-       y="-1227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-1-7-6"
-       width="160"
-       height="160"
-       x="1840"
-       y="-1427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-4-4-6-4"
-       width="160"
-       height="160"
-       x="2040"
-       y="-27.637695"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-2-8-5"
-       width="160"
-       height="160"
-       x="2040"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-6-9"
-       width="160"
-       height="160"
-       x="2040"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-6"
-       width="160"
-       height="160"
-       x="2040"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-6-7"
-       width="160"
-       height="160"
-       x="2040"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-8-4-0"
-       width="160"
-       height="160"
-       x="2040"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-33-3-6-1"
-       width="160"
-       height="160"
-       x="2040"
-       y="-1227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-4-4-6-5"
-       width="160"
-       height="160"
-       x="840"
-       y="-27.637695"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-2-8-7"
-       width="160"
-       height="160"
-       x="840"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-6-2"
-       width="160"
-       height="160"
-       x="840"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-7"
-       width="160"
-       height="160"
-       x="840"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-6-9"
-       width="160"
-       height="160"
-       x="840"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-8-4-2"
-       width="160"
-       height="160"
-       x="840"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-33-3-6-2"
-       width="160"
-       height="160"
-       x="840"
-       y="-1227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-2-8-7-2"
-       width="160"
-       height="160"
-       x="640"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-6-2-3"
-       width="160"
-       height="160"
-       x="640"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-7-8"
-       width="160"
-       height="160"
-       x="640"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-6-9-6"
-       width="160"
-       height="160"
-       x="640"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-8-4-2-4"
-       width="160"
-       height="160"
-       x="640"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-47-2-8-7-6"
-       width="160"
-       height="160"
-       x="2240"
-       y="-227.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-6-2-32"
-       width="160"
-       height="160"
-       x="2240"
-       y="-427.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-7-9"
-       width="160"
-       height="160"
-       x="2240"
-       y="-627.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-6-9-0"
-       width="160"
-       height="160"
-       x="2240"
-       y="-827.63776"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-3-8-4-2-9"
-       width="160"
-       height="160"
-       x="2240"
-       y="-1027.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-6-2-3-8"
-       width="160"
-       height="160"
-       x="440"
-       y="-427.63773"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-7-8-9"
-       width="160"
-       height="160"
-       x="440"
-       y="-627.63788"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-6-9-6-5"
-       width="160"
-       height="160"
-       x="440"
-       y="-827.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-20-30-6-2-3-9"
-       width="160"
-       height="160"
-       x="2440"
-       y="-427.63773"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-7-8-4"
-       width="160"
-       height="160"
-       x="2440"
-       y="-627.63788"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-7-9-6-9-6-6"
-       width="160"
-       height="160"
-       x="2440"
-       y="-827.63782"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="521.09375"
-       y="-717.95032"
-       id="text5104"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106"
-         x="521.09375"
-         y="-717.95032"
-         style="text-align:center;text-anchor:middle">2</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="720.17578"
-       y="-918.51672"
-       id="text5104-3"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-7"
-         x="720.17578"
-         y="-918.51672"
-         style="text-align:center;text-anchor:middle">3</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="920.3125"
-       y="-1118.4777"
-       id="text5104-31"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-9"
-         x="920.3125"
-         y="-1118.4777"
-         style="text-align:center;text-anchor:middle">4</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1120.4297"
-       y="-1319.0441"
-       id="text5104-7"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-76"
-         x="1120.4297"
-         y="-1319.0441"
-         style="text-align:center;text-anchor:middle">5</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1321.0938"
-       y="-1517.9503"
-       id="text5104-4"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-0"
-         x="1321.0938"
-         y="-1517.9503"
-         style="text-align:center;text-anchor:middle">6</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1520.1562"
-       y="-1718.4777"
-       id="text5104-0"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-2"
-         x="1520.1562"
-         y="-1718.4777"
-         style="text-align:center;text-anchor:middle">7</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1720.0391"
-       y="-1518.5167"
-       id="text5104-9"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-4"
-         x="1720.0391"
-         y="-1518.5167"
-         style="text-align:center;text-anchor:middle">8</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1920.3125"
-       y="-1318.5167"
-       id="text5104-33"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-8"
-         x="1920.3125"
-         y="-1318.5167"
-         style="text-align:center;text-anchor:middle">9</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="2118.2812"
-       y="-1118.5167"
-       id="text5104-77"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-97"
-         x="2118.2812"
-         y="-1118.5167"
-         style="text-align:center;text-anchor:middle">10</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="2319.3164"
-       y="-918.47766"
-       id="text5104-97"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-5"
-         x="2319.3164"
-         y="-918.47766"
-         style="text-align:center;text-anchor:middle">11</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:80px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="2519.6289"
-       y="-717.95032"
-       id="text5104-93"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan5106-6"
-         x="2519.6289"
-         y="-717.95032"
-         style="text-align:center;text-anchor:middle">12</tspan></text>
-    <circle
-       style="fill:#0000ff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path5221"
-       cx="3680"
-       cy="132.3622"
-       r="80"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_blue.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <circle
-       style="fill:#ff0000;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path5221-4"
-       cx="3760"
-       cy="-227.6378"
-       r="80"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_red.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <circle
-       style="fill:#00ff00;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path5221-4-8"
-       cx="3440"
-       cy="-347.63779"
-       r="80"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_green.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <circle
-       style="fill:#ffff00;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path5221-4-9"
-       cx="3360"
-       cy="452.36221"
-       r="80"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_yellow.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <circle
-       style="fill:#808080;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path5221-4-9-9"
-       cx="3400"
-       cy="12.362205"
-       r="80"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/token_temp.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="488.37076"
+         x="481.00854"
+         height="162.98296"
+         width="222.98293"
+         id="rect3593"
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:2.01705027;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="503.39163"
+         x="496.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="503.39163"
+         x="541.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-67"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="553.3916"
+         x="496.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-7"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="553.3916"
+         x="541.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-67-9"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="603.3916"
+         x="496.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-7-9"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="603.3916"
+         x="541.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-67-9-0"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="503.39163"
+         x="611.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-5"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="503.39163"
+         x="656.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-67-5"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="553.3916"
+         x="611.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-7-4"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="553.3916"
+         x="656.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-67-9-9"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="603.3916"
+         x="611.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-7-9-3"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="603.3916"
+         x="656.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-67-9-0-0"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+    <rect
+       style="fill:#ff0000;fill-opacity:0.39215687;stroke:#000000;stroke-width:1.93536806;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5"
+       id="rect7348-2-2"
+       width="203.06464"
+       height="43.064625"
+       x="765.96771"
+       y="528.3299"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bad_wide.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.93536806;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5"
+       id="rect7348-3-1"
+       width="88.064636"
+       height="43.064625"
+       x="765.96771"
+       y="473.3299"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_good.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.93536806;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5"
+       id="rect7348-2-2-8"
+       width="203.06464"
+       height="43.064625"
+       x="765.96771"
+       y="583.3299"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_good_wide.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ff0000;fill-opacity:0.39215687;stroke:#000000;stroke-width:1.93536806;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5"
+       id="rect7348-3-1-0"
+       width="88.064636"
+       height="43.064625"
+       x="765.96771"
+       y="418.3299"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bad.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#00ffff;fill-opacity:0.19607843;stroke:#000000;stroke-width:1.93536806;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5;opacity:0.61"
+       id="rect7348-3-1-5"
+       width="88.064636"
+       height="43.064625"
+       x="880.96771"
+       y="473.3299"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_highlight.png"
+       inkscape:export-xdpi="2"
+       inkscape:export-ydpi="2" />
+    <rect
+       style="fill:#00ffff;fill-opacity:0.19607843;stroke:#000000;stroke-width:1.93536806;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5"
+       id="rect7348-2-2-8-6"
+       width="203.06464"
+       height="43.064625"
+       x="765.96771"
+       y="638.3299"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_highlight_wide.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/stop_highlight.png"
+       y="622.87524"
+       x="1070.5131"
+       height="58.973869"
+       width="193.97388"
+       id="rect4360-7-2"
+       style="fill:#00ffff;fill-opacity:0.19607843;stroke:#000000;stroke-width:1.02613556;stroke-miterlimit:4;stroke-dasharray:none" />
     <g
-       id="g3910"
+       id="g7799"
        inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice1.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1027.6379"
-         x="3320"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-947.63782"
-         cx="3400"
-         id="path3623"
-         style="fill:#000000;stroke:none" />
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="648.3916"
+         x="981.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-5-1"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="2.5"
+         cy="664.86218"
+         cx="997.5"
+         id="path7521"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
     </g>
     <g
-       id="g3914"
-       transform="translate(-20,-49.999917)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice3.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-977.63788"
-         x="3580"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-897.63776"
-         cx="3660"
-         id="path3623-0"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-857.63776"
-         cx="3620"
-         id="path3623-0-8"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-937.63776"
-         cx="3700"
-         id="path3623-0-82"
-         style="fill:#000000;stroke:none" />
-    </g>
-    <g
-       id="g3905"
-       transform="translate(-310,-109.99986)"
+       id="g7810"
        inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice2.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1157.6379"
-         x="3630"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-2"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-1037.6378"
-         cx="3670"
-         id="path3623-0-8-3"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-1117.6378"
-         cx="3750"
-         id="path3623-0-82-8"
-         style="fill:#000000;stroke:none" />
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="603.3916"
+         x="981.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-5-1-5"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="2.5"
+         cy="629.86218"
+         cx="987.5"
+         id="path7521-3"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="609.86218"
+         cx="1007.5"
+         id="path7521-3-5"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
     </g>
     <g
-       id="g3920"
-       transform="translate(-10,-310.00004)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice5.png"
+       id="g7832"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice3.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-957.63788"
-         x="3810"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-29"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-877.63776"
-         cx="3890"
-         id="path3623-0-3"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-837.63776"
-         cx="3850"
-         id="path3623-0-8-9"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-917.63776"
-         cx="3930"
-         id="path3623-0-82-2"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-917.63776"
-         cx="3850"
-         id="path3623-0-3-8"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-837.63776"
-         cx="3930"
-         id="path3623-0-3-3"
-         style="fill:#000000;stroke:none" />
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="558.3916"
+         x="981.02942"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-5-1-5-2"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="2.5"
+         cy="584.86218"
+         cx="987.5"
+         id="path7521-3-2"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="564.86218"
+         cx="1007.5"
+         id="path7521-3-5-7"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="574.86218"
+         cx="997.5"
+         id="path7521-3-2-6"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
     </g>
     <g
-       id="g3928"
-       transform="translate(-420,-119.99998)"
+       id="g7803"
        inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice4.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1147.6379"
-         x="3980"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-3"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-1027.6378"
-         cx="4020"
-         id="path3623-0-8-4"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-1107.6378"
-         cx="4100"
-         id="path3623-0-82-9"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-1107.6378"
-         cx="4020"
-         id="path3623-0-6"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-1027.6378"
-         cx="4100"
-         id="path3623-0-6-1"
-         style="fill:#000000;stroke:none" />
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="648.3916"
+         x="1026.0294"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-5-1-5-9"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="2.5"
+         cy="674.86218"
+         cx="1032.5"
+         id="path7521-3-9"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="654.86218"
+         cx="1052.5"
+         id="path7521-3-5-3"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="654.86218"
+         cx="1032.5"
+         id="path7521-3-9-6"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="674.86218"
+         cx="1052.5"
+         id="path7521-3-9-2"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
     </g>
     <g
-       id="g3935"
-       transform="translate(-330,-119.99992)"
+       id="g7815"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="603.3916"
+         x="1026.0294"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-5-1-5-9-8"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="2.5"
+         cy="629.86218"
+         cx="1032.5"
+         id="path7521-3-9-3"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="609.86218"
+         cx="1052.5"
+         id="path7521-3-5-3-4"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="609.86218"
+         cx="1032.5"
+         id="path7521-3-9-6-8"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="629.86218"
+         cx="1052.5"
+         id="path7521-3-9-2-3"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="619.86218"
+         cx="1042.5"
+         id="path7521-3-5-3-4-6"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+    </g>
+    <g
+       id="g7823"
        inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice6.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-907.63788"
-         x="4130"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-3-4"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-787.63776"
-         cx="4170"
-         id="path3623-0-8-4-0"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-867.63776"
-         cx="4250"
-         id="path3623-0-82-9-1"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-867.63776"
-         cx="4170"
-         id="path3623-0-6-13"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-787.63776"
-         cx="4250"
-         id="path3623-0-6-1-2"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-867.63776"
-         cx="4210"
-         id="path3623-0-6-13-6"
-         style="fill:#000000;stroke:none" />
-      <ellipse
-         ry="10.000022"
-         rx="10"
-         cy="-787.63776"
-         cx="4210"
-         id="path3623-0-6-13-2"
-         style="fill:#000000;stroke:none" />
+         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
+         y="558.3916"
+         x="1026.0294"
+         height="32.94117"
+         width="32.941177"
+         id="rect4722-6-0-6-7-8-4-4-6-3-2-5-1-5-9-7"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.05882335;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="2.5"
+         cy="584.86218"
+         cx="1032.5"
+         id="path7521-3-9-4"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="564.86218"
+         cx="1052.5"
+         id="path7521-3-5-3-8"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="564.86218"
+         cx="1032.5"
+         id="path7521-3-9-6-0"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="584.86218"
+         cx="1052.5"
+         id="path7521-3-9-2-0"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="564.86218"
+         cx="1042.5"
+         id="path7521-3-5-3-8-0"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
+      <circle
+         r="2.5"
+         cy="584.86218"
+         cx="1042.5"
+         id="path7521-3-5-3-8-4"
+         style="fill:#000000;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.5" />
     </g>
-    <g
-       transform="translate(1520,-599.99998)"
-       id="g3910-1"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1027.6379"
-         x="3320"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-1"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       id="g3914-8"
-       transform="translate(1020,-889.99986)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-977.63788"
-         x="3580"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-23"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       id="g3905-8"
-       transform="translate(970,-469.99998)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1157.6379"
-         x="3630"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-2-9"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       id="g3920-5"
-       transform="translate(1030,-1150)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-957.63788"
-         x="3810"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-29-1"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-7-8-4-4-6-3-2"
-       width="160"
-       height="160"
-       x="4600"
-       y="-2107.6379"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <g
-       id="g3935-7"
-       transform="translate(710,-959.99986)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-907.63788"
-         x="4130"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-3-4-2"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       transform="translate(2080,-600.00002)"
-       id="g3910-1-3"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1027.6379"
-         x="3320"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-1-0"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       id="g3914-8-2"
-       transform="translate(1580,-889.99992)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-977.63788"
-         x="3580"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-23-3"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       id="g3905-8-1"
-       transform="translate(1530,-470.00002)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1157.6379"
-         x="3630"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-2-9-8"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       id="g3920-5-8"
-       transform="translate(1590,-1150.0001)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-957.63788"
-         x="3810"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-29-1-5"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4722-6-0-6-7-8-4-4-6-3-2-6"
-       width="160"
-       height="160"
-       x="5160"
-       y="-2107.6379"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <g
-       id="g3935-7-2"
-       transform="translate(1270,-959.99992)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bg.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-907.63788"
-         x="4130"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-3-4-2-0"
-         style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <g
-       id="g4360"
-       transform="translate(1598.5434,1679.9999)">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
-         y="-3059.717"
-         x="2927.9199"
-         height="784.15875"
-         width="1107.0734"
-         id="rect3593-6"
-         style="fill:#e6e6e6;stroke:#000000;stroke-width:10.01304054;stroke-miterlimit:4;stroke-dasharray:none" />
-      <g
-         id="g4352">
-        <rect
-           style="fill:#ffffff;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
-           id="rect4360"
-           width="960"
-           height="280"
-           x="3000"
-           y="-2987.6377"
-           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <rect
-           style="fill:#ffffff;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
-           id="rect4360-7"
-           width="960"
-           height="280"
-           x="3000"
-           y="-2627.6377"
-           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="3479.707"
-           y="-2802.9014"
-           id="text4377"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan4379"
-             x="3479.707"
-             y="-2802.9014"
-             style="font-size:120px">Continue</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="3469.3262"
-           y="-2458.5752"
-           id="text4377-2"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/continue_stop.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan4379-1"
-             x="3469.3262"
-             y="-2458.5752"
-             style="font-size:120px">Stop</tspan></text>
-      </g>
-    </g>
-    <rect
-       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4312"
-       width="160"
-       height="160"
-       x="3800"
-       y="932.36218" />
-    <rect
-       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4314"
-       width="160"
-       height="480"
-       x="3800"
-       y="772.36218" />
-    <rect
-       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4314-3"
-       width="160"
-       height="480"
-       x="932.36218"
-       y="-4120"
-       transform="matrix(0,1,-1,0,0,0)" />
-    <rect
-       style="fill:#e6e6e6;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4314-3-0"
-       width="160"
-       height="480"
-       x="932.36218"
-       y="-4120"
-       transform="matrix(0,1,-1,0,0,0)" />
-    <g
-       id="g4370"
-       transform="matrix(0.99113411,0,0,0.99482823,-73.897382,-276.62614)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
-         y="-307.63779"
-         x="4640"
-         height="1920"
-         width="1120"
-         id="rect4350"
-         style="fill:#e6e6e6;stroke:#000000;stroke-width:10.08379376;stroke-miterlimit:4;stroke-dasharray:none" />
-      <g
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
-         transform="translate(120,79.999996)"
-         id="g4375">
-        <path
-           style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:40;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m 5080,1132.3622 160,-160 160,0 160,160 0,160 -160,160 -160,0 -160,-160 0,-160 0,0 z"
-           id="path4352-9"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:#ff0000;fill-rule:evenodd;stroke:#ffffff;stroke-width:25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m 5080,1132.3622 160,-160 160,0 160,160 0,160 -160,160 -160,0 -160,-160 0,-160 0,0 z"
-           id="path4352"
-           inkscape:connector-curvature="0" />
-      </g>
-      <text
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
-         sodipodi:linespacing="125%"
-         id="text4379"
-         y="1372.4622"
-         x="5439.9155"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:225px;font-family:'DIN Condensed';-inkscape-font-specification:'DIN Condensed, Bold Condensed';fill:#ffffff"
-           y="1372.4622"
-           x="5439.9155"
-           id="tspan4381"
-           sodipodi:role="line">STOP</tspan></text>
-      <text
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/options.png"
-         sodipodi:linespacing="125%"
-         id="text4383"
-         y="1356.0646"
-         x="4917.2227"
-         style="font-style:normal;font-weight:normal;font-size:175px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:175px"
-           y="1356.0646"
-           x="4917.2227"
-           id="tspan4385"
-           sodipodi:role="line">Can't</tspan></text>
-    </g>
-    <g
-       id="g3905-89"
-       transform="translate(-630,-1869.9998)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bad.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"
-       style="fill:#ffd5d5;fill-opacity:0.39215687">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1157.6379"
-         x="3630"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-2-3"
-         style="fill:#ffd5d5;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0.39215687" />
-    </g>
-    <g
-       id="g3928-1"
-       transform="translate(-740,-1880)"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_bad.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"
-       style="fill:#ffd5d5;fill-opacity:0.39215687">
-      <rect
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop C++_SDL/res/board.png"
-         y="-1147.6379"
-         x="3980"
-         height="160"
-         width="160"
-         id="rect4722-6-0-6-7-8-4-4-6-3-7"
-         style="fill:#ffd5d5;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0.39215687" />
-    </g>
-    <rect
-       style="fill:#00ffff;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0.09803922"
-       id="rect4351"
-       width="480"
-       height="240"
-       x="4240"
-       y="-2907.6377"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_highlight.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4353"
-       width="1360"
-       height="640"
-       x="3720"
-       y="-3147.6377" />
-    <rect
-       style="fill:#00ffff;fill-opacity:0.09803922;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4360-1"
-       width="960"
-       height="280"
-       x="5917.5"
-       y="-1785.1378"
-       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/stop_highlight.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
   </g>
 </svg>

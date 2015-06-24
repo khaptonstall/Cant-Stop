@@ -14,8 +14,12 @@ private:
 	SDL_Rect dice_pair5;
 	SDL_Rect dice_pair6;
 
+	SDL_Rect dice_quad1;
+	SDL_Rect dice_quad2;
+	SDL_Rect dice_quad3;
+
 public:
-	dice_controller(dice_view dv, int offset_x, int offset_y, int scale) {
+	dice_controller(dice_view& dv, int offset_x, int offset_y, int scale) {
 		dice_pair1 = dv.get_rect(1);
 		dice_pair1.x /= scale;
 		dice_pair1.y /= scale;
@@ -63,10 +67,22 @@ public:
 		dice_pair6.y += offset_y;
 		dice_pair6.w /= scale;
 		dice_pair6.h /= scale;
+
+		dice_quad1 = { dice_pair1.x, dice_pair1.y, (dice_pair2.x - dice_pair1.x - dice_pair1.w) + (dice_pair1.w * 2), dice_pair1.h };
+		dice_quad2 = { dice_pair3.x, dice_pair3.y, (dice_pair4.x - dice_pair3.x - dice_pair3.w) + (dice_pair3.w * 2), dice_pair3.h };
+		dice_quad3 = { dice_pair5.x, dice_pair5.y, (dice_pair6.x - dice_pair5.x - dice_pair5.w) + (dice_pair5.w * 2), dice_pair5.h };
+
+		dv.set_scaling_offset(offset_x, offset_y, scale);
 	}
 
-	int input(int x, int y) {
+	int input(int x, int y, vector<bool> bad_dice) {
 		SDL_Point p = {x, y};
+
+		if (!bad_dice[0] && !bad_dice[1] && SDL_EnclosePoints(&p, 1, &dice_quad1, NULL)) return 1;
+		else if (!bad_dice[2] && !bad_dice[3] && SDL_EnclosePoints(&p, 1, &dice_quad2, NULL)) return 3;
+		else if (!bad_dice[4] && !bad_dice[5] && SDL_EnclosePoints(&p, 1, &dice_quad3, NULL)) return 5;
+
+
 		if (SDL_EnclosePoints(&p, 1, &dice_pair1, NULL)) return 1;
 		else if (SDL_EnclosePoints(&p, 1, &dice_pair2, NULL)) return 2;
 		else if (SDL_EnclosePoints(&p, 1, &dice_pair3, NULL)) return 3;
