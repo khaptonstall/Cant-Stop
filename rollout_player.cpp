@@ -135,14 +135,17 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 	for (int i = 0; i < currentCols.size(); i++){
 		int index = currentCols[i] - 2;
 		if(stateReference[index] > state[index]){
-			probability -= stateReference[index] - state[index];
-			probability -= stateReference[index] - state[index];
-
+			probability -= (stateReference[index] - state[index]) * 2;
+			if(game_state->filledCols[index] - stateReference[index] == 1){
+				probability += 10;
+			}else if(game_state->filledCols[index] - stateReference[index] == 1){
+				probability += 5;
+			}
 		}
 	}
 
 	cout << "probability after:  " << (probability) << '\n';
-	if( (probability) > 70){
+	if( (probability) >= 75){
 		return true;
 	}else{
 		return false;
