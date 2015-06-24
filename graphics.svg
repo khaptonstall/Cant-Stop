@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.96169512"
-     inkscape:cx="3205.8626"
-     inkscape:cy="3962.7583"
+     inkscape:zoom="0.24042378"
+     inkscape:cx="5441.2817"
+     inkscape:cy="3092.714"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1758,5 +1758,32 @@
          id="rect4722-6-0-6-7-8-4-4-6-3-7"
          style="fill:#ffd5d5;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0.39215687" />
     </g>
+    <rect
+       style="fill:#00ffff;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:0.09803922"
+       id="rect4351"
+       width="480"
+       height="240"
+       x="4240"
+       y="-2907.6377"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/dice_highlight.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4353"
+       width="1360"
+       height="640"
+       x="3720"
+       y="-3147.6377" />
+    <rect
+       style="fill:#00ffff;fill-opacity:0.09803922;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4360-1"
+       width="960"
+       height="280"
+       x="5917.5"
+       y="-1785.1378"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/stop_highlight.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
