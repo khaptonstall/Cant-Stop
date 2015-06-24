@@ -12,7 +12,7 @@ class probability_player : public Player {
 private:
 	dice_probability dice_p;
 
-	const int SELECT_DELAY = 0;
+	const int SELECT_DELAY = 2000;
 	int timer = 0;
 	int last_ticks = 0;
 

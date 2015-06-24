@@ -21,7 +21,7 @@ private:
 	SDL_Surface* s_temp_token;
 
 	SDL_Rect r_start[11];
-	int board_spacing[11];
+	double board_spacing[11];
 
 	void generate_rectangles() {
 		r_start[0]  = {  25, 190, 30, 30 };
@@ -36,17 +36,17 @@ private:
 		r_start[9]  = { 385, 155, 30, 30 };
 		r_start[10] = { 425, 190, 30, 30 };
 
-		board_spacing[0]  = 255 - 190;
-		board_spacing[1]  = 205 - 155;
-		board_spacing[2]  = 165 - 120;
-		board_spacing[3]  = 127 -  85;
-		board_spacing[4]  =  91 -  50;
-		board_spacing[5]  =  55 -  15;
-		board_spacing[6]  =  91 -  50;
-		board_spacing[7]  = 127 -  85;
-		board_spacing[8]  = 165 - 120;
-		board_spacing[9]  = 205 - 155;
-		board_spacing[10] = 255 - 190;
+		board_spacing[0]  = 255   - 190;
+		board_spacing[1]  = 205   - 155;
+		board_spacing[2]  = 165   - 120;
+		board_spacing[3]  = 127.5 -  85;
+		board_spacing[4]  =  91   -  50;
+		board_spacing[5]  =  55   -  15;
+		board_spacing[6]  =  91   -  50;
+		board_spacing[7]  = 127   -  85;
+		board_spacing[8]  = 165   - 120;
+		board_spacing[9]  = 205   - 155;
+		board_spacing[10] = 255   - 190;
 	}
 
 public:

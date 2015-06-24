@@ -10,7 +10,7 @@ using namespace std;
 class GameState{
 public:
 	// ********** Variables ***********
-	Human_Player player1;
+	probability_player player1;
 	rollout_player player2;
 	//probability_player player2;
 	vector<int> deadCols;

@@ -4,6 +4,7 @@
 #include <ctime>
 #include <vector>
 #include <algorithm>
+#include <SDL2/SDL_timer.h>
 
 #include "GameState.h"
 #include "rollout_player.h"
@@ -17,8 +18,19 @@ using namespace std;
 // Output: pair<int,int>
 // Desciption: Currently picks the first valid pair of dice
 pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
-
-
+	// Decision delay
+	if (last_ticks == 0) {
+		last_ticks = SDL_GetTicks();
+		return pair<int, int>(-1, -1);
+	}
+	else if (timer < SELECT_DELAY) {
+		timer += SDL_GetTicks() - last_ticks;
+		return pair<int, int>(-1, -1);
+	}
+	else {
+		timer = 0;
+		last_ticks = 0;
+	}
 
 	int highestProb = 0;
 	pair<int,int> highestPair = make_pair(0,0);
@@ -80,6 +92,20 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
 int rollout_player::select_decision(GameState* game_state, int selected_decision ) {
+	// Decision delay
+	if (last_ticks == 0) {
+		last_ticks = SDL_GetTicks();
+		return 0;
+	}
+	else if (timer < SELECT_DELAY) {
+		timer += SDL_GetTicks() - last_ticks;
+		return 0;
+	}
+	else {
+		timer = 0;
+		last_ticks = 0;
+	}
+
 	// Stop if you just got to the top
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end())
