@@ -12,7 +12,7 @@ class rollout_player : public Player {
 private:
 	dice_probability dice_p;
 
-	const int SELECT_DELAY = 3000;
+	const int SELECT_DELAY = 0;
 	int timer = 0;
 	int last_ticks = 0;
 public:

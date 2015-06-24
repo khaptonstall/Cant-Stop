@@ -157,7 +157,7 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 			probability++;
 		}
 	}
-	cout << "probability before: " << probability << '\n';
+	// cout << "probability before: " << probability << '\n';
 	for (int i = 0; i < currentCols.size(); i++){
 		int index = currentCols[i] - 2;
 		if(stateReference[index] > state[index]){
@@ -170,7 +170,7 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 		}
 	}
 
-	cout << "probability after:  " << (probability) << '\n';
+	// cout << "probability after:  " << (probability) << '\n';
 	if( (probability) >= 75){
 		return true;
 	}else{

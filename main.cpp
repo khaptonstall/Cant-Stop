@@ -79,6 +79,11 @@ int main(int, char**){
 	vector<int> dice_options;
 	int game_over = false;
 
+	// Statistics tracker
+	const int MAX_GAMES = 1;
+	int current_game = 0;
+	int player1_wins = 0;
+	int player2_wins = 0;
 
 	while (!quit) {
 		SDL_Point mouse_pos;
@@ -166,7 +171,29 @@ int main(int, char**){
 				cantStop.checkForDeadCols();
 				if (player->claimedCols.size() >= 3) {
 					cout << player->name << " wins!" << endl;
-					game_over = true;
+					++current_game;
+					if (player == &cantStop.player1) {
+						player1_wins++;
+					}
+					else {
+						player2_wins++;
+					}
+					
+					if (current_game < MAX_GAMES) {
+						cantStop.startOver();
+						dice_active = false;
+						stop_active = false;
+						player = &cantStop.player1;
+						game_over = false;
+					}
+					else if (game_over == false) {
+						cantStop.startOver();
+						dice_active = false;
+						stop_active = false;
+						player = &cantStop.player1;
+						game_over = true;
+						cout << "Player 1 won " << player1_wins << " / " << MAX_GAMES << endl;
+					}
 				}
 				player->currentCols.clear();
 				if (player == &cantStop.player1) player = &cantStop.player2;
