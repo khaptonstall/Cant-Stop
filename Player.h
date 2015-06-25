@@ -5,19 +5,19 @@ class GameState;
 
 using namespace std;
 
-class Player{
+class Player {
 public:
 	// ********** Variables ************
-	bool turn = false;
-	vector<int> state = vector<int>(11, 0);
-	vector<int> stateReference = state;
+	vector<int> state;
+	vector<int> stateReference;
 	vector<int> currentCols; //Player's current columns. MAX=3
 	vector<int> claimedCols; //Columns the player has maxxed out
-	string name = "";
-	vector<int> filledCols = {3,5,7,9,11,13,11,9,7,5,3};
+	string name;
+	static vector<int> const filledCols;
 
 
 	// ************ Methods *************
+	Player();
 	vector< pair<int,int> > rollDice();
 	void chooseDice( pair<int, int> );
 	void changeTurns();

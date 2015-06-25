@@ -30,7 +30,7 @@ int main(int, char**){
     	return 1;
 	}
 
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
 
 	// Create views
 	board_view bv;
@@ -67,7 +67,6 @@ int main(int, char**){
 	vector<int> empty_vector = vector<int>();
 
 	GameState cantStop;
-	cantStop.player1.turn = true;
 	Player* player = &cantStop.player1;
 
 	bool quit = false;

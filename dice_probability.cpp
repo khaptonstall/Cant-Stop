@@ -6,6 +6,14 @@ using namespace std;
 
 #include "dice_probability.h"
 
+int const dice_probability::NUM_FOUR_OF_A_KIND		= 1;
+int const dice_probability::NUM_THREE_OF_A_KIND		= 4;
+int const dice_probability::NUM_TWO_PAIRS				= 6;
+int const dice_probability::NUM_ONE_PAIR				= 12;
+int const dice_probability::NUM_ALL_DIFFERENT			= 24;
+
+int const dice_probability::NUM_DICE_ROLLS			= 1296;
+
 void dice_probability::sort_dice(string& s) {
 	vector<char> dv = {s[0], s[1], s[2], s[3]};
 	sort(dv.begin(), dv.end());

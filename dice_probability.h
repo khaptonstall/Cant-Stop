@@ -18,13 +18,13 @@ private:
 	
 
 	// Number of ways to make particular dice roll
-	const int NUM_FOUR_OF_A_KIND	= 1;
-	const int NUM_THREE_OF_A_KIND	= 4;
-	const int NUM_TWO_PAIRS			= 6;
-	const int NUM_ONE_PAIR			= 12;
-	const int NUM_ALL_DIFFERENT		= 24;
+	static int const NUM_FOUR_OF_A_KIND;
+	static int const NUM_THREE_OF_A_KIND;
+	static int const NUM_TWO_PAIRS;
+	static int const NUM_ONE_PAIR;
+	static int const NUM_ALL_DIFFERENT;
 
-	const int NUM_DICE_ROLLS		= 1296;
+	static int const NUM_DICE_ROLLS;
 
 	void sort_dice(string&);
 
