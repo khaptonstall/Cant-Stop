@@ -17,7 +17,7 @@
 using namespace std;
 
 int main(int, char**){
-	//Seed random number 
+	//Seed random number
 	srand(time(NULL));
 
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
@@ -83,11 +83,11 @@ int main(int, char**){
 	int game_over = false;
 
 	// Statistics tracker
-	const int MAX_GAMES = 1;
+	const int MAX_GAMES = 100;
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
-	bool testing = false;
+	bool testing = true;
 
 	while (!quit) {
 		SDL_Point mouse_pos;
@@ -280,7 +280,7 @@ int main(int, char**){
 			SDL_DestroyTexture(dice_texture);
 			SDL_DestroyTexture(stop_texture);
 			SDL_DestroyTexture(options_texture);
-		} 
+		}
 
 		//If we want to cap the frame rate
         if( ( capped == true ) && ( SDL_GetTicks() < 1000 / FRAMES_PER_SECOND ) )
@@ -296,6 +296,3 @@ int main(int, char**){
 	SDL_Quit();
 	return 0;
 }
-
-
-

@@ -19,7 +19,7 @@ GameState::GameState() {
 // Function: rollDice
 // Input: bool
 // Output: vector<int>
-// Description: Return a vector with 4 random dice 
+// Description: Return a vector with 4 random dice
 vector<int> GameState::rollDice(bool b) {
 	vector<int> output;
 	std::random_device rd;
@@ -31,13 +31,26 @@ vector<int> GameState::rollDice(bool b) {
 	return output;
 }
 
-
+// Function: canStop
+// Input:
+// Output: bool
+// Description: If a player is on top of another player they cannot stop, return false.
+//	Otherwise return true.
+bool GameState::canStop(){
+	for(int i = 0; i < player1.stateReference.size(); i++){
+		if( (player1.stateReference[i] == player2.state[i] && player1.stateReference[i] != 0) ||
+		(player2.stateReference[i] == player1.state[i] && player2.stateReference[i] != 0)) {
+			return false;
+		}
+	}
+	return true;
+}
 
 
 // Function: validatePair
 // Input: int, int, Player*
 // Output: bool
-// Desciption: Compare each pair of dice to make sure the pair to make sure the player is not currently at the top of one of 
+// Desciption: Compare each pair of dice to make sure the pair to make sure the player is not currently at the top of one of
 //	those columns, and that the pair does not contain a dead column
 bool GameState::validatePair(int a, int b, Player* p) {
 
@@ -77,7 +90,7 @@ bool GameState::validatePair(int a, int b, Player* p) {
 					(find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end()) &&
 					identicalPairIsPlayable) {
 		return true;
-	}	
+	}
 
 	else return false;
 }

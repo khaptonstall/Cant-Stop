@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int const rollout_player::SELECT_DELAY = 3000;
+int const rollout_player::SELECT_DELAY = 0; //3000;
 
 rollout_player::rollout_player() {
 	timer = 0;
@@ -47,7 +47,7 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 		if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
 			if(game_state->validatePair(rp.first, rp.second, p)){
 				highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
-				highestPair = rp; 
+				highestPair = rp;
 			}
 		}
 	}
@@ -118,7 +118,9 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 		if (state[i] != stateReference[i])
 			tokens.push_back(i + 2);
 	}
-
+	if (game_state->canStop() == false){
+		return 1;
+	}
 		// Stop if you just got to the top
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
@@ -167,9 +169,9 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 		if(stateReference[index] > state[index]){
 			probability -= (stateReference[index] - state[index]) * 2;
 			if(game_state->filledCols[index] - stateReference[index] == 1){
-				probability += 10;
+				//probability += 10;
 			}else if(game_state->filledCols[index] - stateReference[index] == 1){
-				probability += 5;
+			//	probability += 5;
 			}
 		}
 	}

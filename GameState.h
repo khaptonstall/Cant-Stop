@@ -23,6 +23,7 @@ public:
 	bool validatePair(int a, int b, Player* p);
 	bool validatePair(int a, Player* p);
 	void startOver();
+	bool canStop();
 };
 
 #endif /* _GAME_STATE_H_ */

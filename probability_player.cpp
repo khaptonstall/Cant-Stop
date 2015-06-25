@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int const probability_player::SELECT_DELAY = 3000;
+int const probability_player::SELECT_DELAY = 0; //3000;
 
 probability_player::probability_player() {
 	timer = 0;
@@ -46,7 +46,7 @@ pair<int, int> probability_player::select_dice(GameState* game_state, vector<pai
 		if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
 			if(game_state->validatePair(rp.first, rp.second, p)){
 				highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
-				highestPair = rp; 
+				highestPair = rp;
 			}
 		}
 	}
@@ -120,11 +120,15 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 		tokens.push_back(0);
 	}
 
+	if (game_state->canStop() == false){
+		return 1;
+	}
+
 	// Less than three tokens, continue
 	if (tokens.size() < 3 && game_state->deadCols.size() == 0)
 		return 1;
 
-	// Stop iif you're at the top of a column and used all 3 tokens 
+	// Stop iif you're at the top of a column and used all 3 tokens
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
 			tokens.size() == 3)
