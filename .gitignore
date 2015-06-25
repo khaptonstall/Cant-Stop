@@ -1,1 +1,4 @@
 cantstop
+build/
+.DS_Store
+
