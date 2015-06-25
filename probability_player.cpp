@@ -13,6 +13,8 @@
 
 using namespace std;
 
+int const probability_player::SELECT_DELAY = 3000;
+
 // Function: select_dice
 // Input: GameState*, vector<pair<int,int> >, Player*, int
 // Output: pair<int,int>
