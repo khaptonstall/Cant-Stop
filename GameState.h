@@ -10,7 +10,7 @@ using namespace std;
 class GameState {
 public:
 	// ********** Variables ***********
-	Human_Player player1;
+	probability_player player1;
 	rollout_player player2;
 	vector<int> deadCols;
 	static vector<int> const filledCols; // Vector to compare when a player is at the top of the column
