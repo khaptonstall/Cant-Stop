@@ -169,9 +169,9 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 		if(stateReference[index] > state[index]){
 			probability -= (stateReference[index] - state[index]) * 2;
 			if(game_state->filledCols[index] - stateReference[index] == 1){
-				//probability += 10;
+				probability += 10;
 			}else if(game_state->filledCols[index] - stateReference[index] == 1){
-			//	probability += 5;
+				probability += 5;
 			}
 		}
 	}
