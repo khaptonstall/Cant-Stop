@@ -49,7 +49,9 @@ bool GameState::validatePair(int a, int b, Player* p) {
 					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
 					( find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end()) &&
 					identicalPairIsPlayable) {
-		if (a != b && !((find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), b) == p->currentCols.end()) ||
+		if (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end())
+			return true;
+		else if (a != b && !((find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), b) == p->currentCols.end()) ||
 							(find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), a) == p->currentCols.end()))) {
 
 			return false;

@@ -34,12 +34,13 @@ $(TARGET): $(OBJPATHS)
 
 build/%.o: %.cpp
 	@$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
-	@echo Compiling $(<:.cpp=.o)
+	@echo Compiling $(<:.cpp=)
 
 clean:
 	@echo Cleaning...
 	@rm -fr $(TARGET) $(OBJPATHS)
 
-# .PRECIOUS: %.cpp %.o
+rebuild: clean
+	@$(MAKE) all
 
 .SECONDARY:

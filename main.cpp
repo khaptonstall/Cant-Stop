@@ -56,13 +56,17 @@ int main(int, char**){
 		return 1;
 	}
 
-	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
 	if (ren == nullptr){
 		SDL_DestroyWindow(win);
 		cout << "SDL_CreateRenderer Error: " << SDL_GetError() << endl;
 		SDL_Quit();
 		return 1;
 	}
+
+	int const FRAMES_PER_SECOND = 60;
+	int frame = 0;
+	bool capped = true;
 
 	vector<int> empty_vector = vector<int>();
 
@@ -273,6 +277,13 @@ int main(int, char**){
 			SDL_DestroyTexture(stop_texture);
 			SDL_DestroyTexture(options_texture);
 		}
+
+		//If we want to cap the frame rate
+        if( ( capped == true ) && ( SDL_GetTicks() < 1000 / FRAMES_PER_SECOND ) )
+        {
+            //Sleep the remaining frame time
+            SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - SDL_GetTicks() );
+        }
 
 	}
 
