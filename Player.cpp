@@ -1,16 +1,20 @@
 #include <iostream>
-#include <stdlib.h>
-#include <cstdlib>
-#include <ctime>
 #include <vector>
 #include <algorithm>
 
-#include "GameState.h"
 #include "Player.h"
+
+#include "GameState.h"
 
 using namespace std;
 
+vector<int> const Player::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
+Player::Player() {
+	state = vector<int>(11, 0);
+	stateReference = vector<int>(11, 0);
+
+}
 
 // Player::chooseDice()
 // Input: pair<int,int> dice

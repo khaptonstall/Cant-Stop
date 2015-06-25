@@ -30,7 +30,7 @@ int main(int, char**){
     	return 1;
 	}
 
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
 
 	// Create views
 	board_view bv;
@@ -56,7 +56,7 @@ int main(int, char**){
 		return 1;
 	}
 
-	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
 	if (ren == nullptr){
 		SDL_DestroyWindow(win);
 		cout << "SDL_CreateRenderer Error: " << SDL_GetError() << endl;
@@ -64,10 +64,13 @@ int main(int, char**){
 		return 1;
 	}
 
+	int const FRAMES_PER_SECOND = 60;
+	int frame = 0;
+	bool capped = true;
+
 	vector<int> empty_vector = vector<int>();
 
 	GameState cantStop;
-	cantStop.player1.turn = true;
 	Player* player = &cantStop.player1;
 
 	bool quit = false;
@@ -80,10 +83,11 @@ int main(int, char**){
 	int game_over = false;
 
 	// Statistics tracker
-	const int MAX_GAMES = 100;
+	const int MAX_GAMES = 1;
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
+	bool testing = false;
 
 	while (!quit) {
 		SDL_Point mouse_pos;
@@ -171,29 +175,32 @@ int main(int, char**){
 				cantStop.checkForDeadCols();
 				if (player->claimedCols.size() >= 3) {
 					cout << player->name << " wins!" << endl;
-					++current_game;
-					if (player == &cantStop.player1) {
-						player1_wins++;
-					}
-					else {
-						player2_wins++;
-					}
+					if (testing) {
+						++current_game;
+						if (player == &cantStop.player1) {
+							player1_wins++;
+						}
+						else {
+							player2_wins++;
+						}
 
-					if (current_game < MAX_GAMES) {
-						cantStop.startOver();
-						dice_active = false;
-						stop_active = false;
-						player = &cantStop.player1;
-						game_over = false;
+						if (current_game < MAX_GAMES) {
+							cantStop.startOver();
+							dice_active = false;
+							stop_active = false;
+							player = &cantStop.player1;
+							game_over = false;
+						}
+						else if (game_over == false) {
+							cantStop.startOver();
+							dice_active = false;
+							stop_active = false;
+							player = &cantStop.player1;
+							game_over = true;
+							cout << "Player 1 won " << player1_wins << " / " << MAX_GAMES << endl;
+						}
 					}
-					else if (game_over == false) {
-						cantStop.startOver();
-						dice_active = false;
-						stop_active = false;
-						player = &cantStop.player1;
-						game_over = true;
-						cout << "Player 1 won " << player1_wins << " / " << MAX_GAMES << endl;
-					}
+					else { game_over = true; }
 				}
 				player->currentCols.clear();
 				if (player == &cantStop.player1) player = &cantStop.player2;
@@ -274,6 +281,13 @@ int main(int, char**){
 			SDL_DestroyTexture(stop_texture);
 			SDL_DestroyTexture(options_texture);
 		} 
+
+		//If we want to cap the frame rate
+        if( ( capped == true ) && ( SDL_GetTicks() < 1000 / FRAMES_PER_SECOND ) )
+        {
+            //Sleep the remaining frame time
+            SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - SDL_GetTicks() );
+        }
 
 	}
 

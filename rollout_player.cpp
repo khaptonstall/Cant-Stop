@@ -6,12 +6,19 @@
 #include <algorithm>
 #include <SDL2/SDL_timer.h>
 
-#include "GameState.h"
 #include "rollout_player.h"
 
+#include "GameState.h"
 #include "dice_probability.h"
 
 using namespace std;
+
+int const rollout_player::SELECT_DELAY = 3000;
+
+rollout_player::rollout_player() {
+	timer = 0;
+	last_ticks = 0;
+}
 
 // Function: select_dice
 // Input: GameState*, vector<pair<int,int> >, Player*, int

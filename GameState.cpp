@@ -1,18 +1,19 @@
 #include <iostream>
-#include <stdlib.h>
-#include <cstdlib>
-#include <ctime>
 #include <vector>
 #include <algorithm>
 #include <random>
+
 
 #include "GameState.h"
 
 using namespace std;
 
+vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
+
 GameState::GameState() {
 	player1.name = "Player 1";
 	player2.name = "Player 2";
+
 }
 
 // Function: rollDice
@@ -41,6 +42,11 @@ vector<int> GameState::rollDice(bool b) {
 bool GameState::validatePair(int a, int b, Player* p) {
 
 	bool identicalPairIsPlayable = true;
+
+	if (find(deadCols.begin(), deadCols.end(), a) != deadCols.end() || find(deadCols.begin(), deadCols.end(), b) != deadCols.end()) {
+		return false;
+	}
+
 	if(a == b){
 		if((filledCols[a-2] - p->stateReference[a-2]) < 2){
 			identicalPairIsPlayable = false;
@@ -56,7 +62,9 @@ bool GameState::validatePair(int a, int b, Player* p) {
 					(p->stateReference[a - 2] != filledCols[a - 2] && p->stateReference[b - 2] != filledCols[b - 2]) &&
 					( find(deadCols.begin(), deadCols.end(), a) == deadCols.end()  && find(deadCols.begin(), deadCols.end(), b) == deadCols.end()) &&
 					identicalPairIsPlayable) {
-		if (a != b && !((find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), b) == p->currentCols.end()) ||
+		if (find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end())
+			return true;
+		else if (a != b && !((find(p->currentCols.begin(), p->currentCols.end(), a) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), b) == p->currentCols.end()) ||
 							(find(p->currentCols.begin(), p->currentCols.end(), b) != p->currentCols.end() &&  find(p->currentCols.begin(), p->currentCols.end(), a) == p->currentCols.end()))) {
 
 			return false;
