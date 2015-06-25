@@ -34,7 +34,7 @@ $(TARGET): $(OBJPATHS)
 
 build/%.o: %.cpp
 	@$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
-	@echo Compiling $(<:.cpp=)
+	@echo Compiling $<
 
 clean:
 	@echo Cleaning...
