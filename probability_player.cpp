@@ -117,9 +117,10 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 	if (tokens.size() < 3 && game_state->deadCols.size() == 0)
 		return 1;
 
-	// Stop if you just got to the top
+	// Stop iif you're at the top of a column and used all 3 tokens 
 	for (int i = 0; i < 11; i++) {
-		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end())
+		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
+			tokens.size() == 3)
 			return 2;
 	}
 

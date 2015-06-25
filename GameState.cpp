@@ -4,6 +4,7 @@
 #include <ctime>
 #include <vector>
 #include <algorithm>
+#include <random>
 
 #include "GameState.h"
 
@@ -20,11 +21,16 @@ GameState::GameState() {
 // Description: Return a vector with 4 random dice 
 vector<int> GameState::rollDice(bool b) {
 	vector<int> output;
+	std::random_device rd;
+	std::uniform_int_distribution<int> distribution(1,6);
 	for (int i = 0; i < 4; i++) {
-		output.push_back(rand() % 6 + 1);
+		//output.push_back(rand() % 6 + 1);
+		output.push_back(distribution(rd));
 	}
 	return output;
 }
+
+
 
 
 // Function: validatePair

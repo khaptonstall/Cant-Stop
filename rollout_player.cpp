@@ -106,16 +106,17 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 		last_ticks = 0;
 	}
 
-	// Stop if you just got to the top
-	for (int i = 0; i < 11; i++) {
-		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end())
-			return 2;
-	}
-
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i])
 			tokens.push_back(i + 2);
+	}
+
+		// Stop if you just got to the top
+	for (int i = 0; i < 11; i++) {
+		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
+			tokens.size() == 3)
+			return 2;
 	}
 
 	// Less than three tokens, continue
@@ -144,13 +145,9 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 		rolled_pairs[4] = pair<int, int>(dice_options[0] + dice_options[3], dice_options[2] + dice_options[1]);
 		rolled_pairs[5] = pair<int, int>(dice_options[2] + dice_options[1], dice_options[0] + dice_options[3]);
 		bool valid_pairs = false;
-		vector<bool> bad_dice = vector<bool>(6, false);
 		for (int i = 0; i < 6; i++) {
 			if (game_state->validatePair(rolled_pairs[i].first, this)) {
 				valid_pairs = true;
-			}
-			else {
-				bad_dice[i] = true;
 			}
 		}
 		if(valid_pairs){

@@ -273,7 +273,7 @@ int main(int, char**){
 			SDL_DestroyTexture(dice_texture);
 			SDL_DestroyTexture(stop_texture);
 			SDL_DestroyTexture(options_texture);
-		}
+		} 
 
 	}
 
