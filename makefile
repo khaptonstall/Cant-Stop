@@ -5,7 +5,7 @@ SOURCES		:=		main.cpp GameState.cpp Player.cpp Human_Player.cpp			\
 					AI_Player.cpp probability_player.cpp dice_probability.cpp	\
 					rollout_player.cpp
 OBJECTS		:=		$(SOURCES:.cpp=.o)
-TARGET	:=		cantstop
+TARGET		:=		cantstop
 
 #===
 
@@ -34,7 +34,7 @@ $(TARGET): $(OBJPATHS)
 
 build/%.o: %.cpp
 	@$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
-	@echo Compiling $(<:.cpp=a)
+	@echo Compiling $(<:.cpp=)
 
 clean:
 	@echo Cleaning...

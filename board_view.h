@@ -23,6 +23,8 @@ private:
 	SDL_Rect r_start[11];
 	double board_spacing[11];
 
+	vector<int> const columns_height = { 3, 5, 7, 9, 11, 13, 11, 9, 7, 5, 3 };
+
 	void generate_rectangles() {
 		r_start[0]  = {  25, 190, 30, 30 };
 		r_start[1]  = {  65, 155, 30, 30 };
@@ -66,7 +68,15 @@ public:
 		output = SDL_ConvertSurface(s_board, s_board->format, s_board->flags);
 
 		for (int i = 0; i < b.size(); i++) {
-			if (b[i] > 0) {
+			if (b[i] == columns_height[i]) {
+				for (int j = 0; j < columns_height[i]; j++) {
+					SDL_Rect dst = r_start[i];
+					dst.y = s_board->h - dst.y - dst.h;
+					dst.y -= board_spacing[i] * j;
+					SDL_BlitSurface(s_blue_token, NULL, output, &dst);
+				}
+			}
+			else if (b[i] > 0) {
 				SDL_Rect dst = r_start[i];
 				dst.y = s_board->h - dst.y - dst.h;
 				dst.y -= board_spacing[i] * (b[i] - 1);
@@ -75,7 +85,15 @@ public:
 		}
 
 		for (int i = 0; i < r.size(); i++) {
-			if (r[i] > 0) {
+			if (r[i] == columns_height[i]) {
+				for (int j = 0; j < columns_height[i]; j++) {
+					SDL_Rect dst = r_start[i];
+					dst.y = s_board->h - dst.y - dst.h;
+					dst.y -= board_spacing[i] * j;
+					SDL_BlitSurface(s_red_token, NULL, output, &dst);
+				}
+			}
+			else if (r[i] > 0) {
 				SDL_Rect dst = r_start[i];
 				dst.y = s_board->h - dst.y - dst.h;
 				dst.y -= board_spacing[i] * (r[i] - 1);

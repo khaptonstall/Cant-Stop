@@ -34,6 +34,11 @@ vector<int> GameState::rollDice(bool b) {
 bool GameState::validatePair(int a, int b, Player* p) {
 
 	bool identicalPairIsPlayable = true;
+
+	if (find(deadCols.begin(), deadCols.end(), a) != deadCols.end() || find(deadCols.begin(), deadCols.end(), b) != deadCols.end()) {
+		return false;
+	}
+
 	if(a == b){
 		if((filledCols[a-2] - p->stateReference[a-2]) < 2){
 			identicalPairIsPlayable = false;
