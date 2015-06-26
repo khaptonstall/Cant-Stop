@@ -10,8 +10,10 @@ class stop_view {
 private:
 	SDL_Surface* s_panel;
 	SDL_Surface* s_highlight;
+	SDL_Surface* s_highlight_bad;
 	const char* panel_path = "res/continue_stop.png";
 	const char* highlight_path = "res/stop_highlight.png";
+	const char* highlight_bad_path = "res/stop_highlight_bad.png";
 
 	SDL_Rect r_continue;
 	SDL_Rect r_stop;
@@ -21,18 +23,19 @@ private:
 	int scale;
 
 	void generate_rect() {
-		r_stop = { 15, 15, 195, 60 };
-		r_continue = { 15, 90, 195, 60 };
+		r_continue = { 15, 15, 195, 60 };
+		r_stop = { 15, 90, 195, 60 };
 	}
 
 public:
 	stop_view() {
 		s_panel = IMG_Load(panel_path);
 		s_highlight = IMG_Load(highlight_path);
+		s_highlight_bad = IMG_Load(highlight_bad_path);
 		generate_rect();
 	}
 
-	SDL_Surface* get_surface(int mouse_x, int mouse_y) {
+	SDL_Surface* get_surface(int mouse_x, int mouse_y, bool canStop) {
 		SDL_Surface* output = SDL_ConvertSurface(s_panel, s_panel->format, s_panel->flags);
 		mouse_x -= offset_x / scale;
 		mouse_x *= scale;
@@ -42,10 +45,14 @@ public:
 
 		SDL_Point p = {mouse_x, mouse_y};
 
+		if (!canStop) {
+			SDL_BlitSurface(s_highlight_bad, NULL, output, &r_stop);
+		}
+
 		if (SDL_EnclosePoints(&p, 1, &r_continue, NULL)) {
 			SDL_BlitSurface(s_highlight, NULL, output, &r_continue);
 		}
-		else if (SDL_EnclosePoints(&p, 1, &r_stop, NULL)) {
+		else if (canStop && SDL_EnclosePoints(&p, 1, &r_stop, NULL)) {
 			SDL_BlitSurface(s_highlight, NULL, output, &r_stop);
 		}
 

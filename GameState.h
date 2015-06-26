@@ -12,12 +12,13 @@ using namespace std;
 class GameState {
 public:
 	// ********** Variables ***********
-	dumb_player player1;
-	rollout_player player2;
+	Player* player1;
+	Player* player2;
 	vector<int> deadCols;
 	static vector<int> const filledCols; // Vector to compare when a player is at the top of the column
 	// ********** Methods ************
 	GameState();
+	~GameState();
 	vector< pair<int,int> > rollDice();
 	void checkForDeadCols();
 	vector<int> rollDice(bool b);

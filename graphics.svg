@@ -167,8 +167,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.9233903"
-     inkscape:cx="550.69891"
-     inkscape:cy="322.77232"
+     inkscape:cx="1033.6818"
+     inkscape:cy="406.529"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -2776,5 +2776,15 @@
          x="590.52966"
          id="tspan4379-0"
          sodipodi:role="line">New Game</tspan></text>
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/Users/cyanberry/Dropbox/Maryland REU-CAAR/Can't Stop/res/stop_highlight_bad.png"
+       y="552.87524"
+       x="1070.5131"
+       height="58.973869"
+       width="193.97388"
+       id="rect4360-7-2-2"
+       style="fill:#ff0000;fill-opacity:0.19607843;stroke:#000000;stroke-width:1.02613556;stroke-miterlimit:4;stroke-dasharray:none" />
   </g>
 </svg>

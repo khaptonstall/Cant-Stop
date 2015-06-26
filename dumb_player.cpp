@@ -80,6 +80,10 @@ int dumb_player::select_decision(GameState* game_state, int selected_decision) {
 		last_ticks = 0;
 	}
 
+	if (game_state->canStop() == false){
+		return 1;
+	}
+
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i] && state[i] != filledCols[i])
@@ -92,8 +96,6 @@ int dumb_player::select_decision(GameState* game_state, int selected_decision) {
 	for (int i = tokens.size(); i < 3; i++) {
 		tokens.push_back(0);
 	}
-
-
 
 	// Stop iif you're at the top of a column and used all 3 tokens 
 	for (int i = 0; i < 11; i++) {

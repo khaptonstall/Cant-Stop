@@ -6,14 +6,27 @@
 
 #include "GameState.h"
 
+#include "AI_Player.h"
+#include "probability_player.h"
+#include "rollout_player.h"
+#include "comparison_player.h"
+#include "dumb_player.h"
+
 using namespace std;
 
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
-	player1.name = "Player 1";
-	player2.name = "Player 2";
+	player1 = new dumb_player();
+	player2 = new rollout_player();
+	player1->name = "Player 1";
+	player2->name = "Player 2";
 
+}
+
+GameState::~GameState() {
+	delete player1;
+	delete player2;
 }
 
 // Function: rollDice
@@ -37,9 +50,9 @@ vector<int> GameState::rollDice(bool b) {
 // Description: If a player is on top of another player they cannot stop, return false.
 //	Otherwise return true.
 bool GameState::canStop(){
-	for(int i = 0; i < player1.stateReference.size(); i++){
-		if( (player1.stateReference[i] == player2.state[i] && player1.stateReference[i] != 0) ||
-		(player2.stateReference[i] == player1.state[i] && player2.stateReference[i] != 0)) {
+	for(int i = 0; i < player1->stateReference.size(); i++){
+		if( (player1->stateReference[i] == player2->state[i] && player1->stateReference[i] != 0) ||
+		(player2->stateReference[i] == player1->state[i] && player2->stateReference[i] != 0)) {
 			return false;
 		}
 	}
@@ -119,25 +132,25 @@ bool GameState::validatePair(int a, Player* p) {
 // Desciption: Once a player has reached the top of a column and stops, add that column to the vector of dead columns.
 //	Also clears a column once one player has claimed it.
 void GameState::checkForDeadCols(){
-	for(int i : player1.claimedCols) {
+	for(int i : player1->claimedCols) {
 		if(find(deadCols.begin(), deadCols.end(), i) == deadCols.end()){
 			deadCols.push_back(i + 2); // + 2 to adjust to game board (1-12)
-			player2.stateReference[i] = 0;
-			player2.state[i] = 0;
+			player2->stateReference[i] = 0;
+			player2->state[i] = 0;
 		}
 	}
 
-	for(int j : player2.claimedCols){
+	for(int j : player2->claimedCols){
 		if(find(deadCols.begin(), deadCols.end(), j) == deadCols.end()){
 			deadCols.push_back(j + 2); // + 2 to adjust to game board (1-12)
-			player1.stateReference[j] = 0;
-			player1.state[j] = 0;
+			player1->stateReference[j] = 0;
+			player1->state[j] = 0;
 		}
 	}
 }
 
 void GameState::startOver() {
 	deadCols.clear();
-	player1.startOver();
-	player2.startOver();
+	player1->startOver();
+	player2->startOver();
 }

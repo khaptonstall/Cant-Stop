@@ -92,6 +92,10 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 		last_ticks = 0;
 	}
 
+	if (game_state->canStop() == false){
+		return 1;
+	}
+
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i] && state[i] != filledCols[i])

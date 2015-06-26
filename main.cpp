@@ -71,7 +71,7 @@ int main(int, char**){
 	vector<int> empty_vector = vector<int>();
 
 	GameState cantStop;
-	Player* player = &cantStop.player1;
+	Player* player = cantStop.player1;
 
 	bool quit = false;
 	bool dice_active = false;
@@ -104,7 +104,7 @@ int main(int, char**){
 					check_dice_input = true;
 				}
 				else {
-					stop_continue = sc.input(mouse_pos.x, mouse_pos.y);
+					stop_continue = sc.input(mouse_pos.x, mouse_pos.y, cantStop.canStop());
 				}
 				option_selected = oc.input(mouse_pos.x, mouse_pos.y);
 			}
@@ -122,7 +122,7 @@ int main(int, char**){
 			cantStop.startOver();
 			dice_active = false;
 			stop_active = false;
-			player = &cantStop.player1;
+			player = cantStop.player1;
 			game_over = false;
 		}
 
@@ -176,14 +176,14 @@ int main(int, char**){
 				player->state = player->stateReference;
 				player->checkForWin();
 				cantStop.checkForDeadCols();
-				//if (player == &cantStop.player1) cout << "Stopped rolling" << endl << "============" << endl;
+				//if (player == cantStop.player) cout << "Stopped rolling" << endl << "============" << endl;
 				if (player->claimedCols.size() >= 3) {
 					// cout << player->name << " wins!" << endl;
-					//cout << "Agreements: " << cantStop.player1.get_agreements() << endl;
-					//cout << "Disagreements: " << cantStop.player1.get_disagreements() << endl;
+					//cout << "Agreements: " << cantStop.player1->get_agreements() << endl;
+					//cout << "Disagreements: " << cantStop.player1->get_disagreements() << endl;
 					if (testing) {
 						++current_game;
-						if (player == &cantStop.player1) {
+						if (player == cantStop.player1) {
 							player1_wins++;
 						}
 						else {
@@ -194,14 +194,14 @@ int main(int, char**){
 							cantStop.startOver();
 							dice_active = false;
 							stop_active = false;
-							player = &cantStop.player1;
+							player = cantStop.player1;
 							game_over = false;
 						}
 						else if (game_over == false) {
 							cantStop.startOver();
 							dice_active = false;
 							stop_active = false;
-							player = &cantStop.player1;
+							player = cantStop.player1;
 							game_over = true;
 							cout << "Player 1 won " << player1_wins << " / " << MAX_GAMES << endl;
 						}
@@ -209,8 +209,8 @@ int main(int, char**){
 					else { game_over = true; }
 				}
 				player->currentCols.clear();
-				if (player == &cantStop.player1) player = &cantStop.player2;
-				else if (player == &cantStop.player2) player = &cantStop.player1;
+				if (player == cantStop.player1) player = cantStop.player2;
+				else if (player == cantStop.player2) player = cantStop.player1;
 			}
 		}
 		// No dice choice is valid, revert
@@ -218,9 +218,9 @@ int main(int, char**){
 			dice_active = false;
 			player->stateReference = player->state;
 			player->currentCols.clear();
-			//if (player == &cantStop.player1) cout << "No valid dice rolls" << endl << "============" << endl;
-			if (player == &cantStop.player1) player = &cantStop.player2;
-			else if (player == &cantStop.player2) player = &cantStop.player1;
+			//if (player == cantStop.player) cout << "No valid dice rolls" << endl << "============" << endl;
+			if (player == cantStop.player1) player = cantStop.player2;
+			else if (player == cantStop.player2) player = cantStop.player1;
 		}
 
 		// Determine temporary tokens to display
@@ -235,7 +235,7 @@ int main(int, char**){
 		if (!testing) {
 			SDL_RenderClear(ren);
 
-			SDL_Surface* board_surface = bv.get_surface(cantStop.player1.state, cantStop.player2.state, empty_vector, empty_vector, temp_tokens);
+			SDL_Surface* board_surface = bv.get_surface(cantStop.player1->state, cantStop.player2->state, empty_vector, empty_vector, temp_tokens);
 			SDL_Texture* board_texture = SDL_CreateTextureFromSurface(ren, board_surface);
 			SDL_Rect board_destination;
 			board_destination.x = 0;
@@ -253,7 +253,7 @@ int main(int, char**){
 			dice_destination.w /= window_scale;
 			dice_destination.h /= window_scale;
 
-			SDL_Surface* stop_surface = sv.get_surface(mouse_pos.x, mouse_pos.y);
+			SDL_Surface* stop_surface = sv.get_surface(mouse_pos.x, mouse_pos.y, cantStop.canStop());
 			SDL_Texture* stop_texture = SDL_CreateTextureFromSurface(ren, stop_surface);
 			SDL_Rect stop_destination;
 			stop_destination.x = board_width / window_scale;
