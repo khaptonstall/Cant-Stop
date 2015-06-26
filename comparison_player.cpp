@@ -6,26 +6,30 @@
 #include <algorithm>
 #include <SDL2/SDL_timer.h>
 
-#include "rollout_player.h"
-
 #include "GameState.h"
+#include "comparison_player.h"
+
 #include "dice_probability.h"
 
 using namespace std;
 
-int const rollout_player::SELECT_DELAY = 0;
+bool rollOut(GameState* game_state, Player* p);
 
-rollout_player::rollout_player() {
+int const comparison_player::SELECT_DELAY = 0;
+
+comparison_player::comparison_player() {
 	timer = 0;
 	last_ticks = 0;
+
+	agreements = 0;
+	disagreements = 0;
 }
 
 // Function: select_dice
 // Input: GameState*, vector<pair<int,int> >, Player*, int
 // Output: pair<int,int>
 // Desciption: Currently picks the first valid pair of dice
-pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
-	// Decision delay
+pair<int, int> comparison_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return pair<int, int>(-1, -1);
@@ -98,9 +102,8 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 // Input: GameState*, int
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
-int rollout_player::select_decision(GameState* game_state, int selected_decision ) {
-	// Decision delay
-	if (last_ticks == 0) {
+int comparison_player::select_decision(GameState* game_state, int selected_decision) {
+	if (SELECT_DELAY != 0 && last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return 0;
 	}
@@ -118,27 +121,71 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 		if (state[i] != stateReference[i])
 			tokens.push_back(i + 2);
 	}
-
-		// Stop if you just got to the top
+	// for (int i = tokens.size(); i < 3; i++) {
+	// 	tokens.push_back(0);
+	// }
+	
+	// Stop iif you're at the top of a column and used all 3 tokens 
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
 			tokens.size() == 3)
 			return 2;
+	
 	}
-
 	// Less than three tokens, continue
-	if (tokens.size() < 3)
+	if (tokens.size() < 3 && game_state->deadCols.size() == 0)
 		return 1;
 
-	if (rollOut(game_state, this)){
-		return 1;
-	}else{
-		return 2;
+	// Comparison Player Specific
+	int probability_decision;
+	int rollout_decision;
+
+	// PROBABILITY PLAYER DECISION MAKING PROCESS
+	int progress = 0;
+	for (int i = 0; i < 11; i++)
+		progress += stateReference[i] - state[i];
+	double expected_progress = dice_p.get_expected_progress(tokens[0], tokens[1], tokens[2]);
+	double successful_probability = dice_p.get_probability(tokens[0], tokens[1], tokens[2]);
+	double lhs = successful_probability * (progress + expected_progress);
+	double rhs = progress;
+	if (lhs >= rhs)
+		probability_decision = 1;
+	else
+		probability_decision = 2;
+
+	// ROLLOUT PLAYER DECISION MAKING PROCESS
+	if (rollOut(game_state, this))
+		rollout_decision = 1;
+	else
+		rollout_decision = 2;
+
+	if (probability_decision != rollout_decision) {
+		cout << "Disagreement!" << endl;
+		disagreements++;
+	}
+	else {
+		cout << "Agreement!" << endl;
+		agreements++;
 	}
 
+	// if (rand() / 2)
+	// 	return probability_decision;
+	// else
+	// 	return rollout_decision;
+
+	// Pick one
+	return rollout_decision;
 }
 
-bool rollout_player::rollOut(GameState* game_state, Player* p){
+int comparison_player::get_agreements() {
+	return agreements;
+}
+
+int comparison_player::get_disagreements() {
+	return disagreements;
+}
+
+bool comparison_player::rollOut(GameState* game_state, Player* p){
 	int probability = 0;
 	for(int i = 0; i < 100; i++){
 		vector<int> dice_options;

@@ -5,12 +5,14 @@
 #include "AI_Player.h"
 #include "probability_player.h"
 #include "rollout_player.h"
+#include "comparison_player.h"
+#include "dumb_player.h"
 using namespace std;
 
 class GameState {
 public:
 	// ********** Variables ***********
-	probability_player player1;
+	dumb_player player1;
 	rollout_player player2;
 	vector<int> deadCols;
 	static vector<int> const filledCols; // Vector to compare when a player is at the top of the column

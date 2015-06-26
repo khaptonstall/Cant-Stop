@@ -3,7 +3,7 @@ BUILD		:=		build
 CXXFLAGS	:=		-std=c++11
 SOURCES		:=		main.cpp GameState.cpp Player.cpp Human_Player.cpp			\
 					AI_Player.cpp probability_player.cpp dice_probability.cpp	\
-					rollout_player.cpp
+					rollout_player.cpp comparison_player.cpp dumb_player.cpp	
 OBJECTS		:=		$(SOURCES:.cpp=.o)
 TARGET		:=		cantstop
 
