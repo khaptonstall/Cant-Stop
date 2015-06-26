@@ -39,7 +39,7 @@ void Player::chooseDice( pair<int, int> dice ){
 
 		}
 	}
-} 
+}
 
 
 // Player::displayCombinations()
@@ -97,9 +97,9 @@ vector< pair<int,int> > Player::filterDice(vector< pair<int,int> > pairs){
 		for(int i = 0; i < pairs.size(); i++){
 			combinations.push_back(pairs[i]);
 		}
-		
 
-	}else if(currentCols.size() == 2){ 
+
+	}else if(currentCols.size() == 2){
 		for(int i = 0; i < pairs.size(); i++){
 			//As long as one number in the pair is currently in play:
 			if(find(currentCols.begin(), currentCols.end(), pairs[i].first) != currentCols.end() ||
