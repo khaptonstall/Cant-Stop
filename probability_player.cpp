@@ -70,25 +70,6 @@ pair<int, int> probability_player::select_dice(GameState* game_state, vector<pai
 	}else{
 		return pair<int,int>(-1,-1);
 	}
-
-
-/*
-	for (pair<int, int> rp : rolled_pairs) {
-		// cout << "AI Evaluating: " << rp.first << ", " << rp.second << endl;
-		if (game_state->validatePair(rp.first, rp.second, p)) {
-			cout << "AI Pair picked: " << rp.first << ", " << rp.second << endl;
-			return rp;
-		}
-	}
-
-	for (pair<int, int> rp : rolled_pairs) {
-		// cout << "AI Evaluation: " << rp.first << endl;
-		if (game_state->validatePair(rp.first, p)) {
-			cout << "Ai Pair picked: " << rp.first << endl;
-			return pair<int, int>(rp.first, -1);
-		}
-	}
-	return pair<int,int>(-1,-1); */
 }
 
 
@@ -116,30 +97,16 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 		if (state[i] != stateReference[i] && state[i] != filledCols[i])
 			tokens.push_back(i + 2);
 	}
-<<<<<<< HEAD
-=======
-	for (int i = tokens.size(); i < 3; i++) {
-		tokens.push_back(0);
-	}
 
-	if (game_state->canStop() == false){
-		return 1;
-	}
-
->>>>>>> 1d10277d948be08f59b17090cc7a37fa6b5c7cd7
 	// Less than three tokens, continue
 	if (tokens.size() < 3 && game_state->deadCols.size() == 0)
 		return 1;
 
-<<<<<<< HEAD
 	for (int i = tokens.size(); i < 3; i++) {
 		tokens.push_back(0);
 	}
 
 	// Stop iif you're at the top of a column and used all 3 tokens 
-=======
-	// Stop iif you're at the top of a column and used all 3 tokens
->>>>>>> 1d10277d948be08f59b17090cc7a37fa6b5c7cd7
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
 			tokens.size() == 3)
