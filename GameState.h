@@ -25,6 +25,7 @@ public:
 	bool validateDice(vector<int> d, Player* p);
 	bool validatePair(int a, int b, Player* p);
 	bool validatePair(int a, Player* p);
+	bool checkSpace(int col, int prog);
 	void startOver();
 	bool canStop();
 };

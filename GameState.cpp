@@ -11,14 +11,15 @@
 #include "rollout_player.h"
 #include "comparison_player.h"
 #include "dumb_player.h"
+#include "stupid_player.h"
 
 using namespace std;
 
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
-	player1 = new dumb_player();
-	player2 = new rollout_player();
+	player1 = new Human_Player();
+	player2 = new stupid_player();
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
@@ -147,6 +148,19 @@ void GameState::checkForDeadCols(){
 			player1->state[j] = 0;
 		}
 	}
+}
+
+bool GameState::checkSpace(int col, int prog) {
+	bool output = false;
+	if (player1->stateReference[col] == prog) {
+		output = true;
+		return output;
+	}
+	else if (player2->stateReference[col] == prog) {
+		output = true;
+		return output;
+	}
+	return output;
 }
 
 void GameState::startOver() {

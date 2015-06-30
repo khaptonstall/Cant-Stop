@@ -87,7 +87,7 @@ int main(int, char**){
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
-	bool testing = true;
+	bool testing = false;
 
 	while (!quit) {
 		SDL_Point mouse_pos;
@@ -204,6 +204,7 @@ int main(int, char**){
 							player = cantStop.player1;
 							game_over = true;
 							cout << "Player 1 won " << player1_wins << " / " << MAX_GAMES << endl;
+							quit = !quit;
 						}
 					}
 					else { game_over = true; }
