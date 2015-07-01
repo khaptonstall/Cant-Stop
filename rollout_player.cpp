@@ -23,8 +23,8 @@ rollout_player::rollout_player() {
 // Function: select_dice
 // Input: GameState*, vector<pair<int,int> >, Player*, int
 // Output: pair<int,int>
-// Desciption: Currently picks the first valid pair of dice
-pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
+// Desciption: Pick a pair of dice with the highest prob of being rolled again
+pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int select_dice) {
 	// Decision delay
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
@@ -71,25 +71,6 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 	}else{ //There was no good pair
 		return pair<int,int>(-1,-1);
 	}
-
-
-/*
-	for (pair<int, int> rp : rolled_pairs) {
-		// cout << "AI Evaluating: " << rp.first << ", " << rp.second << endl;
-		if (game_state->validatePair(rp.first, rp.second, p)) {
-			cout << "AI Pair picked: " << rp.first << ", " << rp.second << endl;
-			return rp;
-		}
-	}
-
-	for (pair<int, int> rp : rolled_pairs) {
-		// cout << "AI Evaluation: " << rp.first << endl;
-		if (game_state->validatePair(rp.first, p)) {
-			cout << "Ai Pair picked: " << rp.first << endl;
-			return pair<int, int>(rp.first, -1);
-		}
-	}
-	return pair<int,int>(-1,-1); */
 }
 
 
@@ -140,6 +121,11 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 
 }
 
+// Function: rollOut
+// Input: GameState*, Player*
+// Output: bool
+// Desciption: Creates a pobability based on 100 dice rolls. Subtracts current progress.
+//	Adds to the probability if close to claiming a column. Returns a bool deciding to roll again or not
 bool rollout_player::rollOut(GameState* game_state, Player* p){
 	int probability = 0;
 	for(int i = 0; i < 100; i++){
