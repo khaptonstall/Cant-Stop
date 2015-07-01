@@ -84,8 +84,10 @@ void Player::checkForWin(){
 	// }
 
 	for (int i = 0; i < stateReference.size(); i++) {
-		if (stateReference[i] == filledCols[i] && find(claimedCols.begin(), claimedCols.end(), i) == claimedCols.end())
-			claimedCols.push_back(i);
+		if (stateReference[i] == filledCols[i]) {
+			claimedCols.push_back(i+2);
+			stateReference[i] += 1;
+		}
 	}
 
 }

@@ -18,8 +18,8 @@ using namespace std;
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
-	player1 = new Human_Player();
-	player2 = new stupid_player();
+	player1 = new probability_player();
+	player2 = new rollout_player();
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
@@ -135,17 +135,17 @@ bool GameState::validatePair(int a, Player* p) {
 void GameState::checkForDeadCols(){
 	for(int i : player1->claimedCols) {
 		if(find(deadCols.begin(), deadCols.end(), i) == deadCols.end()){
-			deadCols.push_back(i + 2); // + 2 to adjust to game board (1-12)
-			player2->stateReference[i] = 0;
-			player2->state[i] = 0;
+			deadCols.push_back(i); // + 2 to adjust to game board (1-12)
+			player2->stateReference[i - 2] = 0;
+			player2->state[i - 2] = 0;
 		}
 	}
 
 	for(int j : player2->claimedCols){
 		if(find(deadCols.begin(), deadCols.end(), j) == deadCols.end()){
-			deadCols.push_back(j + 2); // + 2 to adjust to game board (1-12)
-			player1->stateReference[j] = 0;
-			player1->state[j] = 0;
+			deadCols.push_back(j); // + 2 to adjust to game board (1-12)
+			player1->stateReference[j - 2] = 0;
+			player1->state[j - 2] = 0;
 		}
 	}
 }

@@ -68,7 +68,7 @@ public:
 		output = SDL_ConvertSurface(s_board, s_board->format, s_board->flags);
 
 		for (int i = 0; i < b.size(); i++) {
-			if (b[i] == columns_height[i]) {
+			if (b[i] >= columns_height[i]) {
 				for (int j = 0; j < columns_height[i]; j++) {
 					SDL_Rect dst = r_start[i];
 					dst.y = s_board->h - dst.y - dst.h;
@@ -85,7 +85,7 @@ public:
 		}
 
 		for (int i = 0; i < r.size(); i++) {
-			if (r[i] == columns_height[i]) {
+			if (r[i] >= columns_height[i]) {
 				for (int j = 0; j < columns_height[i]; j++) {
 					SDL_Rect dst = r_start[i];
 					dst.y = s_board->h - dst.y - dst.h;

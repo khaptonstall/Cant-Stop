@@ -118,20 +118,36 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 	}
 
 	// If outlook is positive, continue
-	int progress = 0;
+	double progress = 0;
 	for (int i = 0; i < 11; i++) {
 		//progress += state[i];
-		progress += stateReference[i] - state[i];
+		progress += (stateReference[i] - state[i]) / ((double)filledCols[i]);
 	}
 
 	double expected_progress = dice_p.get_expected_progress(tokens[0], tokens[1], tokens[2]);
-	//cout << "g = " << expected_progress << endl;
 	double successful_probability = dice_p.get_probability(tokens[0], tokens[1], tokens[2]);
-	//cout << "p = " << successful_probability << endl;
+
+	vector<double> relative_eprogresses;
+	for (int t : tokens) {
+		if (t != 0)
+			relative_eprogresses.push_back(expected_progress / filledCols[t - 2]);
+	}
+
+	expected_progress = 0;
+	for (double rp : relative_eprogresses) {
+		expected_progress += rp;
+	}
+
+	expected_progress /= relative_eprogresses.size();
+
+	// cout << "g = " << expected_progress << endl;
+
+	// cout << "p = " << successful_probability << endl;
+	// cout << "h = " << progress << endl;
 	double lhs = successful_probability * (progress + expected_progress);
 	double rhs = progress;
 
-	//cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
+	// cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 	//cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 
 	if (lhs >= rhs)

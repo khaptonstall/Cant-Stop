@@ -157,6 +157,10 @@ int comparison_player::select_decision(GameState* game_state, int selected_decis
 	else
 		probability_decision = 2;
 
+	cout << "Probability player: " << endl;
+	cout << "p = " << successful_probability << " h = " << progress << " g = " << expected_progress << endl;
+	cout << lhs << " >= " << rhs << endl;
+
 	// ROLLOUT PLAYER DECISION MAKING PROCESS
 	if (rollOut(game_state, this))
 		rollout_decision = 1;
@@ -212,7 +216,9 @@ bool comparison_player::rollOut(GameState* game_state, Player* p){
 			probability++;
 		}
 	}
-	// cout << "probability before: " << probability << '\n';
+
+	cout << "Rollout Player: " << endl;
+	cout << "probability before: " << probability << '\n';
 	for (int i = 0; i < currentCols.size(); i++){
 		int index = currentCols[i] - 2;
 		if(stateReference[index] > state[index]){
@@ -225,7 +231,7 @@ bool comparison_player::rollOut(GameState* game_state, Player* p){
 		}
 	}
 
-	// cout << "probability after:  " << (probability) << '\n';
+	cout << "probability after:  " << (probability) << '\n';
 	if( (probability) >= 75){
 		return true;
 	}else{

@@ -87,7 +87,7 @@ int main(int, char**){
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
-	bool testing = false;
+	bool testing = true;
 
 	while (!quit) {
 		SDL_Point mouse_pos;
@@ -176,11 +176,11 @@ int main(int, char**){
 				player->state = player->stateReference;
 				player->checkForWin();
 				cantStop.checkForDeadCols();
-				//if (player == cantStop.player) cout << "Stopped rolling" << endl << "============" << endl;
+				// if (player == cantStop.player1) cout << "Stopped rolling" << endl << "============" << endl;
 				if (player->claimedCols.size() >= 3) {
 					// cout << player->name << " wins!" << endl;
-					//cout << "Agreements: " << cantStop.player1->get_agreements() << endl;
-					//cout << "Disagreements: " << cantStop.player1->get_disagreements() << endl;
+					// cout << "Agreements: " << cantStop.player1->get_agreements() << endl;
+					// cout << "Disagreements: " << cantStop.player1->get_disagreements() << endl;
 					if (testing) {
 						++current_game;
 						if (player == cantStop.player1) {
@@ -219,7 +219,7 @@ int main(int, char**){
 			dice_active = false;
 			player->stateReference = player->state;
 			player->currentCols.clear();
-			//if (player == cantStop.player) cout << "No valid dice rolls" << endl << "============" << endl;
+			// if (player == cantStop.player1) cout << "No valid dice rolls" << endl << "============" << endl;
 			if (player == cantStop.player1) player = cantStop.player2;
 			else if (player == cantStop.player2) player = cantStop.player1;
 		}
