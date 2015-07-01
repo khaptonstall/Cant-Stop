@@ -68,7 +68,7 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 
 	if(highestPair.first != 0){
 		return highestPair;
-	}else{
+	}else{ //There was no good pair
 		return pair<int,int>(-1,-1);
 	}
 
