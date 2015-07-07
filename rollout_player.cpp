@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int const rollout_player::SELECT_DELAY = 0;
+int const rollout_player::SELECT_DELAY = 20000;
 
 rollout_player::rollout_player() {
 	timer = 0;
@@ -69,6 +69,7 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 	if(highestPair.first != 0){
 		return highestPair;
 	}else{ //There was no good pair
+		cout << "Computer had no possible move." << '\n';
 		return pair<int,int>(-1,-1);
 	}
 }
@@ -110,12 +111,15 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 	}
 
 	// Less than three tokens, continue
-	if (tokens.size() < 3)
+	if (tokens.size() < 3){
+		std::cout << "Computer continued" << std::endl;
 		return 1;
-
+}
 	if (rollOut(game_state, this)){
+		std::cout << "Computer continued" << std::endl;
 		return 1;
 	}else{
+		std::cout << "Computer stopped" << std::endl;
 		return 2;
 	}
 
