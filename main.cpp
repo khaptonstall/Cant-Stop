@@ -83,11 +83,11 @@ int main(int, char**){
 	int game_over = false;
 
 	// Statistics tracker
-	const int MAX_GAMES = 100;
+	const int MAX_GAMES = 1;
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
-	bool testing = true;
+	bool testing = false;
 
 	while (!quit) {
 		SDL_Point mouse_pos;
@@ -159,6 +159,13 @@ int main(int, char**){
 		if (!stop_active && valid_pairs && !game_over) {
 			pair<int, int> result = player->select_dice(&cantStop, rolled_pairs, player, dice_pair);
 			if (result != pair<int, int>(-1, -1)) {
+				if (player->name == "Player 2") {
+					if (result.second > 0) {
+						cout << "Computer picked: " << result.first << " + " << result.second << '\n';
+					}else{
+						cout << "Computer picked: " << result.first << '\n';
+					}
+				}
 				player->chooseDice(result);
 				stop_active = true;
 			}
