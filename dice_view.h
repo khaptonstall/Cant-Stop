@@ -67,42 +67,43 @@ private:
 	}
 
 public:
-	dice_view() {
-		// Generate dice paths and load surfaces
-		p_dice = vector<string>(6);
-		for (int i = 0; i < 6; i++) {
-			p_dice[i] = "res/dice" + to_string(i + 1) + ".png";
-			s_dice[i] = IMG_Load(p_dice[i].c_str());
+	dice_view(const bool testing) {
+		if (!testing) {
+			// Generate dice paths and load surfaces
+			p_dice = vector<string>(6);
+			for (int i = 0; i < 6; i++) {
+				p_dice[i] = "res/dice" + to_string(i + 1) + ".png";
+				s_dice[i] = IMG_Load(p_dice[i].c_str());
+			}
+			s_dice_bg = IMG_Load(p_dice_bg);
+			s_dice_good = IMG_Load(p_dice_good);
+			s_dice_bad = IMG_Load(p_dice_bad);
+			s_dice_highlight = IMG_Load(p_dice_highlight);
+			s_dice_good_wide = IMG_Load(p_dice_good_wide);
+			s_dice_bad_wide = IMG_Load(p_dice_bad_wide);
+			s_dice_highlight_wide = IMG_Load(p_dice_highlight_wide);
+
+			TTF_Font* lucida_console;
+			lucida_console = TTF_OpenFont("res/lucida-console.ttf", 24);
+
+			for (int i = 0; i < 11; i++) {
+				TTF_SetFontOutline(lucida_console, 2);
+				s_dice_text[i] = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {1,1,1});
+				TTF_SetFontOutline(lucida_console, 0);
+				SDL_Surface* s_temp = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {255,255,255});
+
+				SDL_Rect r_temp;
+				r_temp.x = s_dice_text[i]->w / 2 - s_temp->w / 2;
+				r_temp.y = (s_dice_text[i]->h / 2) - (s_temp->h / 2 - 2);
+				r_temp.w = s_temp->w;
+				r_temp.h = s_temp->h;
+
+				SDL_BlitSurface(s_temp, NULL, s_dice_text[i], &r_temp);
+				SDL_FreeSurface(s_temp);
+			}
+
+			generate_rect();
 		}
-		s_dice_bg = IMG_Load(p_dice_bg);
-		s_dice_good = IMG_Load(p_dice_good);
-		s_dice_bad = IMG_Load(p_dice_bad);
-		s_dice_highlight = IMG_Load(p_dice_highlight);
-		s_dice_good_wide = IMG_Load(p_dice_good_wide);
-		s_dice_bad_wide = IMG_Load(p_dice_bad_wide);
-		s_dice_highlight_wide = IMG_Load(p_dice_highlight_wide);
-
-		TTF_Font* lucida_console;
-		lucida_console = TTF_OpenFont("res/lucida-console.ttf", 24);
-
-		for (int i = 0; i < 11; i++) {
-			TTF_SetFontOutline(lucida_console, 2);
-			s_dice_text[i] = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {1,1,1});
-			TTF_SetFontOutline(lucida_console, 0);
-			SDL_Surface* s_temp = TTF_RenderText_Solid(lucida_console, to_string(i+2).c_str(), {255,255,255});
-
-			SDL_Rect r_temp;
-			r_temp.x = s_dice_text[i]->w / 2 - s_temp->w / 2;
-			r_temp.y = (s_dice_text[i]->h / 2) - (s_temp->h / 2 - 2);
-			r_temp.w = s_temp->w;
-			r_temp.h = s_temp->h;
-
-			SDL_BlitSurface(s_temp, NULL, s_dice_text[i], &r_temp);
-			SDL_FreeSurface(s_temp);
-		}
-
-		generate_rect();
-
 	}
 
 	SDL_Surface* get_surface(vector<int> rolls, int mouse_x, int mouse_y, vector<bool>* bad_dice = nullptr, GameState* gs = nullptr, Player* pl = nullptr) {
