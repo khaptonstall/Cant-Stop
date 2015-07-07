@@ -21,7 +21,7 @@ const bool TESTING_MODE = false;
 int main(int, char**){
 	//Seed random number
 	srand(time(NULL));
-
+	system("clear");
 	SDL_Window* win = nullptr;
 	SDL_Renderer* ren = nullptr;
 
@@ -199,7 +199,8 @@ int main(int, char**){
 				cantStop.checkForDeadCols();
 				// if (player == cantStop.player1) cout << "Stopped rolling" << endl << "============" << endl;
 				if (player->claimedCols.size() >= 3) {
-					// cout << player->name << " wins!" << endl;
+
+					cout << player->name << " wins!" << endl;
 					// cout << "Agreements: " << cantStop.player1->get_agreements() << endl;
 					// cout << "Disagreements: " << cantStop.player1->get_disagreements() << endl;
 					if (testing) {
@@ -231,18 +232,23 @@ int main(int, char**){
 					else { game_over = true; }
 				}
 				player->currentCols.clear();
-				if (player == cantStop.player1) player = cantStop.player2;
-				else if (player == cantStop.player2) player = cantStop.player1;
+				if (player == cantStop.player1){ player = cantStop.player2;
+					if (player->claimedCols.size() < 3){
+						system("clear");
+					}
+				}else if (player == cantStop.player2) player = cantStop.player1;
 			}
 		}
 		// No dice choice is valid, revert
 		else if (!game_over) {
+			std::cout << "No possible move!" << std::endl;
 			dice_active = false;
 			player->stateReference = player->state;
 			player->currentCols.clear();
 			// if (player == cantStop.player1) cout << "No valid dice rolls" << endl << "============" << endl;
-			if (player == cantStop.player1) player = cantStop.player2;
-			else if (player == cantStop.player2) player = cantStop.player1;
+			if (player == cantStop.player1){ player = cantStop.player2;
+				system("clear");
+			}else if (player == cantStop.player2) player = cantStop.player1;
 		}
 
 		if (!TESTING_MODE) {

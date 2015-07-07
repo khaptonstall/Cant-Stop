@@ -111,12 +111,12 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 	}
 
 	// Less than three tokens, continue
-	if (tokens.size() < 3){
-		std::cout << "Computer continued" << std::endl;
+	if (tokens.size() < 3 && rollOut(game_state, this)){
+		//std::cout << "Computer continued" << std::endl;
 		return 1;
 }
 	if (rollOut(game_state, this)){
-		std::cout << "Computer continued" << std::endl;
+		//std::cout << "Computer continued" << std::endl;
 		return 1;
 	}else{
 		std::cout << "Computer stopped" << std::endl;
@@ -165,7 +165,7 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 			}
 		}
 	}
-
+	std::cout << "Computer probability of rolling another valid pair: " << probability  << std::endl;
 	// cout << "probability after:  " << (probability) << '\n';
 	if( (probability) >= 75){
 		return true;
