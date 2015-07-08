@@ -204,8 +204,8 @@ int main(int, char**){
 				cantStop.checkForDeadCols();
 				// if (player == cantStop.player1) cout << "Stopped rolling" << endl << "============" << endl;
 				if (player->claimedCols.size() >= 3) {
-
-					cout << player->name << " wins!" << endl;
+					lv.println(player->name + " wins!");
+					// cout << player->name << " wins!" << endl;
 					// cout << "Agreements: " << cantStop.player1->get_agreements() << endl;
 					// cout << "Disagreements: " << cantStop.player1->get_disagreements() << endl;
 					if (testing) {
@@ -238,7 +238,7 @@ int main(int, char**){
 				}
 				player->currentCols.clear();
 				if (player == cantStop.player1){ player = cantStop.player2;
-					if (player->claimedCols.size() < 3){
+					if (player->claimedCols.size() < 3 and !game_over){
 						lv.clear();
 						// system("clear");
 					}
