@@ -47,30 +47,6 @@ int main(int, char**){
 	options_view ov;
 	lv.init(19);
 
-	// lv.println("Test..");
-	// lv.println("Test2..");
-	// lv.println("Test3..");
-	// lv.println("Test4..");
-	// lv.println("Test5..");
-	// lv.println("Test6..");
-	// lv.println("Test7..");
-	// lv.println("Test8..");
-	// lv.println("Test9..");
-	// lv.println("Test10..");
-	// lv.println("Test11..");
-	// lv.println("Test12..");
-	// lv.println("Test13..");
-	// lv.println("Test14..");
-	// lv.println("Test15..");
-	// lv.println("Test16..");
-	// lv.println("Test17..");
-	// lv.println("Test18..");
-	// lv.println("Test19..");
-	// lv.println("Test20..");
-	// lv.println("Test21..");
-	// lv.println("Test22..");
-	// lv.println("Test23..");
-
 	int window_scale = 1;
 	int board_width = bv.get_width();
 	int dice_width = dv.get_width();
