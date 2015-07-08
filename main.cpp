@@ -13,6 +13,7 @@
 #include "stop_controller.h"
 #include "options_view.h"
 #include "options_controller.h"
+#include "views/log_view.h"
 
 using namespace std;
 
@@ -43,6 +44,31 @@ int main(int, char**){
 	dice_view dv(TESTING_MODE);
 	stop_view sv;
 	options_view ov;
+	log_view lv(17);
+
+	lv.println("Test..");
+	lv.println("Test2..");
+	lv.println("Test3..");
+	lv.println("Test4..");
+	lv.println("Test5..");
+	lv.println("Test6..");
+	lv.println("Test7..");
+	lv.println("Test8..");
+	lv.println("Test9..");
+	lv.println("Test10..");
+	lv.println("Test11..");
+	lv.println("Test12..");
+	lv.println("Test13..");
+	lv.println("Test14..");
+	lv.println("Test15..");
+	lv.println("Test16..");
+	lv.println("Test17..");
+	lv.println("Test18..");
+	lv.println("Test19..");
+	lv.println("Test20..");
+	lv.println("Test21..");
+	lv.println("Test22..");
+	lv.println("Test23..");
 
 	int window_scale = 1;
 	int board_width = bv.get_width();
@@ -301,10 +327,20 @@ int main(int, char**){
 				options_destination.w /= window_scale;
 				options_destination.h /= window_scale;
 
+				SDL_Surface* log_surface = lv.get_surface();
+				SDL_Texture* log_texture = SDL_CreateTextureFromSurface(ren, log_surface);
+				SDL_Rect log_destination;
+				log_destination.x = board_width / window_scale + 15;
+				log_destination.y = dice_height / window_scale + 90;
+				SDL_QueryTexture(log_texture, NULL, NULL, &log_destination.w, &log_destination.h);
+				log_destination.w /= window_scale;
+				log_destination.h /= window_scale;
+
 				SDL_RenderCopy(ren, board_texture, NULL, &board_destination);
 				if (!stop_active) SDL_RenderCopy(ren, dice_texture, NULL, &dice_destination);
 				else if (stop_active) SDL_RenderCopy(ren, stop_texture, NULL, &stop_destination);
 				SDL_RenderCopy(ren, options_texture, NULL, &options_destination);
+				SDL_RenderCopy(ren, log_texture, NULL, &log_destination);
 
 				SDL_RenderPresent(ren);
 
@@ -312,11 +348,13 @@ int main(int, char**){
 				SDL_FreeSurface(dice_surface);
 				SDL_FreeSurface(stop_surface);
 				SDL_FreeSurface(options_surface);
+				SDL_FreeSurface(log_surface);
 
 				SDL_DestroyTexture(board_texture);
 				SDL_DestroyTexture(dice_texture);
 				SDL_DestroyTexture(stop_texture);
 				SDL_DestroyTexture(options_texture);
+				SDL_DestroyTexture(log_texture);
 			}
 
 		}
