@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <string>
+#include <list>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
@@ -23,9 +24,11 @@ private:
 
 	uint8_t current_line;
 
+	list<string> text;
 
 public:
-	log_view(uint8_t maximum_lines);
+	log_view();
+	void init(uint8_t maximum_lines);
 	~log_view();
 
 	void println(string text);

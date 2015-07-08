@@ -2,7 +2,11 @@
 
 #include <iostream>
 
-log_view::log_view(uint8_t maximum_lines) {
+log_view::log_view() {
+	// do nothing
+}
+
+void log_view::init(uint8_t maximum_lines) {
 	text_size = 15;
 
 	max_lines = maximum_lines;

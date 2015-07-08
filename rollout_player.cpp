@@ -11,6 +11,9 @@
 #include "GameState.h"
 #include "dice_probability.h"
 
+#include "views/log_view.h"
+extern log_view lv;
+
 using namespace std;
 
 int const rollout_player::SELECT_DELAY = 20000;
@@ -119,7 +122,8 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 		//std::cout << "Computer continued" << std::endl;
 		return 1;
 	}else{
-		std::cout << "Computer stopped" << std::endl;
+		lv.println("Computer stopped");
+		// std::cout << "Computer stopped" << std::endl;
 		return 2;
 	}
 

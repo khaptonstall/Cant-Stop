@@ -17,6 +17,7 @@
 
 using namespace std;
 
+log_view lv;
 const bool TESTING_MODE = false;
 
 int main(int, char**){
@@ -44,31 +45,31 @@ int main(int, char**){
 	dice_view dv(TESTING_MODE);
 	stop_view sv;
 	options_view ov;
-	log_view lv(17);
+	lv.init(19);
 
-	lv.println("Test..");
-	lv.println("Test2..");
-	lv.println("Test3..");
-	lv.println("Test4..");
-	lv.println("Test5..");
-	lv.println("Test6..");
-	lv.println("Test7..");
-	lv.println("Test8..");
-	lv.println("Test9..");
-	lv.println("Test10..");
-	lv.println("Test11..");
-	lv.println("Test12..");
-	lv.println("Test13..");
-	lv.println("Test14..");
-	lv.println("Test15..");
-	lv.println("Test16..");
-	lv.println("Test17..");
-	lv.println("Test18..");
-	lv.println("Test19..");
-	lv.println("Test20..");
-	lv.println("Test21..");
-	lv.println("Test22..");
-	lv.println("Test23..");
+	// lv.println("Test..");
+	// lv.println("Test2..");
+	// lv.println("Test3..");
+	// lv.println("Test4..");
+	// lv.println("Test5..");
+	// lv.println("Test6..");
+	// lv.println("Test7..");
+	// lv.println("Test8..");
+	// lv.println("Test9..");
+	// lv.println("Test10..");
+	// lv.println("Test11..");
+	// lv.println("Test12..");
+	// lv.println("Test13..");
+	// lv.println("Test14..");
+	// lv.println("Test15..");
+	// lv.println("Test16..");
+	// lv.println("Test17..");
+	// lv.println("Test18..");
+	// lv.println("Test19..");
+	// lv.println("Test20..");
+	// lv.println("Test21..");
+	// lv.println("Test22..");
+	// lv.println("Test23..");
 
 	int window_scale = 1;
 	int board_width = bv.get_width();
@@ -201,9 +202,11 @@ int main(int, char**){
 			if (result != pair<int, int>(-1, -1)) {
 				if (player->name == "Player 2") {
 					if (result.second > 0) {
-						cout << "Computer picked: " << result.first << " + " << result.second << '\n';
+						lv.println("Computer move:" + to_string(result.first) + " & " + to_string(result.second));
+						// cout << "Computer picked: " << result.first << " + " << result.second << '\n';
 					}else{
-						cout << "Computer picked: " << result.first << '\n';
+						lv.println("Computer move:" + to_string(result.first));
+						// cout << "Computer picked: " << result.first << '\n';
 					}
 				}
 				player->chooseDice(result);
@@ -260,20 +263,25 @@ int main(int, char**){
 				player->currentCols.clear();
 				if (player == cantStop.player1){ player = cantStop.player2;
 					if (player->claimedCols.size() < 3){
-						system("clear");
+						lv.clear();
+						// system("clear");
 					}
 				}else if (player == cantStop.player2) player = cantStop.player1;
 			}
 		}
 		// No dice choice is valid, revert
 		else if (!game_over) {
-			std::cout << "No possible move!" << std::endl;
+			if (player == cantStop.player2) {
+				lv.println("No possible moves!");
+			}
 			dice_active = false;
 			player->stateReference = player->state;
 			player->currentCols.clear();
 			// if (player == cantStop.player1) cout << "No valid dice rolls" << endl << "============" << endl;
-			if (player == cantStop.player1){ player = cantStop.player2;
-				system("clear");
+			if (player == cantStop.player1){
+				player = cantStop.player2;
+				lv.clear();
+				// system("clear");
 			}else if (player == cantStop.player2) player = cantStop.player1;
 		}
 
