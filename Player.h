@@ -2,6 +2,7 @@
 #define _PLAYER_H_
 
 #include <string>
+#include <vector>
 
 class GameState;
 

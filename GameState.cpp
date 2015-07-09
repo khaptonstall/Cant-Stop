@@ -12,6 +12,7 @@
 #include "comparison_player.h"
 #include "dumb_player.h"
 #include "stupid_player.h"
+#include "include/players/simple_player.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
 	player1 = new Human_Player();
-	player2 = new rollout_player();
+	player2 = new simple_player();
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
