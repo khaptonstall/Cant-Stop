@@ -6,7 +6,7 @@
 #include <algorithm>
 
 #include "GameState.h"
-#include "AI_Player.h"
+#include "players/AI_Player.h"
 
 using namespace std;
 

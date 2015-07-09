@@ -6,29 +6,30 @@
 #include <algorithm>
 #include <SDL2/SDL_timer.h>
 
-#include "rollout_player.h"
-
 #include "GameState.h"
-#include "dice_probability.h"
+#include "players/comparison_player.h"
 
-#include "views/log_view.h"
-extern log_view lv;
+#include "dice_probability.h"
 
 using namespace std;
 
-int const rollout_player::SELECT_DELAY = 20000;
+bool rollOut(GameState* game_state, Player* p);
 
-rollout_player::rollout_player() {
+int const comparison_player::SELECT_DELAY = 0;
+
+comparison_player::comparison_player() {
 	timer = 0;
 	last_ticks = 0;
+
+	agreements = 0;
+	disagreements = 0;
 }
 
 // Function: select_dice
 // Input: GameState*, vector<pair<int,int> >, Player*, int
 // Output: pair<int,int>
-// Desciption: Pick a pair of dice with the highest prob of being rolled again
-pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int select_dice) {
-	// Decision delay
+// Desciption: Currently picks the first valid pair of dice
+pair<int, int> comparison_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return pair<int, int>(-1, -1);
@@ -50,7 +51,7 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 		if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
 			if(game_state->validatePair(rp.first, rp.second, p)){
 				highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
-				highestPair = rp;
+				highestPair = rp; 
 			}
 		}
 	}
@@ -71,10 +72,28 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 
 	if(highestPair.first != 0){
 		return highestPair;
-	}else{ //There was no good pair
-		cout << "Computer had no possible move." << '\n';
+	}else{
 		return pair<int,int>(-1,-1);
 	}
+
+
+/*
+	for (pair<int, int> rp : rolled_pairs) {
+		// cout << "AI Evaluating: " << rp.first << ", " << rp.second << endl;
+		if (game_state->validatePair(rp.first, rp.second, p)) {
+			cout << "AI Pair picked: " << rp.first << ", " << rp.second << endl;
+			return rp;
+		}
+	}
+
+	for (pair<int, int> rp : rolled_pairs) {
+		// cout << "AI Evaluation: " << rp.first << endl;
+		if (game_state->validatePair(rp.first, p)) {
+			cout << "Ai Pair picked: " << rp.first << endl;
+			return pair<int, int>(rp.first, -1);
+		}
+	}
+	return pair<int,int>(-1,-1); */
 }
 
 
@@ -83,9 +102,8 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 // Input: GameState*, int
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
-int rollout_player::select_decision(GameState* game_state, int selected_decision ) {
-	// Decision delay
-	if (last_ticks == 0) {
+int comparison_player::select_decision(GameState* game_state, int selected_decision) {
+	if (SELECT_DELAY != 0 && last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return 0;
 	}
@@ -98,43 +116,84 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 		last_ticks = 0;
 	}
 
+	if (game_state->canStop() == false){
+		return 1;
+	}
+
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i])
 			tokens.push_back(i + 2);
 	}
-	if (game_state->canStop() == false){
-		return 1;
-	}
-		// Stop if you just got to the top
+	// for (int i = tokens.size(); i < 3; i++) {
+	// 	tokens.push_back(0);
+	// }
+	
+	// Stop iif you're at the top of a column and used all 3 tokens 
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
 			tokens.size() == 3)
 			return 2;
+	
 	}
-
 	// Less than three tokens, continue
-	if (tokens.size() < 3 && rollOut(game_state, this)){
-		//std::cout << "Computer continued" << std::endl;
+	if (tokens.size() < 3 && game_state->deadCols.size() == 0)
 		return 1;
-}
-	if (rollOut(game_state, this)){
-		//std::cout << "Computer continued" << std::endl;
-		return 1;
-	}else{
-		lv.println("Computer stopped");
-		// std::cout << "Computer stopped" << std::endl;
-		return 2;
+
+	// Comparison Player Specific
+	int probability_decision;
+	int rollout_decision;
+
+	// PROBABILITY PLAYER DECISION MAKING PROCESS
+	int progress = 0;
+	for (int i = 0; i < 11; i++)
+		progress += stateReference[i] - state[i];
+	double expected_progress = dice_p.get_expected_progress(tokens[0], tokens[1], tokens[2]);
+	double successful_probability = dice_p.get_probability(tokens[0], tokens[1], tokens[2]);
+	double lhs = successful_probability * (progress + expected_progress);
+	double rhs = progress;
+	if (lhs >= rhs)
+		probability_decision = 1;
+	else
+		probability_decision = 2;
+
+	cout << "Probability player: " << endl;
+	cout << "p = " << successful_probability << " h = " << progress << " g = " << expected_progress << endl;
+	cout << lhs << " >= " << rhs << endl;
+
+	// ROLLOUT PLAYER DECISION MAKING PROCESS
+	if (rollOut(game_state, this))
+		rollout_decision = 1;
+	else
+		rollout_decision = 2;
+
+	if (probability_decision != rollout_decision) {
+		cout << "Disagreement!" << endl;
+		disagreements++;
+	}
+	else {
+		cout << "Agreement!" << endl;
+		agreements++;
 	}
 
+	// if (rand() / 2)
+	// 	return probability_decision;
+	// else
+	// 	return rollout_decision;
+
+	// Pick one
+	return rollout_decision;
 }
 
-// Function: rollOut
-// Input: GameState*, Player*
-// Output: bool
-// Desciption: Creates a pobability based on 100 dice rolls. Subtracts current progress.
-//	Adds to the probability if close to claiming a column. Returns a bool deciding to roll again or not
-bool rollout_player::rollOut(GameState* game_state, Player* p){
+int comparison_player::get_agreements() {
+	return agreements;
+}
+
+int comparison_player::get_disagreements() {
+	return disagreements;
+}
+
+bool comparison_player::rollOut(GameState* game_state, Player* p){
 	int probability = 0;
 	for(int i = 0; i < 100; i++){
 		vector<int> dice_options;
@@ -157,7 +216,9 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 			probability++;
 		}
 	}
-	// cout << "probability before: " << probability << '\n';
+
+	cout << "Rollout Player: " << endl;
+	cout << "probability before: " << probability << '\n';
 	for (int i = 0; i < currentCols.size(); i++){
 		int index = currentCols[i] - 2;
 		if(stateReference[index] > state[index]){
@@ -169,8 +230,8 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 			}
 		}
 	}
-	std::cout << "Computer probability of rolling another valid pair: " << probability  << std::endl;
-	// cout << "probability after:  " << (probability) << '\n';
+
+	cout << "probability after:  " << (probability) << '\n';
 	if( (probability) >= 75){
 		return true;
 	}else{

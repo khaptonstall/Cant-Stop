@@ -6,13 +6,13 @@
 
 #include "GameState.h"
 
-#include "board_view.h"
-#include "dice_view.h"
-#include "dice_controller.h"
-#include "stop_view.h"
-#include "stop_controller.h"
-#include "options_view.h"
-#include "options_controller.h"
+#include "views/board_view.h"
+#include "views/dice_view.h"
+#include "controllers/dice_controller.h"
+#include "views/stop_view.h"
+#include "controllers/stop_controller.h"
+#include "views/options_view.h"
+#include "controllers/options_controller.h"
 #include "views/log_view.h"
 
 using namespace std;

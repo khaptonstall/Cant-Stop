@@ -3,8 +3,8 @@
 
 class GameState;
 
-#include "cpu_player.h"
-#include "../../Player.h"
+#include "players/cpu_player.h"
+#include "players/Player.h"
 
 #include <vector>
 

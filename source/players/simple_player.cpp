@@ -1,8 +1,8 @@
-#include "../../include/players/simple_player.h"
+#include "players/simple_player.h"
 
 #include <SDL2/SDL_timer.h>
 
-#include "../../GameState.h"
+#include "GameState.h"
 
 simple_player::simple_player(string log_path, uint16_t delay) {
 	timer = 0;

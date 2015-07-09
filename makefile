@@ -1,48 +1,26 @@
-BUILD		:=		build
+# g++ -c ../source/views/log_view.cpp -o ../build/log_view.o -std=c++11 -I../include -I/usr/local/include -I../build -L/usr/local/lib -lSDL2 -lSDL2_image -lSDL2_TTF
 
-CXXFLAGS	:=		-std=c++11
-SOURCES		:=		$(notdir $(wildcard *.cpp)) views/log_view.cpp source/players/cpu_player.cpp \
-					source/players/simple_player.cpp
-OBJECTS		:=		$(SOURCES:.cpp=.o)
 TARGET		:=		cantstop
+BUILD		:=		build
+SOURCES		:=		source/ source/players/ source/views/ source/controllers/
+INCLUDES	:=		include
 
 #===
 
-INCLUDES	:=		/usr/local/include
-LIBDIRS		:=		/usr/local/lib
-LIBNAMES	:=		SDL2 SDL2_image SDL2_TTF
+LIBS		:=		-lSDL2 -lSDL2_image -lSDL2_TTF
+LIBDIRS		:=		/usr/local
+LIBPATHS	:=		$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
-#===
+CPPFILES	:=		$(foreach dir,$(SOURCES),$(wildcard $(dir)*.cpp))
+OFILES		:=		$(CPPFILES:.cpp=.o)
+OBJPATHS	:=		$(foreach obj,$(OFILES),$(BUILD)/$(obj))
 
-INCLUDE		:=		$(foreach dir,$(INCLUDES),-I$(dir))
-LIBPATHS	:=		$(foreach dir,$(LIBDIRS),-L$(dir))
-LIBS		:=		$(foreach dir,$(LIBNAMES),-l$(dir))
+INCLUDE		:=		$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir))	\
+					$(foreach dir,$(LIBDIRS),-I$(dir)/include)
 
-#===
+CXXFLAGS	:=		$(INCLUDE) -std=c++11
 
-OBJPATHS	:=		$(foreach obj,$(OBJECTS),build/$(obj))
-
-all: $(SOURCES) $(TARGET)
-
-run: $(TARGET)
-	@./$(TARGET)
-
-run4: $(TARGET)
-	@./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET)
-
-run5: $(TARGET)
-	@./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET)
-
-run10: $(TARGET)
-	@./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET) & ./$(TARGET)
-
-$(TARGET): $(OBJPATHS)
-	@$(CXX) $(CXXFLAGS) $(OBJPATHS) $(INCLUDE) $(LIBPATHS) $(LIBS) -o $(TARGET)
-	@echo Linking and building $(TARGET)
-
-build/%.o: %.cpp
-	@$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
-	@echo Compiling $<
+all: $(TARGET)
 
 clean:
 	@echo Cleaning...
@@ -50,5 +28,16 @@ clean:
 
 rebuild: clean
 	@$(MAKE) all
+
+$(TARGET): $(OFILES)
+	@echo Linking and building $(TARGET)
+	@$(CXX) $(CXXFLAGS) $(CPPFILES) $(LIBPATHS) $(LIBS) -o $(TARGET)
+
+%.o: %.cpp
+	@echo Compiling $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $(BUILD)/$(notdir $@)
+
+debug:
+	@echo $(OFILES)
 
 .SECONDARY:

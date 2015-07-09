@@ -3,7 +3,7 @@
 
 class GameState;
 
-#include "Player.h"
+#include "players/Player.h"
 
 using namespace std;
 

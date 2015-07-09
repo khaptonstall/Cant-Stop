@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-#include "Player.h"
+#include "players/Player.h"
 
 #include "GameState.h"
 

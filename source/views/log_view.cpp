@@ -1,4 +1,4 @@
-#include "log_view.h"
+#include "views/log_view.h"
 
 #include <iostream>
 

@@ -3,7 +3,7 @@
 
 class GameState;
 
-#include "Player.h"
+#include "players/Player.h"
 #include "dice_probability.h"
 
 using namespace std;

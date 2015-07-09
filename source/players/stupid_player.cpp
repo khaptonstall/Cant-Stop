@@ -2,7 +2,7 @@
 #include <vector>
 #include <SDL2/SDL_timer.h>
 
-#include "stupid_player.h"
+#include "players/stupid_player.h"
 
 #include "GameState.h"
 #include "dice_probability.h"

@@ -1,4 +1,4 @@
-#include "../../include/players/cpu_player.h"
+#include "players/cpu_player.h"
 
 cpu_player::cpu_player(string log_path) {
 	if (log_path == "") {

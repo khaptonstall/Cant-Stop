@@ -6,14 +6,6 @@
 
 #include "GameState.h"
 
-#include "AI_Player.h"
-#include "probability_player.h"
-#include "rollout_player.h"
-#include "comparison_player.h"
-#include "dumb_player.h"
-#include "stupid_player.h"
-#include "include/players/simple_player.h"
-
 using namespace std;
 
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};

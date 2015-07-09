@@ -1,12 +1,13 @@
 #ifndef _GAME_STATE_H_
 #define _GAME_STATE_H_
 
-#include "Human_Player.h"
-#include "AI_Player.h"
-#include "probability_player.h"
-#include "rollout_player.h"
-#include "comparison_player.h"
-#include "dumb_player.h"
+#include "players/Human_Player.h"
+#include "players/AI_Player.h"
+#include "players/probability_player.h"
+#include "players/rollout_player.h"
+#include "players/comparison_player.h"
+#include "players/dumb_player.h"
+#include "players/simple_player.h"
 using namespace std;
 
 class GameState {
