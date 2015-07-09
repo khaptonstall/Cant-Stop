@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int const probability_player::SELECT_DELAY = 0;
+int const probability_player::SELECT_DELAY = 20000;
 
 probability_player::probability_player() {
 	timer = 0;
@@ -110,7 +110,7 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 		tokens.push_back(0);
 	}
 
-	// Stop iif you're at the top of a column and used all 3 tokens 
+	// Stop iif you're at the top of a column and used all 3 tokens
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
 			tokens.size() == 3)
