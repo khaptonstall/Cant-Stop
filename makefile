@@ -13,7 +13,7 @@ LIBPATHS	:=		$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 CPPFILES	:=		$(foreach dir,$(SOURCES),$(wildcard $(dir)*.cpp))
 OFILES		:=		$(CPPFILES:.cpp=.o)
-OBJPATHS	:=		$(foreach obj,$(OFILES),$(BUILD)/$(obj))
+OBJPATHS	:=		$(foreach obj,$(OFILES),$(BUILD)/$(notdir $(obj)))
 
 INCLUDE		:=		$(foreach dir,$(INCLUDES),-I$(dir))	\
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include)
@@ -29,11 +29,11 @@ clean:
 rebuild: clean
 	@$(MAKE) all
 
-$(TARGET): $(OFILES)
+$(TARGET): $(OBJPATHS)
 	@echo Linking and building $(TARGET)
 	@$(CXX) $(CXXFLAGS) $(CPPFILES) $(LIBPATHS) $(LIBS) -o $(TARGET)
 
-%.o: %.cpp
+build/%.o: %.cpp
 	@echo Compiling $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -c $< -o $(BUILD)/$(notdir $@)
 
