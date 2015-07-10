@@ -2,7 +2,6 @@
 #define _GAME_STATE_H_
 
 #include "players/Human_Player.h"
-#include "players/AI_Player.h"
 #include "players/probability_player.h"
 #include "players/rollout_player.h"
 #include "players/comparison_player.h"
