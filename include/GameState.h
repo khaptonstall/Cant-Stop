@@ -4,9 +4,6 @@
 #include "players/Human_Player.h"
 #include "players/probability_player.h"
 #include "players/rollout_player.h"
-#include "players/comparison_player.h"
-#include "players/dumb_player.h"
-#include "players/simple_player.h"
 using namespace std;
 
 class GameState {
