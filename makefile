@@ -15,7 +15,7 @@ CPPFILES	:=		$(foreach dir,$(SOURCES),$(wildcard $(dir)*.cpp))
 OFILES		:=		$(CPPFILES:.cpp=.o)
 OBJPATHS	:=		$(foreach obj,$(OFILES),$(BUILD)/$(obj))
 
-INCLUDE		:=		$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir))	\
+INCLUDE		:=		$(foreach dir,$(INCLUDES),-I$(dir))	\
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include)
 
 CXXFLAGS	:=		$(INCLUDE) -std=c++11
@@ -34,8 +34,13 @@ $(TARGET): $(OFILES)
 	@$(CXX) $(CXXFLAGS) $(CPPFILES) $(LIBPATHS) $(LIBS) -o $(TARGET)
 
 %.o: %.cpp
-	@echo Compiling $@
+	@echo Compiling $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -c $< -o $(BUILD)/$(notdir $@)
+
+rebuild: clean all
+
+run: $(TARGET)
+	@./$(TARGET)
 
 debug:
 	@echo $(OFILES)
