@@ -12,7 +12,7 @@ vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
 	player1 = new Human_Player();
-	player2 = new simple_player();
+	player2 = new simple_player("", 4000);
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 

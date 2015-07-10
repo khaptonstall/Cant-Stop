@@ -4,7 +4,9 @@
 
 #include "GameState.h"
 
-simple_player::simple_player(string log_path, uint16_t delay) {
+simple_player::simple_player(string log_path, uint16_t delay)
+	: cpu_player(log_path) {
+	selection_delay = delay;
 	timer = 0;
 	last_ticks = 0;
 }
@@ -20,6 +22,7 @@ pair<int, int> simple_player::select_dice(GameState* game_state, vector<pair<int
 	}
 	else if (timer < selection_delay) {
 		timer += SDL_GetTicks() - last_ticks;
+		last_ticks = SDL_GetTicks();
 		return make_pair(-1, -1);
 	}
 	else {
@@ -29,14 +32,12 @@ pair<int, int> simple_player::select_dice(GameState* game_state, vector<pair<int
 
 	for (pair<int, int> rp : rolled_pairs) {
 		if (game_state->validatePair(rp.first, rp.second, p)) {
-			timer = last_ticks = 0;
 			return rp;
 		}
 	}
 
 	for (pair<int, int> rp : rolled_pairs) {
 		if (game_state->validatePair(rp.first, p)) {
-			timer = last_ticks = 0;
 			return make_pair(rp.first, -1);
 		}
 	}
@@ -45,5 +46,23 @@ pair<int, int> simple_player::select_dice(GameState* game_state, vector<pair<int
 }
 
 int simple_player::select_decision(GameState* game_state, int selected_decision) {
-	return 2;
+	if (last_ticks == 0) {
+		last_ticks = SDL_GetTicks();
+		return 0;
+	}
+	else if (timer < selection_delay) {
+		timer += SDL_GetTicks() - last_ticks;
+		last_ticks = SDL_GetTicks();
+		return 0;
+	}
+	else {
+		timer = 0;
+		last_ticks = 0;
+	}
+
+	if (game_state->canStop())
+		return 2;
+	else
+		return 1;
+
 }
