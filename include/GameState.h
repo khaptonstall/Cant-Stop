@@ -5,6 +5,7 @@
 #include "players/probability_player.h"
 #include "players/rollout_player.h"
 #include "players/simple_player.h"
+#include "players/q1p_player.h"
 
 using namespace std;
 
