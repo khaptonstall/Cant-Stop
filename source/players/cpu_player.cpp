@@ -18,3 +18,14 @@ cpu_player::cpu_player(string log_path) {
 cpu_player::~cpu_player() {
 	log_file.close();
 }
+
+pair<int, int> cpu_player::select_dice(GameState* game_state,
+		vector<pair<int, int> > rolled_pairs,
+		Player* p, int selected_dice) {
+	return select_dice_impl(game_state, rolled_pairs, p);
+}
+
+int cpu_player::select_decision(GameState* game_state,
+		int selected_decision) {
+	return select_decision_impl(game_state);
+}

@@ -68,7 +68,7 @@ private:
 
 public:
 	dice_view(const bool testing) {
-		if (!testing)
+		if (!testing) {
 			// Generate dice paths and load surfaces
 			p_dice = vector<string>(6);
 			for (int i = 0; i < 6; i++) {
@@ -103,7 +103,7 @@ public:
 			}
 
 			generate_rect();
-
+		}
 	}
 
 	SDL_Surface* get_surface(vector<int> rolls, int mouse_x, int mouse_y, vector<bool>* bad_dice = nullptr, GameState* gs = nullptr, Player* pl = nullptr) {

@@ -26,9 +26,11 @@ private:
 
 	list<string> text;
 
+	bool testing_mode;
+
 public:
 	log_view();
-	void init(uint8_t maximum_lines);
+	void init(uint8_t maximum_lines, bool testing);
 	~log_view();
 
 	void println(string text);

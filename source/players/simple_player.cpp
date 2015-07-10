@@ -15,7 +15,7 @@ simple_player::~simple_player() {
 
 }
 
-pair<int, int> simple_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
+pair<int, int> simple_player::select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return make_pair(-1, -1);
@@ -45,7 +45,7 @@ pair<int, int> simple_player::select_dice(GameState* game_state, vector<pair<int
 	return make_pair(-1, -1);
 }
 
-int simple_player::select_decision(GameState* game_state, int selected_decision) {
+int simple_player::select_decision_impl(GameState* game_state, int selected_decision) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return 0;

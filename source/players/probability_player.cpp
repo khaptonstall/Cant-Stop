@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int const probability_player::SELECT_DELAY = 20000;
+int const probability_player::SELECT_DELAY = 0;
 
 probability_player::probability_player() {
 	timer = 0;

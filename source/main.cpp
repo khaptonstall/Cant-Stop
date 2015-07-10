@@ -45,7 +45,8 @@ int main(int, char**){
 	dice_view dv(TESTING_MODE);
 	stop_view sv;
 	options_view ov;
-	lv.init(19);
+	lv.init(19, TESTING_MODE);
+	cout << " " << endl;
 
 	int window_scale = 1;
 	int board_width = bv.get_width();
@@ -95,7 +96,7 @@ int main(int, char**){
 	int game_over = false;
 
 	// Statistics tracker
-	const int MAX_GAMES = 1;
+	const int MAX_GAMES = 100;
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
