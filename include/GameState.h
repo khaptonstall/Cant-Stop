@@ -7,7 +7,7 @@
 #include "players/simple_player.h"
 #include "players/q1p_player.h"
 #include "players/random_player.h"
-
+#include "players/monte_carlo_player.h"
 using namespace std;
 
 class GameState {

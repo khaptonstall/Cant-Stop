@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <SDL2/SDL_timer.h>
 
-#include "monte_carlo_player.h"
+#include "players/monte_carlo_player.h"
 
 #include "GameState.h"
 #include "dice_probability.h"
