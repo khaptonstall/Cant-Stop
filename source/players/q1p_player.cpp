@@ -8,7 +8,7 @@
 #include <sstream>
 #include <cmath>
 
-const double DISCOUNT_FACTOR = 0.8;
+const double q1p_player::DISCOUNT_FACTOR = 0.8;
 
 q1p_player::q1p_player(string log_path, string learning_path, uint16_t delay)
 	: cpu_player(log_path) {
@@ -110,6 +110,13 @@ pair<int, int> q1p_player::select_dice_impl(GameState* game_state, vector<pair<i
 
 	// REWARD: The more progress made
 
+	int num_pairs = 0;
+	for (pair<int, int> rp : rolled_pairs) {
+		if (game_state->validatePair(rp.first, rp.second, p)) {
+			num_pairs++;
+		}
+	}
+
 	int random_option;
 	if (num_pairs != 0) {
 		random_option = rand() % num_pairs;
@@ -119,6 +126,21 @@ pair<int, int> q1p_player::select_dice_impl(GameState* game_state, vector<pair<i
 		if (game_state->validatePair(rp.first, rp.second, p) and random_option == 0) {
 			double reward = pow(progress + 2, 1.5) / 2;
 			boardstate new_bs = bs;
+			new_bs[rp.first - 2] += 1;
+			new_bs[rp.first - 2] += 1;
+			double q_max;
+			map<dicesums, qvalue> bs_actionmap;
+			q_max = (*(bs_actionmap.begin())).second;
+			for (auto& kv : bs_actionmap) {
+				if (kv.second > q_max)
+					q_max = kv.second;
+			}
+
+			if (rp.first < rp.second)
+				qmap[bs][dicesums(rp.first, rp.second)] += reward + DISCOUNT_FACTOR * q_max;
+			else
+				qmap[bs][dicesums(rp.second, rp.first)] += reward + DISCOUNT_FACTOR * q_max;
+
 			return rp;
 		}
 		else if (game_state->validatePair(rp.first, rp.second, p)) random_option--;
@@ -139,6 +161,18 @@ pair<int, int> q1p_player::select_dice_impl(GameState* game_state, vector<pair<i
 	else random_option = 0;
 	for (pair<int, int> rp : rolled_pairs) {
 		if (game_state->validatePair(rp.first, p) and random_option == 0) {
+			// double reward = pow(progress + 2, 1.5) / 2;
+			// boardstate new_bs = bs;
+			// new_bs[rp.first - 2] += 1;
+			// new_bs[rp.first - 2] += 1;
+			// double q_max;
+			// map<dicesums, qvalue> bs_actionmap;
+			// q_max = (*(bs_actionmap.begin())).second;
+			// for (auto& kv : bs_actionmap) {
+			// 	if (kv.second > q_max)
+			// 		q_max = kv.second;
+			// }
+
 			return make_pair(rp.first, -1);
 		}
 		else if (game_state->validatePair(rp.first, p)) random_option--;
