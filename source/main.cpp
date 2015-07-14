@@ -18,7 +18,7 @@
 using namespace std;
 
 log_view lv;
-const bool TESTING_MODE = false;
+const bool TESTING_MODE = true;
 
 int main(int, char**){
 	//Seed random number
@@ -46,7 +46,6 @@ int main(int, char**){
 	stop_view sv;
 	options_view ov;
 	lv.init(19, TESTING_MODE);
-	cout << " " << endl;
 
 	int window_scale = 1;
 	int board_width = bv.get_width();
@@ -83,7 +82,6 @@ int main(int, char**){
 	vector<int> empty_vector = vector<int>();
 
 	/////////////////////////////////////////////////////////////////////////////////////
-
 	GameState cantStop;
 	Player* player = cantStop.player1;
 
@@ -203,12 +201,8 @@ int main(int, char**){
 				player->state = player->stateReference;
 				player->checkForWin();
 				cantStop.checkForDeadCols();
-				// if (player == cantStop.player1) cout << "Stopped rolling" << endl << "============" << endl;
 				if (player->claimedCols.size() >= 3) {
 					lv.println(player->name + " wins!");
-					// cout << player->name << " wins!" << endl;
-					// cout << "Agreements: " << cantStop.player1->get_agreements() << endl;
-					// cout << "Disagreements: " << cantStop.player1->get_disagreements() << endl;
 					if (testing) {
 						++current_game;
 						if (player == cantStop.player1) {
@@ -241,7 +235,6 @@ int main(int, char**){
 				if (player == cantStop.player1){ player = cantStop.player2;
 					if (player->claimedCols.size() < 3 and !game_over){
 						lv.clear();
-						// system("clear");
 					}
 				}else if (player == cantStop.player2) player = cantStop.player1;
 			}
@@ -252,8 +245,7 @@ int main(int, char**){
 				lv.println("No possible moves!");
 			}
 			dice_active = false;
-			player->stateReference = player->state;
-			player->currentCols.clear();
+			player->revert();
 			// if (player == cantStop.player1) cout << "No valid dice rolls" << endl << "============" << endl;
 			if (player == cantStop.player1){
 				player = cantStop.player2;

@@ -11,8 +11,8 @@ using namespace std;
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
-	player1 = new probability_player();
-	player2 = new simple_player();
+	player1 = new simple_player();
+	player2 = new random_player("", 0);
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
@@ -161,3 +161,25 @@ void GameState::startOver() {
 	player1->startOver();
 	player2->startOver();
 }
+
+int GameState::gameResult() {
+	if (player1->claimedCols.size() >= 3)
+		return 1;	
+	else if (player2->claimedCols.size() >= 3)
+		return 2;
+	else
+		return 0;
+}
+
+// Return -1 for loss, 0 for no result yet, 1 for win
+int GameState::checkPlayerResult(Player* &p) {
+	int result = gameResult();
+	if (result == 0) return 0;
+	else if (result == 1 and p == player1)
+		return 1;
+	else if (result == 2 and p == player2)
+		return 1;
+	else
+		return -1;
+}
+

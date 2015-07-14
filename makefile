@@ -18,7 +18,7 @@ OBJPATHS	:=		$(foreach obj,$(OFILES),$(BUILD)/$(obj))
 INCLUDE		:=		$(foreach dir,$(INCLUDES),-I$(dir))	\
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include)
 
-CXXFLAGS	:=		$(INCLUDE) -std=c++11
+CXXFLAGS	:=		$(INCLUDE) -std=c++11 -stdlib=libc++
 
 all: $(TARGET)
 

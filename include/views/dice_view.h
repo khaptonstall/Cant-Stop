@@ -40,6 +40,8 @@ private:
 
 	int offset_x, offset_y, scale;
 
+	bool testing_mode;
+
 	void generate_rect() {
 		r_dice_frame[0] = {  10, 110, 90, 45 };
 		r_dice_frame[1] = { 125, 110, 90, 45 };
@@ -104,6 +106,7 @@ public:
 
 			generate_rect();
 		}
+		else testing_mode = true;
 	}
 
 	SDL_Surface* get_surface(vector<int> rolls, int mouse_x, int mouse_y, vector<bool>* bad_dice = nullptr, GameState* gs = nullptr, Player* pl = nullptr) {
@@ -347,11 +350,15 @@ public:
 	}
 
 	int get_width() {
-		return s_dice_bg->w;
+		if (!testing_mode)
+			return s_dice_bg->w;
+		else return -1;
 	}
 
 	int get_height() {
-		return s_dice_bg->h;
+		if (!testing_mode)
+			return s_dice_bg->h;
+		else return -1;
 	}
 
 	void set_scaling_offset(int x, int y, int s) {

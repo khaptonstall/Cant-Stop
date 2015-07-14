@@ -1,0 +1,16 @@
+1:0:2:0:1:0:0:0:0:0:0
+12:2:8
+12:3:4
+
+map of state -> list of pairs (sums(pair) and Q value)
+map<vector<int>, list<map<pair<int, int>, double> > >
+[ 2 1 4 0 0 0 0 0 0 0 0 ]: { [12 4]: {1.5}, [7 7]: {9.1}, etc }
+reward for:
+-- Claiming column : 25
+-- Winning a game : 100
+-- Making progress up a column (polynomial?) : progress^(int (1, 2], 1.5?)
+
+punish for:
+-- Losing progress (punished more for more progress lost) : -progress^(int (1, 2], 1.5?)
+-- Losing a game : -100
+-- Moving onto another players token (more for when you've made more progress) ??? : 

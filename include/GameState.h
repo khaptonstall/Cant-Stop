@@ -6,6 +6,7 @@
 #include "players/rollout_player.h"
 #include "players/simple_player.h"
 #include "players/q1p_player.h"
+#include "players/random_player.h"
 
 using namespace std;
 
@@ -28,6 +29,8 @@ public:
 	bool checkSpace(int col, int prog);
 	void startOver();
 	bool canStop();
+	int gameResult();
+	int checkPlayerResult(Player* &p);
 };
 
 #endif /* _GAME_STATE_H_ */

@@ -149,3 +149,8 @@ void Player::startOver() {
 	currentCols.clear();
 	claimedCols.clear();
 }
+
+void Player::revert() {
+	stateReference = state;
+	currentCols.clear();
+}

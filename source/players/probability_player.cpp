@@ -27,11 +27,12 @@ probability_player::probability_player() {
 pair<int, int> probability_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
-		return pair<int, int>(-1, -1);
+		return make_pair(-1, -1);
 	}
 	else if (timer < SELECT_DELAY) {
 		timer += SDL_GetTicks() - last_ticks;
-		return pair<int, int>(-1, -1);
+		last_ticks = SDL_GetTicks();
+		return make_pair(-1, -1);
 	}
 	else {
 		timer = 0;
@@ -81,11 +82,12 @@ pair<int, int> probability_player::select_dice(GameState* game_state, vector<pai
 int probability_player::select_decision(GameState* game_state, int selected_decision) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
-		return 0;
+		return -1;
 	}
 	else if (timer < SELECT_DELAY) {
 		timer += SDL_GetTicks() - last_ticks;
-		return 0;
+		last_ticks = SDL_GetTicks();
+		return -1;
 	}
 	else {
 		timer = 0;
