@@ -11,8 +11,8 @@ using namespace std;
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
-	player1 = new simple_player();
-	player2 = new random_player("", 0);
+	player1 = new rollout_player();
+	player2 = new monte_carlo_player();
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
@@ -164,7 +164,7 @@ void GameState::startOver() {
 
 int GameState::gameResult() {
 	if (player1->claimedCols.size() >= 3)
-		return 1;	
+		return 1;
 	else if (player2->claimedCols.size() >= 3)
 		return 2;
 	else
@@ -182,4 +182,3 @@ int GameState::checkPlayerResult(Player* &p) {
 	else
 		return -1;
 }
-

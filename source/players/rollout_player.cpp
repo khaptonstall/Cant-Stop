@@ -16,7 +16,7 @@ extern log_view lv;
 
 using namespace std;
 
-int const rollout_player::SELECT_DELAY = 20000;
+int const rollout_player::SELECT_DELAY = 0;
 
 rollout_player::rollout_player() {
 	timer = 0;
@@ -72,7 +72,7 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 	if(highestPair.first != 0){
 		return highestPair;
 	}else{ //There was no good pair
-		cout << "Computer had no possible move." << '\n';
+		//cout << "Computer had no possible move." << '\n';
 		return pair<int,int>(-1,-1);
 	}
 }
@@ -169,7 +169,7 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 			}
 		}
 	}
-	std::cout << "Computer probability of rolling another valid pair: " << probability  << std::endl;
+	//std::cout << "Computer probability of rolling another valid pair: " << probability  << std::endl;
 	// cout << "probability after:  " << (probability) << '\n';
 	if( (probability) >= 75){
 		return true;
