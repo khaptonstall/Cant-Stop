@@ -28,12 +28,17 @@ private:
 	fstream learning_file;
 	vector<string> results;
 
+	bool apply_learning;
+
 	map<boardstate, map<dicesums, qvalue> > qmap;
 
+	static const double LEARNING_RATE;
 	static const double DISCOUNT_FACTOR;
 
+	dicesums last_sums;
+
 public:
-	q1p_player(string log_path = "", string learning_path = "", uint16_t delay = 0);
+	q1p_player(string log_path = "", string learning_path = "", bool apply = false, uint16_t delay = 0);
 	~q1p_player();
 
 	pair<int, int> select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0);

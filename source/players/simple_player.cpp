@@ -4,11 +4,15 @@
 
 #include "GameState.h"
 
+const uint8_t simple_player::FIXED_TURNS = 0;
+
 simple_player::simple_player(string log_path, uint16_t delay)
 	: cpu_player(log_path) {
 	selection_delay = delay;
 	timer = 0;
 	last_ticks = 0;
+
+	current_turn = 0;
 }
 
 simple_player::~simple_player() {
@@ -60,9 +64,17 @@ int simple_player::select_decision_impl(GameState* game_state, int selected_deci
 		last_ticks = 0;
 	}
 
-	if (game_state->canStop())
-		return 2;
-	else
-		return 1;
+	// if (current_turn < FIXED_TURNS) {
+	// 	current_turn++;
+	// 	return 1;
+	// }
+	// else {
+	// 	current_turn = 0;
+	// 	return 2;
+	// }
+	// if (game_state->canStop())
+	// 	return 2;
+	// else
+	return 2;
 
 }
