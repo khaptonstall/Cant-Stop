@@ -72,7 +72,11 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 	if(highestPair.first != 0){
 		return highestPair;
 	}else{ //There was no good pair
+<<<<<<< HEAD
 		// cout << "Computer had no possible move." << '\n';
+=======
+		//cout << "Computer had no possible move." << '\n';
+>>>>>>> 14f199e5d13485cea3d4a8a7df37bdfb163aaade
 		return pair<int,int>(-1,-1);
 	}
 }

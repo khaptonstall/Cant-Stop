@@ -18,7 +18,7 @@
 using namespace std;
 
 log_view lv;
-const bool TESTING_MODE = true;
+const bool TESTING_MODE = false;
 
 int main(int, char**){
 	//Seed random number
@@ -204,6 +204,7 @@ int main(int, char**){
 				if (player->claimedCols.size() >= 3) {
 					lv.println(player->name + " wins!");
 					if (testing) {
+						std::cout << "Game finished" << std::endl;
 						++current_game;
 						if (player == cantStop.player1) {
 							player1_wins++;

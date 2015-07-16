@@ -164,7 +164,7 @@ void GameState::startOver() {
 
 int GameState::gameResult() {
 	if (player1->claimedCols.size() >= 3)
-		return 1;	
+		return 1;
 	else if (player2->claimedCols.size() >= 3)
 		return 2;
 	else
@@ -182,4 +182,3 @@ int GameState::checkPlayerResult(Player* &p) {
 	else
 		return -1;
 }
-
