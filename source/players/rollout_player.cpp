@@ -72,11 +72,7 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 	if(highestPair.first != 0){
 		return highestPair;
 	}else{ //There was no good pair
-<<<<<<< HEAD
 		// cout << "Computer had no possible move." << '\n';
-=======
-		//cout << "Computer had no possible move." << '\n';
->>>>>>> 14f199e5d13485cea3d4a8a7df37bdfb163aaade
 		return pair<int,int>(-1,-1);
 	}
 }
@@ -107,9 +103,9 @@ int rollout_player::select_decision(GameState* game_state, int selected_decision
 		if (state[i] != stateReference[i])
 			tokens.push_back(i + 2);
 	}
-	if (game_state->canStop() == false){
-		return 1;
-	}
+	// if (game_state->canStop() == false){
+	// 	return 1;
+	// }
 		// Stop if you just got to the top
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&

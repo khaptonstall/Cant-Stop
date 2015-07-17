@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
-
+#include <cmath>
 
 #include "GameState.h"
 
@@ -11,8 +11,8 @@ using namespace std;
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
-	player1 = new discount_player();
-	player2 = new rollout_player();
+	player1 = new influence_player();
+	player2 = new probability_player();
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
@@ -181,4 +181,15 @@ int GameState::checkPlayerResult(Player* &p) {
 		return 1;
 	else
 		return -1;
+}
+
+// Check player with closest token to a player p and return the distance
+int GameState::tokenDistance(int col, Player* p) {
+	if (p == player1) {
+		return abs(player1->stateReference[col] - player2->state[col]);
+	}
+	else if (p == player2) {
+		return abs(player2->stateReference[col] - player2->state[col]);
+	}
+	else return -1;
 }

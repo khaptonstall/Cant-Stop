@@ -30,6 +30,7 @@ public:
 	}
 
 	int input(int x, int y, bool canStop) {
+		canStop = true;
 		SDL_Point p = {x, y};
 		if (SDL_EnclosePoints(&p, 1, &r_continue, NULL)) return 1;
 		else if (canStop && SDL_EnclosePoints(&p, 1, &r_stop, NULL)) return 2;

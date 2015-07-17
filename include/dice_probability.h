@@ -28,12 +28,16 @@ private:
 
 	void sort_dice(string&);
 
+	bool has_matching_pair(vector<pair<int, int> > v, vector<int> cols);
+
 	int num_matching_pairs(vector<pair<int, int> >, int, int, int);
 
 public:
 	dice_probability();
 
 	double get_probability(int, int, int);
+
+	double get_probability(vector<int> cols);
 
 	double get_expected_progress(int, int, int);
 

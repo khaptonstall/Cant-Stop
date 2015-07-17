@@ -21,7 +21,16 @@ void dice_probability::sort_dice(string& s) {
 	s = {dv[0], dv[1], dv[2], dv[3], 0};
 }
 
-
+bool dice_probability::has_matching_pair(vector<pair<int, int> > v, vector<int> cols) {
+	for (pair<int, int> p : v) {
+		for (int c : cols) {
+			if (p.first == c or p.second == c) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
 
 int dice_probability::num_matching_pairs(vector<pair<int, int> > v, int a, int b, int c) {
 	int output = 0;
@@ -185,6 +194,37 @@ double dice_probability::get_probability(int a, int b, int c) {
 
 	for (const auto& kv : all_different) {
 		if (num_matching_pairs(kv.second, a, b, c) > 0)
+			output += NUM_ALL_DIFFERENT;
+	}
+
+	output /= NUM_DICE_ROLLS;
+	return output;
+}
+
+double dice_probability::get_probability(vector<int> cols) {
+	double output = 0;
+	for (const auto& kv : four_of_a_kind) {
+		if(has_matching_pair(kv.second, cols))
+			output += NUM_FOUR_OF_A_KIND;
+	}
+
+	for (const auto& kv : three_of_a_kind) {
+		if (has_matching_pair(kv.second, cols))
+			output += NUM_THREE_OF_A_KIND;
+	}
+
+	for (const auto& kv : two_pairs) {
+		if (has_matching_pair(kv.second, cols))
+			output += NUM_TWO_PAIRS;
+	}
+
+	for (const auto& kv : one_pair) {
+		if (has_matching_pair(kv.second, cols))
+			output += NUM_ONE_PAIR;
+	}
+
+	for (const auto& kv : all_different) {
+		if (has_matching_pair(kv.second, cols))
 			output += NUM_ALL_DIFFERENT;
 	}
 

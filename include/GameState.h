@@ -9,6 +9,7 @@
 #include "players/random_player.h"
 #include "players/monte_carlo_player.h"
 #include "players/discount_player.h"
+#include "players/influence_player.h"
 using namespace std;
 
 class GameState {
@@ -32,6 +33,7 @@ public:
 	bool canStop();
 	int gameResult();
 	int checkPlayerResult(Player* &p);
+	int tokenDistance(int col, Player* p);
 };
 
 #endif /* _GAME_STATE_H_ */

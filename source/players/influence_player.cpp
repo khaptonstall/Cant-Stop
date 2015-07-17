@@ -2,20 +2,21 @@
 #include <stdlib.h>
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
 #include <vector>
 #include <algorithm>
 #include <SDL2/SDL_timer.h>
 
 #include "GameState.h"
-#include "players/probability_player.h"
+#include "players/influence_player.h"
 
 #include "dice_probability.h"
 
 using namespace std;
 
-int const probability_player::SELECT_DELAY = 0;
+int const influence_player::SELECT_DELAY = 0;
 
-probability_player::probability_player() {
+influence_player::influence_player() {
 	timer = 0;
 	last_ticks = 0;
 }
@@ -24,7 +25,7 @@ probability_player::probability_player() {
 // Input: GameState*, vector<pair<int,int> >, Player*, int
 // Output: pair<int,int>
 // Desciption: Currently picks the first valid pair of dice
-pair<int, int> probability_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
+pair<int, int> influence_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return make_pair(-1, -1);
@@ -79,7 +80,7 @@ pair<int, int> probability_player::select_dice(GameState* game_state, vector<pai
 // Input: GameState*, int
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
-int probability_player::select_decision(GameState* game_state, int selected_decision) {
+int influence_player::select_decision(GameState* game_state, int selected_decision) {
 	if (last_ticks == 0) {
 		last_ticks = SDL_GetTicks();
 		return -1;
@@ -129,6 +130,8 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 	double expected_progress = dice_p.get_expected_progress(tokens[0], tokens[1], tokens[2]);
 	double successful_probability = dice_p.get_probability(tokens[0], tokens[1], tokens[2]);
 
+	// cout << "DEBUG: " << tokens.size() << ", " << game_state->deadCols.size() << endl;
+	// If deadCols > 0 and tokens < 3, successful probability is chance of getting a non-dead column
 	if (find(tokens.begin(), tokens.end(), 0) != tokens.end() and game_state->deadCols.size() != 0) {
 		vector<int> liveCols;
 		for (int i = 2; i <= 12; i++) {
@@ -154,15 +157,45 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 
 	expected_progress /= relative_eprogresses.size();
 
-	// cout << "g = " << expected_progress << endl;
+	// Influence stuff
+	vector<double> influences;
+	for (int i = 0; i < 11; i++) {
+		if (state[i] != stateReference[i]) {
+			double col_influence;
+			// cout << "Token diff: " << game_state->tokenDistance(i, this) << endl;
+			// cout << "Column len: " << filledCols[i] << endl;
+			col_influence = abs(1.0 - (((double)game_state->tokenDistance(i, this)) / (filledCols[i])));
+			// cout << "Influence on column " << i + 2 << ": " << col_influence << endl;
+			// col_influence *= dice_p.get_probability(i + 2, 0, 0);
+			if (col_influence > .75)
+				influences.push_back(col_influence);
+		}
+	}
 
+	double avg_influence = 0;
+	for (double i : influences) {
+		avg_influence += i;
+		// cout << "Influence " << i << endl;
+	}
+	avg_influence /= influences.size();
+	// cout << "Avg influence: " << avg_influence << endl;
+
+	if (influences.size() < 2)
+		avg_influence = 0;
+
+	// double scaled_influence = avg_influence * successful_probability;
+	double scaled_influence = avg_influence * (successful_probability - (successful_probability * successful_probability));
+	scaled_influence += successful_probability * successful_probability;
+
+	// cout << "g = " << expected_progress << endl;
 	// cout << "p = " << successful_probability << endl;
 	// cout << "h = " << progress << endl;
-	double lhs = successful_probability * (progress + expected_progress);
+	// cout << "i = " << scaled_influence << endl;
+	double lhs = (scaled_influence / successful_probability) * (progress + expected_progress);
 	double rhs = progress;
 
+	// cout << "(i/p)*(h+g) = " << lhs << " and h = " << rhs << endl;
 	// cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
-	//cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 
 	if (lhs >= rhs)
 		return 1;
