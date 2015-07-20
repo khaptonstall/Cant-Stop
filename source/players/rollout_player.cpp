@@ -42,38 +42,79 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 		last_ticks = 0;
 	}
 
-	int highestProb = 0;
-	pair<int,int> highestPair = make_pair(0,0);
-
-	for(pair<int,int> rp : rolled_pairs){
-		double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2] + stateReference[rp.second - 2] / filledCols[rp.second - 2];
-		if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
-			if(game_state->validatePair(rp.first, rp.second, p)){
-				highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
-				highestPair = rp;
-			}
-		}
+	// Check what columns player is on
+	vector<int> tokens;
+	for (int i = 0; i < 11; i++) {
+		if (state[i] != stateReference[i] && state[i] != filledCols[i])
+			tokens.push_back(i + 2);
 	}
 
-	if(highestPair.first != 0){
-		return highestPair;
-	}else{
+	if (tokens.size() < 3) {
+		double highestProb = 0;
+		pair<int,int> highestPair = make_pair(0,0);
+
 		for(pair<int,int> rp : rolled_pairs){
-			double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2];
-			if((columnValue + dice_p.get_probability(rp.first, 0, 0)) > highestProb){
-				if(game_state->validatePair(rp.first, p)){
-					highestProb = dice_p.get_probability(rp.first, 0, 0 + columnValue);
+			double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2] + stateReference[rp.second - 2] / filledCols[rp.second - 2];
+			if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
+				if(game_state->validatePair(rp.first, rp.second, p)){
+					highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
+					highestPair = rp;
+				}
+			}
+		}
+
+		if(highestPair.first != 0){
+			return highestPair;
+		}else{
+			for(pair<int,int> rp : rolled_pairs){
+				double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2];
+				if((columnValue + dice_p.get_probability(rp.first, 0, 0)) > highestProb){
+					if(game_state->validatePair(rp.first, p)){
+						highestProb = dice_p.get_probability(rp.first, 0, 0) + columnValue;
+						highestPair = make_pair(rp.first, -1);
+					}
+				}
+			}
+		}
+
+		if(highestPair.first != 0){
+			return highestPair;
+		}else{
+			return pair<int,int>(-1,-1);
+		}
+	}
+	else {
+		double highestTravel = 0;
+		pair<int, int> highestPair = make_pair(0, 0);
+
+		for (pair<int, int> rp : rolled_pairs) {
+			if(game_state->validatePair(rp.first, rp.second, p)) {
+				double travel = 1.0 / filledCols[rp.first - 2] + 1 / filledCols[rp.second - 2];
+				if (travel > highestTravel) {
+					highestTravel = travel;
+					highestPair = rp;
+				}
+			}
+		}
+
+		if (highestPair.first != 0) {
+			return highestPair;
+		}
+
+		for (pair<int, int> rp : rolled_pairs) {
+			if (game_state->validatePair(rp.first, p)) {
+				double travel = 1.0 / filledCols[rp.first - 2];
+				if (travel > highestTravel) {
+					highestTravel = travel;
 					highestPair = make_pair(rp.first, -1);
 				}
 			}
 		}
-	}
-
-	if(highestPair.first != 0){
-		return highestPair;
-	}else{ //There was no good pair
-		// cout << "Computer had no possible move." << '\n';
-		return pair<int,int>(-1,-1);
+		if (highestPair.first != 0) {
+			return highestPair;
+		}
+		else
+			return make_pair(-1, -1);
 	}
 }
 

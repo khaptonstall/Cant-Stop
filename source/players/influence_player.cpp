@@ -209,8 +209,10 @@ int influence_player::select_decision(GameState* game_state, int selected_decisi
 			col_influence = abs(1.0 - (((double)game_state->tokenDistance(i, this)) / (filledCols[i])));
 			// cout << "Influence on column " << i + 2 << ": " << col_influence << endl;
 			// col_influence *= dice_p.get_probability(i + 2, 0, 0);
-			if (col_influence > .75)
+			if (col_influence > .50)
 				influences.push_back(col_influence);
+			else
+				influences.push_back(0);
 		}
 	}
 
