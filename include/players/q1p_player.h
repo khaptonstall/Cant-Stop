@@ -19,10 +19,6 @@ typedef double qvalue;
 
 class q1p_player : public cpu_player {
 private:
-	uint16_t selection_delay;
-	uint16_t timer;
-	uint16_t last_ticks;
-
 	bool learning;
 
 	fstream learning_file;
@@ -38,7 +34,7 @@ private:
 	dicesums last_sums;
 
 public:
-	q1p_player(string log_path = "", string learning_path = "", bool apply = false, uint16_t delay = 0);
+	q1p_player(string log_path = "", int delay = 0, string learning_path = "", bool apply = false);
 	~q1p_player();
 
 	pair<int, int> select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0);

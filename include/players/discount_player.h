@@ -14,14 +14,10 @@ using namespace std;
 
 class discount_player : public cpu_player {
 private:
-	uint16_t selection_delay;
-	uint16_t timer;
-	uint16_t last_ticks;
-
 	dice_probability dice_p;
 
 public:
-	discount_player(string log_path = "", uint16_t delay = 0);
+	discount_player(string log_path = "", int delay = 0);
 	~discount_player();
 
 	pair<int, int> select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0);

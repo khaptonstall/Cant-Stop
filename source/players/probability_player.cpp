@@ -13,32 +13,16 @@
 
 using namespace std;
 
-int const probability_player::SELECT_DELAY = 0;
-
-probability_player::probability_player() {
-	timer = 0;
-	last_ticks = 0;
+probability_player::probability_player(string log_path, int delay)
+	: cpu_player(log_path, delay) {
+	
 }
 
 // Function: select_dice
 // Input: GameState*, vector<pair<int,int> >, Player*, int
 // Output: pair<int,int>
 // Desciption: Currently picks the first valid pair of dice
-pair<int, int> probability_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
-	if (last_ticks == 0) {
-		last_ticks = SDL_GetTicks();
-		return make_pair(-1, -1);
-	}
-	else if (timer < SELECT_DELAY) {
-		timer += SDL_GetTicks() - last_ticks;
-		last_ticks = SDL_GetTicks();
-		return make_pair(-1, -1);
-	}
-	else {
-		timer = 0;
-		last_ticks = 0;
-	}
-
+pair<int, int> probability_player::select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
 	// Check what columns player is on
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
@@ -121,21 +105,7 @@ pair<int, int> probability_player::select_dice(GameState* game_state, vector<pai
 // Input: GameState*, int
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
-int probability_player::select_decision(GameState* game_state, int selected_decision) {
-	if (last_ticks == 0) {
-		last_ticks = SDL_GetTicks();
-		return -1;
-	}
-	else if (timer < SELECT_DELAY) {
-		timer += SDL_GetTicks() - last_ticks;
-		last_ticks = SDL_GetTicks();
-		return -1;
-	}
-	else {
-		timer = 0;
-		last_ticks = 0;
-	}
-
+int probability_player::select_decision_impl(GameState* game_state, int selected_decision) {
 	// if (game_state->canStop() == false){
 	// 	return 1;
 	// }
@@ -225,4 +195,12 @@ int probability_player::select_decision(GameState* game_state, int selected_deci
 
 	// Otherwise, stop!
 	return 2;
+}
+
+void probability_player::start_over_impl() {
+
+}
+
+void probability_player::revert_impl() {
+
 }

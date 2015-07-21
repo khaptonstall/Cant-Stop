@@ -6,7 +6,7 @@ log_view::log_view() {
 	// do nothing
 }
 
-void log_view::init(uint8_t maximum_lines, bool testing) {
+void log_view::init(int maximum_lines, bool testing) {
 	testing_mode = testing;
 	if (!testing) {
 		text_size = 15;
