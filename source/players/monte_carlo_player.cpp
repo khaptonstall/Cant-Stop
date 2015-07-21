@@ -51,7 +51,7 @@ pair<int, int> monte_carlo_player::select_dice(GameState* game_state, vector<pai
 // Output: Node
 // Description: Performs a Monte Carlo Tree Search to determine that best move to make this turn
 Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p){
-	Node best; // = Node(pair<int,int>(-1,-1), -100);
+	Node best;
 	Node root;
 	vector<pair<int, int> > validPairs;
 
@@ -67,17 +67,13 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 			   find(validPairs.begin(), validPairs.end(), rolled_pairs[i]) == validPairs.end()){
 				validPairs.push_back(rolled_pairs[i]);
 			}
-		//	validPairs.push_back(rolled_pairs[i]);
-			//best = Node(rolled_pairs[i],0);
 		}else if(game_state->validatePair(rolled_pairs[i].first,p)){
 			if(find(validPairs.begin(), validPairs.end(), pair<int,int>(rolled_pairs[i].second, rolled_pairs[i].first)) == validPairs.end() &&
 				 find(validPairs.begin(), validPairs.end(), rolled_pairs[i]) == validPairs.end()	){
 			validPairs.push_back(pair<int,int>(rolled_pairs[i].first, -1));
 		}
-			//best = Node(pair<int,int>(rolled_pairs[i].first, -1),0);
 		}else if (game_state->validatePair(rolled_pairs[i].second,p)) {
 			validPairs.push_back(pair<int,int>(rolled_pairs[i].second, -1));
-			//best = Node(pair<int,int>(rolled_pairs[i].second, -1),0);
 		}
 	}
 	if (validPairs.size() == 0 || (validPairs.size() == 1 && validPairs[0].first == -1 && validPairs[0].second == -1 )) {
@@ -88,9 +84,7 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 
 	vector<Node> visited;
 
-	//std::cout << "Valid pair size: " << validPairs.size() << std::endl;
 	for (int i = 0;  i < validPairs.size(); i++) {
-	//	cout << "Iteration: " << i << std::endl;
 
 		GameState* monteCarloState = new GameState();
 		*monteCarloState->player1 = *game_state->player1;
@@ -124,22 +118,15 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 	visited[0].second -= visited[0].second; //Remove what was added twice in the loop
 
 	if (visited[0].second > best.second) {
-		//std::cout << "1" << std::endl;
 		if (find(monteCarloState->deadCols.begin(),monteCarloState->deadCols.end(), best.first.first) == monteCarloState->deadCols.end() &&
 				find(monteCarloState->deadCols.begin(),monteCarloState->deadCols.end(), best.first.second) == monteCarloState->deadCols.end() &&
 				find(validPairs.begin(),validPairs.end(), visited[0].first) != validPairs.end()) {
-				//	std::cout << "2" << std::endl;
 					if (visited[0].first.first != -1 && visited[0].first.second != -1) {
-				//		if (find(validPairs.begin(),validPairs.end(), visited[0].first) != validPairs.end()) {
-					//		std::cout << "3" << std::endl;
 							best = visited[0];
-					//	}
 					}
 		}
 	}
 }
-
-	//std::cout << "Returned pair " << best.first.first << " " << best.first.second << std::endl;
 	return best;
 }
 
@@ -224,13 +211,11 @@ vector<pair<int,int> > monte_carlo_player::rollDice(GameState* g, Player* p){
 		}
 	}
 
-
 	if (diceOptions.size() == 0) {
 		diceOptions.push_back(pair<int,int>(-1,-1));
 	}
 
 	return diceOptions;
-
 }
 // Function: select_decision
 // Input: GameState*, int
