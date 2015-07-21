@@ -17,12 +17,12 @@ private:
 	SDL_Surface* s_text;
 	SDL_Surface* s_bg;
 
-	uint8_t text_size;
+	int text_size;
 
-	uint16_t max_height;
-	uint16_t max_lines;
+	int max_height;
+	int max_lines;
 
-	uint8_t current_line;
+	int current_line;
 
 	list<string> text;
 
@@ -30,7 +30,7 @@ private:
 
 public:
 	log_view();
-	void init(uint8_t maximum_lines, bool testing);
+	void init(int maximum_lines, bool testing);
 	~log_view();
 
 	void println(string text);

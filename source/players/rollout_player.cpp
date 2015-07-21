@@ -16,11 +16,9 @@ extern log_view lv;
 
 using namespace std;
 
-int const rollout_player::SELECT_DELAY = 0;
+rollout_player::rollout_player(string log_path, int delay)
+	: cpu_player(log_path, delay) {
 
-rollout_player::rollout_player() {
-	timer = 0;
-	last_ticks = 0;
 }
 
 // Function: select_dice
@@ -28,20 +26,6 @@ rollout_player::rollout_player() {
 // Output: pair<int,int>
 // Desciption: Pick a pair of dice with the highest prob of being rolled again
 pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int select_dice) {
-	// Decision delay
-	if (last_ticks == 0) {
-		last_ticks = SDL_GetTicks();
-		return pair<int, int>(-1, -1);
-	}
-	else if (timer < SELECT_DELAY) {
-		timer += SDL_GetTicks() - last_ticks;
-		return pair<int, int>(-1, -1);
-	}
-	else {
-		timer = 0;
-		last_ticks = 0;
-	}
-
 	// Check what columns player is on
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
@@ -125,20 +109,6 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
 int rollout_player::select_decision(GameState* game_state, int selected_decision ) {
-	// Decision delay
-	if (last_ticks == 0) {
-		last_ticks = SDL_GetTicks();
-		return 0;
-	}
-	else if (timer < SELECT_DELAY) {
-		timer += SDL_GetTicks() - last_ticks;
-		return 0;
-	}
-	else {
-		timer = 0;
-		last_ticks = 0;
-	}
-
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i])

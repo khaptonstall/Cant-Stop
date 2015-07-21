@@ -87,7 +87,7 @@ void Player::checkForWin(){
 		if (stateReference[i] == filledCols[i]) {
 			if (find(claimedCols.begin(), claimedCols.end(), i+2) == claimedCols.end()) {
 				claimedCols.push_back(i+2);
-				stateReference[i] += 1;
+				// stateReference[i] += 1;
 			}
 		}
 	}
@@ -142,15 +142,15 @@ vector< pair<int,int> > Player::filterDice(vector< pair<int,int> > pairs){
 	return combinations;
 }
 
-void Player::startOver() {
-	state.clear();
-	state = vector<int>(11, 0);
-	stateReference = state;
-	currentCols.clear();
-	claimedCols.clear();
-}
+// void Player::startOver() {
+// 	state.clear();
+// 	state = vector<int>(11, 0);
+// 	stateReference = state;
+// 	currentCols.clear();
+// 	claimedCols.clear();
+// }
 
-void Player::revert() {
-	stateReference = state;
-	currentCols.clear();
-}
+// void Player::revert() {
+// 	stateReference = state;
+// 	currentCols.clear();
+// }

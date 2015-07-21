@@ -193,3 +193,15 @@ int GameState::tokenDistance(int col, Player* p) {
 	}
 	else return -1;
 }
+
+
+int GameState::tokenDisplacement(int col, Player* p) {
+	if (p == player1) {
+		return player1->stateReference[col] - player2->state[col];
+	}
+	else if (p == player2) {
+		return player2->stateReference[col] - player1->state[col];
+	}
+	else
+		return -100;
+}

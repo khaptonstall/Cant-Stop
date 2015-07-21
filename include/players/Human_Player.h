@@ -11,6 +11,9 @@ class Human_Player : public Player {
 public:
 	pair<int, int> select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0);
 	int select_decision(GameState* game_state, int selected_decision = 0);
+
+	void startOver();
+	void revert();
 };
 
 #endif /* _HUMAN_PLAYER_H_ */

@@ -4,11 +4,8 @@
 
 #include "GameState.h"
 
-discount_player::discount_player(string log_path, uint16_t delay)
-	: cpu_player(log_path) {
-	selection_delay = delay;
-	timer = 0;
-	last_ticks = 0;
+discount_player::discount_player(string log_path, int delay)
+	: cpu_player(log_path, delay) {
 }
 
 discount_player::~discount_player() {
@@ -16,70 +13,83 @@ discount_player::~discount_player() {
 }
 
 pair<int, int> discount_player::select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice) {
-	if (last_ticks == 0) {
-		last_ticks = SDL_GetTicks();
-		return make_pair(-1, -1);
-	}
-	else if (timer < selection_delay) {
-		timer += SDL_GetTicks() - last_ticks;
-		last_ticks = SDL_GetTicks();
-		return make_pair(-1, -1);
-	}
-	else {
-		timer = 0;
-		last_ticks = 0;
+	// Check what columns player is on
+	vector<int> tokens;
+	for (int i = 0; i < 11; i++) {
+		if (state[i] != stateReference[i] && state[i] != filledCols[i])
+			tokens.push_back(i + 2);
 	}
 
-	int highestProb = 0;
-	pair<int,int> highestPair = make_pair(0,0);
+	if (tokens.size() < 3) {
+		double highestProb = 0;
+		pair<int,int> highestPair = make_pair(0,0);
 
-	for(pair<int,int> rp : rolled_pairs){
-		double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2] + stateReference[rp.second - 2] / filledCols[rp.second - 2];
-		if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
-			if(game_state->validatePair(rp.first, rp.second, p)){
-				highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
-				highestPair = rp; 
+		for(pair<int,int> rp : rolled_pairs){
+			double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2] + stateReference[rp.second - 2] / filledCols[rp.second - 2];
+			if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
+				if(game_state->validatePair(rp.first, rp.second, p)){
+					highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
+					highestPair = rp;
+				}
 			}
 		}
-	}
 
-	if(highestPair.first != 0){
-		return highestPair;
-	}else{
-		for(pair<int,int> rp : rolled_pairs){
-			double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2];
-			if((columnValue + dice_p.get_probability(rp.first, 0, 0)) > highestProb){
-				if(game_state->validatePair(rp.first, p)){
-					highestProb = dice_p.get_probability(rp.first, 0, 0 + columnValue);
+		if(highestPair.first != 0){
+			return highestPair;
+		}else{
+			for(pair<int,int> rp : rolled_pairs){
+				double columnValue = stateReference[rp.first - 2] / filledCols[rp.first - 2];
+				if((columnValue + dice_p.get_probability(rp.first, 0, 0)) > highestProb){
+					if(game_state->validatePair(rp.first, p)){
+						highestProb = dice_p.get_probability(rp.first, 0, 0) + columnValue;
+						highestPair = make_pair(rp.first, -1);
+					}
+				}
+			}
+		}
+
+		if(highestPair.first != 0){
+			return highestPair;
+		}else{
+			return pair<int,int>(-1,-1);
+		}
+	}
+	else {
+		double highestTravel = 0;
+		pair<int, int> highestPair = make_pair(0, 0);
+
+		for (pair<int, int> rp : rolled_pairs) {
+			if(game_state->validatePair(rp.first, rp.second, p)) {
+				double travel = 1.0 / filledCols[rp.first - 2] + 1 / filledCols[rp.second - 2];
+				if (travel > highestTravel) {
+					highestTravel = travel;
+					highestPair = rp;
+				}
+			}
+		}
+
+		if (highestPair.first != 0) {
+			return highestPair;
+		}
+
+		for (pair<int, int> rp : rolled_pairs) {
+			if (game_state->validatePair(rp.first, p)) {
+				double travel = 1.0 / filledCols[rp.first - 2];
+				if (travel > highestTravel) {
+					highestTravel = travel;
 					highestPair = make_pair(rp.first, -1);
 				}
 			}
 		}
-	}
-
-	if(highestPair.first != 0) {
-		return highestPair;
-	}
-	else {
-		return pair<int,int>(-1,-1);
+		if (highestPair.first != 0) {
+			return highestPair;
+		}
+		else
+			return make_pair(-1, -1);
 	}
 }
 
 int discount_player::select_decision_impl(GameState* game_state, int selected_decision) {
-	if (last_ticks == 0) {
-		last_ticks = SDL_GetTicks();
-		return 0;
-	}
-	else if (timer < selection_delay) {
-		timer += SDL_GetTicks() - last_ticks;
-		last_ticks = SDL_GetTicks();
-		return 0;
-	}
-	else {
-		timer = 0;
-		last_ticks = 0;
-	}
-
 	if (game_state->canStop() == false){
 		return 1;
 	}

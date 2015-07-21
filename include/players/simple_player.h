@@ -14,21 +14,20 @@ using namespace std;
 
 class simple_player : public cpu_player {
 private:
-	uint16_t selection_delay;
-	uint16_t timer;
-	uint16_t last_ticks;
-
 	dice_probability dice_p;
 
-	static const uint8_t FIXED_TURNS;
-	uint8_t current_turn;
+	static const int FIXED_TURNS;
+	int current_turn;
 
 public:
-	simple_player(string log_path = "", uint16_t delay = 0);
+	simple_player(string log_path = "", int delay = 0);
 	~simple_player();
 
 	pair<int, int> select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int selected_dice = 0);
 	int select_decision_impl(GameState* game_state, int selected_decision = 0);
+
+	void start_over_impl();
+	void revert_impl();
 
 };
 

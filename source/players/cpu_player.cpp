@@ -1,8 +1,13 @@
 #include "players/cpu_player.h"
 
+#include <SDL2/SDL_timer.h>
 #include "GameState.h"
 
-cpu_player::cpu_player(string log_path) {
+cpu_player::cpu_player(string log_path, int delay) {
+	selection_delay = delay;
+	timer = 0;
+	last_ticks = 0;
+
 	if (log_path == "") {
 		is_logging = false;
 		return;
@@ -24,6 +29,22 @@ cpu_player::~cpu_player() {
 pair<int, int> cpu_player::select_dice(GameState* game_state,
 		vector<pair<int, int> > rolled_pairs,
 		Player* p, int selected_dice) {
+
+	// Delay selection_delay milliseconds before moving
+	if (selection_delay != 0 and last_ticks == 0) {
+		last_ticks = SDL_GetTicks();
+		return make_pair(-1, -1);
+	}
+	else if (timer < selection_delay) {
+		timer += SDL_GetTicks() - last_ticks;
+		last_ticks = SDL_GetTicks();
+		return make_pair(-1, -1);
+	}
+	else {
+		timer = 0;
+		last_ticks = 0;
+	}
+
 	pair<int, int> output = select_dice_impl(game_state, rolled_pairs, p);
 
 	if (is_logging and output != make_pair(-1, -1)) {
@@ -39,6 +60,21 @@ pair<int, int> cpu_player::select_dice(GameState* game_state,
 
 int cpu_player::select_decision(GameState* game_state,
 		int selected_decision) {
+
+	if (selection_delay > 0 and last_ticks == 0) {
+		last_ticks = SDL_GetTicks();
+		return 0;
+	}
+	else if (timer < selection_delay) {
+		timer += SDL_GetTicks() - last_ticks;
+		last_ticks = SDL_GetTicks();
+		return 0;
+	}
+	else {
+		timer = 0;
+		last_ticks = 0;
+	}
+
 	int output = select_decision_impl(game_state);
 
 	if (is_logging and output > 0) {
@@ -51,3 +87,25 @@ int cpu_player::select_decision(GameState* game_state,
 
 	return output;
 }
+
+void cpu_player::startOver() {
+	start_over_impl();
+
+	// Log stuff
+
+	state.clear();
+	state = vector<int>(11, 0);
+	stateReference = state;
+	currentCols.clear();
+	claimedCols.clear();
+}
+
+void cpu_player::revert() {
+	revert_impl();
+
+	// Log stuff
+
+	stateReference = state;
+	currentCols.clear();
+}
+
