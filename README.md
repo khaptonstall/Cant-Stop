@@ -18,8 +18,10 @@ make
 
 
 ###Team Members
-Racheal Folowoshele
 
-Kyle Haptonstall
+[Kyle Haptonstall][kyle-github]
 
-Alejandro Huerta
+[Alejandro Huerta][alex-github]
+
+[kyle-github]:  github.com/khaptonstall
+[alex-github]:  github.com/ahuerta0686
