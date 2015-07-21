@@ -23,5 +23,5 @@ make
 
 [Alejandro Huerta][alex-github]
 
-[kyle-github]:  github.com/khaptonstall
-[alex-github]:  github.com/ahuerta0686
+[kyle-github]:  http://github.com/khaptonstall
+[alex-github]:  http://github.com/ahuerta0686
