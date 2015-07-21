@@ -41,8 +41,8 @@ pair<int, int> monte_carlo_player::select_dice(GameState* game_state, vector<pai
 	}
 
 
-	pair<int,int> chosenPair = MCTS(game_state, rolled_pairs, p).first;
-	return chosenPair;
+	return MCTS(game_state, rolled_pairs, p).first;
+
 }
 
 
@@ -63,13 +63,15 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 	// Seperate valid and invalid pairs
 	for (int i = 0; i < rolled_pairs.size(); i++) {
 		if (game_state->validatePair(rolled_pairs[i].first,rolled_pairs[i].second,p)) {
-			if(find(validPairs.begin(), validPairs.end(), pair<int,int>(rolled_pairs[i].second, rolled_pairs[i].first)) == validPairs.end() ){
+			if(find(validPairs.begin(), validPairs.end(), pair<int,int>(rolled_pairs[i].second, rolled_pairs[i].first)) == validPairs.end() &&
+			   find(validPairs.begin(), validPairs.end(), rolled_pairs[i]) == validPairs.end()){
 				validPairs.push_back(rolled_pairs[i]);
 			}
 		//	validPairs.push_back(rolled_pairs[i]);
 			//best = Node(rolled_pairs[i],0);
 		}else if(game_state->validatePair(rolled_pairs[i].first,p)){
-			if(find(validPairs.begin(), validPairs.end(), pair<int,int>(rolled_pairs[i].second, rolled_pairs[i].first)) == validPairs.end() ){
+			if(find(validPairs.begin(), validPairs.end(), pair<int,int>(rolled_pairs[i].second, rolled_pairs[i].first)) == validPairs.end() &&
+				 find(validPairs.begin(), validPairs.end(), rolled_pairs[i]) == validPairs.end()	){
 			validPairs.push_back(pair<int,int>(rolled_pairs[i].first, -1));
 		}
 			//best = Node(pair<int,int>(rolled_pairs[i].first, -1),0);
@@ -78,8 +80,8 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 			//best = Node(pair<int,int>(rolled_pairs[i].second, -1),0);
 		}
 	}
-	if (validPairs.size() == 0) {
-		best = Node(pair<int,int>(-1,-1), 0);
+	if (validPairs.size() == 0 || (validPairs.size() == 1 && validPairs[0].first == -1 && validPairs[0].second == -1 )) {
+		best = Node(pair<int,int>(-1,-1), -50);
 	}else{
 		best = Node(validPairs[0], 0);
 	}
@@ -100,7 +102,11 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 		if (root.second > 9) {
 			return root;
 		}else if (root.first.first == -1 && root.first.second == -1) {
-			return Node(root.first, root.second - 10);
+			int value = 0;
+			for (int j = 0; j < monteCarloState->player2->stateReference.size(); j++) {
+				value -= monteCarloState->player2->stateReference[j] - monteCarloState->player2->state[j];
+			}
+			return Node(root.first, root.second - value);
 		}
 		monteCarloState->player2->chooseDice(validPairs[i]);
 
@@ -111,41 +117,7 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 		//Add new child to the tree
 		vector<pair<int,int> > nextRoll = rollDice(monteCarloState, monteCarloState->player2);
 		visited.push_back(MCTS(monteCarloState, nextRoll, monteCarloState->player2));
-		/*
-		Node newChild = Node(pair<int,int>(-1,-1),0);
-		for (int i = 0; i < nextRoll.size(); i++) {
-			if (monteCarloState->validatePair(nextRoll[i].first, nextRoll[i].second, monteCarloState->player2)) {
-				monteCarloState->player2->chooseDice(nextRoll[i]);
-				newChild = Node(nextRoll[i],0);
-				break;
 
-			}else if (monteCarloState->validatePair(nextRoll[i].first, monteCarloState->player2)) {
-				monteCarloState->player2->chooseDice(pair<int,int>(nextRoll[i].first, -1));
-				newChild = Node(pair<int,int>(nextRoll[i].first,-1),0);
-
-				break;
-			}else if (monteCarloState->validatePair(nextRoll[i].second, monteCarloState->player2)) {
-				monteCarloState->player2->chooseDice(pair<int,int>(nextRoll[i].second, -1));
-				newChild = Node(pair<int,int>(nextRoll[i].second, -1),0);
-				break;
-			}
-		}
-*/
-	//	int continue_value =  rollOut(monteCarloState, monteCarloState->player2, newChild, true).second;
-	//	int stop_value = rollOut(monteCarloState, monteCarloState->player2, newChild, false).second;
-	//	std::cout << "Continue value: " << continue_value << std::endl;
-	//	std::cout << "Stop value: " << stop_value << std::endl;
-	//	if (continue_value >= stop_value) {
-	//		newChild.second = continue_value;
-	//		roll = true;
-	//	}else{
-	//		newChild.second = stop_value;
-	//		roll = false;
-//		}
-	//	std::cout << "New Child " << newChild.first.first << " " << newChild.first.second << " " << newChild.second << std::endl;
-		//newChild.second = value;
-	//	visited.push_back(newChild);
-	//	visited[0].second += visited[1].second;
 	for (Node n : visited){
 		visited[0].second += n.second;
 	}
@@ -218,120 +190,6 @@ int monte_carlo_player::findValue(GameState* game_state, Player* p, pair<int,int
 				return value;
 		}
 }
-
-
-// Function: rollOut
-// Input: GameState*, Player*, pair<int,int>
-// Output: int
-// Desciption:
-Node monte_carlo_player::rollOut(GameState* game_state, Player* p, Node childNode, bool rollAgain){
-	GameState* monteCarloState = new GameState();
-	*monteCarloState->player1 = *game_state->player1;
-	*monteCarloState->player2 = *p;
-	monteCarloState->deadCols = game_state->deadCols;
-	int value = childNode.second;
-	pair<int,int> roll = childNode.first;
-
-		if (monteCarloState->validatePair(roll.first, roll.second, monteCarloState->player2)) {
-			monteCarloState->player2->chooseDice(roll);
-			monteCarloState->player2->checkForWin();
-			monteCarloState->checkForDeadCols();
-
-			// Attain value of roll
-			for (int a = 0; a < monteCarloState->player2->stateReference.size(); a++) {
-				//value += monteCarloState->player2->stateReference[a] - monteCarloState->player2->state[a];
-			}
-
-			if (monteCarloState->player2->stateReference[roll.first - 2] == monteCarloState->filledCols[roll.first - 2] ||
-				monteCarloState->player2->stateReference[roll.second - 2] == monteCarloState->filledCols[roll.second - 2]){
-					//childNode.second += 10;
-					value += 10;
-					//std::cout << "Value: " << value << std::endl;
-					childNode.second = value;
-					return childNode;
-				}else{
-					//childNode.second += 2;
-					value += 2;
-				}
-
-				if (rollAgain == false) {
-				//	std::cout << "Value: " << value << std::endl;
-					//childNode.second = value;
-					return childNode;
-				}
-				vector<pair<int,int> > nextRoll = rollDice(monteCarloState, monteCarloState->player2);
-				if (nextRoll[0].first == -1 && nextRoll[0].second == -1) {
-					int loss = 0;
-					for (int a = 0; a < monteCarloState->player2->stateReference.size(); a++) {
-						value -= monteCarloState->player2->stateReference[a] - monteCarloState->player2->state[a];
-					}
-					//std::cout << "Value: " << value << std::endl;
-					childNode.second = value;
-					return childNode;
-					//return Node(roll, loss);
-				}else{
-					//std::cout << "Value: " << value << std::endl;
-					childNode.second = value;
-					rollOut(monteCarloState, monteCarloState->player2, Node(nextRoll[0],childNode.second),true);
-				}
-			}else if (monteCarloState->validatePair(roll.first, monteCarloState->player2)) {
-
-				monteCarloState->player2->chooseDice(roll);
-				monteCarloState->player2->checkForWin();
-				monteCarloState->checkForDeadCols();
-
-				for (int a = 0; a < monteCarloState->player2->stateReference.size(); a++) {
-					value += monteCarloState->player2->stateReference[a] - monteCarloState->player2->state[a];
-				}
-
-				if (monteCarloState->player2->stateReference[roll.first - 2] == monteCarloState->filledCols[roll.first - 2]){
-					//childNode.second += 10;
-					value += 10;
-				//	std::cout << "Value: " << value << std::endl;
-					childNode.second = value;
-					return childNode;
-				}else{
-					//childNode.second += 1;
-					value += 1;
-					if (rollAgain == false) {
-				//		std::cout << "Value: " << value << std::endl;
-						childNode.second = value;
-						return childNode;
-					}
-					vector<pair<int,int> > nextRoll = rollDice(monteCarloState, monteCarloState->player2);
-
-					if (nextRoll[0].first == -1 && nextRoll[0].second == -1) {
-						int loss = 0;
-						for (int a = 0; a < monteCarloState->player2->stateReference.size(); a++) {
-							value -= monteCarloState->player2->stateReference[a] - monteCarloState->player2->state[a];
-						}
-					//	std::cout << "Value: " << value << std::endl;
-						childNode.second = value;
-						return childNode;
-					//	return Node(roll, loss);
-					}else{
-					//	std::cout << "Value: " << value << std::endl;
-						childNode.second = value;
-						rollOut(monteCarloState, monteCarloState->player2, Node(nextRoll[0],childNode.second),true);
-					}
-
-				}
-			} else{ //No valid pair
-				int loss = 0;
-				for (int a = 0; a < monteCarloState->player2->stateReference.size(); a++) {
-					value -= monteCarloState->player2->stateReference[a] - monteCarloState->player2->state[a];
-				}
-			//	std::cout << "Value: " << childNode.second << std::endl;
-				childNode.second = value;
-				return childNode;
-				//return Node(roll, loss);
-			}
-
-		//childNode.second = value;
-//		std::cout << "HERE" << std::endl;
-		return childNode;
-	}
-
 
 
 // Function: rollDice
@@ -431,7 +289,7 @@ int monte_carlo_player::select_decision(GameState* game_state, int selected_deci
 	//std::cout << "Computer probability of rolling another valid pair: " << probability  << std::endl;
 	// cout << "probability after:  " << (probability) << '\n';
 	std::cout << "Probability" << probability << std::endl;
-	if( (probability) >= 75){
+	if( (probability) >= 73){
 		return 1;
 	}else{
 		return 2;

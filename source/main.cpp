@@ -18,7 +18,7 @@
 using namespace std;
 
 log_view lv;
-const bool TESTING_MODE = true;
+const bool TESTING_MODE = false;
 
 int main(int, char**){
 	//Seed random number
