@@ -2,9 +2,9 @@
 A branch of the REU-CAAR a the University of Maryland.
 
 ###Requires:
-SDL2
-SDL2_image
-SDL2_ttf
+SDL2  
+SDL2_image  
+SDL2_ttf  
 
 ###To play Can't Stop:
 
