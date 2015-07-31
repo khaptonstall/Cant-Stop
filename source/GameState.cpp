@@ -11,8 +11,8 @@ using namespace std;
 vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
-	player1 = new influence_player("", 1500);
-	player2 = new Human_Player();
+	player1 = new probability_player();
+	player2 = new monte_carlo_player();
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
@@ -193,6 +193,7 @@ int GameState::tokenDistance(int col, Player* p) {
 	}
 	else return -1;
 }
+
 
 int GameState::tokenDisplacement(int col, Player* p) {
 	if (p == player1) {
