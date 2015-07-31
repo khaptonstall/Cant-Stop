@@ -25,7 +25,7 @@ rollout_player::rollout_player(string log_path, int delay)
 // Input: GameState*, vector<pair<int,int> >, Player*, int
 // Output: pair<int,int>
 // Desciption: Pick a pair of dice with the highest prob of being rolled again
-pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int select_dice) {
+pair<int, int> rollout_player::select_dice_impl(GameState* game_state, vector<pair<int, int> > rolled_pairs, Player* p, int select_dice) {
 	// Check what columns player is on
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
@@ -108,7 +108,7 @@ pair<int, int> rollout_player::select_dice(GameState* game_state, vector<pair<in
 // Input: GameState*, int
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
-int rollout_player::select_decision(GameState* game_state, int selected_decision ) {
+int rollout_player::select_decision_impl(GameState* game_state, int selected_decision ) {
 	vector<int> tokens;
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i])
@@ -187,4 +187,12 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 	}else{
 		return false;
 	}
+}
+
+void rollout_player::start_over_impl() {
+
+}
+
+void rollout_player::revert_impl() {
+
 }

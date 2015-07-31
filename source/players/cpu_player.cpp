@@ -75,6 +75,8 @@ int cpu_player::select_decision(GameState* game_state,
 		last_ticks = 0;
 	}
 
+	// if (!game_state->canStop()) { return 1; }
+
 	int output = select_decision_impl(game_state);
 
 	if (is_logging and output > 0) {

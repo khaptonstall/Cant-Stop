@@ -151,3 +151,11 @@ int discount_player::select_decision_impl(GameState* game_state, int selected_de
 	return 2;
 
 }
+
+void discount_player::start_over_impl() {
+
+}
+
+void discount_player::revert_impl() {
+	
+}
