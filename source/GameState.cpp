@@ -32,8 +32,8 @@ vector<int> GameState::rollDice(bool b) {
 	std::random_device rd;
 	std::uniform_int_distribution<int> distribution(1,6);
 	for (int i = 0; i < 4; i++) {
-		//output.push_back(rand() % 6 + 1);
-		output.push_back(distribution(rd));
+		output.push_back(rand() % 6 + 1);
+		// output.push_back(distribution(rd));
 	}
 	return output;
 }
@@ -204,4 +204,25 @@ int GameState::tokenDisplacement(int col, Player* p) {
 	}
 	else
 		return -100;
+}
+
+double GameState::getPlayerScore(int p) {
+	vector<double> columnScores;
+	if (p == 1) {
+		columnScores = vector<double>(player1->stateReference.begin(),
+										player1->stateReference.end());
+	}
+	else {
+		columnScores = vector<double>(player2->stateReference.begin(),
+										player2->stateReference.end());
+	}
+
+	for (int i = 0; i < columnScores.size(); i++) {
+		columnScores[i] /= (double)filledCols[i];
+		// cout << columnScores[i] << " ";
+	}
+	// cout << endl;
+	sort(columnScores.begin(), columnScores.end());
+
+	return (columnScores[10] + columnScores[9] + columnScores[8]) / 3.0;
 }

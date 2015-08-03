@@ -31,12 +31,9 @@ pair<int, int> Human_Player::select_dice(GameState* game_state, vector<pair<int,
 }
 
 int Human_Player::select_decision(GameState* game_state, int selected_decision) {
-	if (selected_decision == 2) {
-		for (int x : stateReference) {
-			cout << x << " ";
-		}
-		cout << endl;
-	}
+	// if (selected_decision == 2 and !game_state->canStop()) {
+	// 	return 0;
+	// }
 	return selected_decision;
 }
 

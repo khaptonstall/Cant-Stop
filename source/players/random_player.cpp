@@ -56,11 +56,17 @@ pair<int, int> random_player::select_dice_impl(GameState* game_state, vector<pai
 }
 
 int random_player::select_decision_impl(GameState* game_state, int selected_decision) {
-	if (!game_state->canStop())
-		return 1;
-	else if (rand() % 2)
+	if (rand() % 2)
 		return 1;
 	else
 		return 2;
+
+}
+
+void random_player::start_over_impl() {
+
+}
+
+void random_player::revert_impl() {
 
 }

@@ -94,11 +94,17 @@ int main(int, char**){
 	int game_over = false;
 
 	// Statistics tracker
-	const int MAX_GAMES = 100;
+	const int MAX_GAMES = 2000;
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
 	bool testing = TESTING_MODE;
+
+	// Stuff so that the game doesn't render every frame
+	vector<int> prevPlayer1State(11, 0);
+	vector<int> prevPlayer2State(11, 0);
+	vector<int> prevTempState(11, 0);
+	bool renderDice = false;
 
 	while (!quit) {
 		bool check_dice_input = false;
@@ -146,6 +152,7 @@ int main(int, char**){
 		// If new dice need to be rolled
 		if (!dice_active) {
 			dice_active = true;
+			renderDice = true;
 			dice_options = cantStop.rollDice(true);
 		}
 
@@ -204,7 +211,8 @@ int main(int, char**){
 				if (player->claimedCols.size() >= 3) {
 					lv.println(player->name + " wins!");
 					if (testing) {
-						std::cout << "Game finished: #" << current_game + 1 << std::endl;
+						if ((current_game + 1) % 500 == 0)
+							std::cout << "Game finished: #" << current_game + 1 << std::endl;
 						++current_game;
 						if (player == cantStop.player1) {
 							player1_wins++;
@@ -254,16 +262,44 @@ int main(int, char**){
 			}else if (player == cantStop.player2) player = cantStop.player1;
 		}
 
-		if (!TESTING_MODE) {
+		// Determine temporary tokens to display
+		vector<int> temp_tokens = vector<int>(11, 0);
+		for (vector<int>::iterator it = player->currentCols.begin(); it != player->currentCols.end(); ++it) {
+			int temp = *it;
+			temp -= 2;
+			temp_tokens[temp] = player->stateReference[temp];
+		}
 
-			// Determine temporary tokens to display
-			vector<int> temp_tokens = vector<int>(11, 0);
-			for (vector<int>::iterator it = player->currentCols.begin(); it != player->currentCols.end(); ++it) {
-				int temp = *it;
-				temp -= 2;
-				temp_tokens[temp] = player->stateReference[temp];
-			}
+		bool renderScreen = true;
+		// for (int i = 0; i < 11; i++) {
+		// 	if (cantStop.player1->state[i] != prevPlayer1State[i]) {
+		// 		renderScreen = true;
+		// 		break;
+		// 	}
+		// 	else if (cantStop.player2->state[i] != prevPlayer2State[i]) {
+		// 		renderScreen = true;
+		// 		break;
+		// 	}
+		// 	else if (temp_tokens[i] != prevTempState[i]) {
+		// 		renderScreen = true;
+		// 		break;
+		// 	}
+		// }
 
+		// if (!renderScreen and renderDice) {
+		// 	renderScreen = true;
+		// 	renderDice = false;
+		// }
+
+		// prevPlayer1State = cantStop.player1->state;
+		// prevPlayer2State = cantStop.player2->state;
+		// prevTempState = temp_tokens;
+
+		// if (!renderScreen) {
+		// 	SDL_Delay(1.0 / 60.0);
+		// }
+
+		if (!TESTING_MODE and renderScreen) {
 			// Render
 			if (!testing) {
 				SDL_RenderClear(ren);
@@ -286,7 +322,8 @@ int main(int, char**){
 				dice_destination.w /= window_scale;
 				dice_destination.h /= window_scale;
 
-				SDL_Surface* stop_surface = sv.get_surface(mouse_pos.x, mouse_pos.y, cantStop.canStop());
+				// SDL_Surface* stop_surface = sv.get_surface(mouse_pos.x, mouse_pos.y, cantStop.canStop());
+				SDL_Surface* stop_surface = sv.get_surface(mouse_pos.x, mouse_pos.y, true);
 				SDL_Texture* stop_texture = SDL_CreateTextureFromSurface(ren, stop_surface);
 				SDL_Rect stop_destination;
 				stop_destination.x = board_width / window_scale;

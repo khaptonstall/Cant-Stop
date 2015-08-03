@@ -35,6 +35,7 @@ public:
 	int checkPlayerResult(Player* &p);
 	int tokenDistance(int col, Player* p);
 	int tokenDisplacement(int col, Player* p);
+	double getPlayerScore(int p);
 };
 
 #endif /* _GAME_STATE_H_ */
