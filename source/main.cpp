@@ -18,7 +18,7 @@
 using namespace std;
 
 log_view lv;
-const bool TESTING_MODE = false;
+const bool TESTING_MODE = true;
 
 int main(int, char**){
 	//Seed random number
@@ -94,7 +94,7 @@ int main(int, char**){
 	int game_over = false;
 
 	// Statistics tracker
-	const int MAX_GAMES = 500;
+	const int MAX_GAMES = 100;
 	int current_game = 0;
 	int player1_wins = 0;
 	int player2_wins = 0;
@@ -247,7 +247,6 @@ int main(int, char**){
 			}
 			dice_active = false;
 			player->revert();
-			// if (player == cantStop.player1) cout << "No valid dice rolls" << endl << "============" << endl;
 			if (player == cantStop.player1){
 				player = cantStop.player2;
 				lv.clear();

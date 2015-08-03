@@ -50,13 +50,13 @@ void Player::displayCombinations(vector< pair<int,int> > combinations){
 	for(int i = 0; i < combinations.size(); i++){
 		if(combinations[i].first > 0){
 			if(combinations[i].second > 0){
-				cout << combinations[i].first << " + " << combinations[i].second << '\n';
+				//cout << combinations[i].first << " + " << combinations[i].second << '\n';
 			}else{
-				cout << combinations[i].first << '\n';
+				//cout << combinations[i].first << '\n';
 			}
 		}else if(combinations[i].first < 0){
 			if(combinations[i].second > 0){
-				cout << combinations[i].second << '\n';
+			//	cout << combinations[i].second << '\n';
 			}
 		}
 	}
