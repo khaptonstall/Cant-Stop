@@ -105,12 +105,14 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 		root = Node(validPairs[i], findValue(monteCarloState, monteCarloState->player2, validPairs[i]));
 		visited.push_back(root);
 		if (root.second >= 1) {
+			delete monteCarloState;
 			return root;
 		}else if (root.first.first == -1 && root.first.second == -1) {
+			delete monteCarloState;
 			return Node(root.first, -1);
 		}
 
-		
+
 		monteCarloState->player2->chooseDice(validPairs[i]);
 		pair<int,int> rootPair = visited[0].first;
 
@@ -132,6 +134,7 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 					}
 		}
 	}
+	delete monteCarloState;
 }
 //std::cout << "Returning best: " << best.first.first << " " << best.first.second << std::endl;
 	return best;
@@ -165,6 +168,7 @@ int monte_carlo_player::findValue(GameState* game_state, Player* p, pair<int,int
 			}else{
 				value += 0;
 			}
+			delete monteCarloState;
 			return value;
 		}else if (monteCarloState->validatePair(roll.first, monteCarloState->player2)) {
 			// Simulate making the move
@@ -185,11 +189,13 @@ int monte_carlo_player::findValue(GameState* game_state, Player* p, pair<int,int
 			}else{
 				value += 0;
 			}
+			delete monteCarloState;
 			return value;
 		} else{ //No valid pair
 				for (int i = 0; i < monteCarloState->player2->stateReference.size(); i++) {
 					value -= monteCarloState->player2->stateReference[i] - monteCarloState->player2->state[i];
 				}
+				delete monteCarloState;
 				return -1;
 		}
 }
@@ -241,7 +247,7 @@ vector<pair<int,int> > monte_carlo_player::rollDice(GameState* g, Player* p){
 	if (validPairs.size() == 0) {
 		validPairs.push_back(pair<int,int>(-1,-1));
 	}
-
+	delete monteCarloState;
 	return validPairs;
 }
 
