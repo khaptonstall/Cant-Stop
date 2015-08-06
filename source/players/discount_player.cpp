@@ -107,7 +107,7 @@ int discount_player::select_decision_impl(GameState* game_state, int selected_de
 		tokens.push_back(0);
 	}
 
-	// Stop iif you're at the top of a column and used all 3 tokens 
+	// Stop iif you're at the top of a column and used all 3 tokens
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
 			tokens.size() == 3)
@@ -120,8 +120,6 @@ int discount_player::select_decision_impl(GameState* game_state, int selected_de
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i]) {
 			counter++;
-			// cout << "difference: " << stateReference[i] - state[i] << endl;
-			// cout << "len: " << game_state->filledCols[i] << endl;
 			if (game_state->filledCols[i] != state[i]) {
 				int col_progress = stateReference[i] - state[i];
 				if (game_state->checkSpace(i, col_progress + 1))
@@ -136,15 +134,11 @@ int discount_player::select_decision_impl(GameState* game_state, int selected_de
 	double probability = dice_p.get_probability(tokens[0], tokens[1], tokens[2]);
 	double expected_progress = dice_p.get_expected_progress(tokens[0], tokens[1], tokens[2]) / col_length_sum;
 
-	// cout << "Probability: " << probability << endl;
-	// cout << "Progress: " << progress << endl;
-	// cout << "Result: " << probability - progress << endl;
 
 	if (probability - progress > 0.33) {
 		return 1;
 	}
 	else {
-		// cout << "Stopped" << endl;
 		return 2;
 	}
 
@@ -153,9 +147,8 @@ int discount_player::select_decision_impl(GameState* game_state, int selected_de
 }
 
 void discount_player::start_over_impl() {
-
 }
 
 void discount_player::revert_impl() {
-	
+
 }

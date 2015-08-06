@@ -61,13 +61,8 @@ pair<int, int> monte_carlo_player::select_dice_impl(GameState* game_state, vecto
 		}
 		}
 	}
-	//std::cout << "Valid pairs" << std::endl;
-	//for (int i = 0; i < validPairs.size(); i++) {
-	//	std::cout << validPairs[i].first << " " << validPairs[i].second << std::endl;
-//	}
-	Node n = MCTS(game_state, validPairs, p);
-//	std::cout << "Chosen Pair: " << n.first.first << " " << n.first.second << std::endl;
-	return n.first;
+
+	return MCTS(game_state, validPairs, p).first;
 
 }
 
@@ -81,11 +76,10 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 	Node root;
 	vector<pair<int, int> > validPairs = rolled_pairs;
 
-	//GameState* monteCarloState = new GameState();
-	//*monteCarloState->player1 = *game_state->player1;
-	//*monteCarloState->player2 = *p;
-	//monteCarloState->deadCols = game_state->deadCols;
 
+	if (validPairs.size() == 0) {
+		std::cout << "/* message */" << std::endl;
+	}
 	if (validPairs.size() == 0 || (validPairs.size() == 1 && validPairs[0].first == -1 && validPairs[0].second == -1 )) {
 		best = Node(pair<int,int>(-1,-1), -50);
 	}else{
@@ -136,7 +130,6 @@ Node monte_carlo_player::MCTS(GameState* game_state, vector<pair<int, int> > rol
 	}
 	delete monteCarloState;
 }
-//std::cout << "Returning best: " << best.first.first << " " << best.first.second << std::endl;
 	return best;
 }
 
@@ -153,10 +146,6 @@ int monte_carlo_player::findValue(GameState* game_state, Player* p, pair<int,int
 		monteCarloState->player2->checkForWin();
 		monteCarloState->checkForDeadCols();
 
-		// Attain value of current progress
-	//	for (int i = 0; i < monteCarloState->player2->stateReference.size(); i++) {
-			//value += monteCarloState->player2->stateReference[i] - monteCarloState->player2->state[i];
-	//	}
 
 		if (monteCarloState->player2->stateReference[roll.first - 2] == monteCarloState->filledCols[roll.first - 2] ||
 			monteCarloState->player2->stateReference[roll.second - 2] == monteCarloState->filledCols[roll.second - 2]){
@@ -254,7 +243,7 @@ vector<pair<int,int> > monte_carlo_player::rollDice(GameState* g, Player* p){
 // Function: select_decision
 // Input: GameState*, int
 // Output: int
-// Desciption:
+// Desciption: Decide whether to continue (1) or stop (2)
 int monte_carlo_player::select_decision_impl(GameState* game_state, int selected_decision ) {
 	// Decision delay
 	if (last_ticks == 0) {
@@ -290,13 +279,7 @@ int monte_carlo_player::select_decision_impl(GameState* game_state, int selected
 	if (tokens.size() < 3){
 		return 1;
 }
-/*		if (rollAgain) {
-			return 1;
-		}
-		else{
-			return 2;
-		}
-*/
+
 int probability = 0;
 	for(int i = 0; i < 100; i++){
 		vector<int> dice_options;
@@ -330,7 +313,7 @@ int probability = 0;
 			}
 		}
 	}
-	if( (probability) >= 73){
+	if( (probability) >= 67){
 		return 1;
 	}else{
 		return 2;

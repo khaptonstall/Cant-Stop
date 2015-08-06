@@ -58,24 +58,12 @@ pair<int, int> influence_player::select_dice_impl(GameState* game_state, vector<
 
 		for (pair<int,int> rp : rolled_pairs) {
 			if (game_state->validatePair(rp.first, rp.second, p)) {
-				// vector<int> tmpCols = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-				// tmpCols[rp.first - 2] = 0;
-				// tmpCols[rp.second - 2] = 0;
-				// if (rp.first == rp.second and highestPair.first == highestPair.second) {
-				// 	if (dice_p.get_probability(rp.first, rp.second, 0) < highestProb) {
-				// 		highestProb = dice_p.get_probability(rp.first, rp.second, 0);
-				// 		highestPair = rp;
-				// 	}
-				// } else if (rp.first == rp.second) {
-				// 	highestProb = dice_p.get_probability(rp.first, rp.second, 0);
-				// 	highestPair = rp;
-				// } else {
+
 					double tmpProb = dice_p.get_probability(rp.first, rp.second, 0);
 					if (tmpProb > highestProb) {
 						highestProb = tmpProb;
 						highestPair = rp;
 					}
-				// }
 			}
 			else {
 				if (game_state->validatePair(rp.first, p)) {
@@ -95,7 +83,6 @@ pair<int, int> influence_player::select_dice_impl(GameState* game_state, vector<
 				}
 			}
 		}
-		// cout << "Choice based on probability." << endl;
 		return highestPair;
 	}
 
@@ -131,7 +118,6 @@ pair<int, int> influence_player::select_dice_impl(GameState* game_state, vector<
 				}
 			}
 		}
-		// cout << "Choice based on progress of column." << endl;
 		return optPair;
 	}
 
@@ -206,119 +192,11 @@ pair<int, int> influence_player::select_dice_impl(GameState* game_state, vector<
 		}
 	}
 
-	// cout << "Choice based on distance from top." << endl;
 	if (optDistance != 2.0) return optDice;
 
 	cout << "WTF" << endl;
 	return make_pair(-1, -1);
 
-	/////////////////////--------------////////////////////////
-
-	// // Choose columns you have the most progress on
-	// if (tokens.size() < 3) {
-	// 	double highestProb = 0;
-	// 	pair<int,int> highestPair = make_pair(0,0);
-
-	// 	for (pair<int,int> rp : rolled_pairs){
-	// 		double columnValue = (double)stateReference[rp.first - 2] / filledCols[rp.first - 2] + (double)stateReference[rp.second - 2] / filledCols[rp.second - 2];
-	// 		// cout << rp.first << ", " << rp.second << " : " << columnValue << endl;
-	// 		if (columnValue > highestProb) {
-	// 			if(game_state->validatePair(rp.first, rp.second, p)){
-	// 				highestProb = columnValue;
-	// 				highestPair = rp;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	if (highestPair.first != 0){
-	// 		return highestPair;
-	// 	}
-	// 	else {
-	// 		for(pair<int,int> rp : rolled_pairs){
-	// 			double columnValue = (double)stateReference[rp.first - 2] / filledCols[rp.first - 2];
-	// 			if(columnValue > highestProb){
-	// 				if(game_state->validatePair(rp.first, p)){
-	// 					highestProb = columnValue;
-	// 					highestPair = make_pair(rp.first, -1);
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-
-	// 	if(highestPair.first != 0){
-	// 		return highestPair;
-	// 	}
-	// 	// cout << "No progress made." << endl;
-	// }
-
-	// // Choose most probable columns if you have no progress on any column 
-	// if (tokens.size() < 3) {
-	// 	double highestProb = 0;
-	// 	pair<int,int> highestPair = make_pair(0,0);
-
-	// 	for(pair<int,int> rp : rolled_pairs){
-	// 		double columnValue = (double)stateReference[rp.first - 2] / filledCols[rp.first - 2] + (double)stateReference[rp.second - 2] / filledCols[rp.second - 2];
-	// 		if((columnValue + dice_p.get_probability(rp.first, rp.second, 0)) > highestProb) {
-	// 			if(game_state->validatePair(rp.first, rp.second, p)){
-	// 				highestProb = dice_p.get_probability(rp.first, rp.second, 0) + columnValue;
-	// 				highestPair = rp;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	if(highestPair.first != 0){
-	// 		return highestPair;
-	// 	}else{
-	// 		for(pair<int,int> rp : rolled_pairs){
-	// 			double columnValue = (double)stateReference[rp.first - 2] / filledCols[rp.first - 2];
-	// 			if((columnValue + dice_p.get_probability(rp.first, 0, 0)) > highestProb){`
-	// 				if(game_state->validatePair(rp.first, p)){
-	// 					highestProb = dice_p.get_probability(rp.first, 0, 0) + columnValue;
-	// 					highestPair = make_pair(rp.first, -1);
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-
-	// 	if(highestPair.first != 0){
-	// 		return highestPair;
-	// 	}else{
-	// 		return pair<int,int>(-1,-1);
-	// 	}
-	// }
-	// else {
-	// 	double highestTravel = 0;
-	// 	pair<int, int> highestPair = make_pair(0, 0);
-
-	// 	for (pair<int, int> rp : rolled_pairs) {
-	// 		if(game_state->validatePair(rp.first, rp.second, p)) {
-	// 			double travel = 1.0 / filledCols[rp.first - 2] + 1.0 / filledCols[rp.second - 2];
-	// 			if (travel > highestTravel) {
-	// 				highestTravel = travel;
-	// 				highestPair = rp;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	if (highestPair.first != 0) {
-	// 		return highestPair;
-	// 	}
-
-	// 	for (pair<int, int> rp : rolled_pairs) {
-	// 		if (game_state->validatePair(rp.first, p)) {
-	// 			double travel = 1.0 / filledCols[rp.first - 2];
-	// 			if (travel > highestTravel) {
-	// 				highestTravel = travel;
-	// 				highestPair = make_pair(rp.first, -1);
-	// 			}
-	// 		}
-	// 	}
-	// 	if (highestPair.first != 0) {
-	// 		return highestPair;
-	// 	}
-	// 	else
-	// 		return make_pair(-1, -1);
-	// }
 }
 
 
@@ -356,25 +234,21 @@ int influence_player::select_decision_impl(GameState* game_state, int selected_d
 	// If outlook is positive, continue
 	double progress = 0;
 	for (int i = 0; i < 11; i++) {
-		//progress += state[i];
 		progress += (stateReference[i] - state[i]) / ((double)filledCols[i]);
 	}
 
 	double expected_progress = dice_p.get_expected_progress(tokens[0], tokens[1], tokens[2]);
 	double successful_probability = dice_p.get_probability(tokens[0], tokens[1], tokens[2]);
 
-	// cout << "DEBUG: " << tokens.size() << ", " << game_state->deadCols.size() << endl;
 	// If deadCols > 0 and tokens < 3, successful probability is chance of getting a non-dead column
 	if (find(tokens.begin(), tokens.end(), 0) != tokens.end() and game_state->deadCols.size() != 0) {
 		vector<int> liveCols;
 		for (int i = 2; i <= 12; i++) {
 			if (find(game_state->deadCols.begin(), game_state->deadCols.end(), i) == game_state->deadCols.end()) {
-				// cout << "Pushing on: " << i << endl;
 				liveCols.push_back(i);
 			}
 		}
 		successful_probability = dice_p.get_probability(liveCols);
-		// cout << "There are dead columns and the new probability is: " << successful_probability << endl;
 	}
 
 	vector<double> relative_eprogresses;
@@ -399,20 +273,12 @@ int influence_player::select_decision_impl(GameState* game_state, int selected_d
 		highestPlayerScore = game_state->getPlayerScore(1);
 	}
 
-	// if (highestPlayerScore < 0.25) highestPlayerScore = 0.25;
-
-	// cout << "Opponent score: " << highestPlayerScore << endl;
-
 	vector<double> influences;
 
 	for (int i = 0; i < 11; i++) {
 		if (state[i] != stateReference[i]) {
 			double col_influence;
-			// cout << "Token diff: " << game_state->tokenDistance(i, this) << endl;
-			// cout << "Column len: " << filledCols[i] << endl;
 			col_influence = abs(1.0 - (((double)game_state->tokenDistance(i, this)) / (filledCols[i])));
-			// cout << "Influence on column " << i + 2 << ": " << col_influence << endl;
-			// col_influence *= dice_p.get_probability(i + 2, 0, 0);
 			if (col_influence > 1 - highestPlayerScore)
 				influences.push_back(col_influence);
 			else
@@ -423,10 +289,8 @@ int influence_player::select_decision_impl(GameState* game_state, int selected_d
 	double avg_influence = 0;
 	for (double i : influences) {
 		avg_influence += i;
-		// cout << "Influence " << i << endl;
 	}
 	avg_influence /= influences.size();
-	// cout << "Avg influence: " << avg_influence << endl;
 
 	if (influences.size() < 2)
 		avg_influence = 0;
@@ -435,15 +299,9 @@ int influence_player::select_decision_impl(GameState* game_state, int selected_d
 	double scaled_influence = avg_influence * (successful_probability - (successful_probability * successful_probability));
 	scaled_influence += successful_probability * successful_probability;
 
-	// cout << "g = " << expected_progress << endl;
-	// cout << "p = " << successful_probability << endl;
-	// cout << "h = " << progress << endl;
-	// cout << "i = " << scaled_influence << endl;
 	double lhs = (scaled_influence / successful_probability) * (progress + expected_progress);
 	double rhs = progress;
 
-	// cout << "(i/p)*(h+g) = " << lhs << " and h = " << rhs << endl;
-	// cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 
 	if (lhs >= rhs)
 		return 1;

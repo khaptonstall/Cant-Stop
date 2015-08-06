@@ -114,9 +114,12 @@ int rollout_player::select_decision_impl(GameState* game_state, int selected_dec
 		if (state[i] != stateReference[i])
 			tokens.push_back(i + 2);
 	}
+
+	// Uncomment if using rule that one player cannot stop on another
 	// if (game_state->canStop() == false){
 	// 	return 1;
 	// }
+
 		// Stop if you just got to the top
 	for (int i = 0; i < 11; i++) {
 		if (stateReference[i] == game_state->filledCols[i] && find(currentCols.begin(), currentCols.end(), i+2) != currentCols.end() &&
@@ -168,7 +171,6 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 			probability++;
 		}
 	}
-	// cout << "probability before: " << probability << '\n';
 	for (int i = 0; i < currentCols.size(); i++){
 		int index = currentCols[i] - 2;
 		if(stateReference[index] > state[index]){
@@ -180,8 +182,6 @@ bool rollout_player::rollOut(GameState* game_state, Player* p){
 			}
 		}
 	}
-	// std::cout << "Computer probability of rolling another valid pair: " << probability  << std::endl;
-	// cout << "probability after:  " << (probability) << '\n';
 	if( (probability) >= 75){
 		return true;
 	}else{

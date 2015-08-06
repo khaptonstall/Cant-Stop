@@ -15,7 +15,7 @@ using namespace std;
 
 probability_player::probability_player(string log_path, int delay)
 	: cpu_player(log_path, delay) {
-	
+
 }
 
 // Function: select_dice
@@ -54,24 +54,12 @@ pair<int, int> probability_player::select_dice_impl(GameState* game_state, vecto
 
 		for (pair<int,int> rp : rolled_pairs) {
 			if (game_state->validatePair(rp.first, rp.second, p)) {
-				// vector<int> tmpCols = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-				// tmpCols[rp.first - 2] = 0;
-				// tmpCols[rp.second - 2] = 0;
-				// if (rp.first == rp.second and highestPair.first == highestPair.second) {
-				// 	if (dice_p.get_probability(rp.first, rp.second, 0) < highestProb) {
-				// 		highestProb = dice_p.get_probability(rp.first, rp.second, 0);
-				// 		highestPair = rp;
-				// 	}
-				// } else if (rp.first == rp.second) {
-				// 	highestProb = dice_p.get_probability(rp.first, rp.second, 0);
-				// 	highestPair = rp;
-				// } else {
+
 					double tmpProb = dice_p.get_probability(rp.first, rp.second, 0);
 					if (tmpProb > highestProb) {
 						highestProb = tmpProb;
 						highestPair = rp;
 					}
-				// }
 			}
 			else {
 				if (game_state->validatePair(rp.first, p)) {
@@ -91,7 +79,6 @@ pair<int, int> probability_player::select_dice_impl(GameState* game_state, vecto
 				}
 			}
 		}
-		// cout << "Choice based on probability." << endl;
 		return highestPair;
 	}
 
@@ -127,7 +114,6 @@ pair<int, int> probability_player::select_dice_impl(GameState* game_state, vecto
 				}
 			}
 		}
-		// cout << "Choice based on progress of column." << endl;
 		return optPair;
 	}
 
@@ -202,7 +188,6 @@ pair<int, int> probability_player::select_dice_impl(GameState* game_state, vecto
 		}
 	}
 
-	// cout << "Choice based on distance from top." << endl;
 	if (optDistance != 2.0) return optDice;
 
 	cout << "WTF" << endl;
@@ -216,6 +201,7 @@ pair<int, int> probability_player::select_dice_impl(GameState* game_state, vecto
 // Output: int
 // Desciption returning 1 = continue, returning 2 = stop
 int probability_player::select_decision_impl(GameState* game_state, int selected_decision) {
+	// Uncomment if using rule that players cannot stop on another player
 	// if (game_state->canStop() == false){
 	// 	return 1;
 	// }
@@ -244,37 +230,31 @@ int probability_player::select_decision_impl(GameState* game_state, int selected
 	// If outlook is positive, continue
 	double progress = 0;
 	for (int i = 0; i < 11; i++) {
-		//progress += state[i];
 		progress += (stateReference[i] - state[i]) / ((double)filledCols[i]);
 	}
 
 	double expected_progress = dice_p.get_expected_progress(tokens[0], tokens[1], tokens[2]);
 	double successful_probability = dice_p.get_probability(tokens[0], tokens[1], tokens[2]);
 
-	// cout << "DEBUG: " << tokens.size() << ", " << game_state->deadCols.size() << endl;
 	// If deadCols > 0 and tokens < 3, successful probability is chance of getting a non-dead column
 	if (find(tokens.begin(), tokens.end(), 0) != tokens.end() and game_state->deadCols.size() != 0) {
 		vector<int> liveCols;
 		for (int i = 2; i <= 12; i++) {
 			if (find(game_state->deadCols.begin(), game_state->deadCols.end(), i) == game_state->deadCols.end()) {
-				// cout << "Pushing on: " << i << endl;
 				liveCols.push_back(i);
 			}
 		}
 		successful_probability = dice_p.get_probability(liveCols);
-		// cout << "There are dead columns and the new probability is: " << successful_probability << endl;
 	}
 
 	if (find(tokens.begin(), tokens.end(), 0) != tokens.end() and game_state->deadCols.size() != 0) {
 		vector<int> liveCols;
 		for (int i = 2; i <= 12; i++) {
 			if (find(game_state->deadCols.begin(), game_state->deadCols.end(), i) == game_state->deadCols.end()) {
-				// cout << "Pushing on: " << i << endl;
 				liveCols.push_back(i);
 			}
 		}
 		successful_probability = dice_p.get_probability(liveCols);
-		// cout << "There are dead columns and the new probability is: " << successful_probability << endl;
 	}
 
 	vector<double> relative_eprogresses;
@@ -290,15 +270,9 @@ int probability_player::select_decision_impl(GameState* game_state, int selected
 
 	expected_progress /= relative_eprogresses.size();
 
-	// cout << "g = " << expected_progress << endl;
-
-	// cout << "p = " << successful_probability << endl;
-	// cout << "h = " << progress << endl;
 	double lhs = successful_probability * (progress + expected_progress);
 	double rhs = progress;
 
-	// cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
-	//cout << "p(h+g) = " << lhs << " and h = " << rhs << endl;
 
 	if (lhs >= rhs)
 		return 1;

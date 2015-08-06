@@ -26,21 +26,17 @@ q1p_player::q1p_player(string log_path, int delay, string learning_path, bool ap
 		while (!learning_file.eof()) {
 			string currline;
 			getline(learning_file, currline);
-			// cout << currline << endl;
 			if (currline[0] == 'b') {
 				read_bs.clear();
 				istringstream iss(currline.substr(1));
 				string currelement;
 				while (getline(iss, currelement, ':')) {
 					if (isdigit(currelement[0])) {
-						// cout << currelement << ":";
 						read_bs.push_back(stoi(currelement));
 					}
 				}
-				// cout << endl;
 			}
 			else if (currline[0] == 'a') {
-				// cout << currline << endl;
 				istringstream iss(currline.substr(1));
 				string currelement;
 				getline(iss, currelement, ':');
@@ -121,7 +117,6 @@ pair<int, int> q1p_player::select_dice_impl(GameState* game_state, vector<pair<i
 						q_max = kv.second;
 				}
 
-				// cout << "selectdicedice: " << q_max << endl;
 				if (q_max < -10000) q_max = 0;
 				if (rp.first < rp.second) {
 					if (last_sums.first != -3)
@@ -160,7 +155,6 @@ pair<int, int> q1p_player::select_dice_impl(GameState* game_state, vector<pair<i
 					double reward = pow(progress + 1, 1.25) / 2;
 					boardstate new_bs = bs;
 					new_bs[rp.first - 2] += 1;
-					// new_bs[rp.first - 2] += 1;
 					double q_max;
 					map<dicesums, qvalue> bs_actionmap = qmap[new_bs];
 					q_max = (*(bs_actionmap.begin())).second;
@@ -169,7 +163,6 @@ pair<int, int> q1p_player::select_dice_impl(GameState* game_state, vector<pair<i
 							q_max = kv.second;
 					}
 
-					// cout << "selectonedice: " << q_max << endl;
 					if (q_max < -1000) q_max = 0;
 					if (last_sums.first != -3)
 						qmap[bs][last_sums] += LEARNING_RATE * (reward + DISCOUNT_FACTOR * q_max - qmap[bs][last_sums]);
@@ -275,7 +268,7 @@ int q1p_player::select_decision_impl(GameState* game_state, int selected_decisio
 	}
 
 	// REWARD: The more progress made when stopping
-	
+
 	if (!apply_learning) {
 		if (!game_state->canStop()) {
 			return 1;
@@ -295,7 +288,6 @@ int q1p_player::select_decision_impl(GameState* game_state, int selected_decisio
 					q_max = kv.second;
 			}
 
-			// cout << "stopping: " << q_max << endl;
 			if (q_max < -1000) q_max = 0;
 			if (last_sums.first != -3)
 				qmap[bs][last_sums] += LEARNING_RATE * (reward + DISCOUNT_FACTOR * q_max - qmap[bs][last_sums]);
@@ -342,7 +334,6 @@ void q1p_player::startOver() {
 					q_max = kv.second;
 			}
 			// cout << "startoverwin: " << q_max << endl;
-			if (q_max < -1000) q_max = 0;
 			qmap[bs][last_sums] += LEARNING_RATE * (reward + DISCOUNT_FACTOR * q_max - qmap[bs][last_sums]);
 		}
 		// Punish

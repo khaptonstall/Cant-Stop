@@ -12,7 +12,7 @@ vector<int> const GameState::filledCols = {3,5,7,9,11,13,11,9,7,5,3};
 
 GameState::GameState() {
 	player1 = new probability_player();
-	player2 = new monte_carlo_player();
+	player2 = new monte_carlo_player(); //If using monte_carlo_player, use player 2 slot
 	player1->name = "Player 1";
 	player2->name = "Player 2";
 
@@ -219,9 +219,7 @@ double GameState::getPlayerScore(int p) {
 
 	for (int i = 0; i < columnScores.size(); i++) {
 		columnScores[i] /= (double)filledCols[i];
-		// cout << columnScores[i] << " ";
 	}
-	// cout << endl;
 	sort(columnScores.begin(), columnScores.end());
 
 	return (columnScores[10] + columnScores[9] + columnScores[8]) / 3.0;

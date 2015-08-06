@@ -110,4 +110,3 @@ void cpu_player::revert() {
 	stateReference = state;
 	currentCols.clear();
 }
-

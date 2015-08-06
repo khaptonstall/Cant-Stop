@@ -211,7 +211,7 @@ int main(int, char**){
 				if (player->claimedCols.size() >= 3) {
 					lv.println(player->name + " wins!");
 					if (testing) {
-						if ((current_game + 1) % 5 == 0)
+						if ((current_game + 1) % 25 == 0)
 							std::cout << "Game finished: #" << current_game + 1 << std::endl;
 						++current_game;
 						if (player == cantStop.player1) {

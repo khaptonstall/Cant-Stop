@@ -170,6 +170,7 @@ dice_probability::dice_probability() {
 	}
 }
 
+//Determines the number of possible dice rolls that contain a,b, or c
 double dice_probability::get_probability(int a, int b, int c) {
 	double output = 0;
 	for (const auto& kv : four_of_a_kind) {

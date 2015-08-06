@@ -33,17 +33,7 @@ pair<int, int> simple_player::select_dice_impl(GameState* game_state, vector<pai
 }
 
 int simple_player::select_decision_impl(GameState* game_state, int selected_decision) {
-	// if (current_turn < FIXED_TURNS) {
-	// 	current_turn++;
-	// 	return 1;
-	// }
-	// else {
-	// 	current_turn = 0;
-	// 	return 2;
-	// }
-	// if (game_state->canStop())
-	// 	return 2;
-	// else
+
 	return 2;
 
 }
@@ -53,5 +43,5 @@ void simple_player::start_over_impl() {
 }
 
 void simple_player::revert_impl() {
-	
+
 }

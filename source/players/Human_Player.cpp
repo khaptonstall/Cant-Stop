@@ -49,4 +49,3 @@ void Human_Player::revert() {
 	stateReference = state;
 	currentCols.clear();
 }
-
