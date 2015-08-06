@@ -79,7 +79,6 @@ dice_probability::dice_probability() {
 				for (int l = k + 1; l <= 6; l++) {
 					string key = to_string(i) + to_string(j) + to_string(k) + to_string(l);
 					sort_dice(key);
-					// cout << key << endl;
 
 					unique_dice[key].push_back(make_pair(i+j, k+l));
 					unique_dice[key].push_back(make_pair(i+k, j+l));
@@ -100,7 +99,6 @@ dice_probability::dice_probability() {
 				if (i != j && i != k) {
 					string key = to_string(i) + to_string(i) + to_string(j) + to_string(k);
 					sort_dice(key);
-					// cout << key << endl;
 
 					unique_dice[key].push_back(make_pair(i+i, j+k));
 					unique_dice[key].push_back(make_pair(i+j, i+k));
@@ -117,7 +115,6 @@ dice_probability::dice_probability() {
 		for (int j = i + 1; j <= 6; j++) {
 			string key = to_string(i) + to_string(i) + to_string(j) + to_string(j);
 			sort_dice(key);
-			// cout << key << endl;
 
 			unique_dice[key].push_back(make_pair(i+i, j+j));
 			unique_dice[key].push_back(make_pair(i+j, i+j));
@@ -133,7 +130,6 @@ dice_probability::dice_probability() {
 			if (i != j) {
 				string key = to_string(i) + to_string(i) + to_string(i) + to_string(j);
 				sort_dice(key);
-				// cout << key << endl;
 
 				unique_dice[key].push_back(make_pair(i+i, i+j));
 
@@ -146,7 +142,6 @@ dice_probability::dice_probability() {
 	for (int i = 1; i <= 6; i++) {
 		string key = to_string(i) + to_string(i) + to_string(i) + to_string(i);
 		sort_dice(key);
-		// cout << key << endl;
 
 		unique_dice[key].push_back(make_pair(i+i, i+i));
 
@@ -159,7 +154,6 @@ dice_probability::dice_probability() {
 			for (int k = 1; k <= 6; k++) {
 				for (int l = 1; l <= 6; l++) {
 					string key = to_string(i) + to_string(j) + to_string(k) + to_string(l);
-					//sort_dice(key);
 
 					all_dice[key].push_back(make_pair(i+j, k+l));
 					all_dice[key].push_back(make_pair(i+k, j+l));
