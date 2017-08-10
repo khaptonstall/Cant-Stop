@@ -1,7 +1,7 @@
-#Can't Stop Game
+# Can't Stop Game
 A branch of the REU-CAAR a the University of Maryland.
 
-###Requires:
+### Requires:
 SDL2  
 SDL2_image  
 SDL2_ttf  
@@ -11,7 +11,7 @@ To install via Homebrew:
 brew install SDL2 SDL2_image SDL2_ttf
 ```
 
-###To play Can't Stop:
+### To play Can't Stop:
 
 (1) Clone or download/unzip our repository.
 
@@ -40,7 +40,7 @@ make
 ./cantstop
 ```
 
-###Team Members
+### Team Members
 
 [Kyle Haptonstall][kyle-github]
 
